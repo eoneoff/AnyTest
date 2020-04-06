@@ -11,7 +11,7 @@ namespace AnyTest.Model
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public ulong Id { get; set; }
+        public long Id { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = nameof(Resources.EnterAnswer))]
         [Display(ResourceType = typeof(Resources), Name = nameof(Resources.Answer))]
@@ -21,7 +21,7 @@ namespace AnyTest.Model
         public uint Percent { get; set; }
 
         [Required]
-        public ulong TestQuestionId { get; set; }
+        public long TestQuestionId { get; set; }
 
         [Timestamp]
         public byte[] RowVersion { get; set; }

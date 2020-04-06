@@ -11,7 +11,7 @@ namespace AnyTest.Model
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public ulong Id { get; set; }
+        public long Id { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = nameof(Resources.Name))]
         [Display(ResourceType = typeof(Resources), Name = nameof(Resources.Name))]

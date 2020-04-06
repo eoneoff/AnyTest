@@ -11,13 +11,13 @@ namespace AnyTest.Model
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public ulong Id { get; set; }
+        public long Id { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = nameof(Resources.EnterName))]
         [Display(ResourceType = typeof(Resources), Name = nameof(Resources.Name))]
         public string Name { get; set; }
-        public ulong? SubjectId { get; set; }
-        public ulong AuthorId { get; set; }
+        public long? SubjectId { get; set; }
+        public long AuthorId { get; set; }
 
         [Timestamp]
         public byte[] RowVersion { get; set; }
@@ -27,7 +27,7 @@ namespace AnyTest.Model
 
         [ForeignKey(nameof(AuthorId))]
         public virtual Tutor Author { get; set; }
-         
         public virtual ICollection<TutorCourse> Owners { get; set; }
+        public virtual ICollection<StudentCourse> Students { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace AnyTest.Model
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public ulong Id { get; set; }
+        public long Id { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = nameof(Resources.EnterFirstName))]
         [Display(ResourceType = typeof(Resources), Name = nameof(Resources.FirstName))]
@@ -22,7 +22,7 @@ namespace AnyTest.Model
         public string FamilyName { get; set; }
 
         [Display(ResourceType = typeof(Resources), Name = nameof(Resources.Patronimic))]
-        public string Partronimig { get; set; }
+        public string Partronimic { get; set; }
 
         [Display(ResourceType = typeof(Resources), Name = nameof(Resources.Phone))]
         public string Phone { get; set; }

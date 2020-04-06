@@ -1,3 +1,9 @@
+# Системные требования
+
+**RAM:** минимум 2Gb
+
+**ОС:** Windows 7, 8, 10
+
 # Установка необходимого ПО
 
 Загрузить и установить [Visual Studo 2019 Community Edition](https://visualstudio.microsoft.com/ru/vs/community/) (Младшие версии не подойдут).

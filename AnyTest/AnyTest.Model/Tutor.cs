@@ -10,7 +10,7 @@ namespace AnyTest.Model
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public ulong Id { get; set; }
+        public long Id { get; set; }
 
         [ForeignKey(nameof(Id))]
         public virtual Person Person { get; set; }

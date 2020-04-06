@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AnyTest.Model
 {
-    public class TutorCourse
+    public class StudentCourse
     {
-        public long TutorId { get; set; }
+        public long StudentId { get; set; }
         public long CourseId { get; set; }
 
-        public virtual Tutor Tutor { get; set; }
+        public virtual Student Student { get; set; }
+
         public virtual Course Course { get; set; }
     }
 }

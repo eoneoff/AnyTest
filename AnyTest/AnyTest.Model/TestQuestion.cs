@@ -11,14 +11,14 @@ namespace AnyTest.Model
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public ulong Id { get; set; }
+        public long Id { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = nameof(Resources.EnterQuestion))]
         [Display(ResourceType = typeof(Resources), Name = nameof(Resources.Question))]
         public string Question { get; set; }
 
         [Required]
-        public ulong TestId { get; set; }
+        public long TestId { get; set; }
 
         [Timestamp]
         public byte[] RowVersion { get; set; }
