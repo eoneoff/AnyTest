@@ -12,6 +12,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using AnyTest.IDataRepository;
+using AnyTest.MSSQLNetCoreDataRepository;
 
 namespace AnyTest.DataService
 {
@@ -28,14 +33,29 @@ namespace AnyTest.DataService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AnyTestDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:LocalMSSQLServerWindows"]));
+            services.AddDbContext<AnyTestIdentityDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:LocalMSSQLAuthorizationWindows"]));
+
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+
+            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AnyTestIdentityDbContext>().AddDefaultTokenProviders();
+
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer() ;
 
             services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, AnyTestDbContext ctx)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, AnyTestDbContext ctx, AnyTestIdentityDbContext ictx)
         {
             ctx.Database.Migrate();
+            ictx.Database.EnsureCreated();
 
             if (env.IsDevelopment())
             {
@@ -43,7 +63,8 @@ namespace AnyTest.DataService
             }
 
             app.UseHttpsRedirection();
-
+            app.UseStaticFiles();
+            app.UseAuthentication();
             app.UseRouting();
 
             app.UseAuthorization();
@@ -52,6 +73,8 @@ namespace AnyTest.DataService
             {
                 endpoints.MapControllers();
             });
+
+            AnyTestIdentityDbContext.SeedData(app);
         }
     }
 }

@@ -48,7 +48,6 @@ namespace AnyTest.DbAccess
             model.Entity<Precondition>().HasKey(p => new { p.TestId, p.PreconditionId });
             model.Entity<Precondition>().HasOne(p => p.Test).WithMany(t => t.Preconditions).HasForeignKey(p => p.TestId).OnDelete(DeleteBehavior.NoAction);
             model.Entity<Precondition>().HasOne(p => p.PreconditionTest).WithMany(t => t.Dependent).HasForeignKey(p => p.PreconditionId).OnDelete(DeleteBehavior.NoAction);
-
         }
     }
 }
