@@ -88,6 +88,15 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Увійти.
+        /// </summary>
+        public static string DoLogin {
+            get {
+                return ResourceManager.GetString("DoLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Невірний формат e-mail.
         /// </summary>
         public static string EmailInvalid {
@@ -102,6 +111,15 @@ namespace AnyTest.ResourceLibrary {
         public static string EnterAnswer {
             get {
                 return ResourceManager.GetString("EnterAnswer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Введіть логін та пароль.
+        /// </summary>
+        public static string EnterCredentials {
+            get {
+                return ResourceManager.GetString("EnterCredentials", resourceCulture);
             }
         }
         
@@ -165,6 +183,15 @@ namespace AnyTest.ResourceLibrary {
         public static string FirstName {
             get {
                 return ResourceManager.GetString("FirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Вхід.
+        /// </summary>
+        public static string LoginAction {
+            get {
+                return ResourceManager.GetString("LoginAction", resourceCulture);
             }
         }
         

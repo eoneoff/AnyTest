@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 
 namespace AnyTest.ClientAuthentication
 {
-    class ApiAuthenticaionStateProvider : AuthenticationStateProvider
+    public class ApiAuthenticaionStateProvider : AuthenticationStateProvider
     {
         private readonly HttpClient _httpClient;
         private readonly ILocalStorageService _localStorage;

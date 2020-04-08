@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnyTest.IDataRepository", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnyTest.MSSQLNetCoreDataRepository", "AnyTest.MSSQLNetCoreDataRepository\AnyTest.MSSQLNetCoreDataRepository.csproj", "{DE8FDB1C-2486-4716-BA3F-9CBBD1E3334A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnyTest.ClientAuthentication", "AnyTest.ClientAuthentication\AnyTest.ClientAuthentication.csproj", "{E02C08D3-B2D6-4F87-9DB3-C080DD935FDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnyTest.ClientAuthentication", "AnyTest.ClientAuthentication\AnyTest.ClientAuthentication.csproj", "{E02C08D3-B2D6-4F87-9DB3-C080DD935FDA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

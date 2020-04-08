@@ -41,6 +41,14 @@ namespace AnyTest.DataService
 
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AnyTestIdentityDbContext>().AddDefaultTokenProviders();
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll", builder =>
+                {
+                    builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                });
+            });
+
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
             services.AddAuthentication(options =>
@@ -78,6 +86,7 @@ namespace AnyTest.DataService
             app.UseStaticFiles();
             app.UseAuthentication();
             app.UseRouting();
+            app.UseCors("AllowAll");
 
             app.UseAuthorization();
 

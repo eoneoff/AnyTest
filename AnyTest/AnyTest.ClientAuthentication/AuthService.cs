@@ -28,7 +28,7 @@ namespace AnyTest.ClientAuthentication
         public async Task<LoginResult> Login(LoginModel creds)
         {
             var loginAsJson = JsonSerializer.Serialize(creds);
-            var response = await _httpClient.PostAsync("api/Login", new StringContent(loginAsJson, Encoding.UTF8, "application/json"));
+            var response = await _httpClient.PostAsync("https://localhost:44358/api/Login", new StringContent(loginAsJson, Encoding.UTF8, "application/json"));
             var loginResult = JsonSerializer.Deserialize<LoginResult>(await response.Content.ReadAsStringAsync(), new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
 
             if(response.IsSuccessStatusCode)

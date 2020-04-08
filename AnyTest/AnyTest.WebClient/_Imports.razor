@@ -3,6 +3,12 @@
 @using Microsoft.AspNetCore.Components.Routing
 @using Microsoft.AspNetCore.Components.Web
 @using Microsoft.JSInterop
-@using AnyTest.WebClient
+@using AnyTest.WebClient.Pages
 @using AnyTest.WebClient.Shared
 @using AnyTest.ClientAuthentication;
+@using Microsoft.AspNetCore.Components.Authorization
+@using Blazored.LocalStorage;
+@using Microsoft.Extensions.Localization
+@using AnyTest.ResourceLibrary
+
+@inject IStringLocalizer<Resources> Localizer

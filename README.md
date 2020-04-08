@@ -62,3 +62,14 @@ dotnet tool install --global dotnet-ef
 ![](images/sqlinstall6.jpg)
 
 Для удобства работы с MS SQL Server можно (но не обязательно) скачать и установить [SQL Server Management Studio](https://docs.microsoft.com/ru-ru/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)
+
+
+# Запуск приложения
+
+Для запуска нужно запустить сервер данных (проект `AnyTest.DataService`) и веб-клиент (проект `AnyTest.WebClient`). Для этого нужно либо выбрать в свойстах решения несколько запускаемых проектов (правой кнопкой мыши на самом верхнем пункте в обозревателе решений -> Назначить запускаемые проекты -> в списке назначить `AnyTest.DataService` и `AnyTest.WebClient` пункт "Запускать") и затем запустить их в Visual Studio с помощью команы меню **Отладка -> Запуск без отладки** или сочетания клавиш *Ctrl+F5*.
+
+Также можно запустить проекты вручную из командной строки. Для этого нужно перейти в папку с проектами `AnyTest/AnyTest.DataService` `AnyTest/AnyTest.WebClient`, запустить там утилиту командной строки (cmd или powershell) и выполнить команду `dotnet run`
+
+# Вход в приложение
+
+После первого запуска создается аккаунт администратора по умолчанию с логином `admin` и паролем `Admin_1`
