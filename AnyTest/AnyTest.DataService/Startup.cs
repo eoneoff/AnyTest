@@ -17,6 +17,8 @@ using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using AnyTest.IDataRepository;
 using AnyTest.MSSQLNetCoreDataRepository;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace AnyTest.DataService
 {
@@ -46,7 +48,17 @@ namespace AnyTest.DataService
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer() ;
+            }).AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JwtSettings:JwtSecurityKey"]))
+                };
+            });
 
             services.AddControllers();
         }

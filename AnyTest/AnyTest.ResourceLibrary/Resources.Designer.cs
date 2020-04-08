@@ -70,6 +70,24 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Пароль та підтвердження не збігаються.
+        /// </summary>
+        public static string ConfirmaitonNotMahch {
+            get {
+                return ResourceManager.GetString("ConfirmaitonNotMahch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Введіть пароль повторно.
+        /// </summary>
+        public static string ConfirmPassword {
+            get {
+                return ResourceManager.GetString("ConfirmPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Невірний формат e-mail.
         /// </summary>
         public static string EmailInvalid {
@@ -160,6 +178,60 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Пароль.
+        /// </summary>
+        public static string Password {
+            get {
+                return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на {0} має бути довжиною від {2} до {1} символів.
+        /// </summary>
+        public static string PasswordLengthWarning {
+            get {
+                return ResourceManager.GetString("PasswordLengthWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Пароль має містити цифри.
+        /// </summary>
+        public static string PasswordMustContainDigits {
+            get {
+                return ResourceManager.GetString("PasswordMustContainDigits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Пароль має містити строчні літери.
+        /// </summary>
+        public static string PasswordMustContainLowerCase {
+            get {
+                return ResourceManager.GetString("PasswordMustContainLowerCase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Пароль має містити символи.
+        /// </summary>
+        public static string PasswordMustContainSymbols {
+            get {
+                return ResourceManager.GetString("PasswordMustContainSymbols", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Пароль має містити заглавні літери.
+        /// </summary>
+        public static string PasswordMustContainUppercase {
+            get {
+                return ResourceManager.GetString("PasswordMustContainUppercase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на По-батькові.
         /// </summary>
         public static string Patronimic {
@@ -192,6 +264,15 @@ namespace AnyTest.ResourceLibrary {
         public static string Subject {
             get {
                 return ResourceManager.GetString("Subject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Невірні логін або пароль.
+        /// </summary>
+        public static string UsernameOrPasswordInvalid {
+            get {
+                return ResourceManager.GetString("UsernameOrPasswordInvalid", resourceCulture);
             }
         }
     }

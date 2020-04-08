@@ -28,7 +28,7 @@ namespace AnyTest.DataService
                 await roleManager.CreateAsync(new IdentityRole("Student"));
 
                 var defaultAdmin = new IdentityUser{UserName = "admin", Email = "admin@admin.com" };
-                var createDefaultAdmin = await userManager.CreateAsync(defaultAdmin, "admin");
+                var createDefaultAdmin = await userManager.CreateAsync(defaultAdmin, "Admin_1");
                 if (createDefaultAdmin.Succeeded)
                 {
                     await userManager.AddToRoleAsync(defaultAdmin, "Administrator");

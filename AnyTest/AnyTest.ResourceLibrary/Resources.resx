@@ -120,6 +120,12 @@
   <data name="Answer" xml:space="preserve">
     <value>Віповідь</value>
   </data>
+  <data name="ConfirmaitonNotMahch" xml:space="preserve">
+    <value>Пароль та підтвердження не збігаються</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Введіть пароль повторно</value>
+  </data>
   <data name="EmailInvalid" xml:space="preserve">
     <value>Невірний формат e-mail</value>
   </data>
@@ -150,6 +156,24 @@
   <data name="Name" xml:space="preserve">
     <value>Назва</value>
   </data>
+  <data name="Password" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="PasswordLengthWarning" xml:space="preserve">
+    <value>{0} має бути довжиною від {2} до {1} символів</value>
+  </data>
+  <data name="PasswordMustContainDigits" xml:space="preserve">
+    <value>Пароль має містити цифри</value>
+  </data>
+  <data name="PasswordMustContainLowerCase" xml:space="preserve">
+    <value>Пароль має містити строчні літери</value>
+  </data>
+  <data name="PasswordMustContainSymbols" xml:space="preserve">
+    <value>Пароль має містити символи</value>
+  </data>
+  <data name="PasswordMustContainUppercase" xml:space="preserve">
+    <value>Пароль має містити заглавні літери</value>
+  </data>
   <data name="Patronimic" xml:space="preserve">
     <value>По-батькові</value>
   </data>
@@ -161,5 +185,8 @@
   </data>
   <data name="Subject" xml:space="preserve">
     <value>Предмет</value>
+  </data>
+  <data name="UsernameOrPasswordInvalid" xml:space="preserve">
+    <value>Невірні логін або пароль</value>
   </data>
 </root>
