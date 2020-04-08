@@ -295,6 +295,15 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Ім&apos;я користувача.
+        /// </summary>
+        public static string UserName {
+            get {
+                return ResourceManager.GetString("UserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Невірні логін або пароль.
         /// </summary>
         public static string UsernameOrPasswordInvalid {

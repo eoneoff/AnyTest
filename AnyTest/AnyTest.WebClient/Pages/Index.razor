@@ -1,5 +1,9 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+<h1>Hello in AnyTest, @User!</h1>
 
-Welcome to your new app.
+@code
+{
+    [CascadingParameter(Name = "UserName")]
+    protected string User { get; set; }
+}

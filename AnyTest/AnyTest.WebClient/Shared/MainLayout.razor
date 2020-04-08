@@ -1,10 +1,14 @@
 ﻿@inherits LayoutComponentBase
 
 <div class="main">
-    <div class="content px-4">
-        <LoginDisplay />
-    </div>
-    <div class="content px-4">
-        @Body
-    </div>
+    <AuthorizeView>
+        <Authorized>
+            <CascadingValue Value="@context.User.Identity.Name" Name="UserName">
+                @Body
+            </CascadingValue>
+        </Authorized>
+        <NotAuthorized>
+            <Login/>
+        </NotAuthorized>
+    </AuthorizeView>
 </div>

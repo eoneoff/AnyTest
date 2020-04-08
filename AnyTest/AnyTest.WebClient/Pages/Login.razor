@@ -1,5 +1,4 @@
-﻿@page "/login"
-@inject IAuthService AuthService
+﻿@inject IAuthService AuthService
 @inject NavigationManager NavigationManager
 
 <h1>@Localizer[nameof(Resources.LoginAction)]</h1>
@@ -18,7 +17,7 @@
             <DataAnnotationsValidator />
             <ValidationSummary />
             <div class="form-group">
-                <label for="password">e-mail</label>
+                <label for="password">@Localizer[nameof(Resources.UserName)]</label>
                 <InputText Id="email" Class="form-control" @bind-Value="loginModel.Email" />
                 <ValidationMessage For="@(() => loginModel.Email)" />
             </div>

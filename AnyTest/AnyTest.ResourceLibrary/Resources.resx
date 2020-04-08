@@ -195,6 +195,9 @@
   <data name="Subject" xml:space="preserve">
     <value>Предмет</value>
   </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Ім'я користувача</value>
+  </data>
   <data name="UsernameOrPasswordInvalid" xml:space="preserve">
     <value>Невірні логін або пароль</value>
   </data>
