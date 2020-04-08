@@ -196,6 +196,24 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Введіть ім&apos;я користувача.
+        /// </summary>
+        public static string LoginRequired {
+            get {
+                return ResourceManager.GetString("LoginRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Вийти.
+        /// </summary>
+        public static string Logout {
+            get {
+                return ResourceManager.GetString("Logout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Назва.
         /// </summary>
         public static string Name {
@@ -259,6 +277,15 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Введіть пароль.
+        /// </summary>
+        public static string PasswordRequired {
+            get {
+                return ResourceManager.GetString("PasswordRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на По-батькові.
         /// </summary>
         public static string Patronimic {
@@ -291,6 +318,15 @@ namespace AnyTest.ResourceLibrary {
         public static string Subject {
             get {
                 return ResourceManager.GetString("Subject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Додаток для створення і проходження тестів.
+        /// </summary>
+        public static string TestCreationAndTestingApp {
+            get {
+                return ResourceManager.GetString("TestCreationAndTestingApp", resourceCulture);
             }
         }
         

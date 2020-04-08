@@ -39,6 +39,7 @@ namespace AnyTest.WebClient
                 options.SupportedCultures = supportedCultures;
             });
 
+
             await builder.Build().RunAsync();
         }
     }

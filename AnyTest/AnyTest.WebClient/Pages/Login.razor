@@ -1,6 +1,7 @@
 ﻿@inject IAuthService AuthService
 @inject NavigationManager NavigationManager
 
+
 <h1>@Localizer[nameof(Resources.LoginAction)]</h1>
 
 @if(ShowErrors)
@@ -18,15 +19,15 @@
             <ValidationSummary />
             <div class="form-group">
                 <label for="password">@Localizer[nameof(Resources.UserName)]</label>
-                <InputText Id="email" Class="form-control" @bind-Value="loginModel.Email" />
+                <InputText Id="email" Class="form-control" @bind-Value="loginModel.Email" disabled="@IsAuthenticating"/>
                 <ValidationMessage For="@(() => loginModel.Email)" />
             </div>
             <div class="form-group">
                 <label for="password">@Localizer[nameof(Resources.Password)]</label>
-                <InputText Id="password" type="password" Class="form-control" @bind-Value="loginModel.Password" />
+                <InputText Id="password" type="password" Class="form-control" @bind-Value="loginModel.Password" disabled="@IsAuthenticating"/>
                 <ValidationMessage For="@(()=>loginModel.Password)" />
             </div>
-            <button type="submit" class="btn btn-primary">@Localizer[nameof(Resources.DoLogin)]</button>
+            <button type="submit" class="btn btn-primary" disabled="@IsAuthenticating">@Localizer[nameof(Resources.DoLogin)]</button>
         </EditForm>
     </div>
 </div>
@@ -36,10 +37,12 @@
     private LoginModel loginModel = new LoginModel();
     private bool ShowErrors;
     private string Error;
+    private bool IsAuthenticating = false;
 
     private async Task HandleLogin()
     {
         ShowErrors = false;
+        IsAuthenticating = true;
 
         var result = await AuthService.Login(loginModel);
 
@@ -49,6 +52,7 @@
         }
         else
         {
+            IsAuthenticating = false;
             Error = result.Error;
             ShowErrors = true;
         }

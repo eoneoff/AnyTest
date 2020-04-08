@@ -162,6 +162,12 @@
   <data name="LoginAction" xml:space="preserve">
     <value>Вхід</value>
   </data>
+  <data name="LoginRequired" xml:space="preserve">
+    <value>Введіть ім'я користувача</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Вийти</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Назва</value>
   </data>
@@ -183,6 +189,9 @@
   <data name="PasswordMustContainUppercase" xml:space="preserve">
     <value>Пароль має містити заглавні літери</value>
   </data>
+  <data name="PasswordRequired" xml:space="preserve">
+    <value>Введіть пароль</value>
+  </data>
   <data name="Patronimic" xml:space="preserve">
     <value>По-батькові</value>
   </data>
@@ -194,6 +203,9 @@
   </data>
   <data name="Subject" xml:space="preserve">
     <value>Предмет</value>
+  </data>
+  <data name="TestCreationAndTestingApp" xml:space="preserve">
+    <value>Додаток для створення і проходження тестів</value>
   </data>
   <data name="UserName" xml:space="preserve">
     <value>Ім'я користувача</value>

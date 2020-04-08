@@ -1,14 +1,55 @@
 ﻿@inherits LayoutComponentBase
-
-<div class="main">
-    <AuthorizeView>
-        <Authorized>
-            <CascadingValue Value="@context.User.Identity.Name" Name="UserName">
-                @Body
-            </CascadingValue>
-        </Authorized>
-        <NotAuthorized>
-            <Login/>
-        </NotAuthorized>
-    </AuthorizeView>
+@inject IAuthService AuthService
+    
+<div>
+    <header>
+        <div class="d-flex flex-column flex-lg-row px-2 py-1 header-panel header-text">
+            <div class="d-flex flex-column flex-grow-1">
+                <h3 class="display-2 text-center mx-auto">AnyTest</h3>
+                <h6 class="display-4 text-center mx-auto">@Localizer[nameof(Resources.TestCreationAndTestingApp)].Value.ToLower()</h6>
+            </div>
+        </div>
+    </header>
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <div class="row no-gutters mx-0">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-secondary w-100">
+                    <a class="navbar-brand" href="/">AnyTest</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarContent">
+                        <ul class="navbar-nav mr-auto w-100">
+                        </ul>
+                        <button class="btn btn-light" @onclick="Logout">
+                            @Localizer[nameof(Resources.Logout)]
+                        </button>
+                    </div>
+                </nav>
+                <main class="main flex-grow-1">
+                    <AuthorizeView>
+                        <Authorized>
+                            <CascadingValue Value="@context.User.Identity.Name" Name="UserName">
+                                <div class="main-panel">
+                                    @Body
+                                </div>
+                            </CascadingValue>
+                        </Authorized>
+                        <NotAuthorized>
+                            <Login />
+                        </NotAuthorized>
+                    </AuthorizeView>
+                </main>
+            </div>
+        </div>
+    </div>
 </div>
+
+@code
+{
+    protected async Task Logout()
+    {
+        await AuthService.Logout();
+    }
+}
+

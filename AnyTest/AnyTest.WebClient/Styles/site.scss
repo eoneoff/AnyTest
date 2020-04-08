@@ -2,6 +2,50 @@
 
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: $base-back-color;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/*header style*/
+.header-panel {
+    background-color: $base-back-color;
+}
+
+.header-text {
+    color: $header-text-color;
+}
+
+.header-image {
+    height: 5vh;
+    width: 5vh;
+}
+
+/*main view style*/
+
+.content-wrapper {
+    margin: 10px;
+}
+
+.main-panel {
+    background-color: $neutral-background-color;
+    min-height: 90vh;
+}
+
+.show-panel {
+    background-color: $neutral-background-color;
+    padding: 5px;
 }
 
 app {

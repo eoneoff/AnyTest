@@ -1,5 +1,40 @@
 ﻿html, body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: #577534; }
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+  white-space: normal; }
+
+/*header style*/
+.header-panel {
+  background-color: #577534; }
+
+.header-text {
+  color: white; }
+
+.header-image {
+  height: 5vh;
+  width: 5vh; }
+
+/*main view style*/
+.content-wrapper {
+  margin: 10px; }
+
+.main-panel {
+  background-color: white;
+  min-height: 90vh; }
+
+.show-panel {
+  background-color: white;
+  padding: 5px; }
 
 app {
   position: relative;
