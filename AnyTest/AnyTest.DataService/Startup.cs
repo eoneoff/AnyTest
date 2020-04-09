@@ -38,6 +38,7 @@ namespace AnyTest.DataService
             services.AddDbContext<AnyTestIdentityDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:LocalMSSQLAuthorizationWindows"]));
 
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped<IPersonRepository, PersonRepository>();
 
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AnyTestIdentityDbContext>().AddDefaultTokenProviders();
 

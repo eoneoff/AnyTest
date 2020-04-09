@@ -18,6 +18,12 @@ namespace AnyTest.ClientAuthentication
         private readonly AuthenticationStateProvider _authenticationStateProvider;
         private readonly ILocalStorageService _localStorage;
 
+        public static readonly List<string> Roles = new List<string>
+        {
+            "Administrator",
+            "Tutor",
+            "Student"
+        };
         public AuthService(HttpClient httpClient,AuthenticationStateProvider authenticationStateProvider, ILocalStorageService localStorage)
         {
             _httpClient = httpClient;
@@ -28,13 +34,13 @@ namespace AnyTest.ClientAuthentication
         public async Task<LoginResult> Login(LoginModel creds)
         {
             var loginAsJson = JsonSerializer.Serialize(creds);
-            var response = await _httpClient.PostAsync("https://localhost:44358/api/Login", new StringContent(loginAsJson, Encoding.UTF8, "application/json"));
+            var response = await _httpClient.PostAsync("Login", new StringContent(loginAsJson, Encoding.UTF8, "application/json"));
             var loginResult = JsonSerializer.Deserialize<LoginResult>(await response.Content.ReadAsStringAsync(), new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
 
             if(response.IsSuccessStatusCode)
             {
                 await _localStorage.SetItemAsync("authToken", loginResult.Token);
-                (_authenticationStateProvider as ApiAuthenticaionStateProvider).MarkUserAsAuthenticated(creds.Email);
+                (_authenticationStateProvider as ApiAuthenticaionStateProvider).MarkUserAsAuthenticated(creds.UserName);
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", loginResult.Token);
             }
 

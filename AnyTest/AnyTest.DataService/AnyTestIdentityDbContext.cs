@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AnyTest.ClientAuthentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -23,9 +24,10 @@ namespace AnyTest.DataService
 
             if(!await roleManager.RoleExistsAsync("Administrator"))
             {
-                await roleManager.CreateAsync(new IdentityRole("Administrator"));
-                await roleManager.CreateAsync(new IdentityRole("Tutor"));
-                await roleManager.CreateAsync(new IdentityRole("Student"));
+                foreach(var role in AuthService.Roles)
+                {
+                    await roleManager.CreateAsync(new IdentityRole(role));
+                }
 
                 var defaultAdmin = new IdentityUser{UserName = "admin", Email = "admin@admin.com" };
                 var createDefaultAdmin = await userManager.CreateAsync(defaultAdmin, "Admin_1");

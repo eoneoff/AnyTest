@@ -10,7 +10,7 @@ namespace AnyTest.ClientAuthentication
     {
         [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = nameof(Resources.LoginRequired))]
         [Display(ResourceType = typeof(Resources), Name = nameof(Resources.UserName))]
-        public string Email { get; set; }
+        public string UserName { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = nameof(Resources.PasswordRequired))]
         [Display(ResourceType = typeof(Resources), Name = nameof(Resources.Password))]

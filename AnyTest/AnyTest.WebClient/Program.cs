@@ -11,6 +11,8 @@ using AnyTest.ResourceLibrary;
 using System.Globalization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Localization;
+using System.Net.Http;
+using AnyTest.WebClient.ViewModels;
 
 namespace AnyTest.WebClient
 {
@@ -24,6 +26,10 @@ namespace AnyTest.WebClient
             builder.Services.AddBaseAddressHttpClient();
             builder.Services.AddBlazoredLocalStorage();
             builder.Services.AddAuthorizationCore();
+
+            builder.Services.AddSingleton(typeof(HttpClient), new HttpClient { BaseAddress = new Uri("https://localhost:44358/api/") });
+            builder.Services.AddSingleton<StateContainerViewModel>();
+
             builder.Services.AddScoped<AuthenticationStateProvider, ApiAuthenticaionStateProvider>();
             builder.Services.AddScoped<IAuthService, AuthService>();
 

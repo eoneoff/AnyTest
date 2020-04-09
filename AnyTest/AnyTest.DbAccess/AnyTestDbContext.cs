@@ -27,6 +27,8 @@ namespace AnyTest.DbAccess
 
         protected override void OnModelCreating(ModelBuilder model)
         {
+            model.Entity<Person>().HasIndex(p => p.Email).IsUnique();
+
             model.Entity<TutorTest>().HasKey(tt => new { tt.TutorId, tt.TestId });
             model.Entity<TutorTest>().HasOne(tt => tt.Tutor).WithMany(t => t.TestsOwned).HasForeignKey(tt => tt.TutorId).OnDelete(DeleteBehavior.NoAction);
             model.Entity<TutorTest>().HasOne(tt => tt.Test).WithMany(t => t.Owners).HasForeignKey(tt => tt.TestId).OnDelete(DeleteBehavior.NoAction);

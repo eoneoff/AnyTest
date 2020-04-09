@@ -8,7 +8,11 @@ namespace AnyTest.ClientAuthentication
 {
     public class RegisterModel
     {
-        [Required]
+        [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = nameof(Resources.LoginRequired))]
+        [Display(ResourceType = typeof(Resources), Name = nameof(Resources.UserName))]
+        public string UserName { get; set; }
+
+        [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = nameof(Resources.EnterEmail))]
         [EmailAddress]
         [Display(Name = "e-mail")]
         public string Email { get; set; }
@@ -27,6 +31,8 @@ namespace AnyTest.ClientAuthentication
         [Display(ResourceType = typeof(Resources), Name = nameof(Resources.ConfirmPassword))]
         [Compare(nameof(Password), ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = nameof(Resources.ConfirmaitonNotMahch))]
         public string ConfirmPassword { get; set; }
+
+        public string Role { get; set; }
     }
 
     public class ContainsLoweCase : RegularExpressionAttribute

@@ -20,8 +20,8 @@
                 <ValidationSummary />
                 <div class="form-group">
                     <label for="password">@Localizer[nameof(Resources.UserName)]</label>
-                    <InputText Id="email" Class="form-control" @bind-Value="loginModel.Email" disabled="@IsAuthenticating" />
-                    <ValidationMessage For="@(() => loginModel.Email)" />
+                    <InputText Id="email" Class="form-control" @bind-Value="loginModel.UserName" disabled="@IsAuthenticating" />
+                    <ValidationMessage For="@(() => loginModel.UserName)" />
                 </div>
                 <div class="form-group">
                     <label for="password">@Localizer[nameof(Resources.Password)]</label>
@@ -58,6 +58,10 @@
         {
             Error = result.Error;
             ShowErrors = true;
+        }
+        else
+        {
+            await State.GetPersonByAuthorizedUser();
         }
     }
 }

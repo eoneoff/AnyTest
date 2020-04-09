@@ -19,5 +19,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AnyTest.ClientAuthentication\AnyTest.ClientAuthentication.csproj" />
+    <ProjectReference Include="..\AnyTest.Model\AnyTest.Model.csproj" />
   </ItemGroup>
 </Project>
