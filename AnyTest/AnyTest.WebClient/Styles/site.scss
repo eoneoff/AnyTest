@@ -41,6 +41,7 @@ html, body {
 .main-panel {
     background-color: $neutral-background-color;
     min-height: 90vh;
+    flex-grow:1;
 }
 
 .show-panel {
@@ -54,6 +55,12 @@ app {
     flex-direction: column;
 }
 
+/*login form style*/
+#login-form {
+    width: 600px;
+}
+
+/*validation style*/
 .valid.modified:not([type=checkbox]) {
     outline: 1px solid $valid-modified-color;
 }

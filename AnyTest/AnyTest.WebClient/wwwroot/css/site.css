@@ -30,7 +30,8 @@
 
 .main-panel {
   background-color: white;
-  min-height: 90vh; }
+  min-height: 90vh;
+  flex-grow: 1; }
 
 .show-panel {
   background-color: white;
@@ -41,6 +42,11 @@ app {
   display: flex;
   flex-direction: column; }
 
+/*login form style*/
+#login-form {
+  width: 600px; }
+
+/*validation style*/
 .valid.modified:not([type=checkbox]) {
   outline: 1px solid #26b050; }
 

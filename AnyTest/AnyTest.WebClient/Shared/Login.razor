@@ -1,0 +1,63 @@
+﻿@inject IAuthService AuthService
+@inject NavigationManager NavigationManager
+
+
+<div id="login-form">
+    <h1 class="text-white">@Localizer[nameof(Resources.LoginAction)]</h1>
+
+    @if (ShowErrors)
+    {
+        <div class="alert alert-danger" role="alert">
+            @Error
+        </div>
+    }
+
+    <div class="card" >
+        <div class="card-body">
+            <h5 class="card-title">@Localizer[Resources.EnterCredentials]</h5>
+            <EditForm Model="loginModel" OnValidSubmit="HandleLogin">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+                <div class="form-group">
+                    <label for="password">@Localizer[nameof(Resources.UserName)]</label>
+                    <InputText Id="email" Class="form-control" @bind-Value="loginModel.Email" disabled="@IsAuthenticating" />
+                    <ValidationMessage For="@(() => loginModel.Email)" />
+                </div>
+                <div class="form-group">
+                    <label for="password">@Localizer[nameof(Resources.Password)]</label>
+                    <InputText Id="password" type="password" Class="form-control" @bind-Value="loginModel.Password" disabled="@IsAuthenticating" />
+                    <ValidationMessage For="@(()=>loginModel.Password)" />
+                </div>
+                <div class="d-flex flex-row justify-content-lg-between">
+                    <button type="submit" class="btn btn-primary" disabled="@IsAuthenticating">@Localizer[nameof(Resources.DoLogin)]</button>
+                    <a class="btn btn-link" href="#">Реєстрація студента</a>
+                </div>
+            </EditForm>
+        </div>
+    </div>
+</div>
+
+
+@code
+{
+    private LoginModel loginModel = new LoginModel();
+    private bool ShowErrors;
+    private string Error;
+    private bool IsAuthenticating = false;
+
+    private async Task HandleLogin()
+    {
+        ShowErrors = false;
+        IsAuthenticating = true;
+
+        var result = await AuthService.Login(loginModel);
+
+        IsAuthenticating = false;
+
+        if (!result.Sussessfull)
+        {
+            Error = result.Error;
+            ShowErrors = true;
+        }
+    }
+}
