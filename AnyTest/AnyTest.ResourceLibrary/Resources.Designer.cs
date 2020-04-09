@@ -313,6 +313,15 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Реєстрація студента.
+        /// </summary>
+        public static string StudentRegistration {
+            get {
+                return ResourceManager.GetString("StudentRegistration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Предмет.
         /// </summary>
         public static string Subject {

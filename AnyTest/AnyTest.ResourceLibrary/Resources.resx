@@ -201,6 +201,9 @@
   <data name="Question" xml:space="preserve">
     <value>Питання</value>
   </data>
+  <data name="StudentRegistration" xml:space="preserve">
+    <value>Реєстрація студента</value>
+  </data>
   <data name="Subject" xml:space="preserve">
     <value>Предмет</value>
   </data>
