@@ -2,7 +2,7 @@
 @inject NavigationManager NavigationManager
 
 
-<div id="login-form">
+<div class="login-form">
     <h1 class="text-white">@Localizer[nameof(Resources.LoginAction)]</h1>
 
     @if (ShowErrors)
@@ -19,8 +19,8 @@
                 <DataAnnotationsValidator />
                 <ValidationSummary />
                 <div class="form-group">
-                    <label for="password">@Localizer[nameof(Resources.UserName)]</label>
-                    <InputText Id="email" Class="form-control" @bind-Value="loginModel.UserName" disabled="@IsAuthenticating" />
+                    <label for="login">@Localizer[nameof(Resources.UserName)]</label>
+                    <InputText Id="login" Class="form-control" @bind-Value="loginModel.UserName" disabled="@IsAuthenticating" />
                     <ValidationMessage For="@(() => loginModel.UserName)" />
                 </div>
                 <div class="form-group">

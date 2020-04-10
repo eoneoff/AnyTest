@@ -70,6 +70,15 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Відміна.
+        /// </summary>
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Пароль та підтвердження не збігаються.
         /// </summary>
         public static string ConfirmaitonNotMahch {
@@ -93,6 +102,15 @@ namespace AnyTest.ResourceLibrary {
         public static string DoLogin {
             get {
                 return ResourceManager.GetString("DoLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Змінити.
+        /// </summary>
+        public static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
             }
         }
         
@@ -214,6 +232,15 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Ви можете переглянути або змінити особисті дані.
+        /// </summary>
+        public static string LookOrChangePersonalInfo {
+            get {
+                return ResourceManager.GetString("LookOrChangePersonalInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Назва.
         /// </summary>
         public static string Name {
@@ -313,6 +340,15 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Зберегти.
+        /// </summary>
+        public static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Реєстрація студента.
         /// </summary>
         public static string StudentRegistration {
@@ -336,6 +372,15 @@ namespace AnyTest.ResourceLibrary {
         public static string TestCreationAndTestingApp {
             get {
                 return ResourceManager.GetString("TestCreationAndTestingApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Дані користувача.
+        /// </summary>
+        public static string UserInfo {
+            get {
+                return ResourceManager.GetString("UserInfo", resourceCulture);
             }
         }
         

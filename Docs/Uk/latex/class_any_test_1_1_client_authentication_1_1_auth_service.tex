@@ -1,0 +1,93 @@
+\hypertarget{class_any_test_1_1_client_authentication_1_1_auth_service}{}\doxysection{Клас Any\+Test.\+Client\+Authentication.\+Auth\+Service}
+\label{class_any_test_1_1_client_authentication_1_1_auth_service}\index{AnyTest.ClientAuthentication.AuthService@{AnyTest.ClientAuthentication.AuthService}}
+
+
+Сервісний клас для аутентифікації J\+WT токенів  
+
+
+Схема успадкувань для Any\+Test.\+Client\+Authentication.\+Auth\+Service\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_any_test_1_1_client_authentication_1_1_auth_service}
+\end{center}
+\end{figure}
+\doxysubsection*{Загальнодоступні елементи}
+\begin{DoxyCompactItemize}
+\item 
+async Task$<$ \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_register_result}{Register\+Result}} $>$ \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_auth_service_a1bfafcaa3de501a3cab9a6fcd355b6c2}{Register}} (\mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_register_model}{Register\+Model}} register\+Model)
+\begin{DoxyCompactList}\small\item\em реєструє нового користувача \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Статичні загальнодоступні данні}
+\begin{DoxyCompactItemize}
+\item 
+static readonly List$<$ string $>$ \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_auth_service_a2d9e27af235a0ad929d6f5df5214c018}{Roles}}
+\begin{DoxyCompactList}\small\item\em Перелік дійснийх ролей \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Детальний опис}
+Сервісний клас для аутентифікації J\+WT токенів 
+
+
+
+Див. визначення в файлі Auth\+Service.\+cs, рядок 19
+
+
+
+\doxysubsection{Опис методів компонент}
+\mbox{\Hypertarget{class_any_test_1_1_client_authentication_1_1_auth_service_a1bfafcaa3de501a3cab9a6fcd355b6c2}\label{class_any_test_1_1_client_authentication_1_1_auth_service_a1bfafcaa3de501a3cab9a6fcd355b6c2}} 
+\index{AnyTest.ClientAuthentication.AuthService@{AnyTest.ClientAuthentication.AuthService}!Register@{Register}}
+\index{Register@{Register}!AnyTest.ClientAuthentication.AuthService@{AnyTest.ClientAuthentication.AuthService}}
+\doxysubsubsection{\texorpdfstring{Register()}{Register()}}
+{\footnotesize\ttfamily async Task$<$\mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_register_result}{Register\+Result}}$>$ Any\+Test.\+Client\+Authentication.\+Auth\+Service.\+Register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_register_model}{Register\+Model}}}]{register\+Model }\end{DoxyParamCaption})}
+
+
+
+реєструє нового користувача 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em register\+Model} & Об\textquotesingle{}єкт класу {\ttfamily \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_register_model}{Register\+Model}}} з даними нового користувача \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+Об\textquotesingle{}єкт класу {\ttfamily \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_register_result}{Register\+Result}}} з інформацією про реєстрацію 
+\end{DoxyReturn}
+
+
+Реалізує \mbox{\hyperlink{interface_any_test_1_1_client_authentication_1_1_i_auth_service_aa6ea935effbd4540a25c86165c5d1396}{Any\+Test.\+Client\+Authentication.\+I\+Auth\+Service}}.
+
+
+
+Див. визначення в файлі Auth\+Service.\+cs, рядок 84
+
+
+
+\doxysubsection{Компонентні дані}
+\mbox{\Hypertarget{class_any_test_1_1_client_authentication_1_1_auth_service_a2d9e27af235a0ad929d6f5df5214c018}\label{class_any_test_1_1_client_authentication_1_1_auth_service_a2d9e27af235a0ad929d6f5df5214c018}} 
+\index{AnyTest.ClientAuthentication.AuthService@{AnyTest.ClientAuthentication.AuthService}!Roles@{Roles}}
+\index{Roles@{Roles}!AnyTest.ClientAuthentication.AuthService@{AnyTest.ClientAuthentication.AuthService}}
+\doxysubsubsection{\texorpdfstring{Roles}{Roles}}
+{\footnotesize\ttfamily readonly List$<$string$>$ Any\+Test.\+Client\+Authentication.\+Auth\+Service.\+Roles\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Початкові значення}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \textcolor{keyword}{new} List<string>}
+\DoxyCodeLine{        \{}
+\DoxyCodeLine{            \textcolor{stringliteral}{"Administrator"},}
+\DoxyCodeLine{            \textcolor{stringliteral}{"Tutor"},}
+\DoxyCodeLine{            \textcolor{stringliteral}{"Student"}}
+\DoxyCodeLine{        \}}
+
+\end{DoxyCode}
+
+
+Перелік дійснийх ролей 
+
+
+
+Див. визначення в файлі Auth\+Service.\+cs, рядок 29
+
+
+
+Документація цього класу була створена з файлу\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Any\+Test/\+Any\+Test/\+Any\+Test.\+Client\+Authentication/Auth\+Service.\+cs\end{DoxyCompactItemize}

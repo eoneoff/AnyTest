@@ -120,6 +120,9 @@
   <data name="Answer" xml:space="preserve">
     <value>Віповідь</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Відміна</value>
+  </data>
   <data name="ConfirmaitonNotMahch" xml:space="preserve">
     <value>Пароль та підтвердження не збігаються</value>
   </data>
@@ -128,6 +131,9 @@
   </data>
   <data name="DoLogin" xml:space="preserve">
     <value>Увійти</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Змінити</value>
   </data>
   <data name="EmailInvalid" xml:space="preserve">
     <value>Невірний формат e-mail</value>
@@ -168,6 +174,9 @@
   <data name="Logout" xml:space="preserve">
     <value>Вийти</value>
   </data>
+  <data name="LookOrChangePersonalInfo" xml:space="preserve">
+    <value>Ви можете переглянути або змінити особисті дані</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Назва</value>
   </data>
@@ -201,6 +210,9 @@
   <data name="Question" xml:space="preserve">
     <value>Питання</value>
   </data>
+  <data name="Save" xml:space="preserve">
+    <value>Зберегти</value>
+  </data>
   <data name="StudentRegistration" xml:space="preserve">
     <value>Реєстрація студента</value>
   </data>
@@ -209,6 +221,9 @@
   </data>
   <data name="TestCreationAndTestingApp" xml:space="preserve">
     <value>Додаток для створення і проходження тестів</value>
+  </data>
+  <data name="UserInfo" xml:space="preserve">
+    <value>Дані користувача</value>
   </data>
   <data name="UserName" xml:space="preserve">
     <value>Ім'я користувача</value>

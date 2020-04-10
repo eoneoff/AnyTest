@@ -12,19 +12,41 @@ using Microsoft.AspNetCore.Components.Authorization;
 
 namespace AnyTest.ClientAuthentication
 {
+    /// <summary>
+    /// \~english A provider for authentication state in blazor components
+    /// \~ukrainian Клас, який постачає стан аутентифікації компотенту blazor
+    /// </summary>
     public class ApiAuthenticaionStateProvider : AuthenticationStateProvider
     {
         private readonly HttpClient _httpClient;
         private readonly ILocalStorageService _localStorage;
 
+        /// <summary>
+        /// \~english Initializes a new instance of <c>ApiAuthenticationStateProvider</c> class
+        /// \~ukrainian Ініціалізує новий екземпляр класу <c>ApiAuthenticationStateProvider</c>
+        /// </summary>
+        /// <param name="httpClient">
+        /// \~english An instance of <c>HttpClient</c> class. Depencency
+        /// \~ukrainian Езкемплярр класу <c>HttpClient</c>. Залежність
+        /// </param>
+        /// <param name="localStorage">
+        /// \~english A class, implementing an <c>ILocalStorageService</c> interface. Dependency.
+        /// \~ukrainian Клас. який наслідує інтерфейсу <c>ILocalStorageSerivce</c>. Залежність.
+        /// </param>
         public ApiAuthenticaionStateProvider(HttpClient httpClient, ILocalStorageService localStorage)
         {
             _httpClient = httpClient;
             _localStorage = localStorage;
         }
 
+        /// <summary>
+        /// \~english Method called by blazor AuthorizeView component to define the authentication state
+        /// \~ukrainian Метод, який викликає компонет blazor щоб визначити стан аутентифікації
+        /// </summary>
+        /// <returns>An <c>AuthenticationState</c> object, containing the jwt token</returns>
         public override async Task<AuthenticationState> GetAuthenticationStateAsync()
         {
+            //Get a token from a local storage
             var savedToken = await _localStorage.GetItemAsync<string>("authToken");
 
             if(string.IsNullOrWhiteSpace(savedToken))
@@ -37,13 +59,22 @@ namespace AnyTest.ClientAuthentication
             return new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity(ParseClaimsFromJwt(savedToken), "jwt")));
         }
 
-        public void MarkUserAsAuthenticated(string email)
+        /// <summary>
+        /// \~english Marks a user as authenticated for an <c>AuthorizeView</c> component
+        /// \~ukrainian Позначає користувача аутентивікованим для компонента <c>AuthorizeView</c> 
+        /// </summary>
+        /// <param name="userName">user name</param>
+        public void MarkUserAsAuthenticated(string userName)
         {
-            var authenticatedUser = new ClaimsPrincipal(new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, email) }, "apiauth"));
+            var authenticatedUser = new ClaimsPrincipal(new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, userName) }, "apiauth"));
             var authState = Task.FromResult(new AuthenticationState(authenticatedUser));
             NotifyAuthenticationStateChanged(authState);
         }
 
+        /// <summary>
+        /// \~english Marks user as logged out for an <c>AuthorizeView</c> component
+        /// \~ukrainian Позначає, що коритсувач вийшов для компонента <c>AuthorizeView</c>
+        /// </summary>
         public void MarkUserAsLoggedOut()
         {
             var anonymousUser = new ClaimsPrincipal(new ClaimsIdentity());
@@ -51,10 +82,22 @@ namespace AnyTest.ClientAuthentication
             NotifyAuthenticationStateChanged(authState);
         }
 
+        /// <summary>
+        ///\~english Parses JWT token into collection of security Claims
+        ///\~ukrainian Парсить JWT токен у колекцію Клеймів безпеки
+        /// </summary>
+        /// <param name="jwt">
+        /// \~english JWT token
+        /// \~ukrainian JWT токет
+        /// </param>
+        /// <returns>
+        /// \~english A collection of Claimes, containint data from JWT token
+        /// \~ukrainian Колекція Клеймів, які містять дані з JWT токена
+        /// </returns>
         private IEnumerable<Claim> ParseClaimsFromJwt(string jwt)
         {
             var claims = new List<Claim>();
-            var payload = jwt.Split('.')[1];
+            var payload = jwt.Split('.')[1];//Gets paload from jwt token
             var jsonBytes = ParseBase64WithoutPadding(payload);
             var keyValuePairs = JsonSerializer.Deserialize <Dictionary<string, object>>(jsonBytes);
 
@@ -82,6 +125,12 @@ namespace AnyTest.ClientAuthentication
             return claims;
         }
 
+        /// <summary>
+        /// \~english Generates a base 64 byte sequence from the JWT token payload
+        /// \~ukrainian Генерує послідовність байтів із базою 64 біта із даних JWT токена
+        /// </summary>
+        /// <param name="base64">JWT tokey payload string</param>
+        /// <returns>byte sequence</returns>
         private byte[] ParseBase64WithoutPadding(string base64)
         {
             switch(base64.Length % 4)

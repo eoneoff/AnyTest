@@ -43,7 +43,7 @@ app {
   flex-direction: column; }
 
 /*login form style*/
-#login-form {
+.login-form {
   width: 600px; }
 
 /*validation style*/

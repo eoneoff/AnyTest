@@ -1,0 +1,115 @@
+\hypertarget{class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider}{}\doxysection{Клас Any\+Test.\+Client\+Authentication.\+Api\+Authenticaion\+State\+Provider}
+\label{class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider}\index{AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider@{AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider}}
+
+
+Клас, який постачає стан аутентифікації компотенту blazor  
+
+
+Схема успадкувань для Any\+Test.\+Client\+Authentication.\+Api\+Authenticaion\+State\+Provider\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider}
+\end{center}
+\end{figure}
+\doxysubsection*{Загальнодоступні елементи}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider_a07779e305954856b2a247eee5ab6a99d}{Api\+Authenticaion\+State\+Provider}} (Http\+Client http\+Client, I\+Local\+Storage\+Service local\+Storage)
+\begin{DoxyCompactList}\small\item\em Ініціалізує новий екземпляр класу {\ttfamily Api\+Authentication\+State\+Provider} \end{DoxyCompactList}\item 
+override async Task$<$ Authentication\+State $>$ \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider_a40154479fad3839478e846b4ad1064c7}{Get\+Authentication\+State\+Async}} ()
+\begin{DoxyCompactList}\small\item\em Метод, який викликає компонет blazor щоб визначити стан аутентифікації \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider_abd192774dc9ede456f0c47662f470f9d}{Mark\+User\+As\+Authenticated}} (string user\+Name)
+\begin{DoxyCompactList}\small\item\em Позначає користувача аутентивікованим для компонента {\ttfamily Authorize\+View} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider_a01f7fb2ec2a2cd956bd7353116ff6e45}{Mark\+User\+As\+Logged\+Out}} ()
+\begin{DoxyCompactList}\small\item\em Позначає, що коритсувач вийшов для компонента {\ttfamily Authorize\+View} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Детальний опис}
+Клас, який постачає стан аутентифікації компотенту blazor 
+
+
+
+Див. визначення в файлі Api\+Authenticaion\+State\+Provider.\+cs, рядок 19
+
+
+
+\doxysubsection{Конструктор(и)}
+\mbox{\Hypertarget{class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider_a07779e305954856b2a247eee5ab6a99d}\label{class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider_a07779e305954856b2a247eee5ab6a99d}} 
+\index{AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider@{AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider}!ApiAuthenticaionStateProvider@{ApiAuthenticaionStateProvider}}
+\index{ApiAuthenticaionStateProvider@{ApiAuthenticaionStateProvider}!AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider@{AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider}}
+\doxysubsubsection{\texorpdfstring{ApiAuthenticaionStateProvider()}{ApiAuthenticaionStateProvider()}}
+{\footnotesize\ttfamily Any\+Test.\+Client\+Authentication.\+Api\+Authenticaion\+State\+Provider.\+Api\+Authenticaion\+State\+Provider (\begin{DoxyParamCaption}\item[{Http\+Client}]{http\+Client,  }\item[{I\+Local\+Storage\+Service}]{local\+Storage }\end{DoxyParamCaption})}
+
+
+
+Ініціалізує новий екземпляр класу {\ttfamily Api\+Authentication\+State\+Provider} 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em http\+Client} & Езкемплярр класу {\ttfamily Http\+Client}. Залежність \\
+\hline
+{\em local\+Storage} & Клас. який наслідує інтерфейсу {\ttfamily I\+Local\+Storage\+Serivce}. Залежність. \\
+\hline
+\end{DoxyParams}
+
+
+Див. визначення в файлі Api\+Authenticaion\+State\+Provider.\+cs, рядок 36
+
+
+
+\doxysubsection{Опис методів компонент}
+\mbox{\Hypertarget{class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider_a40154479fad3839478e846b4ad1064c7}\label{class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider_a40154479fad3839478e846b4ad1064c7}} 
+\index{AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider@{AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider}!GetAuthenticationStateAsync@{GetAuthenticationStateAsync}}
+\index{GetAuthenticationStateAsync@{GetAuthenticationStateAsync}!AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider@{AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider}}
+\doxysubsubsection{\texorpdfstring{GetAuthenticationStateAsync()}{GetAuthenticationStateAsync()}}
+{\footnotesize\ttfamily override async Task$<$Authentication\+State$>$ Any\+Test.\+Client\+Authentication.\+Api\+Authenticaion\+State\+Provider.\+Get\+Authentication\+State\+Async (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Метод, який викликає компонет blazor щоб визначити стан аутентифікації 
+
+\begin{DoxyReturn}{Повертає}
+An {\ttfamily Authentication\+State} object, containing the jwt token
+\end{DoxyReturn}
+
+
+Див. визначення в файлі Api\+Authenticaion\+State\+Provider.\+cs, рядок 47
+
+\mbox{\Hypertarget{class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider_abd192774dc9ede456f0c47662f470f9d}\label{class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider_abd192774dc9ede456f0c47662f470f9d}} 
+\index{AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider@{AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider}!MarkUserAsAuthenticated@{MarkUserAsAuthenticated}}
+\index{MarkUserAsAuthenticated@{MarkUserAsAuthenticated}!AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider@{AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider}}
+\doxysubsubsection{\texorpdfstring{MarkUserAsAuthenticated()}{MarkUserAsAuthenticated()}}
+{\footnotesize\ttfamily void Any\+Test.\+Client\+Authentication.\+Api\+Authenticaion\+State\+Provider.\+Mark\+User\+As\+Authenticated (\begin{DoxyParamCaption}\item[{string}]{user\+Name }\end{DoxyParamCaption})}
+
+
+
+Позначає користувача аутентивікованим для компонента {\ttfamily Authorize\+View} 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em user\+Name} & user name\\
+\hline
+\end{DoxyParams}
+
+
+Див. визначення в файлі Api\+Authenticaion\+State\+Provider.\+cs, рядок 67
+
+\mbox{\Hypertarget{class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider_a01f7fb2ec2a2cd956bd7353116ff6e45}\label{class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider_a01f7fb2ec2a2cd956bd7353116ff6e45}} 
+\index{AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider@{AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider}!MarkUserAsLoggedOut@{MarkUserAsLoggedOut}}
+\index{MarkUserAsLoggedOut@{MarkUserAsLoggedOut}!AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider@{AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider}}
+\doxysubsubsection{\texorpdfstring{MarkUserAsLoggedOut()}{MarkUserAsLoggedOut()}}
+{\footnotesize\ttfamily void Any\+Test.\+Client\+Authentication.\+Api\+Authenticaion\+State\+Provider.\+Mark\+User\+As\+Logged\+Out (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Позначає, що коритсувач вийшов для компонента {\ttfamily Authorize\+View} 
+
+
+
+Див. визначення в файлі Api\+Authenticaion\+State\+Provider.\+cs, рядок 78
+
+
+
+Документація цього класу була створена з файлу\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Any\+Test/\+Any\+Test/\+Any\+Test.\+Client\+Authentication/Api\+Authenticaion\+State\+Provider.\+cs\end{DoxyCompactItemize}

@@ -1,0 +1,92 @@
+\hypertarget{interface_any_test_1_1_client_authentication_1_1_i_auth_service}{}\doxysection{Інтерфейс Any\+Test.\+Client\+Authentication.\+I\+Auth\+Service}
+\label{interface_any_test_1_1_client_authentication_1_1_i_auth_service}\index{AnyTest.ClientAuthentication.IAuthService@{AnyTest.ClientAuthentication.IAuthService}}
+
+
+Ітерфейс для служби J\+WT аутентифікації  
+
+
+Схема успадкувань для Any\+Test.\+Client\+Authentication.\+I\+Auth\+Service\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interface_any_test_1_1_client_authentication_1_1_i_auth_service}
+\end{center}
+\end{figure}
+\doxysubsection*{Загальнодоступні елементи}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_login_result}{Login\+Result}} $>$ \mbox{\hyperlink{interface_any_test_1_1_client_authentication_1_1_i_auth_service_a5de0e0b70a1b7e58fc40d0df93739f5a}{Login}} (\mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_login_model}{Login\+Model}} creds)
+\begin{DoxyCompactList}\small\item\em Виконує вхід користувача \end{DoxyCompactList}\item 
+Task \mbox{\hyperlink{interface_any_test_1_1_client_authentication_1_1_i_auth_service_a96424edfb1923174d39b8e409d9c0808}{Logout}} ()
+\begin{DoxyCompactList}\small\item\em Виконує вихід користувача \end{DoxyCompactList}\item 
+Task$<$ \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_register_result}{Register\+Result}} $>$ \mbox{\hyperlink{interface_any_test_1_1_client_authentication_1_1_i_auth_service_aa6ea935effbd4540a25c86165c5d1396}{Register}} (\mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_register_model}{Register\+Model}} register\+Model)
+\begin{DoxyCompactList}\small\item\em реєструє нового користувача \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Детальний опис}
+Ітерфейс для служби J\+WT аутентифікації 
+
+
+
+Див. визначення в файлі I\+Auth\+Service.\+cs, рядок 12
+
+
+
+\doxysubsection{Опис методів компонент}
+\mbox{\Hypertarget{interface_any_test_1_1_client_authentication_1_1_i_auth_service_a5de0e0b70a1b7e58fc40d0df93739f5a}\label{interface_any_test_1_1_client_authentication_1_1_i_auth_service_a5de0e0b70a1b7e58fc40d0df93739f5a}} 
+\index{AnyTest.ClientAuthentication.IAuthService@{AnyTest.ClientAuthentication.IAuthService}!Login@{Login}}
+\index{Login@{Login}!AnyTest.ClientAuthentication.IAuthService@{AnyTest.ClientAuthentication.IAuthService}}
+\doxysubsubsection{\texorpdfstring{Login()}{Login()}}
+{\footnotesize\ttfamily Task$<$\mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_login_result}{Login\+Result}}$>$ Any\+Test.\+Client\+Authentication.\+I\+Auth\+Service.\+Login (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_login_model}{Login\+Model}}}]{creds }\end{DoxyParamCaption})}
+
+
+
+Виконує вхід користувача 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em creds} & Об\textquotesingle{}єкт класу {\ttfamily \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_login_model}{Login\+Model}}} із даними користувача \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+{\ttfamily \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_login_result}{Login\+Result}}} object with J\+WT token or error info
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_any_test_1_1_client_authentication_1_1_i_auth_service_a96424edfb1923174d39b8e409d9c0808}\label{interface_any_test_1_1_client_authentication_1_1_i_auth_service_a96424edfb1923174d39b8e409d9c0808}} 
+\index{AnyTest.ClientAuthentication.IAuthService@{AnyTest.ClientAuthentication.IAuthService}!Logout@{Logout}}
+\index{Logout@{Logout}!AnyTest.ClientAuthentication.IAuthService@{AnyTest.ClientAuthentication.IAuthService}}
+\doxysubsubsection{\texorpdfstring{Logout()}{Logout()}}
+{\footnotesize\ttfamily Task Any\+Test.\+Client\+Authentication.\+I\+Auth\+Service.\+Logout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Виконує вихід користувача 
+
+\begin{DoxyReturn}{Повертає}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_any_test_1_1_client_authentication_1_1_i_auth_service_aa6ea935effbd4540a25c86165c5d1396}\label{interface_any_test_1_1_client_authentication_1_1_i_auth_service_aa6ea935effbd4540a25c86165c5d1396}} 
+\index{AnyTest.ClientAuthentication.IAuthService@{AnyTest.ClientAuthentication.IAuthService}!Register@{Register}}
+\index{Register@{Register}!AnyTest.ClientAuthentication.IAuthService@{AnyTest.ClientAuthentication.IAuthService}}
+\doxysubsubsection{\texorpdfstring{Register()}{Register()}}
+{\footnotesize\ttfamily Task$<$\mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_register_result}{Register\+Result}}$>$ Any\+Test.\+Client\+Authentication.\+I\+Auth\+Service.\+Register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_register_model}{Register\+Model}}}]{register\+Model }\end{DoxyParamCaption})}
+
+
+
+реєструє нового користувача 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em register\+Model} & Об\textquotesingle{}єкт класу {\ttfamily \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_register_model}{Register\+Model}}} з даними нового користувача \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+Об\textquotesingle{}єкт класу {\ttfamily \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_register_result}{Register\+Result}}} з інформацією про реєстрацію 
+\end{DoxyReturn}
+
+
+Реалізує в \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_auth_service_a1bfafcaa3de501a3cab9a6fcd355b6c2}{Any\+Test.\+Client\+Authentication.\+Auth\+Service}}.
+
+
+
+Документація цього інтерфейсу була створена з файлу\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Any\+Test/\+Any\+Test/\+Any\+Test.\+Client\+Authentication/I\+Auth\+Service.\+cs\end{DoxyCompactItemize}

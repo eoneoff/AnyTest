@@ -14,24 +14,37 @@ namespace AnyTest.WebClient.ViewModels
 
         public StateContainerViewModel(HttpClient httpClient) => _httpClient = httpClient;
 
-        public Person Person { get; set; }
+        public Person Person { get; set; } = new Person { FirstName = "Іван", FamilyName = "Іванов", Partronimic = "Іванович", Phone="0664555445", Email="ivanov@gmail.com" };
 
         public async Task GetPersonByAuthorizedUser()
         {
-            var response = await _httpClient.GetAsync("Accounts/Person");
-            Person person = new Person();
-            try
+            //var response = await _httpClient.GetAsync("Accounts/Person");
+            //Person person = new Person();
+            //try
+            //{
+            //    person = JsonSerializer.Deserialize<Person>(await response.Content.ReadAsStringAsync());
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex.Message);
+            //}
+            //finally
+            //{
+            //    Person = person;
+            //}
+        }
+
+        public Person GetCopyOfPerson()
+        {
+            return new Person
             {
-                person = JsonSerializer.Deserialize<Person>(await response.Content.ReadAsStringAsync());
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            finally
-            {
-                Person = person;
-            }
+                Id = Person.Id,
+                FirstName = Person.FirstName,
+                FamilyName = Person.FamilyName,
+                Partronimic = Person.Partronimic,
+                Phone = Person.Phone,
+                Email = Person.Email
+            };
         }
     }
 }
