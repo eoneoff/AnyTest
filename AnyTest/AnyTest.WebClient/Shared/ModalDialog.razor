@@ -1,0 +1,53 @@
+﻿@if (isOpen)
+{
+    <div class="modal-backdrop"></div>
+    <div class="d-flex modal-window flex-column confirmation-dialog">
+        <div class="modal-header">
+            @Header
+            <button class="close ml-auto" @onclick="@(()=>isOpen = false)">
+                <i class="fa fa-times"></i>
+            </button>
+        </div>
+        <div class="show-panel modal-window-show-panel flex-column flex-grow-1">
+            <div class="px-1 pt-2 pb-5">
+                @Content
+            </div>
+            <div class="d-flex flex-row justify-content-end flex-nowrap mt-2">
+                <button class="btn btn-primary" @onclick="OkClicked">@OkButtonText</button>
+                <button class="btn btn-danger ml-2" @onclick="@(()=>isOpen = false)">@(CancelButtonText ?? Localizer[nameof(Resources.Cancel)])</button>
+            </div>
+        </div>
+    </div>
+}
+
+@code
+{
+    private bool isOpen = false;
+    private string buttonClicked = "";
+
+    [Parameter]
+    public RenderFragment Header { get; set; }
+
+    [Parameter]
+    public RenderFragment Content { get; set; }
+
+    [Parameter]
+    public string OkButtonText { get; set; } = "OK";
+
+    public string CancelButtonText { get; set; }
+
+    [Parameter]
+    public EventCallback OnConfirm { get; set; }
+
+    public void Show()
+    {
+        isOpen = true;
+        StateHasChanged();
+    }
+
+    private void OkClicked()
+    {
+        isOpen = false;
+        OnConfirm.InvokeAsync(null);
+    }
+}

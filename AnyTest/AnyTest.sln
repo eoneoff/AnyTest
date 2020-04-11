@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnyTest.MSSQLNetCoreDataRep
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnyTest.ClientAuthentication", "AnyTest.ClientAuthentication\AnyTest.ClientAuthentication.csproj", "{E02C08D3-B2D6-4F87-9DB3-C080DD935FDA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnyTest.Infrastructure", "AnyTest.Infrastructure\AnyTest.Infrastructure.csproj", "{D237CAAB-7B0F-4295-BB22-15C65E4216BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{E02C08D3-B2D6-4F87-9DB3-C080DD935FDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E02C08D3-B2D6-4F87-9DB3-C080DD935FDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E02C08D3-B2D6-4F87-9DB3-C080DD935FDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D237CAAB-7B0F-4295-BB22-15C65E4216BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D237CAAB-7B0F-4295-BB22-15C65E4216BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D237CAAB-7B0F-4295-BB22-15C65E4216BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D237CAAB-7B0F-4295-BB22-15C65E4216BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -10,7 +10,7 @@
             <div class="container">
                 @if (editing)
                 {
-                <EditForm Model="@EditPerson" OnValidSubmit="SavePerson">
+                <EditForm Model="@EditPerson" OnValidSubmit="ConfirmSave.Show">
                     <DataAnnotationsValidator />
                     <div class="form-group row">
                         <div class="col-lg-2 d-flex flex-column justify-content-lg-end align-content-start align-content-lg-end">
@@ -32,7 +32,7 @@
                     </div>
                     <div class="form-grop row">
                         <label for="patronimic" class="col-lg-2 col-form-label text-left text-lg-right font-weight-bold">@Localizer[nameof(Resources.Patronimic)]:</label>
-                        <InputText Id="patronimic" Class="form-control col-lg-10" @bind-Value="EditPerson.Partronimic" />
+                        <InputText Id="patronimic" Class="form-control col-lg-10" @bind-Value="EditPerson.Patronimic" />
                     </div>
                     <div class="form-grop row mt-3">
                         <label for="phone" class="col-lg-2 col-form-label text-left text-lg-right font-weight-bold">@Localizer[nameof(Resources.Phone)]:</label>
@@ -48,7 +48,7 @@
                         </div>
                     </div>
                     <div class="d-flex flex-row justify-content-between mt-3">
-                        <button type="submit" class="btn btn-primary">@Localizer[nameof(Resources.Save)]</button>
+                        <button type="submit" class="btn btn-primary">@(EditPerson.Id == 0 ? Localizer[nameof(Resources.Create)] : Localizer[nameof(Resources.Save)])</button>
                         <button type="button" class="btn btn-danger" @onclick="CancelEdit">@Localizer[nameof(Resources.Cancel)]</button>
                     </div>
                 </EditForm>
@@ -66,7 +66,7 @@
                         </div>
                         <div class="row">
                             <label class="col-lg-2 text-left text-lg-right font-weight-bold">@Localizer[nameof(Resources.Patronimic)]:</label>
-                            <label class="col-lg-10">@(State?.Person?.Partronimic ?? "")</label>
+                            <label class="col-lg-10">@(State?.Person?.Patronimic ?? "")</label>
                         </div>
                         <div class="row">
                             <label class="col-lg-2 text-left text-lg-right font-weight-bold">@Localizer[nameof(Resources.Phone)]:</label>
@@ -86,12 +86,26 @@
     </div>
 </div>
 
+<ModalDialog @ref="ConfirmSave" OnConfirm="SavePerson">
+    <Header>
+        @Localizer[nameof(Resources.SavePerson)]?
+    </Header>
+    <Content>
+        <table class="table table-sm table-borderless">
+            <tr><th class="text-right">@Localizer[nameof(Resources.FirstName)]:</th><td class="@(State.Person.FirstName!=EditPerson.FirstName ? "text-danger" : "")">@EditPerson.FirstName</td></tr>
+            <tr><th class="text-right">@Localizer[nameof(Resources.FamilyName)]:</th><td class="@(State.Person.FamilyName!=EditPerson.FamilyName ? "text-danger" : "")">@EditPerson.FamilyName</td></tr>
+            <tr><th class="text-right">@Localizer[nameof(Resources.Patronimic)]:</th><td class="@(State.Person.Patronimic!=EditPerson.Patronimic ? "text-danger" : "")">@EditPerson.Patronimic</td></tr>
+            <tr><th class="text-right">@Localizer[nameof(Resources.Phone)]:</th><td class="@(State.Person.Phone!=EditPerson.Phone ? "text-danger" : "")">@EditPerson.Phone</td></tr>
+            <tr><th class="text-right">e-mail:</th><td class="@(State.Person.Email!=EditPerson.Email ? "text-danger" : "")">@EditPerson.Email</td></tr>
+        </table>
+    </Content>
+</ModalDialog>
 
 @code
 {
     private Model.Person EditPerson { get; set; } = new Model.Person();
-
     private bool editing = false;
+    private ModalDialog ConfirmSave;
 
     private void EditModeOn()
     {
@@ -101,6 +115,7 @@
 
     private async Task SavePerson()
     {
+        await State.SavePerson(EditPerson);
         editing = false;
     }
 

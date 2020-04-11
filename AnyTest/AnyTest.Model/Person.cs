@@ -22,7 +22,7 @@ namespace AnyTest.Model
         public string FamilyName { get; set; }
 
         [Display(ResourceType = typeof(Resources), Name = nameof(Resources.Patronimic))]
-        public string Partronimic { get; set; }
+        public string Patronimic { get; set; }
 
         [Display(ResourceType = typeof(Resources), Name = nameof(Resources.Phone))]
         public string Phone { get; set; }

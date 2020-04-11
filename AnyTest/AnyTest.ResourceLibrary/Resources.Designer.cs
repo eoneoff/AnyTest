@@ -97,6 +97,15 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Створити.
+        /// </summary>
+        public static string Create {
+            get {
+                return ResourceManager.GetString("Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Увійти.
         /// </summary>
         public static string DoLogin {
@@ -345,6 +354,15 @@ namespace AnyTest.ResourceLibrary {
         public static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Зберегти особисті дані.
+        /// </summary>
+        public static string SavePerson {
+            get {
+                return ResourceManager.GetString("SavePerson", resourceCulture);
             }
         }
         

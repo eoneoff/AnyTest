@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AnyTest.DataService</name>
+    </assembly>
+    <members>
+        <member name="T:AnyTest.DataService.Controllers.PeopleController">
+            <summary>
+            \~english An API controller for people personal data
+            \~ukrainian Контроллер API для особистих даних
+            </summary>
+        </member>
+        <member name="F:AnyTest.DataService.Controllers.PeopleController._repository">
+            <summary>
+            \~english A repository for an access to people data
+            \~ukrainian Репозіторій для доступу до особитисти даних
+            </summary>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.PeopleController.#ctor(AnyTest.IDataRepository.IPersonRepository)">
+            <summary>
+            \~english Initializes a new instance of the <c>PeopleContorller</c> class
+            \~ukrainian Ініціалізує новий екземляр класу <c>PeopleContorller</c>
+            </summary>
+            <param name="repository">
+            \~english An object, implementing an <c>IPersonRepository</c> interface. Dependency.
+            \~ukrainian Об'єкт, який іплементує інтерфейс <c>IPersonRepository</c>. Залежність.
+            </param>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.PeopleController.Get">
+            <summary>
+            \~english A method for getting a complete list of people
+            \~ukrainian Метод для отримання персональних даних всіх користувачів
+            </summary>
+            <returns>
+            \~english A collection of <c>Person</c>
+            \~ukrainian Коллекція <c>Person</c>
+            </returns>
+            /// <example>
+            \~english An expample of HTTP request for people
+            \~ukrainian Приклад HTTP запиту персональних даних всіх користуваів
+            <code>
+            GET: api/People
+            </code>
+            </example>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.PeopleController.Get(System.Int64)">
+            <summary>
+            \~english A method for gettin a single person by id
+            \~ukrainian Метод для отримання персональних даних користувача по id
+            </summary>
+            <param name="id">
+            \~english User id <c>long</c>
+            \~ukrainian Id пользователя <c>long</c>
+            </param>
+            <returns>
+            <c>Person</c>
+            </returns>
+            <example>
+            \~english An expample of HTTP request for a person
+            \~ukrainian Приклад HTTP запиту персональних даних користувача
+            <code>
+            GET: api/People/5
+            </code>
+            </example>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.PeopleController.Post(AnyTest.Model.Person)">
+            <summary>
+            \~english Creates a new person
+            \~ukrainian Додає персональні дані нового користувача
+            </summary>
+            <param name="person">
+            \~english An instance of a <c>Person</c>, conatining new user data
+            \~ukrainian Екземпляр класу <c>Person</c>, якій місить дані нового користувача
+            </param>
+            <returns>
+            \~english A result of a person creation
+            \~ukrainian Результат створення особистих даних
+            </returns>
+            <example>
+            \~english An example of HTTP request to create a person
+            \~ukrainian Приклад HTTP запиту створення особистих даних користувача
+            <code>
+            POST: api/People
+            </code>
+            </example>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.PeopleController.Put(System.Int64,AnyTest.Model.Person)">
+            <summary>
+            \~english Edits an existing person
+            \~ukrainian Змінює пресональні дані існуючого користувача
+            </summary>
+            <param name="id">
+            \~english A <c>Person</c> id. <c>long</c>
+            \~ukrainian Id користувача. <c>long</c>
+            </param>
+            <param name="person">
+            \~english A <c>Person</c> object with updated person data
+            \~ukrainian Об'єкт класту <c>Person</c> із зміненими особистими даними
+            </param>
+            <returns>
+            \~english A result of person updating
+            \~ukrainian Результат оновлення особистих даних користувача
+            </returns>
+            <example>
+            \~english An example of HTTP request to update a person
+            \~ukrainian Приклад HTTP запиту зміни особистих даних користувача
+            <code>
+            PUT: api/People/5
+            </code>
+            </example>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.PeopleController.Delete(System.Int64)">
+            <summary>
+            \~english Deleted a user
+            \~ukrainian Видаляє особисті дані користувача
+            </summary>
+            <param name="id">
+            \~english User id <c>long</c>
+            \~ukrainian Id користувача <c>long</c>
+            </param>
+            <returns>
+            \~english A result of deleting a person
+            \~ukrainian Результат видалення особистих даних користувача
+            </returns>
+            <example>
+            \~english An example of HTTP request to delete a person
+            \~ukrainian Приклад HTTP запиту видалення особистих даних користувача
+            <code>
+            DELETE: api/ApiWithActions/5
+            </code>
+            </example>
+        </member>
+    </members>
+</doc>

@@ -129,6 +129,9 @@
   <data name="ConfirmPassword" xml:space="preserve">
     <value>Введіть пароль повторно</value>
   </data>
+  <data name="Create" xml:space="preserve">
+    <value>Створити</value>
+  </data>
   <data name="DoLogin" xml:space="preserve">
     <value>Увійти</value>
   </data>
@@ -212,6 +215,9 @@
   </data>
   <data name="Save" xml:space="preserve">
     <value>Зберегти</value>
+  </data>
+  <data name="SavePerson" xml:space="preserve">
+    <value>Зберегти особисті дані</value>
   </data>
   <data name="StudentRegistration" xml:space="preserve">
     <value>Реєстрація студента</value>

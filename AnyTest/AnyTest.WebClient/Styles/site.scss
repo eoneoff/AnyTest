@@ -60,6 +60,45 @@ app {
     width: 600px;
 }
 
+/*modal window style*/
+.modal-window {
+    border-style: solid;
+    border-width: 1px;
+    border-color: $neutral-background-color;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    background-color: $base-back-color;
+    padding: 10px;
+    max-height: 90vh;
+    overflow: visible;
+    z-index:1000;
+}
+
+.modal-window-show-panel {
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.confirmation-dialog {
+    width: 400px;
+    z-index:1000;
+}
+
+.modal-backdrop {
+    z-index:500;
+    background: rgba(138,163,83,0.7);
+}
+
+.modal-header {
+    color:$modal-window-text-color;
+    button {
+        color: $modal-window-text-color;
+    }
+}
+
 /*validation style*/
 .valid.modified:not([type=checkbox]) {
     outline: 1px solid $valid-modified-color;

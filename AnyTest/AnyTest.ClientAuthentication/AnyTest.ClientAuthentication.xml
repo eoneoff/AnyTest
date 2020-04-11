@@ -1,0 +1,275 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AnyTest.ClientAuthentication</name>
+    </assembly>
+    <members>
+        <member name="T:AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider">
+            <summary>
+            \~english A provider for authentication state in blazor components
+            \~ukrainian Клас, який постачає стан аутентифікації компотенту blazor
+            </summary>
+        </member>
+        <member name="M:AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider.#ctor(System.Net.Http.HttpClient,Blazored.LocalStorage.ILocalStorageService)">
+            <summary>
+            \~english Initializes a new instance of <c>ApiAuthenticationStateProvider</c> class
+            \~ukrainian Ініціалізує новий екземпляр класу <c>ApiAuthenticationStateProvider</c>
+            </summary>
+            <param name="httpClient">
+            \~english An instance of <c>HttpClient</c> class. Depencency
+            \~ukrainian Езкемплярр класу <c>HttpClient</c>. Залежність
+            </param>
+            <param name="localStorage">
+            \~english A class, implementing an <c>ILocalStorageService</c> interface. Dependency.
+            \~ukrainian Клас. який наслідує інтерфейсу <c>ILocalStorageSerivce</c>. Залежність.
+            </param>
+        </member>
+        <member name="M:AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider.GetAuthenticationStateAsync">
+            <summary>
+            \~english Method called by blazor AuthorizeView component to define the authentication state
+            \~ukrainian Метод, який викликає компонет blazor щоб визначити стан аутентифікації
+            </summary>
+            <returns>An <c>AuthenticationState</c> object, containing the jwt token</returns>
+        </member>
+        <member name="M:AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider.MarkUserAsAuthenticated(System.String)">
+            <summary>
+            \~english Marks a user as authenticated for an <c>AuthorizeView</c> component
+            \~ukrainian Позначає користувача аутентивікованим для компонента <c>AuthorizeView</c> 
+            </summary>
+            <param name="userName">user name</param>
+        </member>
+        <member name="M:AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider.MarkUserAsLoggedOut">
+            <summary>
+            \~english Marks user as logged out for an <c>AuthorizeView</c> component
+            \~ukrainian Позначає, що коритсувач вийшов для компонента <c>AuthorizeView</c>
+            </summary>
+        </member>
+        <member name="M:AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider.ParseClaimsFromJwt(System.String)">
+             <summary>
+            \~english Parses JWT token into collection of security Claims
+            \~ukrainian Парсить JWT токен у колекцію Клеймів безпеки
+             </summary>
+             <param name="jwt">
+             \~english JWT token
+             \~ukrainian JWT токет
+             </param>
+             <returns>
+             \~english A collection of Claimes, containint data from JWT token
+             \~ukrainian Колекція Клеймів, які містять дані з JWT токена
+             </returns>
+        </member>
+        <member name="M:AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider.ParseBase64WithoutPadding(System.String)">
+            <summary>
+            \~english Generates a base 64 byte sequence from the JWT token payload
+            \~ukrainian Генерує послідовність байтів із базою 64 біта із даних JWT токена
+            </summary>
+            <param name="base64">JWT tokey payload string</param>
+            <returns>byte sequence</returns>
+        </member>
+        <member name="T:AnyTest.ClientAuthentication.AuthService">
+            <summary>
+            \~english A service class for authenticating with JWT tokens
+            \~ukrainian Сервісний клас для аутентифікації JWT токенів
+            </summary>
+        </member>
+        <member name="F:AnyTest.ClientAuthentication.AuthService.Roles">
+            <summary>
+            \~english A list of valid roles
+            \~ukrainian Перелік дійснийх ролей
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:AnyTest.ClientAuthentication.AuthService.#ctor(System.Net.Http.HttpClient,Microsoft.AspNetCore.Components.Authorization.AuthenticationStateProvider,Blazored.LocalStorage.ILocalStorageService)" -->
+        <member name="M:AnyTest.ClientAuthentication.AuthService.Login(AnyTest.ClientAuthentication.LoginModel)">
+            <inheritdoc />
+        </member>
+        <member name="M:AnyTest.ClientAuthentication.AuthService.Logout">
+            <inheritdoc />
+        </member>
+        <member name="M:AnyTest.ClientAuthentication.AuthService.Register(AnyTest.ClientAuthentication.RegisterModel)">
+            <inheritdoc />
+        </member>
+        <member name="T:AnyTest.ClientAuthentication.IAuthService">
+            <summary>
+            \~english An inteface for JWT authentication service
+            \~ukrainian Ітерфейс для служби JWT аутентифікації
+            </summary>
+        </member>
+        <member name="M:AnyTest.ClientAuthentication.IAuthService.Login(AnyTest.ClientAuthentication.LoginModel)">
+            <summary>
+            \~english Performs user login
+            \~ukrainian Виконує вхід користувача
+            </summary>
+            <param name="creds">
+            \~english <c>LoginModel</c> object with user credentials
+            \~ukrainian Об'єкт класу <c>LoginModel</c> із даними користувача 
+            </param>
+            <returns><c>LoginResult</c> object with JWT token or error info</returns>
+        </member>
+        <member name="M:AnyTest.ClientAuthentication.IAuthService.Logout">
+            <summary>
+            \~english Performs user logout
+            \~ukrainian Виконує вихід користувача
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AnyTest.ClientAuthentication.IAuthService.Register(AnyTest.ClientAuthentication.RegisterModel)">
+            <summary>
+            \~english Registers a new user
+            \~ukrainian реєструє нового користувача
+            </summary>
+            <param name="registerModel">
+            \~english A <c>RegisterModel</c> object with new user data
+            \~ukrainian Об'єкт класу <c>RegisterModel</c> з даними нового користувача
+            </param>
+            <returns>
+            \~english <c>RegisterResult</c> object with info about registration
+            \~ukrainian Об'єкт класу <c>RegisterResult</c> з інформацією про реєстрацію
+            </returns>
+        </member>
+        <member name="T:AnyTest.ClientAuthentication.LoginModel">
+            <summary>
+            \~english A class for user login model
+            \~ukrainian Клас моделі входа користувача 
+            </summary>
+        </member>
+        <member name="P:AnyTest.ClientAuthentication.LoginModel.UserName">
+            <summary>
+            \~english User name
+            \~ukrainian Ім'я користувача
+            </summary>
+        </member>
+        <member name="P:AnyTest.ClientAuthentication.LoginModel.Password">
+            <summary>
+            \~english Password
+            \~ukrainian Пароль
+            </summary>
+        </member>
+        <member name="P:AnyTest.ClientAuthentication.LoginModel.RememberMe">
+            <summary>
+            \~english Parameter to remember user
+            \~ukrainian Запам'ятати користувача
+            </summary>
+        </member>
+        <member name="T:AnyTest.ClientAuthentication.LoginResult">
+            <summary>
+            \~english A model of a login result
+            \~ukrainian Модель результату входу користувача
+            </summary>
+        </member>
+        <member name="P:AnyTest.ClientAuthentication.LoginResult.Sussessfull">
+            <summary>
+            \~english Identifies succefull login
+            \~ukrainian Позначає успішний вхід
+            </summary>
+        </member>
+        <member name="P:AnyTest.ClientAuthentication.LoginResult.Error">
+            <summary>
+            \~english Contains data about login errors
+            \~ukrainian Містить дані про помилки входу
+            </summary>
+        </member>
+        <member name="P:AnyTest.ClientAuthentication.LoginResult.Token">
+            <summary>
+            \~english A JWT token for a user
+            \~ukrainian JWT токен корисувача
+            </summary>
+        </member>
+        <member name="T:AnyTest.ClientAuthentication.RegisterModel">
+            <summary>
+            \~english A model for user registering
+            \~ukrainian Модель для реєстрації корисувача
+            </summary>
+        </member>
+        <member name="P:AnyTest.ClientAuthentication.RegisterModel.UserName">
+            <summary>
+            \~english A desired user name
+            \~ukrainian Бажане ім'я користувача
+            </summary>
+        </member>
+        <member name="P:AnyTest.ClientAuthentication.RegisterModel.Email">
+            <summary>
+            \~english An email for a new user
+            \~ukrainian Email нового користувача
+            </summary>
+        </member>
+        <member name="P:AnyTest.ClientAuthentication.RegisterModel.Password">
+            <summary>
+            \~english New user password
+            \~ukrainian Пароль нового користувача
+            </summary>
+        </member>
+        <member name="P:AnyTest.ClientAuthentication.RegisterModel.ConfirmPassword">
+            <summary>
+            \~english Password confirmation
+            \~ukrainian Підтвердження паролю
+            </summary>
+        </member>
+        <member name="P:AnyTest.ClientAuthentication.RegisterModel.Role">
+            <summary>
+            \~english A role for a new user
+            \~ukrainian Роль нового користувача
+            </summary>
+        </member>
+        <member name="T:AnyTest.ClientAuthentication.ContainsLoweCase">
+            <summary>
+            \~english  Specifies that a data field value in ASP.NET Dynamic Data must contain lowercase letters
+            \~ukrainian Визначає, що поле даних для ASP.NET Dynamic Data має містити строчні літери
+            </summary>
+        </member>
+        <member name="M:AnyTest.ClientAuthentication.ContainsLoweCase.#ctor">
+            <summary>
+            \~english Initializes a new instance of <c>ContainsLowerCase</c> class
+            \~ukrainian Ініціалізує новий екземлпяр класу <c>ContainsLowerCase</c>
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:AnyTest.ClientAuthentication.ContainsUpperCase" -->
+        <member name="M:AnyTest.ClientAuthentication.ContainsUpperCase.#ctor">
+            <summary>
+            \~english Initializes a new instance of <c>ContainsUpperCase</c> class
+            \~ukrainian Ініціалізує новий екземлпяр класу <c>ContainsUpperCase</c>
+            </summary>
+        </member>
+        <member name="T:AnyTest.ClientAuthentication.ContainsDigit">
+            <summary>
+            \~english  Specifies that a data field value in ASP.NET Dynamic Data must contain a digin
+            \~ukrainian Визначає, що поле даних для ASP.NET Dynamic Data має містити цифри
+            </summary>
+        </member>
+        <member name="M:AnyTest.ClientAuthentication.ContainsDigit.#ctor">
+            <summary>
+            \~english Initializes a new instance of <c>ContainsDigit</c> class
+            \~ukrainian Ініціалізує новий екземлпяр класу <c>ContainsDigit</c>
+            </summary>
+        </member>
+        <member name="T:AnyTest.ClientAuthentication.ContainsSymbol">
+            <summary>
+            \~english  Specifies that a data field value in ASP.NET Dynamic Data must contain a special symbol
+            \~ukrainian Визначає, що поле даних для ASP.NET Dynamic Data має містити символи
+            </summary>
+        </member>
+        <member name="M:AnyTest.ClientAuthentication.ContainsSymbol.#ctor">
+            <summary>
+            \~english Initializes a new instance of <c>ContainsSymbol</c> class
+            \~ukrainian Ініціалізує новий екземлпяр класу <c>ContainsLowerSymbol</c>
+            </summary>
+        </member>
+        <member name="T:AnyTest.ClientAuthentication.RegisterResult">
+            <summary>
+            \~english A class for a result of a user registration
+            \~ukrainian Клас для реєстрації результатов реєстрації нового користувача
+            </summary>
+        </member>
+        <member name="P:AnyTest.ClientAuthentication.RegisterResult.Successful">
+            <summary>
+            \~english Defines a successfull registration
+            \~ukrainian Позначає результат реєстрації
+            </summary>
+        </member>
+        <member name="P:AnyTest.ClientAuthentication.RegisterResult.Errors">
+            <summary>
+            \~english Contains registration errors
+            \~ukrainian Містить помилки реєстрації
+            </summary>
+        </member>
+    </members>
+</doc>
