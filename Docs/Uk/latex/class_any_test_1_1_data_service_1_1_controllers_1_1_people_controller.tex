@@ -1,0 +1,192 @@
+\hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller}{}\doxysection{Клас Any\+Test.\+Data\+Service.\+Controllers.\+People\+Controller}
+\label{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller}\index{AnyTest.DataService.Controllers.PeopleController@{AnyTest.DataService.Controllers.PeopleController}}
+
+
+Контроллер A\+PI для особистих даних  
+
+
+Схема успадкувань для Any\+Test.\+Data\+Service.\+Controllers.\+People\+Controller\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller}
+\end{center}
+\end{figure}
+\doxysubsection*{Загальнодоступні елементи}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_a6412851d80279ad6034484e6ab942d61}{People\+Controller}} (\mbox{\hyperlink{interface_any_test_1_1_i_data_repository_1_1_i_person_repository}{I\+Person\+Repository}} repository)
+\begin{DoxyCompactList}\small\item\em Ініціалізує новий екземляр класу {\ttfamily People\+Contorller} \end{DoxyCompactList}\item 
+async Task$<$ I\+Enumerable$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_person}{Person}} $>$ $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_a8307c66435045f7c684ba5ecedeae888}{Get}} ()
+\begin{DoxyCompactList}\small\item\em Метод для отримання персональних даних всіх користувачів \end{DoxyCompactList}\item 
+async Task$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_person}{Person}} $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_ae61003bdbf9081948d7bdf00c80d76fa}{Get}} (long id)
+\begin{DoxyCompactList}\small\item\em Метод для отримання персональних даних користувача по id \end{DoxyCompactList}\item 
+async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_aee73e7c2269285c5ebd42b796aca359e}{Post}} (\mbox{[}From\+Body\mbox{]} \mbox{\hyperlink{class_any_test_1_1_model_1_1_person}{Person}} person)
+\begin{DoxyCompactList}\small\item\em Додає персональні дані нового користувача \end{DoxyCompactList}\item 
+async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_a79f0511f15f7ecbe42deb23c3b01cb4a}{Put}} (long id, \mbox{[}From\+Body\mbox{]} \mbox{\hyperlink{class_any_test_1_1_model_1_1_person}{Person}} person)
+\begin{DoxyCompactList}\small\item\em Змінює пресональні дані існуючого користувача \end{DoxyCompactList}\item 
+async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_a7ced71af963b5d3ab4cfba50d6460dd5}{Delete}} (long id)
+\begin{DoxyCompactList}\small\item\em Видаляє особисті дані користувача \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Детальний опис}
+Контроллер A\+PI для особистих даних 
+
+
+
+Див. визначення в файлі People\+Controller.\+cs, рядок 18
+
+
+
+\doxysubsection{Конструктор(и)}
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_a6412851d80279ad6034484e6ab942d61}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_a6412851d80279ad6034484e6ab942d61}} 
+\index{AnyTest.DataService.Controllers.PeopleController@{AnyTest.DataService.Controllers.PeopleController}!PeopleController@{PeopleController}}
+\index{PeopleController@{PeopleController}!AnyTest.DataService.Controllers.PeopleController@{AnyTest.DataService.Controllers.PeopleController}}
+\doxysubsubsection{\texorpdfstring{PeopleController()}{PeopleController()}}
+{\footnotesize\ttfamily Any\+Test.\+Data\+Service.\+Controllers.\+People\+Controller.\+People\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_any_test_1_1_i_data_repository_1_1_i_person_repository}{I\+Person\+Repository}}}]{repository }\end{DoxyParamCaption})}
+
+
+
+Ініціалізує новий екземляр класу {\ttfamily People\+Contorller} 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em repository} & Об\textquotesingle{}єкт, який іплементує інтерфейс {\ttfamily I\+Person\+Repository}. Залежність. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Опис методів компонент}
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_a7ced71af963b5d3ab4cfba50d6460dd5}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_a7ced71af963b5d3ab4cfba50d6460dd5}} 
+\index{AnyTest.DataService.Controllers.PeopleController@{AnyTest.DataService.Controllers.PeopleController}!Delete@{Delete}}
+\index{Delete@{Delete}!AnyTest.DataService.Controllers.PeopleController@{AnyTest.DataService.Controllers.PeopleController}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily async Task$<$I\+Action\+Result$>$ Any\+Test.\+Data\+Service.\+Controllers.\+People\+Controller.\+Delete (\begin{DoxyParamCaption}\item[{long}]{id }\end{DoxyParamCaption})}
+
+
+
+Видаляє особисті дані користувача 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em id} & Id користувача {\ttfamily long} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+Результат видалення особистих даних користувача 
+\end{DoxyReturn}
+
+
+Приклад H\+T\+TP запиту видалення особистих даних користувача 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{DELETE: api/ApiWithActions/5}
+\end{DoxyCode}
+ 
+
+Див. визначення в файлі People\+Controller.\+cs, рядок 163
+
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_a8307c66435045f7c684ba5ecedeae888}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_a8307c66435045f7c684ba5ecedeae888}} 
+\index{AnyTest.DataService.Controllers.PeopleController@{AnyTest.DataService.Controllers.PeopleController}!Get@{Get}}
+\index{Get@{Get}!AnyTest.DataService.Controllers.PeopleController@{AnyTest.DataService.Controllers.PeopleController}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily async Task$<$I\+Enumerable$<$\mbox{\hyperlink{class_any_test_1_1_model_1_1_person}{Person}}$>$ $>$ Any\+Test.\+Data\+Service.\+Controllers.\+People\+Controller.\+Get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Метод для отримання персональних даних всіх користувачів 
+
+\begin{DoxyReturn}{Повертає}
+Коллекція {\ttfamily Person} 
+\end{DoxyReturn}
+/// 
+
+Приклад H\+T\+TP запиту персональних даних всіх користуваів 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{GET: api/People}
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_ae61003bdbf9081948d7bdf00c80d76fa}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_ae61003bdbf9081948d7bdf00c80d76fa}} 
+\index{AnyTest.DataService.Controllers.PeopleController@{AnyTest.DataService.Controllers.PeopleController}!Get@{Get}}
+\index{Get@{Get}!AnyTest.DataService.Controllers.PeopleController@{AnyTest.DataService.Controllers.PeopleController}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily async Task$<$\mbox{\hyperlink{class_any_test_1_1_model_1_1_person}{Person}}$>$ Any\+Test.\+Data\+Service.\+Controllers.\+People\+Controller.\+Get (\begin{DoxyParamCaption}\item[{long}]{id }\end{DoxyParamCaption})}
+
+
+
+Метод для отримання персональних даних користувача по id 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em id} & Id пользователя {\ttfamily long} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+{\ttfamily Person} 
+\end{DoxyReturn}
+
+
+Приклад H\+T\+TP запиту персональних даних користувача 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{GET: api/People/5}
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_aee73e7c2269285c5ebd42b796aca359e}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_aee73e7c2269285c5ebd42b796aca359e}} 
+\index{AnyTest.DataService.Controllers.PeopleController@{AnyTest.DataService.Controllers.PeopleController}!Post@{Post}}
+\index{Post@{Post}!AnyTest.DataService.Controllers.PeopleController@{AnyTest.DataService.Controllers.PeopleController}}
+\doxysubsubsection{\texorpdfstring{Post()}{Post()}}
+{\footnotesize\ttfamily async Task$<$I\+Action\+Result$>$ Any\+Test.\+Data\+Service.\+Controllers.\+People\+Controller.\+Post (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Body\mbox{]} \mbox{\hyperlink{class_any_test_1_1_model_1_1_person}{Person}}}]{person }\end{DoxyParamCaption})}
+
+
+
+Додає персональні дані нового користувача 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em person} & Екземпляр класу {\ttfamily Person}, якій місить дані нового користувача \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+Результат створення особистих даних 
+\end{DoxyReturn}
+
+
+Приклад H\+T\+TP запиту створення особистих даних користувача 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{POST: api/People}
+\end{DoxyCode}
+ 
+
+Див. визначення в файлі People\+Controller.\+cs, рядок 93
+
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_a79f0511f15f7ecbe42deb23c3b01cb4a}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_a79f0511f15f7ecbe42deb23c3b01cb4a}} 
+\index{AnyTest.DataService.Controllers.PeopleController@{AnyTest.DataService.Controllers.PeopleController}!Put@{Put}}
+\index{Put@{Put}!AnyTest.DataService.Controllers.PeopleController@{AnyTest.DataService.Controllers.PeopleController}}
+\doxysubsubsection{\texorpdfstring{Put()}{Put()}}
+{\footnotesize\ttfamily async Task$<$I\+Action\+Result$>$ Any\+Test.\+Data\+Service.\+Controllers.\+People\+Controller.\+Put (\begin{DoxyParamCaption}\item[{long}]{id,  }\item[{\mbox{[}\+From\+Body\mbox{]} \mbox{\hyperlink{class_any_test_1_1_model_1_1_person}{Person}}}]{person }\end{DoxyParamCaption})}
+
+
+
+Змінює пресональні дані існуючого користувача 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em id} & Id користувача. {\ttfamily long} \\
+\hline
+{\em person} & Об\textquotesingle{}єкт класту {\ttfamily Person} із зміненими особистими даними \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+Результат оновлення особистих даних користувача 
+\end{DoxyReturn}
+
+
+Приклад H\+T\+TP запиту зміни особистих даних користувача 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{PUT: api/People/5}
+\end{DoxyCode}
+ 
+
+Див. визначення в файлі People\+Controller.\+cs, рядок 127
+
+
+
+Документація цього класу була створена з файлу\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Any\+Test/\+Any\+Test/\+Any\+Test.\+Data\+Service/\+Controllers/People\+Controller.\+cs\end{DoxyCompactItemize}

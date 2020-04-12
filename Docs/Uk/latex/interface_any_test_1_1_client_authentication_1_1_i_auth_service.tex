@@ -19,7 +19,9 @@ Task$<$ \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_login_resu
 Task \mbox{\hyperlink{interface_any_test_1_1_client_authentication_1_1_i_auth_service_a96424edfb1923174d39b8e409d9c0808}{Logout}} ()
 \begin{DoxyCompactList}\small\item\em Виконує вихід користувача \end{DoxyCompactList}\item 
 Task$<$ \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_register_result}{Register\+Result}} $>$ \mbox{\hyperlink{interface_any_test_1_1_client_authentication_1_1_i_auth_service_aa6ea935effbd4540a25c86165c5d1396}{Register}} (\mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_register_model}{Register\+Model}} register\+Model)
-\begin{DoxyCompactList}\small\item\em реєструє нового користувача \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em реєструє нового користувача \end{DoxyCompactList}\item 
+Task$<$ bool $>$ \mbox{\hyperlink{interface_any_test_1_1_client_authentication_1_1_i_auth_service_ad85ba346d200bbb1043262e04b0cb374}{Get\+Token}} ()
+\begin{DoxyCompactList}\small\item\em Додає токен із локального сховища до {\ttfamily Http\+Client} \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Детальний опис}
@@ -32,6 +34,23 @@ Task$<$ \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_register_r
 
 
 \doxysubsection{Опис методів компонент}
+\mbox{\Hypertarget{interface_any_test_1_1_client_authentication_1_1_i_auth_service_ad85ba346d200bbb1043262e04b0cb374}\label{interface_any_test_1_1_client_authentication_1_1_i_auth_service_ad85ba346d200bbb1043262e04b0cb374}} 
+\index{AnyTest.ClientAuthentication.IAuthService@{AnyTest.ClientAuthentication.IAuthService}!GetToken@{GetToken}}
+\index{GetToken@{GetToken}!AnyTest.ClientAuthentication.IAuthService@{AnyTest.ClientAuthentication.IAuthService}}
+\doxysubsubsection{\texorpdfstring{GetToken()}{GetToken()}}
+{\footnotesize\ttfamily Task$<$bool$>$ Any\+Test.\+Client\+Authentication.\+I\+Auth\+Service.\+Get\+Token (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Додає токен із локального сховища до {\ttfamily Http\+Client} 
+
+\begin{DoxyReturn}{Повертає}
+Повертає {\ttfamily bool}, що містить інформацію про наявність токена в локальному сховищі 
+\end{DoxyReturn}
+
+
+Реалізує в \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_auth_service_a7abbe76fa32d94ba8889ff9c96f3e837}{Any\+Test.\+Client\+Authentication.\+Auth\+Service}}.
+
 \mbox{\Hypertarget{interface_any_test_1_1_client_authentication_1_1_i_auth_service_a5de0e0b70a1b7e58fc40d0df93739f5a}\label{interface_any_test_1_1_client_authentication_1_1_i_auth_service_a5de0e0b70a1b7e58fc40d0df93739f5a}} 
 \index{AnyTest.ClientAuthentication.IAuthService@{AnyTest.ClientAuthentication.IAuthService}!Login@{Login}}
 \index{Login@{Login}!AnyTest.ClientAuthentication.IAuthService@{AnyTest.ClientAuthentication.IAuthService}}

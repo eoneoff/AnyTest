@@ -16,6 +16,10 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace AnyTest.DataService.Controllers
 {
+    /// <summary>
+    /// \~english An API controller for user login
+    /// \~ukrainian Контроллер API для входу користувача
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class LoginController : ControllerBase
@@ -24,6 +28,22 @@ namespace AnyTest.DataService.Controllers
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
 
+        /// <summary>
+        /// \~english Creates new instance of <c>LoginController</c>
+        /// \~ukrainian Створює новий екземляр <c>LoginController</c>
+        /// </summary>
+        ///  /// <param name="configuration">
+        /// \~english The class <c>IConfiguration</c> instance. Dependency.
+        /// \~ukrainian Екземпляр класу, який втілює <c>IConfiguration</c>. Залежність
+        /// </param>
+        /// /// <param name="signInManager">
+        /// \~english <c>SignInManager{IdentitityUser}</c> instance. Dependency.
+        /// \~ukrainian Екземпляр <c>SignInManager{IdentitityUser}</c>. Залежність.
+        /// </param>
+        /// <param name="userManager">
+        /// \~english <c>UserManager{IdentitityUser}</c> instance. Dependency.
+        /// \~ukrainian Екземпляр <c>UserManager{IdentitityUser}</c>. Залежність.
+        /// </param>
         public LoginController(IConfiguration configuration, SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
         {
             _configuration = configuration;
@@ -31,6 +51,25 @@ namespace AnyTest.DataService.Controllers
             _userManager = userManager;
         }
 
+         /// <summary>
+        /// \~english Logs into application
+        /// \~ukrainian Вхід в додаток
+        /// </summary>
+        /// <param name="login">
+        /// \~english An instance of a <c>LoginrModel</c>, conatining new user acccount data
+        /// \~ukrainian Екземпляр класу <c>LoginModel</c>, якій місить дані нового користувача
+        /// </param>
+        /// <returns>
+        /// \~english A result of a user login
+        /// \~ukrainian Результат входу в додаток
+        /// </returns>
+        /// <example>
+        /// \~english An example of HTTP request to for login
+        /// \~ukrainian Приклад HTTP запиту входу в додаток
+        /// <code>
+        /// POST: api/Login
+        /// </code>
+        /// </example>
         [HttpPost]
         public async Task<IActionResult> Login([FromBody] LoginModel login)
         {

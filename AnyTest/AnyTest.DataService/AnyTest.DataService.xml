@@ -4,16 +4,140 @@
         <name>AnyTest.DataService</name>
     </assembly>
     <members>
+        <member name="T:AnyTest.DataService.AnyTestIdentityDbContext">
+            <summary>
+            \~english A class that represents a session with identity database
+            \~ukrainian Клас, який представляє сесію з базою даних Identity
+            </summary>
+        </member>
+        <member name="M:AnyTest.DataService.AnyTestIdentityDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{AnyTest.DataService.AnyTestIdentityDbContext})">
+            <summary>
+                \~english Creates an instance of <c>AnyTestIdentityDbContext</c>
+            \~ukrainian Створює екземпляр <c>AnyTestIdentityDbContext</c>
+            </summary>
+            <param name="options">
+            \~english Contains the options for database context creation
+            \~ukrainian Містить опції для створення контексту бази даних
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:AnyTest.DataService.AnyTestIdentityDbContext.SeedData(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            \~english A method to seed initial data in a newly created database
+            \~ukrainian Метод, який додає дані за замовчуванням до щойно створеної бази даних
+            </summary>
+            <param name="app">
+            \~english A coller application builder
+            \~ukrainian Клас-будівник доадтку, викликаючого метод
+            </param>
+        </member>
+        <member name="T:AnyTest.DataService.Controllers.AccountsController">
+            <summary>
+            \~english A controller for managing user accounts
+            \~ukrainia Контроллер для керуввання аккаунтами користувачі
+            </summary>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.AccountsController.#ctor(Microsoft.AspNetCore.Identity.UserManager{Microsoft.AspNetCore.Identity.IdentityUser},AnyTest.IDataRepository.IPersonRepository)">
+            <summary>
+            \~english Creates new instance of <c>AccountsController</c>
+            \~ukrainian Створює новий екземляр <c>AccountsController</c>
+            </summary>
+            <param name="userManager">
+            \~english <c>UserManager{IdentitityUser}</c> instance. Dependency.
+            \~ukrainian Екземпляр <c>UserManager{IdentitityUser}</c>. Залежність.
+            </param>
+            <param name="people">
+            \~english The class <c>IPersonRepository</c> instance. Dependency.
+            \~ukrainian Екземпляр класу, який втілює <c>IPersonRepository</c>. Залежність
+            </param>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.AccountsController.Post(AnyTest.ClientAuthentication.RegisterModel)">
+            <summary>
+            \~english Creates a new user account
+            \~ukrainian Створює нового користувача
+            </summary>
+            <param name="model">
+            \~english An instance of a <c>RegisterModel</c>, conatining new user acccount data
+            \~ukrainian Екземпляр класу <c>RegisterModel</c>, якій місить дані нового користувача
+            </param>
+            <returns>
+            \~english A result of an account creation
+            \~ukrainian Результат створення нового користувача
+            </returns>
+            <example>
+            \~english An example of HTTP request to create a person
+            \~ukrainian Приклад HTTP запиту створення особистих даних користувача
+            <code>
+            POST: api/Accounts
+            </code>
+            </example>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.AccountsController.Person">
+            <summary>
+            \~english Returns a <c>Person</c> correspoinding current registered user
+            \~ukrainian Повертає особисті дані разреєстрованого користувача
+            </summary>
+            <returns>
+            \~english A <c>Person</c> object with user data
+            \~ukrainian Об'єкт класу <c>Person</c> з особистими даними користувача
+            </returns>
+            /// <example>
+            \~english An example of HTTP request to get registered user data
+            \~ukrainian Приклад HTTP запиту особистих даних зареєстрованого користувача
+            <code>
+            GET: api/Accounts/Person
+            </code>
+            </example>
+        </member>
+        <member name="T:AnyTest.DataService.Controllers.LoginController">
+            <summary>
+            \~english An API controller for user login
+            \~ukrainian Контроллер API для входу користувача
+            </summary>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.LoginController.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Identity.SignInManager{Microsoft.AspNetCore.Identity.IdentityUser},Microsoft.AspNetCore.Identity.UserManager{Microsoft.AspNetCore.Identity.IdentityUser})">
+            <summary>
+            \~english Creates new instance of <c>LoginController</c>
+            \~ukrainian Створює новий екземляр <c>LoginController</c>
+            </summary>
+             /// <param name="configuration">
+            \~english The class <c>IConfiguration</c> instance. Dependency.
+            \~ukrainian Екземпляр класу, який втілює <c>IConfiguration</c>. Залежність
+            </param>
+            /// <param name="signInManager">
+            \~english <c>SignInManager{IdentitityUser}</c> instance. Dependency.
+            \~ukrainian Екземпляр <c>SignInManager{IdentitityUser}</c>. Залежність.
+            </param>
+            <param name="userManager">
+            \~english <c>UserManager{IdentitityUser}</c> instance. Dependency.
+            \~ukrainian Екземпляр <c>UserManager{IdentitityUser}</c>. Залежність.
+            </param>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.LoginController.Login(AnyTest.ClientAuthentication.LoginModel)">
+            <summary>
+            \~english Logs into application
+            \~ukrainian Вхід в додаток
+            </summary>
+            <param name="login">
+            \~english An instance of a <c>LoginrModel</c>, conatining new user acccount data
+            \~ukrainian Екземпляр класу <c>LoginModel</c>, якій місить дані нового користувача
+            </param>
+            <returns>
+            \~english A result of a user login
+            \~ukrainian Результат входу в додаток
+            </returns>
+            <example>
+            \~english An example of HTTP request to for login
+            \~ukrainian Приклад HTTP запиту входу в додаток
+            <code>
+            POST: api/Login
+            </code>
+            </example>
+        </member>
         <member name="T:AnyTest.DataService.Controllers.PeopleController">
             <summary>
             \~english An API controller for people personal data
             \~ukrainian Контроллер API для особистих даних
-            </summary>
-        </member>
-        <member name="F:AnyTest.DataService.Controllers.PeopleController._repository">
-            <summary>
-            \~english A repository for an access to people data
-            \~ukrainian Репозіторій для доступу до особитисти даних
             </summary>
         </member>
         <member name="M:AnyTest.DataService.Controllers.PeopleController.#ctor(AnyTest.IDataRepository.IPersonRepository)">
@@ -129,6 +253,164 @@
             DELETE: api/ApiWithActions/5
             </code>
             </example>
+        </member>
+        <member name="T:AnyTest.DataService.Controllers.StartupController">
+            <summary>
+            \~english An API controller to indicate the service is running
+            \~ukrainian Контроллер API для демонстрації того, що служба працює
+            /// </summary>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.StartupController.Index">
+            <summary>
+            \~english A method that returns a "Service Up" messagge
+            \~ukrainian Метод що повертає повідомлення про стан служби
+            </summary>
+            <returns>
+            \~english A message about service state
+            \~ukrainian Повідомлення про стан служби
+            </returns>
+            /// <example>
+            \~english An expample of HTTP request for service state
+            \~ukrainian Приклад HTTP запиту про стан служби
+            <code>
+            GET: /
+            </code>
+            </example>
+        </member>
+        <member name="T:AnyTest.DataService.Controllers.TutorsController">
+            <summary>
+            \~english An API controller tutors data
+            \~ukrainian Контроллер API для даних викладачів
+            </summary>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.TutorsController.#ctor(AnyTest.IDataRepository.IRepository{AnyTest.Model.Tutor})">
+            <summary>
+            \~english Initializes a new instance of the <c>TutorsContorller</c> class
+            \~ukrainian Ініціалізує новий екземляр класу <c>TutorsContorller</c>
+            </summary>
+            <param name="repository">
+            \~english An object, implementing an <c>IRepository{Tutor}</c> interface. Dependency.
+            \~ukrainian Об'єкт, який іплементує інтерфейс <c>IRepository{Tutor}</c>. Залежність.
+            </param>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.TutorsController.Get">
+            <summary>
+            \~english A method for getting a complete list of tutors
+            \~ukrainian Метод для отримання персональних даних всіх викладачів
+            </summary>
+            <returns>
+            \~english A collection of <c>Tutor</c>
+            \~ukrainian Коллекція <c>Tutor</c>
+            </returns>
+            /// <example>
+            \~english An expample of HTTP request for tutors
+            \~ukrainian Приклад HTTP запиту персональних даних всіх викладачів
+            <code>
+            GET: api/Tutors
+            </code>
+            </example>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.TutorsController.Get(System.Int64)">
+            <summary>
+            \~english A method for gettin a single tutor by id
+            \~ukrainian Метод для отримання персональних даних викладача по id
+            </summary>
+            <param name="id">
+            \~english Tutor id <c>long</c>
+            \~ukrainian Id викладача <c>long</c>
+            </param>
+            <returns>
+            <c>Person</c>
+            </returns>
+            <example>
+            \~english An expample of HTTP request for a tutor
+            \~ukrainian Приклад HTTP запиту персональних даних викладача
+            <code>
+            GET: api/Tutors/5
+            </code>
+            </example>
+        </member>
+        <member name="T:AnyTest.DataService.Program">
+            <summary>
+            \~english A service startup class    
+            \~ukrainian Клас старту служби
+            </summary>
+        </member>
+        <member name="M:AnyTest.DataService.Program.Main(System.String[])">
+            <summary>
+            \~english A service statrup method
+            \~ukrainian Метод старту слжуби
+            </summary>
+            <param name="args">
+            \~english Command line arguments
+            \~ukrainian Аргументи командного рядка
+            </param>
+        </member>
+        <member name="M:AnyTest.DataService.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            \~english A method, creating a web host builder
+            \~ukrainian Метод, який створює будівника веб-хосту
+            </summary>
+            <param name="args">
+            \~english Command line arguments from <c>Main</c> method
+            \~ukrainian Аргументи командного рдяка з метода <c>Main</c>
+            </param>
+            <returns></returns>
+        </member>
+        <member name="T:AnyTest.DataService.Startup">
+            <summary>
+            \~english A class, setting up the application environment
+            \~ukrainian Клас, який налаштовує середовище додатку
+            </summary>
+        </member>
+        <member name="M:AnyTest.DataService.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            \~english Creates an instance of the <c>Startup</c> class    
+            \~ukrainian Створює екземляр класу <c>Startup</c>
+            </summary>
+            <param name="configuration">
+            \~english A reader of configuration file. Dependency.
+            \~ukrainian Зчитувач файлу конфігурації. Залежність.
+            </param>
+        </member>
+        <member name="P:AnyTest.DataService.Startup.Configuration">
+            <summary>
+            \~english A reader of configuration file. Dependency.
+            \~ukrainian Зчитувач файлу конфігурації. Залежність.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:AnyTest.DataService.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            \~english This method gets called by the runtime. Use this method to add services to the container.
+            \~ukrainian Метод викликається під час виконання. Використувуйте для додавання служб до контейнеру.
+            </summary>
+            <param name="services">
+            \~english A services container
+            \~ukrainian Контейнер служб
+            </param>
+        </member>
+        <member name="M:AnyTest.DataService.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,AnyTest.DbAccess.AnyTestDbContext,AnyTest.DataService.AnyTestIdentityDbContext)">
+            <summary>
+            \~english This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            \~ukrainian Цей метод викликається під час виконання. Використовуйте для налаштування ланцюка обробки HTTP запитів
+            </summary>
+            <param name="app">
+            \~english Application builder used to add middleware to pipeline
+            \~ukrainian Будівник додатку, використовується для додавання обробників до ланцюгу
+            </param>
+            <param name="env">
+            \~english An application environment object
+            \~ukrainian Середовище виконання додатку
+            </param>
+            <param name="ctx">
+            \~english Working database context
+            \~ukrainian Контекст робочої бази даних
+            </param>
+            <param name="ictx">
+            \~english Identity database context
+            \~ukrainian Конекст бази даних користувачів
+            </param>
         </member>
     </members>
 </doc>

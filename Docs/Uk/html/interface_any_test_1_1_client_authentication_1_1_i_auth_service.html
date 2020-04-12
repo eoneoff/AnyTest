@@ -112,12 +112,37 @@ $(document).ready(function(){initNavTree('interface_any_test_1_1_client_authenti
 <tr class="memitem:aa6ea935effbd4540a25c86165c5d1396"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_any_test_1_1_client_authentication_1_1_register_result.html">RegisterResult</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_any_test_1_1_client_authentication_1_1_i_auth_service.html#aa6ea935effbd4540a25c86165c5d1396">Register</a> (<a class="el" href="class_any_test_1_1_client_authentication_1_1_register_model.html">RegisterModel</a> registerModel)</td></tr>
 <tr class="memdesc:aa6ea935effbd4540a25c86165c5d1396"><td class="mdescLeft">&#160;</td><td class="mdescRight">реєструє нового користувача  <a href="interface_any_test_1_1_client_authentication_1_1_i_auth_service.html#aa6ea935effbd4540a25c86165c5d1396">Детальніше...</a><br /></td></tr>
 <tr class="separator:aa6ea935effbd4540a25c86165c5d1396"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad85ba346d200bbb1043262e04b0cb374"><td class="memItemLeft" align="right" valign="top">Task&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_any_test_1_1_client_authentication_1_1_i_auth_service.html#ad85ba346d200bbb1043262e04b0cb374">GetToken</a> ()</td></tr>
+<tr class="memdesc:ad85ba346d200bbb1043262e04b0cb374"><td class="mdescLeft">&#160;</td><td class="mdescRight">Додає токен із локального сховища до <code>HttpClient</code>  <a href="interface_any_test_1_1_client_authentication_1_1_i_auth_service.html#ad85ba346d200bbb1043262e04b0cb374">Детальніше...</a><br /></td></tr>
+<tr class="separator:ad85ba346d200bbb1043262e04b0cb374"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Детальний опис</h2>
 <div class="textblock"><p>Ітерфейс для служби JWT аутентифікації </p>
 
 <p class="definition">Див. визначення в файлі <a class="el" href="_i_auth_service_8cs_source.html">IAuthService.cs</a>, рядок <a class="el" href="_i_auth_service_8cs_source.html#l00012">12</a></p>
 </div><h2 class="groupheader">Опис методів компонент</h2>
+<a id="ad85ba346d200bbb1043262e04b0cb374"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad85ba346d200bbb1043262e04b0cb374">&#9670;&nbsp;</a></span>GetToken()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;bool&gt; AnyTest.ClientAuthentication.IAuthService.GetToken </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Додає токен із локального сховища до <code>HttpClient</code> </p>
+<dl class="section return"><dt>Повертає</dt><dd>Повертає <code>bool</code>, що містить інформацію про наявність токена в локальному сховищі </dd></dl>
+
+<p>Реалізує в <a class="el" href="class_any_test_1_1_client_authentication_1_1_auth_service.html#a7abbe76fa32d94ba8889ff9c96f3e837">AnyTest.ClientAuthentication.AuthService</a>.</p>
+
+</div>
+</div>
 <a id="a5de0e0b70a1b7e58fc40d0df93739f5a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5de0e0b70a1b7e58fc40d0df93739f5a">&#9670;&nbsp;</a></span>Login()</h2>
 
@@ -141,7 +166,7 @@ $(document).ready(function(){initNavTree('interface_any_test_1_1_client_authenti
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Повертає</dt><dd><code><a class="el" href="class_any_test_1_1_client_authentication_1_1_login_result.html">LoginResult</a></code> object with JWT token or error info</dd></dl>
+<dl class="section return"><dt>Повертає</dt><dd><code><a class="el" href="class_any_test_1_1_client_authentication_1_1_login_result.html" title="Модель результату входу користувача">LoginResult</a></code> object with JWT token or error info</dd></dl>
 
 </div>
 </div>
@@ -184,11 +209,11 @@ $(document).ready(function(){initNavTree('interface_any_test_1_1_client_authenti
 <p>реєструє нового користувача </p>
 <dl class="params"><dt>Аргументи</dt><dd>
   <table class="params">
-    <tr><td class="paramname">registerModel</td><td>Об'єкт класу <code><a class="el" href="class_any_test_1_1_client_authentication_1_1_register_model.html">RegisterModel</a></code> з даними нового користувача </td></tr>
+    <tr><td class="paramname">registerModel</td><td>Об'єкт класу <code><a class="el" href="class_any_test_1_1_client_authentication_1_1_register_model.html" title="Модель для реєстрації корисувача">RegisterModel</a></code> з даними нового користувача </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Повертає</dt><dd>Об'єкт класу <code><a class="el" href="class_any_test_1_1_client_authentication_1_1_register_result.html">RegisterResult</a></code> з інформацією про реєстрацію </dd></dl>
+<dl class="section return"><dt>Повертає</dt><dd>Об'єкт класу <code><a class="el" href="class_any_test_1_1_client_authentication_1_1_register_result.html" title="Клас для реєстрації результатов реєстрації нового користувача">RegisterResult</a></code> з інформацією про реєстрацію </dd></dl>
 
 <p>Реалізує в <a class="el" href="class_any_test_1_1_client_authentication_1_1_auth_service.html#a1bfafcaa3de501a3cab9a6fcd355b6c2">AnyTest.ClientAuthentication.AuthService</a>.</p>
 

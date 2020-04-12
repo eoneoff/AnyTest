@@ -92,56 +92,73 @@ $(document).ready(function(){initNavTree('_state_container_view_model_8cs_source
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> System.Net.Http;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using</span> System.Text.Json;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">using</span> System.Threading.Tasks;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="namespace_any_test_1_1_web_client_1_1_view_models.html">    9</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_any_test_1_1_web_client_1_1_view_models.html">AnyTest.WebClient.ViewModels</a></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_any_test_1_1_web_client_1_1_view_models_1_1_state_container_view_model.html">   11</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="class_any_test_1_1_web_client_1_1_view_models_1_1_state_container_view_model.html">StateContainerViewModel</a></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keyword">private</span> HttpClient _httpClient;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keyword">public</span> <a class="code" href="class_any_test_1_1_web_client_1_1_view_models_1_1_state_container_view_model.html">StateContainerViewModel</a>(HttpClient httpClient) =&gt; _httpClient = httpClient;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keyword">public</span> <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a> <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; } = <span class="keyword">new</span> <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a> { FirstName = <span class="stringliteral">&quot;Іван&quot;</span>, FamilyName = <span class="stringliteral">&quot;Іванов&quot;</span>, Partronimic = <span class="stringliteral">&quot;Іванович&quot;</span>, Phone=<span class="stringliteral">&quot;0664555445&quot;</span>, Email=<span class="stringliteral">&quot;ivanov@gmail.com&quot;</span> };</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keyword">public</span> async Task GetPersonByAuthorizedUser()</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <span class="comment">//var response = await _httpClient.GetAsync(&quot;Accounts/Person&quot;);</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <span class="comment">//Person person = new Person();</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <span class="comment">//try</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <span class="comment">//{</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <span class="comment">//    person = JsonSerializer.Deserialize&lt;Person&gt;(await response.Content.ReadAsStringAsync());</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <span class="comment">//}</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <span class="comment">//catch (Exception ex)</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <span class="comment">//{</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <span class="comment">//    Console.WriteLine(ex.Message);</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="comment">//}</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="comment">//finally</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <span class="comment">//{</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="comment">//    Person = person;</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="comment">//}</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        }</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">public</span> <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a> GetCopyOfPerson()</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">using</span> <a class="code" href="namespace_any_test.html">AnyTest</a>.<a class="code" href="namespace_any_test_1_1_infrastructure.html">Infrastructure</a>;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="namespace_any_test_1_1_web_client_1_1_view_models.html">   10</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_any_test_1_1_web_client_1_1_view_models.html">AnyTest.WebClient.ViewModels</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_any_test_1_1_web_client_1_1_view_models_1_1_state_container_view_model.html">   12</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="class_any_test_1_1_web_client_1_1_view_models_1_1_state_container_view_model.html">StateContainerViewModel</a></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keyword">private</span> HttpClient _httpClient;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">public</span> <a class="code" href="class_any_test_1_1_web_client_1_1_view_models_1_1_state_container_view_model.html">StateContainerViewModel</a>(HttpClient httpClient) =&gt; _httpClient = httpClient;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keyword">public</span> <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a> <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a> { <span class="keyword">get</span>; <span class="keyword">private</span> <span class="keyword">set</span>; } = <span class="keyword">new</span> <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a>();</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keyword">private</span> <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a> LoadingStub = <span class="keyword">new</span> <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            FirstName = <span class="stringliteral">&quot;Loading...&quot;</span>,</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            FamilyName = <span class="stringliteral">&quot;Loading...&quot;</span>,</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            Patronimic = <span class="stringliteral">&quot;Loading...&quot;</span>,</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            Phone = <span class="stringliteral">&quot;Loading...&quot;</span>,</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            Email = <span class="stringliteral">&quot;Loading..&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        };</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">public</span> <span class="keywordtype">void</span> ResetPerson() =&gt; <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a> = <span class="keyword">new</span> <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a>();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">public</span> async Task GetPersonByAuthorizedUser()</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a> = LoadingStub;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a> person = <span class="keyword">new</span> <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a>();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                person = await _httpClient.GetJsonAsync&lt;<a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a>&gt;(<span class="stringliteral">&quot;Accounts/Person&quot;</span>);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">catch</span> (Exception ex)</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                Id = <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a>.Id,</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                FirstName = <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a>.FirstName,</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                FamilyName = <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a>.FamilyName,</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                Partronimic = <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a>.Partronimic,</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                Phone = <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a>.Phone,</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                Email = <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a>.Email</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            };</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                Console.WriteLine(ex.Message);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="keywordflow">finally</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a> = person;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">public</span> <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a> GetCopyOfPerson()</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                Id = <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a>.Id,</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                FirstName = <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a>.FirstName,</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                FamilyName = <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a>.FamilyName,</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                Patronimic = <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a>.Patronimic,</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                Phone = <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a>.Phone,</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                Email = <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a>.Email</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            };</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keyword">public</span> async Task <a class="code" href="class_any_test_1_1_web_client_1_1_view_models_1_1_state_container_view_model.html#af4b8f3c79bb5fdaa766e803e1a31ff58">SavePerson</a>(<a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a> person) =&gt;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a> =  person.Id == 0 ? await  _httpClient.PostAsJsonAsync&lt;<a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a>, <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a>&gt;(<span class="stringliteral">&quot;people&quot;</span>, person) : await _httpClient.PutAsJsonAsync&lt;<a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a>, <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a>&gt;($<span class="stringliteral">&quot;people/{person.Id}&quot;</span>, person);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="anamespace_any_test_1_1_infrastructure_html"><div class="ttname"><a href="namespace_any_test_1_1_infrastructure.html">AnyTest.Infrastructure</a></div><div class="ttdef"><b>Definition:</b> <a href="_http_client_helpers_8cs_source.html#l00009">HttpClientHelpers.cs:9</a></div></div>
 <div class="ttc" id="anamespace_any_test_html"><div class="ttname"><a href="namespace_any_test.html">AnyTest</a></div><div class="ttdef"><b>Definition:</b> <a href="_api_authenticaion_state_provider_8cs_source.html#l00013">ApiAuthenticaionStateProvider.cs:13</a></div></div>
 <div class="ttc" id="anamespace_any_test_1_1_model_html"><div class="ttname"><a href="namespace_any_test_1_1_model.html">AnyTest.Model</a></div><div class="ttdef"><b>Definition:</b> <a href="_course_8cs_source.html#l00008">Course.cs:8</a></div></div>
-<div class="ttc" id="aclass_any_test_1_1_web_client_1_1_view_models_1_1_state_container_view_model_html"><div class="ttname"><a href="class_any_test_1_1_web_client_1_1_view_models_1_1_state_container_view_model.html">AnyTest.WebClient.ViewModels.StateContainerViewModel</a></div><div class="ttdef"><b>Definition:</b> <a href="_state_container_view_model_8cs_source.html#l00011">StateContainerViewModel.cs:11</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_web_client_1_1_view_models_1_1_state_container_view_model_html_af4b8f3c79bb5fdaa766e803e1a31ff58"><div class="ttname"><a href="class_any_test_1_1_web_client_1_1_view_models_1_1_state_container_view_model.html#af4b8f3c79bb5fdaa766e803e1a31ff58">AnyTest.WebClient.ViewModels.StateContainerViewModel.SavePerson</a></div><div class="ttdeci">async Task SavePerson(Person person)</div><div class="ttdoc">Saves a Person to database A Person object</div></div>
+<div class="ttc" id="aclass_any_test_1_1_web_client_1_1_view_models_1_1_state_container_view_model_html"><div class="ttname"><a href="class_any_test_1_1_web_client_1_1_view_models_1_1_state_container_view_model.html">AnyTest.WebClient.ViewModels.StateContainerViewModel</a></div><div class="ttdef"><b>Definition:</b> <a href="_state_container_view_model_8cs_source.html#l00012">StateContainerViewModel.cs:12</a></div></div>
 <div class="ttc" id="aclass_any_test_1_1_model_1_1_person_html"><div class="ttname"><a href="class_any_test_1_1_model_1_1_person.html">AnyTest.Model.Person</a></div><div class="ttdef"><b>Definition:</b> <a href="_person_8cs_source.html#l00010">Person.cs:10</a></div></div>
-<div class="ttc" id="anamespace_any_test_1_1_web_client_1_1_view_models_html"><div class="ttname"><a href="namespace_any_test_1_1_web_client_1_1_view_models.html">AnyTest.WebClient.ViewModels</a></div><div class="ttdef"><b>Definition:</b> <a href="_state_container_view_model_8cs_source.html#l00009">StateContainerViewModel.cs:9</a></div></div>
+<div class="ttc" id="anamespace_any_test_1_1_web_client_1_1_view_models_html"><div class="ttname"><a href="namespace_any_test_1_1_web_client_1_1_view_models.html">AnyTest.WebClient.ViewModels</a></div><div class="ttdef"><b>Definition:</b> <a href="_state_container_view_model_8cs_source.html#l00010">StateContainerViewModel.cs:10</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

@@ -16,6 +16,10 @@ using System.Security.Claims;
 
 namespace AnyTest.DataService.Controllers
 {
+    /// <summary>
+    /// \~english A controller for managing user accounts
+    /// \~ukrainia Контроллер для керуввання аккаунтами користувачі
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class AccountsController : ControllerBase
@@ -23,12 +27,43 @@ namespace AnyTest.DataService.Controllers
         private readonly UserManager<IdentityUser> _userManager;
         private readonly IPersonRepository _people;
 
+        /// <summary>
+        /// \~english Creates new instance of <c>AccountsController</c>
+        /// \~ukrainian Створює новий екземляр <c>AccountsController</c>
+        /// </summary>
+        /// <param name="userManager">
+        /// \~english <c>UserManager{IdentitityUser}</c> instance. Dependency.
+        /// \~ukrainian Екземпляр <c>UserManager{IdentitityUser}</c>. Залежність.
+        /// </param>
+        /// <param name="people">
+        /// \~english The class <c>IPersonRepository</c> instance. Dependency.
+        /// \~ukrainian Екземпляр класу, який втілює <c>IPersonRepository</c>. Залежність
+        /// </param>
         public AccountsController(UserManager<IdentityUser> userManager, IPersonRepository people)
         {
             _userManager = userManager;
             _people = people;
         }
 
+        /// <summary>
+        /// \~english Creates a new user account
+        /// \~ukrainian Створює нового користувача
+        /// </summary>
+        /// <param name="model">
+        /// \~english An instance of a <c>RegisterModel</c>, conatining new user acccount data
+        /// \~ukrainian Екземпляр класу <c>RegisterModel</c>, якій місить дані нового користувача
+        /// </param>
+        /// <returns>
+        /// \~english A result of an account creation
+        /// \~ukrainian Результат створення нового користувача
+        /// </returns>
+        /// <example>
+        /// \~english An example of HTTP request to create a person
+        /// \~ukrainian Приклад HTTP запиту створення особистих даних користувача
+        /// <code>
+        /// POST: api/Accounts
+        /// </code>
+        /// </example>
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] RegisterModel model)
         {
@@ -50,6 +85,22 @@ namespace AnyTest.DataService.Controllers
             return Ok(new RegisterResult { Successful = true });
         }
 
+
+        /// <summary>
+        /// \~english Returns a <c>Person</c> correspoinding current registered user
+        /// \~ukrainian Повертає особисті дані разреєстрованого користувача
+        /// </summary>
+        /// <returns>
+        /// \~english A <c>Person</c> object with user data
+        /// \~ukrainian Об'єкт класу <c>Person</c> з особистими даними користувача
+        /// </returns>
+        /// /// <example>
+        /// \~english An example of HTTP request to get registered user data
+        /// \~ukrainian Приклад HTTP запиту особистих даних зареєстрованого користувача
+        /// <code>
+        /// GET: api/Accounts/Person
+        /// </code>
+        /// </example>
         [HttpGet("person")]
         [Authorize]
         public async Task<Person> Person ()

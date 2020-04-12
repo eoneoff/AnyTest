@@ -98,42 +98,45 @@ $(document).ready(function(){initNavTree('_any_test_identity_db_context_8cs_sour
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
 <div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="namespace_any_test_1_1_data_service.html">   12</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_any_test_1_1_data_service.html">AnyTest.DataService</a></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html">   14</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html">AnyTestIdentityDbContext</a> : IdentityDbContext&lt;IdentityUser&gt;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">public</span> <a class="code" href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html">AnyTestIdentityDbContext</a>(DbContextOptions&lt;AnyTestIdentityDbContext&gt; options): base(options) { }</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keyword">public</span> <span class="keyword">static</span> async <span class="keywordtype">void</span> SeedData(IApplicationBuilder app)</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <span class="keyword">using</span> var scope = app.ApplicationServices.CreateScope();</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            var roleManager = scope.ServiceProvider.GetRequiredService&lt;RoleManager&lt;IdentityRole&gt;&gt;();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            var userManager = scope.ServiceProvider.GetRequiredService&lt;UserManager&lt;IdentityUser&gt;&gt;();</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <span class="keywordflow">if</span>(!await roleManager.RoleExistsAsync(<span class="stringliteral">&quot;Administrator&quot;</span>))</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                <span class="keywordflow">foreach</span>(var role <span class="keywordflow">in</span> <a class="code" href="class_any_test_1_1_client_authentication_1_1_auth_service.html">AuthService</a>.<a class="code" href="class_any_test_1_1_client_authentication_1_1_auth_service.html#a2d9e27af235a0ad929d6f5df5214c018">Roles</a>)</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                    await roleManager.CreateAsync(<span class="keyword">new</span> IdentityRole(role));</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                }</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html">   18</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html">AnyTestIdentityDbContext</a> : IdentityDbContext&lt;IdentityUser&gt;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    {</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html#a986cd4ca0b18ec602fd18dacd8cee7f7">   29</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html#a986cd4ca0b18ec602fd18dacd8cee7f7">AnyTestIdentityDbContext</a>(DbContextOptions&lt;AnyTestIdentityDbContext&gt; options): base(options) { }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                var defaultAdmin = <span class="keyword">new</span> IdentityUser{UserName = <span class="stringliteral">&quot;admin&quot;</span>, Email = <span class="stringliteral">&quot;admin@admin.com&quot;</span> };</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                var createDefaultAdmin = await userManager.CreateAsync(defaultAdmin, <span class="stringliteral">&quot;Admin_1&quot;</span>);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                <span class="keywordflow">if</span> (createDefaultAdmin.Succeeded)</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                    await userManager.AddToRoleAsync(defaultAdmin, <span class="stringliteral">&quot;Administrator&quot;</span>);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                }</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        }</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html#a2442bcb38a71c469941a3303e3359f77">   40</a></span>&#160;        <span class="keyword">public</span> <span class="keyword">static</span> async <span class="keywordtype">void</span> <a class="code" href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html#a2442bcb38a71c469941a3303e3359f77">SeedData</a>(IApplicationBuilder app)</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <span class="keyword">using</span> var scope = app.ApplicationServices.CreateScope();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            var roleManager = scope.ServiceProvider.GetRequiredService&lt;RoleManager&lt;IdentityRole&gt;&gt;();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            var userManager = scope.ServiceProvider.GetRequiredService&lt;UserManager&lt;IdentityUser&gt;&gt;();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">if</span>(!await roleManager.RoleExistsAsync(<span class="stringliteral">&quot;Administrator&quot;</span>))</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="keywordflow">foreach</span>(var role <span class="keywordflow">in</span> <a class="code" href="class_any_test_1_1_client_authentication_1_1_auth_service.html">AuthService</a>.<a class="code" href="class_any_test_1_1_client_authentication_1_1_auth_service.html#a2d9e27af235a0ad929d6f5df5214c018">Roles</a>)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                    await roleManager.CreateAsync(<span class="keyword">new</span> IdentityRole(role));</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                var defaultAdmin = <span class="keyword">new</span> IdentityUser{UserName = <span class="stringliteral">&quot;admin&quot;</span>, Email = <span class="stringliteral">&quot;admin@admin.com&quot;</span> };</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                var createDefaultAdmin = await userManager.CreateAsync(defaultAdmin, <span class="stringliteral">&quot;Admin_1&quot;</span>);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keywordflow">if</span> (createDefaultAdmin.Succeeded)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                    await userManager.AddToRoleAsync(defaultAdmin, <span class="stringliteral">&quot;Administrator&quot;</span>);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="anamespace_any_test_1_1_data_service_html"><div class="ttname"><a href="namespace_any_test_1_1_data_service.html">AnyTest.DataService</a></div><div class="ttdef"><b>Definition:</b> <a href="_any_test_identity_db_context_8cs_source.html#l00012">AnyTestIdentityDbContext.cs:12</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_data_service_1_1_any_test_identity_db_context_html_a2442bcb38a71c469941a3303e3359f77"><div class="ttname"><a href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html#a2442bcb38a71c469941a3303e3359f77">AnyTest.DataService.AnyTestIdentityDbContext.SeedData</a></div><div class="ttdeci">static async void SeedData(IApplicationBuilder app)</div><div class="ttdoc">A method to seed initial data in a newly created database A coller application builder</div><div class="ttdef"><b>Definition:</b> <a href="_any_test_identity_db_context_8cs_source.html#l00040">AnyTestIdentityDbContext.cs:40</a></div></div>
 <div class="ttc" id="aclass_any_test_1_1_client_authentication_1_1_auth_service_html"><div class="ttname"><a href="class_any_test_1_1_client_authentication_1_1_auth_service.html">AnyTest.ClientAuthentication.AuthService</a></div><div class="ttdoc">A service class for authenticating with JWT tokens</div><div class="ttdef"><b>Definition:</b> <a href="_auth_service_8cs_source.html#l00019">AuthService.cs:19</a></div></div>
 <div class="ttc" id="anamespace_any_test_html"><div class="ttname"><a href="namespace_any_test.html">AnyTest</a></div><div class="ttdef"><b>Definition:</b> <a href="_api_authenticaion_state_provider_8cs_source.html#l00013">ApiAuthenticaionStateProvider.cs:13</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_data_service_1_1_any_test_identity_db_context_html_a986cd4ca0b18ec602fd18dacd8cee7f7"><div class="ttname"><a href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html#a986cd4ca0b18ec602fd18dacd8cee7f7">AnyTest.DataService.AnyTestIdentityDbContext.AnyTestIdentityDbContext</a></div><div class="ttdeci">AnyTestIdentityDbContext(DbContextOptions&lt; AnyTestIdentityDbContext &gt; options)</div><div class="ttdef"><b>Definition:</b> <a href="_any_test_identity_db_context_8cs_source.html#l00029">AnyTestIdentityDbContext.cs:29</a></div></div>
 <div class="ttc" id="anamespace_any_test_1_1_client_authentication_html"><div class="ttname"><a href="namespace_any_test_1_1_client_authentication.html">AnyTest.ClientAuthentication</a></div><div class="ttdef"><b>Definition:</b> <a href="_api_authenticaion_state_provider_8cs_source.html#l00013">ApiAuthenticaionStateProvider.cs:13</a></div></div>
 <div class="ttc" id="aclass_any_test_1_1_client_authentication_1_1_auth_service_html_a2d9e27af235a0ad929d6f5df5214c018"><div class="ttname"><a href="class_any_test_1_1_client_authentication_1_1_auth_service.html#a2d9e27af235a0ad929d6f5df5214c018">AnyTest.ClientAuthentication.AuthService.Roles</a></div><div class="ttdeci">static readonly List&lt; string &gt; Roles</div><div class="ttdoc">A list of valid roles</div><div class="ttdef"><b>Definition:</b> <a href="_auth_service_8cs_source.html#l00029">AuthService.cs:29</a></div></div>
-<div class="ttc" id="aclass_any_test_1_1_data_service_1_1_any_test_identity_db_context_html"><div class="ttname"><a href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html">AnyTest.DataService.AnyTestIdentityDbContext</a></div><div class="ttdef"><b>Definition:</b> <a href="_any_test_identity_db_context_8cs_source.html#l00014">AnyTestIdentityDbContext.cs:14</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_data_service_1_1_any_test_identity_db_context_html"><div class="ttname"><a href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html">AnyTest.DataService.AnyTestIdentityDbContext</a></div><div class="ttdoc">A class that represents a session with identity database</div><div class="ttdef"><b>Definition:</b> <a href="_any_test_identity_db_context_8cs_source.html#l00018">AnyTestIdentityDbContext.cs:18</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

@@ -9,6 +9,7 @@ var hierarchy =
     [ "ControllerBase", null, [
       [ "AnyTest.DataService.Controllers.AccountsController", "class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller.html", null ],
       [ "AnyTest.DataService.Controllers.LoginController", "class_any_test_1_1_data_service_1_1_controllers_1_1_login_controller.html", null ],
+      [ "AnyTest.DataService.Controllers.PeopleController", "class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller.html", null ],
       [ "AnyTest.DataService.Controllers.TutorsController", "class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller.html", null ]
     ] ],
     [ "AnyTest.Model.Course", "class_any_test_1_1_model_1_1_course.html", null ],
@@ -44,7 +45,8 @@ var hierarchy =
     [ "AnyTest.ClientAuthentication.LoginModel", "class_any_test_1_1_client_authentication_1_1_login_model.html", null ],
     [ "AnyTest.ClientAuthentication.LoginResult", "class_any_test_1_1_client_authentication_1_1_login_result.html", null ],
     [ "Migration", null, [
-      [ "AnyTest.DbAccess.Migrations.Initial", "class_any_test_1_1_db_access_1_1_migrations_1_1_initial.html", null ]
+      [ "AnyTest.DbAccess.Migrations.Initial", "class_any_test_1_1_db_access_1_1_migrations_1_1_initial.html", null ],
+      [ "AnyTest.DbAccess.Migrations.SmallCorrectionsToDb", "class_any_test_1_1_db_access_1_1_migrations_1_1_small_corrections_to_db.html", null ]
     ] ],
     [ "ModelSnapshot", null, [
       [ "AnyTest.DbAccess.Migrations.AnyTestDbContextModelSnapshot", "class_any_test_1_1_db_access_1_1_migrations_1_1_any_test_db_context_model_snapshot.html", null ]

@@ -6,25 +6,48 @@
 \mbox{\Hypertarget{class_any_test_1_1_web_client_1_1_view_models_1_1_state_container_view_model_a064b036366e5038a4cd0afed2b1daf2f}\label{class_any_test_1_1_web_client_1_1_view_models_1_1_state_container_view_model_a064b036366e5038a4cd0afed2b1daf2f}} 
 {\bfseries State\+Container\+View\+Model} (Http\+Client http\+Client)
 \item 
+\mbox{\Hypertarget{class_any_test_1_1_web_client_1_1_view_models_1_1_state_container_view_model_aebc673b3f20790e6f65a29f2a4838b1f}\label{class_any_test_1_1_web_client_1_1_view_models_1_1_state_container_view_model_aebc673b3f20790e6f65a29f2a4838b1f}} 
+void {\bfseries Reset\+Person} ()
+\item 
 \mbox{\Hypertarget{class_any_test_1_1_web_client_1_1_view_models_1_1_state_container_view_model_a03db418f29a18d5e927352acd69f21e7}\label{class_any_test_1_1_web_client_1_1_view_models_1_1_state_container_view_model_a03db418f29a18d5e927352acd69f21e7}} 
 async Task {\bfseries Get\+Person\+By\+Authorized\+User} ()
 \item 
 \mbox{\Hypertarget{class_any_test_1_1_web_client_1_1_view_models_1_1_state_container_view_model_ad3de11d8d70d94e40cfd88f47d0b67fd}\label{class_any_test_1_1_web_client_1_1_view_models_1_1_state_container_view_model_ad3de11d8d70d94e40cfd88f47d0b67fd}} 
 \mbox{\hyperlink{class_any_test_1_1_model_1_1_person}{Person}} {\bfseries Get\+Copy\+Of\+Person} ()
-\end{DoxyCompactItemize}
+\item 
+async Task \mbox{\hyperlink{class_any_test_1_1_web_client_1_1_view_models_1_1_state_container_view_model_af4b8f3c79bb5fdaa766e803e1a31ff58}{Save\+Person}} (\mbox{\hyperlink{class_any_test_1_1_model_1_1_person}{Person}} person)
+\begin{DoxyCompactList}\small\item\em Зберігає {\ttfamily Person} до бази даних \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Властивості}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{class_any_test_1_1_web_client_1_1_view_models_1_1_state_container_view_model_aec3519e6ef24504f1ad1decefa7aa25f}\label{class_any_test_1_1_web_client_1_1_view_models_1_1_state_container_view_model_aec3519e6ef24504f1ad1decefa7aa25f}} 
-\mbox{\hyperlink{class_any_test_1_1_model_1_1_person}{Person}} {\bfseries Person} = new \mbox{\hyperlink{class_any_test_1_1_model_1_1_person}{Person}} \{ First\+Name = \char`\"{}Іван\char`\"{}, Family\+Name = \char`\"{}Іванов\char`\"{}, Partronimic = \char`\"{}Іванович\char`\"{}, Phone=\char`\"{}0664555445\char`\"{}, Email=\char`\"{}ivanov@gmail.\+com\char`\"{} \}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\mbox{\hyperlink{class_any_test_1_1_model_1_1_person}{Person}} {\bfseries Person} = new \mbox{\hyperlink{class_any_test_1_1_model_1_1_person}{Person}}()\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Детальний опис}
 
 
-Див. визначення в файлі State\+Container\+View\+Model.\+cs, рядок 11
+Див. визначення в файлі State\+Container\+View\+Model.\+cs, рядок 12
 
+
+
+\doxysubsection{Опис методів компонент}
+\mbox{\Hypertarget{class_any_test_1_1_web_client_1_1_view_models_1_1_state_container_view_model_af4b8f3c79bb5fdaa766e803e1a31ff58}\label{class_any_test_1_1_web_client_1_1_view_models_1_1_state_container_view_model_af4b8f3c79bb5fdaa766e803e1a31ff58}} 
+\index{AnyTest.WebClient.ViewModels.StateContainerViewModel@{AnyTest.WebClient.ViewModels.StateContainerViewModel}!SavePerson@{SavePerson}}
+\index{SavePerson@{SavePerson}!AnyTest.WebClient.ViewModels.StateContainerViewModel@{AnyTest.WebClient.ViewModels.StateContainerViewModel}}
+\doxysubsubsection{\texorpdfstring{SavePerson()}{SavePerson()}}
+{\footnotesize\ttfamily async Task Any\+Test.\+Web\+Client.\+View\+Models.\+State\+Container\+View\+Model.\+Save\+Person (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_any_test_1_1_model_1_1_person}{Person}}}]{person }\end{DoxyParamCaption})}
+
+
+
+Зберігає {\ttfamily Person} до бази даних 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em person} & Об\textquotesingle{}єкт {\ttfamily Person} \\
+\hline
+\end{DoxyParams}
 
 
 Документація цього класу була створена з файлу\+:\begin{DoxyCompactItemize}

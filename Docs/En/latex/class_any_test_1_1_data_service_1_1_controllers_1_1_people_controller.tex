@@ -1,0 +1,46 @@
+\hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller}{}\doxysection{Any\+Test.\+Data\+Service.\+Controllers.\+People\+Controller Class Reference}
+\label{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller}\index{AnyTest.DataService.Controllers.PeopleController@{AnyTest.DataService.Controllers.PeopleController}}
+
+
+An A\+PI controller for people personal data  
+
+
+Inheritance diagram for Any\+Test.\+Data\+Service.\+Controllers.\+People\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_a6412851d80279ad6034484e6ab942d61}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_a6412851d80279ad6034484e6ab942d61}} 
+\mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_a6412851d80279ad6034484e6ab942d61}{People\+Controller}} (\mbox{\hyperlink{interface_any_test_1_1_i_data_repository_1_1_i_person_repository}{I\+Person\+Repository}} repository)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the {\ttfamily People\+Contorller} class An object, implementing an {\ttfamily I\+Person\+Repository} interface. Dependency. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_a8307c66435045f7c684ba5ecedeae888}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_a8307c66435045f7c684ba5ecedeae888}} 
+async Task$<$ I\+Enumerable$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_person}{Person}} $>$ $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_a8307c66435045f7c684ba5ecedeae888}{Get}} ()
+\begin{DoxyCompactList}\small\item\em A method for getting a complete list of people A collection of {\ttfamily Person} An expample of H\+T\+TP request for people \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_ae61003bdbf9081948d7bdf00c80d76fa}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_ae61003bdbf9081948d7bdf00c80d76fa}} 
+async Task$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_person}{Person}} $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_ae61003bdbf9081948d7bdf00c80d76fa}{Get}} (long id)
+\begin{DoxyCompactList}\small\item\em A method for gettin a single person by id User id {\ttfamily long} An expample of H\+T\+TP request for a person \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_aee73e7c2269285c5ebd42b796aca359e}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_aee73e7c2269285c5ebd42b796aca359e}} 
+async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_aee73e7c2269285c5ebd42b796aca359e}{Post}} (\mbox{[}From\+Body\mbox{]} \mbox{\hyperlink{class_any_test_1_1_model_1_1_person}{Person}} person)
+\begin{DoxyCompactList}\small\item\em Creates a new person An instance of a {\ttfamily Person}, conatining new user data A result of a person creation An example of H\+T\+TP request to create a person \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_a79f0511f15f7ecbe42deb23c3b01cb4a}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_a79f0511f15f7ecbe42deb23c3b01cb4a}} 
+async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_a79f0511f15f7ecbe42deb23c3b01cb4a}{Put}} (long id, \mbox{[}From\+Body\mbox{]} \mbox{\hyperlink{class_any_test_1_1_model_1_1_person}{Person}} person)
+\begin{DoxyCompactList}\small\item\em Edits an existing person A {\ttfamily Person} id. {\ttfamily long} A {\ttfamily Person} object with updated person data A result of person updating An example of H\+T\+TP request to update a person \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_a7ced71af963b5d3ab4cfba50d6460dd5}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_a7ced71af963b5d3ab4cfba50d6460dd5}} 
+async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller_a7ced71af963b5d3ab4cfba50d6460dd5}{Delete}} (long id)
+\begin{DoxyCompactList}\small\item\em Deleted a user User id {\ttfamily long} A result of deleting a person An example of H\+T\+TP request to delete a person \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An A\+PI controller for people personal data 
+
+Definition at line 18 of file People\+Controller.\+cs.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Any\+Test/\+Any\+Test/\+Any\+Test.\+Data\+Service/\+Controllers/People\+Controller.\+cs\end{DoxyCompactItemize}

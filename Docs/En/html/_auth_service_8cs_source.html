@@ -112,54 +112,68 @@ $(document).ready(function(){initNavTree('_auth_service_8cs_source.html',''); in
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="stringliteral">&quot;Student&quot;</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        };</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keyword">public</span> <a class="code" href="class_any_test_1_1_client_authentication_1_1_auth_service.html">AuthService</a>(HttpClient httpClient,AuthenticationStateProvider authenticationStateProvider, ILocalStorageService localStorage)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            _httpClient = httpClient;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            _authenticationStateProvider = authenticationStateProvider;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            _localStorage = localStorage;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">public</span> async Task&lt;LoginResult&gt; <a class="code" href="interface_any_test_1_1_client_authentication_1_1_i_auth_service.html#a5de0e0b70a1b7e58fc40d0df93739f5a">Login</a>(LoginModel creds)</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            var loginAsJson = JsonSerializer.Serialize(creds);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            var response = await _httpClient.PostAsync(<span class="stringliteral">&quot;Login&quot;</span>, <span class="keyword">new</span> StringContent(loginAsJson, Encoding.UTF8, <span class="stringliteral">&quot;application/json&quot;</span>));</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            var loginResult = JsonSerializer.Deserialize&lt;LoginResult&gt;(await response.Content.ReadAsStringAsync(), <span class="keyword">new</span> JsonSerializerOptions { PropertyNameCaseInsensitive = <span class="keyword">true</span> });</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">if</span>(response.IsSuccessStatusCode)</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                await _localStorage.SetItemAsync(<span class="stringliteral">&quot;authToken&quot;</span>, loginResult.Token);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                (_authenticationStateProvider as ApiAuthenticaionStateProvider).MarkUserAsAuthenticated(creds.UserName);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                _httpClient.DefaultRequestHeaders.Authorization = <span class="keyword">new</span> AuthenticationHeaderValue(<span class="stringliteral">&quot;bearer&quot;</span>, loginResult.Token);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordflow">return</span> loginResult;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keyword">public</span> async Task <a class="code" href="interface_any_test_1_1_client_authentication_1_1_i_auth_service.html#a96424edfb1923174d39b8e409d9c0808">Logout</a>()</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            await _localStorage.RemoveItemAsync(<span class="stringliteral">&quot;authToken&quot;</span>);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            (_authenticationStateProvider as ApiAuthenticaionStateProvider).MarkUserAsLoggedOut();</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            _httpClient.DefaultRequestHeaders.Authorization = <span class="keyword">null</span>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        }</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="class_any_test_1_1_client_authentication_1_1_auth_service.html#a1bfafcaa3de501a3cab9a6fcd355b6c2">   84</a></span>&#160;        <span class="keyword">public</span> async Task&lt;RegisterResult&gt; <a class="code" href="class_any_test_1_1_client_authentication_1_1_auth_service.html#a1bfafcaa3de501a3cab9a6fcd355b6c2">Register</a>(<a class="code" href="class_any_test_1_1_client_authentication_1_1_register_model.html">RegisterModel</a> registerModel)</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        {</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            var result = await _httpClient.PostJsonAsync&lt;<a class="code" href="class_any_test_1_1_client_authentication_1_1_register_result.html">RegisterResult</a>&gt;(<span class="stringliteral">&quot;api/accounts&quot;</span>, registerModel);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        }</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    }</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keyword">public</span> <a class="code" href="class_any_test_1_1_client_authentication_1_1_auth_service.html">AuthService</a>(HttpClient httpClient,AuthenticationStateProvider authenticationStateProvider, ILocalStorageService localStorage)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            _httpClient = httpClient;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            _authenticationStateProvider = authenticationStateProvider;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            _localStorage = localStorage;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keyword">public</span> async Task&lt;LoginResult&gt; <a class="code" href="interface_any_test_1_1_client_authentication_1_1_i_auth_service.html#a5de0e0b70a1b7e58fc40d0df93739f5a">Login</a>(LoginModel creds)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            var loginAsJson = JsonSerializer.Serialize(creds);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            var response = await _httpClient.PostAsync(<span class="stringliteral">&quot;Login&quot;</span>, <span class="keyword">new</span> StringContent(loginAsJson, Encoding.UTF8, <span class="stringliteral">&quot;application/json&quot;</span>));</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            var loginResult = JsonSerializer.Deserialize&lt;LoginResult&gt;(await response.Content.ReadAsStringAsync(), <span class="keyword">new</span> JsonSerializerOptions { PropertyNameCaseInsensitive = <span class="keyword">true</span> });</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keywordflow">if</span>(response.IsSuccessStatusCode)</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                await _localStorage.SetItemAsync(<span class="stringliteral">&quot;authToken&quot;</span>, loginResult.Token);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                (_authenticationStateProvider as ApiAuthenticaionStateProvider).MarkUserAsAuthenticated(creds.UserName);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                _httpClient.DefaultRequestHeaders.Authorization = <span class="keyword">new</span> AuthenticationHeaderValue(<span class="stringliteral">&quot;bearer&quot;</span>, loginResult.Token);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keywordflow">return</span> loginResult;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keyword">public</span> async Task <a class="code" href="interface_any_test_1_1_client_authentication_1_1_i_auth_service.html#a96424edfb1923174d39b8e409d9c0808">Logout</a>()</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            await _localStorage.RemoveItemAsync(<span class="stringliteral">&quot;authToken&quot;</span>);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            (_authenticationStateProvider as ApiAuthenticaionStateProvider).MarkUserAsLoggedOut();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            _httpClient.DefaultRequestHeaders.Authorization = <span class="keyword">null</span>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="class_any_test_1_1_client_authentication_1_1_auth_service.html#a1bfafcaa3de501a3cab9a6fcd355b6c2">   85</a></span>&#160;        <span class="keyword">public</span> async Task&lt;RegisterResult&gt; <a class="code" href="class_any_test_1_1_client_authentication_1_1_auth_service.html#a1bfafcaa3de501a3cab9a6fcd355b6c2">Register</a>(<a class="code" href="class_any_test_1_1_client_authentication_1_1_register_model.html">RegisterModel</a> registerModel)</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            var result = await _httpClient.PostJsonAsync&lt;<a class="code" href="class_any_test_1_1_client_authentication_1_1_register_result.html">RegisterResult</a>&gt;(<span class="stringliteral">&quot;api/accounts&quot;</span>, registerModel);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="class_any_test_1_1_client_authentication_1_1_auth_service.html#a7abbe76fa32d94ba8889ff9c96f3e837">   92</a></span>&#160;        <span class="keyword">public</span> async Task&lt;bool&gt; <a class="code" href="class_any_test_1_1_client_authentication_1_1_auth_service.html#a7abbe76fa32d94ba8889ff9c96f3e837">GetToken</a>()</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            var savedToken = await _localStorage.GetItemAsync&lt;<span class="keywordtype">string</span>&gt;(<span class="stringliteral">&quot;authToken&quot;</span>);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <span class="keywordflow">if</span> (<span class="keywordtype">string</span>.IsNullOrWhiteSpace(savedToken))</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            }</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            _httpClient.DefaultRequestHeaders.Authorization = <span class="keyword">new</span> AuthenticationHeaderValue(<span class="stringliteral">&quot;bearer&quot;</span>, savedToken);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        }</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_any_test_1_1_client_authentication_1_1_auth_service_html"><div class="ttname"><a href="class_any_test_1_1_client_authentication_1_1_auth_service.html">AnyTest.ClientAuthentication.AuthService</a></div><div class="ttdoc">A service class for authenticating with JWT tokens</div><div class="ttdef"><b>Definition:</b> <a href="_auth_service_8cs_source.html#l00019">AuthService.cs:19</a></div></div>
 <div class="ttc" id="ainterface_any_test_1_1_client_authentication_1_1_i_auth_service_html"><div class="ttname"><a href="interface_any_test_1_1_client_authentication_1_1_i_auth_service.html">AnyTest.ClientAuthentication.IAuthService</a></div><div class="ttdoc">An inteface for JWT authentication service</div><div class="ttdef"><b>Definition:</b> <a href="_i_auth_service_8cs_source.html#l00012">IAuthService.cs:12</a></div></div>
 <div class="ttc" id="ainterface_any_test_1_1_client_authentication_1_1_i_auth_service_html_a5de0e0b70a1b7e58fc40d0df93739f5a"><div class="ttname"><a href="interface_any_test_1_1_client_authentication_1_1_i_auth_service.html#a5de0e0b70a1b7e58fc40d0df93739f5a">AnyTest.ClientAuthentication.IAuthService.Login</a></div><div class="ttdeci">Task&lt; LoginResult &gt; Login(LoginModel creds)</div><div class="ttdoc">Performs user login LoginModel object with user credentials</div></div>
 <div class="ttc" id="anamespace_any_test_1_1_client_authentication_html"><div class="ttname"><a href="namespace_any_test_1_1_client_authentication.html">AnyTest.ClientAuthentication</a></div><div class="ttdef"><b>Definition:</b> <a href="_api_authenticaion_state_provider_8cs_source.html#l00013">ApiAuthenticaionStateProvider.cs:13</a></div></div>
-<div class="ttc" id="aclass_any_test_1_1_client_authentication_1_1_register_result_html"><div class="ttname"><a href="class_any_test_1_1_client_authentication_1_1_register_result.html">AnyTest.ClientAuthentication.RegisterResult</a></div><div class="ttdef"><b>Definition:</b> <a href="_register_result_8cs_source.html#l00007">RegisterResult.cs:7</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_client_authentication_1_1_auth_service_html_a7abbe76fa32d94ba8889ff9c96f3e837"><div class="ttname"><a href="class_any_test_1_1_client_authentication_1_1_auth_service.html#a7abbe76fa32d94ba8889ff9c96f3e837">AnyTest.ClientAuthentication.AuthService.GetToken</a></div><div class="ttdeci">async Task&lt; bool &gt; GetToken()</div><div class="ttdoc">Gets token from local storage to HttpClient Returns bool defining whether local storage contains toke...</div><div class="ttdef"><b>Definition:</b> <a href="_auth_service_8cs_source.html#l00092">AuthService.cs:92</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_client_authentication_1_1_register_result_html"><div class="ttname"><a href="class_any_test_1_1_client_authentication_1_1_register_result.html">AnyTest.ClientAuthentication.RegisterResult</a></div><div class="ttdoc">A class for a result of a user registration</div><div class="ttdef"><b>Definition:</b> <a href="_register_result_8cs_source.html#l00011">RegisterResult.cs:11</a></div></div>
 <div class="ttc" id="ainterface_any_test_1_1_client_authentication_1_1_i_auth_service_html_a96424edfb1923174d39b8e409d9c0808"><div class="ttname"><a href="interface_any_test_1_1_client_authentication_1_1_i_auth_service.html#a96424edfb1923174d39b8e409d9c0808">AnyTest.ClientAuthentication.IAuthService.Logout</a></div><div class="ttdeci">Task Logout()</div><div class="ttdoc">Performs user logout</div></div>
-<div class="ttc" id="aclass_any_test_1_1_client_authentication_1_1_register_model_html"><div class="ttname"><a href="class_any_test_1_1_client_authentication_1_1_register_model.html">AnyTest.ClientAuthentication.RegisterModel</a></div><div class="ttdef"><b>Definition:</b> <a href="_register_model_8cs_source.html#l00009">RegisterModel.cs:9</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_client_authentication_1_1_register_model_html"><div class="ttname"><a href="class_any_test_1_1_client_authentication_1_1_register_model.html">AnyTest.ClientAuthentication.RegisterModel</a></div><div class="ttdoc">A model for user registering</div><div class="ttdef"><b>Definition:</b> <a href="_register_model_8cs_source.html#l00013">RegisterModel.cs:13</a></div></div>
 <div class="ttc" id="aclass_any_test_1_1_client_authentication_1_1_auth_service_html_a2d9e27af235a0ad929d6f5df5214c018"><div class="ttname"><a href="class_any_test_1_1_client_authentication_1_1_auth_service.html#a2d9e27af235a0ad929d6f5df5214c018">AnyTest.ClientAuthentication.AuthService.Roles</a></div><div class="ttdeci">static readonly List&lt; string &gt; Roles</div><div class="ttdoc">A list of valid roles</div><div class="ttdef"><b>Definition:</b> <a href="_auth_service_8cs_source.html#l00029">AuthService.cs:29</a></div></div>
-<div class="ttc" id="aclass_any_test_1_1_client_authentication_1_1_auth_service_html_a1bfafcaa3de501a3cab9a6fcd355b6c2"><div class="ttname"><a href="class_any_test_1_1_client_authentication_1_1_auth_service.html#a1bfafcaa3de501a3cab9a6fcd355b6c2">AnyTest.ClientAuthentication.AuthService.Register</a></div><div class="ttdeci">async Task&lt; RegisterResult &gt; Register(RegisterModel registerModel)</div><div class="ttdoc">Registers a new user A RegisterModel object with new user data RegisterResult object with info about ...</div><div class="ttdef"><b>Definition:</b> <a href="_auth_service_8cs_source.html#l00084">AuthService.cs:84</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_client_authentication_1_1_auth_service_html_a1bfafcaa3de501a3cab9a6fcd355b6c2"><div class="ttname"><a href="class_any_test_1_1_client_authentication_1_1_auth_service.html#a1bfafcaa3de501a3cab9a6fcd355b6c2">AnyTest.ClientAuthentication.AuthService.Register</a></div><div class="ttdeci">async Task&lt; RegisterResult &gt; Register(RegisterModel registerModel)</div><div class="ttdoc">Registers a new user A RegisterModel object with new user data RegisterResult object with info about ...</div><div class="ttdef"><b>Definition:</b> <a href="_auth_service_8cs_source.html#l00085">AuthService.cs:85</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

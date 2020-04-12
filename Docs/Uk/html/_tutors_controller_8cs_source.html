@@ -96,29 +96,31 @@ $(document).ready(function(){initNavTree('_tutors_controller_8cs_source.html',''
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_any_test_1_1_data_service_1_1_controllers.html">AnyTest.DataService.Controllers</a></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    [Route(<span class="stringliteral">&quot;api/[controller]&quot;</span>)]</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    [ApiController]</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller.html">   14</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller.html">TutorsController</a> : ControllerBase</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">private</span> <a class="code" href="interface_any_test_1_1_i_data_repository_1_1_i_repository.html">IRepository&lt;Tutor&gt;</a> _repository;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keyword">public</span> <a class="code" href="class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller.html">TutorsController</a>(<a class="code" href="interface_any_test_1_1_i_data_repository_1_1_i_repository.html">IRepository&lt;Tutor&gt;</a> repository) =&gt; _repository = repository;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        [HttpGet]</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">public</span> async Task&lt;IEnumerable&lt;Tutor&gt;&gt; Get() =&gt; await _repository.Get();</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        [HttpGet(<span class="stringliteral">&quot;{id:long}&quot;</span>)]</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">public</span> async Task&lt;Tutor&gt; Get(<span class="keywordtype">long</span> <span class="keywordtype">id</span>) =&gt; await _repository.Get(<span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    }</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    [Route(<span class="stringliteral">&quot;api/[controller]&quot;</span>)]</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    [ApiController]</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller.html">   18</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller.html">TutorsController</a> : ControllerBase</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keyword">private</span> <a class="code" href="interface_any_test_1_1_i_data_repository_1_1_i_repository.html">IRepository&lt;Tutor&gt;</a> _repository;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keyword">public</span> <a class="code" href="class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller.html#a030c71fad83c34f8938da13b3c9f1ccf">TutorsController</a>(<a class="code" href="interface_any_test_1_1_i_data_repository_1_1_i_repository.html">IRepository&lt;Tutor&gt;</a> repository) =&gt; _repository = repository;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        [HttpGet]</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">public</span> async Task&lt;IEnumerable&lt;Tutor&gt;&gt; <a class="code" href="class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller.html#adc4e7f18bae4c265fd1bbac3bd1b91de">Get</a>() =&gt; await _repository.Get();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        [HttpGet(<span class="stringliteral">&quot;{id:long}&quot;</span>)]</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keyword">public</span> async Task&lt;Tutor&gt; <a class="code" href="class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller.html#adc4e7f18bae4c265fd1bbac3bd1b91de">Get</a>(<span class="keywordtype">long</span> <span class="keywordtype">id</span>) =&gt; await _repository.Get(<span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="ainterface_any_test_1_1_i_data_repository_1_1_i_repository_html"><div class="ttname"><a href="interface_any_test_1_1_i_data_repository_1_1_i_repository.html">AnyTest.IDataRepository.IRepository&lt; Tutor &gt;</a></div></div>
 <div class="ttc" id="anamespace_any_test_html"><div class="ttname"><a href="namespace_any_test.html">AnyTest</a></div><div class="ttdef"><b>Definition:</b> <a href="_api_authenticaion_state_provider_8cs_source.html#l00013">ApiAuthenticaionStateProvider.cs:13</a></div></div>
 <div class="ttc" id="anamespace_any_test_1_1_i_data_repository_html"><div class="ttname"><a href="namespace_any_test_1_1_i_data_repository.html">AnyTest.IDataRepository</a></div><div class="ttdef"><b>Definition:</b> <a href="_i_deleter_8cs_source.html#l00006">IDeleter.cs:6</a></div></div>
 <div class="ttc" id="anamespace_any_test_1_1_data_service_1_1_controllers_html"><div class="ttname"><a href="namespace_any_test_1_1_data_service_1_1_controllers.html">AnyTest.DataService.Controllers</a></div><div class="ttdef"><b>Definition:</b> <a href="_accounts_controller_8cs_source.html#l00017">AccountsController.cs:17</a></div></div>
-<div class="ttc" id="aclass_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller_html"><div class="ttname"><a href="class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller.html">AnyTest.DataService.Controllers.TutorsController</a></div><div class="ttdef"><b>Definition:</b> <a href="_tutors_controller_8cs_source.html#l00014">TutorsController.cs:14</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller_html"><div class="ttname"><a href="class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller.html">AnyTest.DataService.Controllers.TutorsController</a></div><div class="ttdef"><b>Definition:</b> <a href="_tutors_controller_8cs_source.html#l00018">TutorsController.cs:18</a></div></div>
 <div class="ttc" id="anamespace_any_test_1_1_model_html"><div class="ttname"><a href="namespace_any_test_1_1_model.html">AnyTest.Model</a></div><div class="ttdef"><b>Definition:</b> <a href="_course_8cs_source.html#l00008">Course.cs:8</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller_html_a030c71fad83c34f8938da13b3c9f1ccf"><div class="ttname"><a href="class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller.html#a030c71fad83c34f8938da13b3c9f1ccf">AnyTest.DataService.Controllers.TutorsController.TutorsController</a></div><div class="ttdeci">TutorsController(IRepository&lt; Tutor &gt; repository)</div><div class="ttdoc">Ініціалізує новий екземляр класу TutorsContorller</div></div>
+<div class="ttc" id="aclass_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller_html_adc4e7f18bae4c265fd1bbac3bd1b91de"><div class="ttname"><a href="class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller.html#adc4e7f18bae4c265fd1bbac3bd1b91de">AnyTest.DataService.Controllers.TutorsController.Get</a></div><div class="ttdeci">async Task&lt; IEnumerable&lt; Tutor &gt; &gt; Get()</div><div class="ttdoc">Метод для отримання персональних даних всіх викладачів</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

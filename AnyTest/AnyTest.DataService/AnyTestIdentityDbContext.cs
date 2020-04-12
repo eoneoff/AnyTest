@@ -11,10 +11,32 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace AnyTest.DataService
 {
+    /// <summary>
+    /// \~english A class that represents a session with identity database
+    /// \~ukrainian Клас, який представляє сесію з базою даних Identity
+    /// </summary>
     public class AnyTestIdentityDbContext : IdentityDbContext<IdentityUser>
     {
+        /// <summary>
+    ///     \~english Creates an instance of <c>AnyTestIdentityDbContext</c>
+        /// \~ukrainian Створює екземпляр <c>AnyTestIdentityDbContext</c>
+        /// </summary>
+        /// <param name="options">
+        /// \~english Contains the options for database context creation
+        /// \~ukrainian Містить опції для створення контексту бази даних
+        /// </param>
+        /// <returns></returns>
         public AnyTestIdentityDbContext(DbContextOptions<AnyTestIdentityDbContext> options): base(options) { }
 
+
+        /// <summary>
+        /// \~english A method to seed initial data in a newly created database
+        /// \~ukrainian Метод, який додає дані за замовчуванням до щойно створеної бази даних
+        /// </summary>
+        /// <param name="app">
+        /// \~english A coller application builder
+        /// \~ukrainian Клас-будівник доадтку, викликаючого метод
+        /// </param>
         public static async void SeedData(IApplicationBuilder app)
         {
             using var scope = app.ApplicationServices.CreateScope();

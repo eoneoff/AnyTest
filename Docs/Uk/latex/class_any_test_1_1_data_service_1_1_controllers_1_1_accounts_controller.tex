@@ -1,5 +1,10 @@
 \hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller}{}\doxysection{Клас Any\+Test.\+Data\+Service.\+Controllers.\+Accounts\+Controller}
 \label{class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller}\index{AnyTest.DataService.Controllers.AccountsController@{AnyTest.DataService.Controllers.AccountsController}}
+
+
+ 
+
+
 Схема успадкувань для Any\+Test.\+Data\+Service.\+Controllers.\+Accounts\+Controller\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,21 +14,96 @@
 \doxysubsection*{Загальнодоступні елементи}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller_a666b6333e351949ddf761c861b699ea0}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller_a666b6333e351949ddf761c861b699ea0}} 
-{\bfseries Accounts\+Controller} (User\+Manager$<$ Identity\+User $>$ user\+Manager, \mbox{\hyperlink{interface_any_test_1_1_i_data_repository_1_1_i_person_repository}{I\+Person\+Repository}} people)
-\item 
-\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller_aea90b5159e3c28be26433b824262e14e}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller_aea90b5159e3c28be26433b824262e14e}} 
-async Task$<$ I\+Action\+Result $>$ {\bfseries Post} (\mbox{[}From\+Body\mbox{]} \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_register_model}{Register\+Model}} model)
-\item 
-\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller_aeb0adf11471a6fb7eb1351e44ba890e6}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller_aeb0adf11471a6fb7eb1351e44ba890e6}} 
-async Task$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_person}{Person}} $>$ {\bfseries Person} ()
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller_a666b6333e351949ddf761c861b699ea0}{Accounts\+Controller}} (User\+Manager$<$ Identity\+User $>$ user\+Manager, \mbox{\hyperlink{interface_any_test_1_1_i_data_repository_1_1_i_person_repository}{I\+Person\+Repository}} people)
+\begin{DoxyCompactList}\small\item\em Створює новий екземляр {\ttfamily \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller}{Accounts\+Controller}}} \end{DoxyCompactList}\item 
+async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller_aea90b5159e3c28be26433b824262e14e}{Post}} (\mbox{[}From\+Body\mbox{]} \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_register_model}{Register\+Model}} model)
+\begin{DoxyCompactList}\small\item\em Створює нового користувача \end{DoxyCompactList}\item 
+async Task$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_person}{Person}} $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller_aeb0adf11471a6fb7eb1351e44ba890e6}{Person}} ()
+\begin{DoxyCompactList}\small\item\em Повертає особисті дані разреєстрованого користувача \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Детальний опис}
 
 
-Див. визначення в файлі Accounts\+Controller.\+cs, рядок 21
+Див. визначення в файлі Accounts\+Controller.\+cs, рядок 25
+
+
+
+\doxysubsection{Конструктор(и)}
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller_a666b6333e351949ddf761c861b699ea0}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller_a666b6333e351949ddf761c861b699ea0}} 
+\index{AnyTest.DataService.Controllers.AccountsController@{AnyTest.DataService.Controllers.AccountsController}!AccountsController@{AccountsController}}
+\index{AccountsController@{AccountsController}!AnyTest.DataService.Controllers.AccountsController@{AnyTest.DataService.Controllers.AccountsController}}
+\doxysubsubsection{\texorpdfstring{AccountsController()}{AccountsController()}}
+{\footnotesize\ttfamily Any\+Test.\+Data\+Service.\+Controllers.\+Accounts\+Controller.\+Accounts\+Controller (\begin{DoxyParamCaption}\item[{User\+Manager$<$ Identity\+User $>$}]{user\+Manager,  }\item[{\mbox{\hyperlink{interface_any_test_1_1_i_data_repository_1_1_i_person_repository}{I\+Person\+Repository}}}]{people }\end{DoxyParamCaption})}
+
+
+
+Створює новий екземляр {\ttfamily \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller}{Accounts\+Controller}}} 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em user\+Manager} & Екземпляр {\ttfamily User\+Manager\{Identitity\+User\}}. Залежність. \\
+\hline
+{\em people} & Екземпляр класу, який втілює {\ttfamily I\+Person\+Repository}. Залежність \\
+\hline
+\end{DoxyParams}
+
+
+Див. визначення в файлі Accounts\+Controller.\+cs, рядок 42
+
+
+
+\doxysubsection{Опис методів компонент}
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller_aeb0adf11471a6fb7eb1351e44ba890e6}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller_aeb0adf11471a6fb7eb1351e44ba890e6}} 
+\index{AnyTest.DataService.Controllers.AccountsController@{AnyTest.DataService.Controllers.AccountsController}!Person@{Person}}
+\index{Person@{Person}!AnyTest.DataService.Controllers.AccountsController@{AnyTest.DataService.Controllers.AccountsController}}
+\doxysubsubsection{\texorpdfstring{Person()}{Person()}}
+{\footnotesize\ttfamily async Task$<$\mbox{\hyperlink{class_any_test_1_1_model_1_1_person}{Person}}$>$ Any\+Test.\+Data\+Service.\+Controllers.\+Accounts\+Controller.\+Person (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Повертає особисті дані разреєстрованого користувача 
+
+\begin{DoxyReturn}{Повертає}
+Об\textquotesingle{}єкт класу {\ttfamily Person} з особистими даними користувача 
+\end{DoxyReturn}
+/// 
+
+Приклад H\+T\+TP запиту особистих даних зареєстрованого користувача 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{GET: api/Accounts/\mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller_aeb0adf11471a6fb7eb1351e44ba890e6}{Person}}}
+\end{DoxyCode}
+ 
+
+Див. визначення в файлі Accounts\+Controller.\+cs, рядок 106
+
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller_aea90b5159e3c28be26433b824262e14e}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller_aea90b5159e3c28be26433b824262e14e}} 
+\index{AnyTest.DataService.Controllers.AccountsController@{AnyTest.DataService.Controllers.AccountsController}!Post@{Post}}
+\index{Post@{Post}!AnyTest.DataService.Controllers.AccountsController@{AnyTest.DataService.Controllers.AccountsController}}
+\doxysubsubsection{\texorpdfstring{Post()}{Post()}}
+{\footnotesize\ttfamily async Task$<$I\+Action\+Result$>$ Any\+Test.\+Data\+Service.\+Controllers.\+Accounts\+Controller.\+Post (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Body\mbox{]} \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_register_model}{Register\+Model}}}]{model }\end{DoxyParamCaption})}
+
+
+
+Створює нового користувача 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em model} & Екземпляр класу {\ttfamily Register\+Model}, якій місить дані нового користувача \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+Результат створення нового користувача 
+\end{DoxyReturn}
+
+
+Приклад H\+T\+TP запиту створення особистих даних користувача 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{POST: api/Accounts}
+\end{DoxyCode}
+ 
+
+Див. визначення в файлі Accounts\+Controller.\+cs, рядок 68
 
 
 

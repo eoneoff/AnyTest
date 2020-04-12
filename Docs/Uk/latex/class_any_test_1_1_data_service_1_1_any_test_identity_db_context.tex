@@ -1,5 +1,10 @@
 \hypertarget{class_any_test_1_1_data_service_1_1_any_test_identity_db_context}{}\doxysection{Клас Any\+Test.\+Data\+Service.\+Any\+Test\+Identity\+Db\+Context}
 \label{class_any_test_1_1_data_service_1_1_any_test_identity_db_context}\index{AnyTest.DataService.AnyTestIdentityDbContext@{AnyTest.DataService.AnyTestIdentityDbContext}}
+
+
+Клас, який представляє сесію з базою даних Identity  
+
+
 Схема успадкувань для Any\+Test.\+Data\+Service.\+Any\+Test\+Identity\+Db\+Context\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,21 +14,70 @@
 \doxysubsection*{Загальнодоступні елементи}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_any_test_identity_db_context_a986cd4ca0b18ec602fd18dacd8cee7f7}\label{class_any_test_1_1_data_service_1_1_any_test_identity_db_context_a986cd4ca0b18ec602fd18dacd8cee7f7}} 
-{\bfseries Any\+Test\+Identity\+Db\+Context} (Db\+Context\+Options$<$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_any_test_identity_db_context}{Any\+Test\+Identity\+Db\+Context}} $>$ options)
+\mbox{\hyperlink{class_any_test_1_1_data_service_1_1_any_test_identity_db_context_a986cd4ca0b18ec602fd18dacd8cee7f7}{Any\+Test\+Identity\+Db\+Context}} (Db\+Context\+Options$<$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_any_test_identity_db_context}{Any\+Test\+Identity\+Db\+Context}} $>$ options)
 \end{DoxyCompactItemize}
 \doxysubsection*{Загальнодоступні статичні елементи}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_any_test_identity_db_context_a2442bcb38a71c469941a3303e3359f77}\label{class_any_test_1_1_data_service_1_1_any_test_identity_db_context_a2442bcb38a71c469941a3303e3359f77}} 
-static async void {\bfseries Seed\+Data} (I\+Application\+Builder app)
-\end{DoxyCompactItemize}
+static async void \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_any_test_identity_db_context_a2442bcb38a71c469941a3303e3359f77}{Seed\+Data}} (I\+Application\+Builder app)
+\begin{DoxyCompactList}\small\item\em Метод, який додає дані за замовчуванням до щойно створеної бази даних \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Детальний опис}
+Клас, який представляє сесію з базою даних Identity 
 
 
-Див. визначення в файлі Any\+Test\+Identity\+Db\+Context.\+cs, рядок 14
+
+Див. визначення в файлі Any\+Test\+Identity\+Db\+Context.\+cs, рядок 18
+
+
+
+\doxysubsection{Конструктор(и)}
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_any_test_identity_db_context_a986cd4ca0b18ec602fd18dacd8cee7f7}\label{class_any_test_1_1_data_service_1_1_any_test_identity_db_context_a986cd4ca0b18ec602fd18dacd8cee7f7}} 
+\index{AnyTest.DataService.AnyTestIdentityDbContext@{AnyTest.DataService.AnyTestIdentityDbContext}!AnyTestIdentityDbContext@{AnyTestIdentityDbContext}}
+\index{AnyTestIdentityDbContext@{AnyTestIdentityDbContext}!AnyTest.DataService.AnyTestIdentityDbContext@{AnyTest.DataService.AnyTestIdentityDbContext}}
+\doxysubsubsection{\texorpdfstring{AnyTestIdentityDbContext()}{AnyTestIdentityDbContext()}}
+{\footnotesize\ttfamily Any\+Test.\+Data\+Service.\+Any\+Test\+Identity\+Db\+Context.\+Any\+Test\+Identity\+Db\+Context (\begin{DoxyParamCaption}\item[{Db\+Context\+Options$<$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_any_test_identity_db_context}{Any\+Test\+Identity\+Db\+Context}} $>$}]{options }\end{DoxyParamCaption})}
+
+
+
+
+
+Створює екземпляр {\ttfamily \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_any_test_identity_db_context}{Any\+Test\+Identity\+Db\+Context}}}
+
+
+\begin{DoxyParams}{Аргументи}
+{\em options} & Містить опції для створення контексту бази даних \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+
+\end{DoxyReturn}
+
+
+Див. визначення в файлі Any\+Test\+Identity\+Db\+Context.\+cs, рядок 29
+
+
+
+\doxysubsection{Опис методів компонент}
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_any_test_identity_db_context_a2442bcb38a71c469941a3303e3359f77}\label{class_any_test_1_1_data_service_1_1_any_test_identity_db_context_a2442bcb38a71c469941a3303e3359f77}} 
+\index{AnyTest.DataService.AnyTestIdentityDbContext@{AnyTest.DataService.AnyTestIdentityDbContext}!SeedData@{SeedData}}
+\index{SeedData@{SeedData}!AnyTest.DataService.AnyTestIdentityDbContext@{AnyTest.DataService.AnyTestIdentityDbContext}}
+\doxysubsubsection{\texorpdfstring{SeedData()}{SeedData()}}
+{\footnotesize\ttfamily static async void Any\+Test.\+Data\+Service.\+Any\+Test\+Identity\+Db\+Context.\+Seed\+Data (\begin{DoxyParamCaption}\item[{I\+Application\+Builder}]{app }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Метод, який додає дані за замовчуванням до щойно створеної бази даних 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em app} & Клас-\/будівник доадтку, викликаючого метод \\
+\hline
+\end{DoxyParams}
+
+
+Див. визначення в файлі Any\+Test\+Identity\+Db\+Context.\+cs, рядок 40
 
 
 

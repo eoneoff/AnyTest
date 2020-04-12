@@ -22,16 +22,40 @@ using System.Text;
 
 namespace AnyTest.DataService
 {
+    /// <summary>
+    /// \~english A class, setting up the application environment
+    /// \~ukrainian Клас, який налаштовує середовище додатку
+    /// </summary>
     public class Startup
     {
+        /// <summary>
+        /// \~english Creates an instance of the <c>Startup</c> class    
+        /// \~ukrainian Створює екземляр класу <c>Startup</c>
+        /// </summary>
+        /// <param name="configuration">
+        /// \~english A reader of configuration file. Dependency.
+        /// \~ukrainian Зчитувач файлу конфігурації. Залежність.
+        /// </param>
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
+        /// <summary>
+        /// \~english A reader of configuration file. Dependency.
+        /// \~ukrainian Зчитувач файлу конфігурації. Залежність.
+        /// </summary>
+        /// <value></value>
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        /// <summary>
+        /// \~english This method gets called by the runtime. Use this method to add services to the container.
+        /// \~ukrainian Метод викликається під час виконання. Використувуйте для додавання служб до контейнеру.
+        /// </summary>
+        /// <param name="services">
+        /// \~english A services container
+        /// \~ukrainian Контейнер служб
+        /// </param>
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AnyTestDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:LocalMSSQLServerWindows"]));
@@ -72,7 +96,26 @@ namespace AnyTest.DataService
             services.AddControllers();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// <summary>
+        /// \~english This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// \~ukrainian Цей метод викликається під час виконання. Використовуйте для налаштування ланцюка обробки HTTP запитів
+        /// </summary>
+        /// <param name="app">
+        /// \~english Application builder used to add middleware to pipeline
+        /// \~ukrainian Будівник додатку, використовується для додавання обробників до ланцюгу
+        /// </param>
+        /// <param name="env">
+        /// \~english An application environment object
+        /// \~ukrainian Середовище виконання додатку
+        /// </param>
+        /// <param name="ctx">
+        /// \~english Working database context
+        /// \~ukrainian Контекст робочої бази даних
+        /// </param>
+        /// <param name="ictx">
+        /// \~english Identity database context
+        /// \~ukrainian Конекст бази даних користувачів
+        /// </param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, AnyTestDbContext ctx, AnyTestIdentityDbContext ictx)
         {
             ctx.Database.Migrate();

@@ -1,5 +1,10 @@
 \hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_login_controller}{}\doxysection{Клас Any\+Test.\+Data\+Service.\+Controllers.\+Login\+Controller}
 \label{class_any_test_1_1_data_service_1_1_controllers_1_1_login_controller}\index{AnyTest.DataService.Controllers.LoginController@{AnyTest.DataService.Controllers.LoginController}}
+
+
+Контроллер A\+PI для входу користувача  
+
+
 Схема успадкувань для Any\+Test.\+Data\+Service.\+Controllers.\+Login\+Controller\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,18 +14,80 @@
 \doxysubsection*{Загальнодоступні елементи}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_login_controller_ac74a6dab493b9a268f2d43d884c16513}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_login_controller_ac74a6dab493b9a268f2d43d884c16513}} 
-{\bfseries Login\+Controller} (I\+Configuration configuration, Sign\+In\+Manager$<$ Identity\+User $>$ sign\+In\+Manager, User\+Manager$<$ Identity\+User $>$ user\+Manager)
-\item 
-\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_login_controller_abba919e276b7f5c50279207b766a458c}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_login_controller_abba919e276b7f5c50279207b766a458c}} 
-async Task$<$ I\+Action\+Result $>$ {\bfseries Login} (\mbox{[}From\+Body\mbox{]} \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_login_model}{Login\+Model}} login)
+\mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_login_controller_ac74a6dab493b9a268f2d43d884c16513}{Login\+Controller}} (I\+Configuration configuration, Sign\+In\+Manager$<$ Identity\+User $>$ sign\+In\+Manager, User\+Manager$<$ Identity\+User $>$ user\+Manager)
+\begin{DoxyCompactList}\small\item\em Створює новий екземляр {\ttfamily \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_login_controller}{Login\+Controller}}} \end{DoxyCompactList}\item 
+async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_login_controller_abba919e276b7f5c50279207b766a458c}{Login}} (\mbox{[}From\+Body\mbox{]} \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_login_model}{Login\+Model}} login)
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Детальний опис}
+Контроллер A\+PI для входу користувача 
 
 
-Див. визначення в файлі Login\+Controller.\+cs, рядок 21
+
+Див. визначення в файлі Login\+Controller.\+cs, рядок 25
+
+
+
+\doxysubsection{Конструктор(и)}
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_login_controller_ac74a6dab493b9a268f2d43d884c16513}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_login_controller_ac74a6dab493b9a268f2d43d884c16513}} 
+\index{AnyTest.DataService.Controllers.LoginController@{AnyTest.DataService.Controllers.LoginController}!LoginController@{LoginController}}
+\index{LoginController@{LoginController}!AnyTest.DataService.Controllers.LoginController@{AnyTest.DataService.Controllers.LoginController}}
+\doxysubsubsection{\texorpdfstring{LoginController()}{LoginController()}}
+{\footnotesize\ttfamily Any\+Test.\+Data\+Service.\+Controllers.\+Login\+Controller.\+Login\+Controller (\begin{DoxyParamCaption}\item[{I\+Configuration}]{configuration,  }\item[{Sign\+In\+Manager$<$ Identity\+User $>$}]{sign\+In\+Manager,  }\item[{User\+Manager$<$ Identity\+User $>$}]{user\+Manager }\end{DoxyParamCaption})}
+
+
+
+Створює новий екземляр {\ttfamily \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_login_controller}{Login\+Controller}}} 
+
+/// 
+\begin{DoxyParams}{Аргументи}
+{\em configuration} & Екземпляр класу, який втілює {\ttfamily I\+Configuration}. Залежність \\
+\hline
+\end{DoxyParams}
+/// 
+\begin{DoxyParams}{Аргументи}
+{\em sign\+In\+Manager} & Екземпляр {\ttfamily Sign\+In\+Manager\{Identitity\+User\}}. Залежність. \\
+\hline
+{\em user\+Manager} & Екземпляр {\ttfamily User\+Manager\{Identitity\+User\}}. Залежність. \\
+\hline
+\end{DoxyParams}
+
+
+Див. визначення в файлі Login\+Controller.\+cs, рядок 47
+
+
+
+\doxysubsection{Опис методів компонент}
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_login_controller_abba919e276b7f5c50279207b766a458c}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_login_controller_abba919e276b7f5c50279207b766a458c}} 
+\index{AnyTest.DataService.Controllers.LoginController@{AnyTest.DataService.Controllers.LoginController}!Login@{Login}}
+\index{Login@{Login}!AnyTest.DataService.Controllers.LoginController@{AnyTest.DataService.Controllers.LoginController}}
+\doxysubsubsection{\texorpdfstring{Login()}{Login()}}
+{\footnotesize\ttfamily async Task$<$I\+Action\+Result$>$ Any\+Test.\+Data\+Service.\+Controllers.\+Login\+Controller.\+Login (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Body\mbox{]} \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_login_model}{Login\+Model}}}]{login }\end{DoxyParamCaption})}
+
+
+
+
+
+Вхід в додаток
+
+
+\begin{DoxyParams}{Аргументи}
+{\em login} & Екземпляр класу {\ttfamily Login\+Model}, якій місить дані нового користувача \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+Результат входу в додаток 
+\end{DoxyReturn}
+
+
+Приклад H\+T\+TP запиту входу в додаток 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{POST: api/\mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_login_controller_abba919e276b7f5c50279207b766a458c}{Login}}}
+\end{DoxyCode}
+ 
+
+Див. визначення в файлі Login\+Controller.\+cs, рядок 74
 
 
 

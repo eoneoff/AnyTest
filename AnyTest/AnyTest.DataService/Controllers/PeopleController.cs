@@ -17,10 +17,6 @@ namespace AnyTest.DataService.Controllers
     [ApiController]
     public class PeopleController : ControllerBase
     {
-        /// <summary>
-        /// \~english A repository for an access to people data
-        /// \~ukrainian Репозіторій для доступу до особитисти даних
-        /// </summary>
         private IPersonRepository _repository;
 
         /// <summary>

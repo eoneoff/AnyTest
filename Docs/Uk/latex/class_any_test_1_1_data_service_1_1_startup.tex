@@ -1,29 +1,118 @@
 \hypertarget{class_any_test_1_1_data_service_1_1_startup}{}\doxysection{Клас Any\+Test.\+Data\+Service.\+Startup}
 \label{class_any_test_1_1_data_service_1_1_startup}\index{AnyTest.DataService.Startup@{AnyTest.DataService.Startup}}
+
+
+Клас, який налаштовує середовище додатку  
+
+
 \doxysubsection*{Загальнодоступні елементи}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_startup_abd20621b9e4583a6917b02d2abfc0f10}\label{class_any_test_1_1_data_service_1_1_startup_abd20621b9e4583a6917b02d2abfc0f10}} 
-{\bfseries Startup} (I\+Configuration configuration)
-\item 
-\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_startup_a11484608bcc6a797277a7247fe6a0249}\label{class_any_test_1_1_data_service_1_1_startup_a11484608bcc6a797277a7247fe6a0249}} 
-void {\bfseries Configure\+Services} (I\+Service\+Collection services)
-\item 
-\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_startup_ab9c82e0c7cbb3f1b619ae0a6cfa81a7f}\label{class_any_test_1_1_data_service_1_1_startup_ab9c82e0c7cbb3f1b619ae0a6cfa81a7f}} 
-void {\bfseries Configure} (I\+Application\+Builder app, I\+Web\+Host\+Environment env, \mbox{\hyperlink{class_any_test_1_1_db_access_1_1_any_test_db_context}{Any\+Test\+Db\+Context}} ctx, \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_any_test_identity_db_context}{Any\+Test\+Identity\+Db\+Context}} ictx)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_any_test_1_1_data_service_1_1_startup_abd20621b9e4583a6917b02d2abfc0f10}{Startup}} (I\+Configuration configuration)
+\begin{DoxyCompactList}\small\item\em Створює екземляр класу {\ttfamily \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_startup}{Startup}}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_startup_a11484608bcc6a797277a7247fe6a0249}{Configure\+Services}} (I\+Service\+Collection services)
+\begin{DoxyCompactList}\small\item\em Метод викликається під час виконання. Використувуйте для додавання служб до контейнеру. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_startup_ab9c82e0c7cbb3f1b619ae0a6cfa81a7f}{Configure}} (I\+Application\+Builder app, I\+Web\+Host\+Environment env, \mbox{\hyperlink{class_any_test_1_1_db_access_1_1_any_test_db_context}{Any\+Test\+Db\+Context}} ctx, \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_any_test_identity_db_context}{Any\+Test\+Identity\+Db\+Context}} ictx)
+\begin{DoxyCompactList}\small\item\em Цей метод викликається під час виконання. Використовуйте для налаштування ланцюка обробки H\+T\+TP запитів \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Властивості}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_startup_a985170f4bb2cc31db59bd47888631b74}\label{class_any_test_1_1_data_service_1_1_startup_a985170f4bb2cc31db59bd47888631b74}} 
-I\+Configuration {\bfseries Configuration}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
-\end{DoxyCompactItemize}
+I\+Configuration \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_startup_a985170f4bb2cc31db59bd47888631b74}{Configuration}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Зчитувач файлу конфігурації. Залежність. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Детальний опис}
+Клас, який налаштовує середовище додатку 
 
 
-Див. визначення в файлі Startup.\+cs, рядок 25
+
+Див. визначення в файлі Startup.\+cs, рядок 29
+
+
+
+\doxysubsection{Конструктор(и)}
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_startup_abd20621b9e4583a6917b02d2abfc0f10}\label{class_any_test_1_1_data_service_1_1_startup_abd20621b9e4583a6917b02d2abfc0f10}} 
+\index{AnyTest.DataService.Startup@{AnyTest.DataService.Startup}!Startup@{Startup}}
+\index{Startup@{Startup}!AnyTest.DataService.Startup@{AnyTest.DataService.Startup}}
+\doxysubsubsection{\texorpdfstring{Startup()}{Startup()}}
+{\footnotesize\ttfamily Any\+Test.\+Data\+Service.\+Startup.\+Startup (\begin{DoxyParamCaption}\item[{I\+Configuration}]{configuration }\end{DoxyParamCaption})}
+
+
+
+Створює екземляр класу {\ttfamily \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_startup}{Startup}}} 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em configuration} & Зчитувач файлу конфігурації. Залежність. \\
+\hline
+\end{DoxyParams}
+
+
+Див. визначення в файлі Startup.\+cs, рядок 39
+
+
+
+\doxysubsection{Опис методів компонент}
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_startup_ab9c82e0c7cbb3f1b619ae0a6cfa81a7f}\label{class_any_test_1_1_data_service_1_1_startup_ab9c82e0c7cbb3f1b619ae0a6cfa81a7f}} 
+\index{AnyTest.DataService.Startup@{AnyTest.DataService.Startup}!Configure@{Configure}}
+\index{Configure@{Configure}!AnyTest.DataService.Startup@{AnyTest.DataService.Startup}}
+\doxysubsubsection{\texorpdfstring{Configure()}{Configure()}}
+{\footnotesize\ttfamily void Any\+Test.\+Data\+Service.\+Startup.\+Configure (\begin{DoxyParamCaption}\item[{I\+Application\+Builder}]{app,  }\item[{I\+Web\+Host\+Environment}]{env,  }\item[{\mbox{\hyperlink{class_any_test_1_1_db_access_1_1_any_test_db_context}{Any\+Test\+Db\+Context}}}]{ctx,  }\item[{\mbox{\hyperlink{class_any_test_1_1_data_service_1_1_any_test_identity_db_context}{Any\+Test\+Identity\+Db\+Context}}}]{ictx }\end{DoxyParamCaption})}
+
+
+
+Цей метод викликається під час виконання. Використовуйте для налаштування ланцюка обробки H\+T\+TP запитів 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em app} & Будівник додатку, використовується для додавання обробників до ланцюгу \\
+\hline
+{\em env} & Середовище виконання додатку \\
+\hline
+{\em ctx} & Контекст робочої бази даних \\
+\hline
+{\em ictx} & Конекст бази даних користувачів \\
+\hline
+\end{DoxyParams}
+
+
+Див. визначення в файлі Startup.\+cs, рядок 119
+
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_startup_a11484608bcc6a797277a7247fe6a0249}\label{class_any_test_1_1_data_service_1_1_startup_a11484608bcc6a797277a7247fe6a0249}} 
+\index{AnyTest.DataService.Startup@{AnyTest.DataService.Startup}!ConfigureServices@{ConfigureServices}}
+\index{ConfigureServices@{ConfigureServices}!AnyTest.DataService.Startup@{AnyTest.DataService.Startup}}
+\doxysubsubsection{\texorpdfstring{ConfigureServices()}{ConfigureServices()}}
+{\footnotesize\ttfamily void Any\+Test.\+Data\+Service.\+Startup.\+Configure\+Services (\begin{DoxyParamCaption}\item[{I\+Service\+Collection}]{services }\end{DoxyParamCaption})}
+
+
+
+Метод викликається під час виконання. Використувуйте для додавання служб до контейнеру. 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em services} & Контейнер служб \\
+\hline
+\end{DoxyParams}
+
+
+Див. визначення в файлі Startup.\+cs, рядок 59
+
+
+
+\doxysubsection{Повний список властивостей}
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_startup_a985170f4bb2cc31db59bd47888631b74}\label{class_any_test_1_1_data_service_1_1_startup_a985170f4bb2cc31db59bd47888631b74}} 
+\index{AnyTest.DataService.Startup@{AnyTest.DataService.Startup}!Configuration@{Configuration}}
+\index{Configuration@{Configuration}!AnyTest.DataService.Startup@{AnyTest.DataService.Startup}}
+\doxysubsubsection{\texorpdfstring{Configuration}{Configuration}}
+{\footnotesize\ttfamily I\+Configuration Any\+Test.\+Data\+Service.\+Startup.\+Configuration\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Зчитувач файлу конфігурації. Залежність. 
+
+
+
+Див. визначення в файлі Startup.\+cs, рядок 49
 
 
 

@@ -1,5 +1,10 @@
 \hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_login_controller}{}\doxysection{Any\+Test.\+Data\+Service.\+Controllers.\+Login\+Controller Class Reference}
 \label{class_any_test_1_1_data_service_1_1_controllers_1_1_login_controller}\index{AnyTest.DataService.Controllers.LoginController@{AnyTest.DataService.Controllers.LoginController}}
+
+
+An A\+PI controller for user login  
+
+
 Inheritance diagram for Any\+Test.\+Data\+Service.\+Controllers.\+Login\+Controller\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -10,17 +15,33 @@ Inheritance diagram for Any\+Test.\+Data\+Service.\+Controllers.\+Login\+Control
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_login_controller_ac74a6dab493b9a268f2d43d884c16513}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_login_controller_ac74a6dab493b9a268f2d43d884c16513}} 
-{\bfseries Login\+Controller} (I\+Configuration configuration, Sign\+In\+Manager$<$ Identity\+User $>$ sign\+In\+Manager, User\+Manager$<$ Identity\+User $>$ user\+Manager)
-\item 
-\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_login_controller_abba919e276b7f5c50279207b766a458c}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_login_controller_abba919e276b7f5c50279207b766a458c}} 
-async Task$<$ I\+Action\+Result $>$ {\bfseries Login} (\mbox{[}From\+Body\mbox{]} \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_login_model}{Login\+Model}} login)
+\mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_login_controller_ac74a6dab493b9a268f2d43d884c16513}{Login\+Controller}} (I\+Configuration configuration, Sign\+In\+Manager$<$ Identity\+User $>$ sign\+In\+Manager, User\+Manager$<$ Identity\+User $>$ user\+Manager)
+\begin{DoxyCompactList}\small\item\em Creates new instance of {\ttfamily \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_login_controller}{Login\+Controller}}} The class {\ttfamily I\+Configuration} instance. Dependency. {\ttfamily Sign\+In\+Manager\{Identitity\+User\}} instance. Dependency. {\ttfamily User\+Manager\{Identitity\+User\}} instance. Dependency. \end{DoxyCompactList}\item 
+async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_login_controller_abba919e276b7f5c50279207b766a458c}{Login}} (\mbox{[}From\+Body\mbox{]} \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_login_model}{Login\+Model}} login)
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+An A\+PI controller for user login 
+
+Definition at line 25 of file Login\+Controller.\+cs.
 
 
-Definition at line 21 of file Login\+Controller.\+cs.
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_login_controller_abba919e276b7f5c50279207b766a458c}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_login_controller_abba919e276b7f5c50279207b766a458c}} 
+\index{AnyTest.DataService.Controllers.LoginController@{AnyTest.DataService.Controllers.LoginController}!Login@{Login}}
+\index{Login@{Login}!AnyTest.DataService.Controllers.LoginController@{AnyTest.DataService.Controllers.LoginController}}
+\doxysubsubsection{\texorpdfstring{Login()}{Login()}}
+{\footnotesize\ttfamily async Task$<$I\+Action\+Result$>$ Any\+Test.\+Data\+Service.\+Controllers.\+Login\+Controller.\+Login (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Body\mbox{]} \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_login_model}{Login\+Model}}}]{login }\end{DoxyParamCaption})}
+
+
+
+
+
+Logs into application An instance of a {\ttfamily Loginr\+Model}, conatining new user acccount data A result of a user login An example of H\+T\+TP request to for login 
+
+Definition at line 74 of file Login\+Controller.\+cs.
 
 
 

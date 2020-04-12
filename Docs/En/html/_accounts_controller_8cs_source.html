@@ -103,68 +103,72 @@ $(document).ready(function(){initNavTree('_accounts_controller_8cs_source.html',
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
 <div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="namespace_any_test_1_1_data_service_1_1_controllers.html">   17</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_any_test_1_1_data_service_1_1_controllers.html">AnyTest.DataService.Controllers</a></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    [Route(<span class="stringliteral">&quot;api/[controller]&quot;</span>)]</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    [ApiController]</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller.html">   21</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller.html">AccountsController</a> : ControllerBase</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keyword">private</span> readonly UserManager&lt;IdentityUser&gt; _userManager;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">private</span> readonly <a class="code" href="interface_any_test_1_1_i_data_repository_1_1_i_person_repository.html">IPersonRepository</a> _people;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keyword">public</span> <a class="code" href="class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller.html">AccountsController</a>(UserManager&lt;IdentityUser&gt; userManager, <a class="code" href="interface_any_test_1_1_i_data_repository_1_1_i_person_repository.html">IPersonRepository</a> people)</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            _userManager = userManager;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            _people = people;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        }</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        [HttpPost]</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keyword">public</span> async Task&lt;IActionResult&gt; Post([FromBody] <a class="code" href="class_any_test_1_1_client_authentication_1_1_register_model.html">RegisterModel</a> model)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            var newUser = <span class="keyword">new</span> IdentityUser { UserName = model.UserName, Email = model.Email };</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            var result = await _userManager.CreateAsync(newUser, model.Password);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">if</span>(!result.Succeeded)</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                var errors = result.Errors.Select(x =&gt; x.Description);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                <span class="keywordflow">return</span> Ok(<span class="keyword">new</span> <a class="code" href="class_any_test_1_1_client_authentication_1_1_register_result.html">RegisterResult</a> { Successful = <span class="keyword">false</span>, Errors = errors });</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            }</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keywordflow">if</span>(<a class="code" href="class_any_test_1_1_client_authentication_1_1_auth_service.html">AuthService</a>.<a class="code" href="class_any_test_1_1_client_authentication_1_1_auth_service.html#a2d9e27af235a0ad929d6f5df5214c018">Roles</a>.Contains(model.Role))</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                await _userManager.AddToRoleAsync(newUser, model.Role);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            }</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordflow">return</span> Ok(<span class="keyword">new</span> <a class="code" href="class_any_test_1_1_client_authentication_1_1_register_result.html">RegisterResult</a> { Successful = <span class="keyword">true</span> });</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        [HttpGet(<span class="stringliteral">&quot;person&quot;</span>)]</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        [Authorize(Roles = <span class="stringliteral">&quot;Administrator&quot;</span>)]</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keyword">public</span> async Task&lt;Person&gt; <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a> ()</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a> person = <span class="keyword">new</span> <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a>();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">if</span> (HttpContext.User.Identity is ClaimsIdentity identity)</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                var email = identity.FindFirst(ClaimTypes.Email).Value;                </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                person = await _people.FindByEmail(email);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">return</span> person;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    [Route(<span class="stringliteral">&quot;api/[controller]&quot;</span>)]</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    [ApiController]</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller.html">   25</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller.html">AccountsController</a> : ControllerBase</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keyword">private</span> readonly UserManager&lt;IdentityUser&gt; _userManager;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keyword">private</span> readonly <a class="code" href="interface_any_test_1_1_i_data_repository_1_1_i_person_repository.html">IPersonRepository</a> _people;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller.html#a666b6333e351949ddf761c861b699ea0">   42</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller.html#a666b6333e351949ddf761c861b699ea0">AccountsController</a>(UserManager&lt;IdentityUser&gt; userManager, <a class="code" href="interface_any_test_1_1_i_data_repository_1_1_i_person_repository.html">IPersonRepository</a> people)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            _userManager = userManager;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            _people = people;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        [HttpPost]</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller.html#aea90b5159e3c28be26433b824262e14e">   68</a></span>&#160;        <span class="keyword">public</span> async Task&lt;IActionResult&gt; <a class="code" href="class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller.html#aea90b5159e3c28be26433b824262e14e">Post</a>([FromBody] <a class="code" href="class_any_test_1_1_client_authentication_1_1_register_model.html">RegisterModel</a> model)</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            var newUser = <span class="keyword">new</span> IdentityUser { UserName = model.UserName, Email = model.Email };</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            var result = await _userManager.CreateAsync(newUser, model.Password);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keywordflow">if</span>(!result.Succeeded)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            {</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                var errors = result.Errors.Select(x =&gt; x.Description);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <span class="keywordflow">return</span> Ok(<span class="keyword">new</span> <a class="code" href="class_any_test_1_1_client_authentication_1_1_register_result.html">RegisterResult</a> { Successful = <span class="keyword">false</span>, Errors = errors });</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordflow">if</span>(<a class="code" href="class_any_test_1_1_client_authentication_1_1_auth_service.html">AuthService</a>.<a class="code" href="class_any_test_1_1_client_authentication_1_1_auth_service.html#a2d9e27af235a0ad929d6f5df5214c018">Roles</a>.Contains(model.Role))</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                await _userManager.AddToRoleAsync(newUser, model.Role);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keywordflow">return</span> Ok(<span class="keyword">new</span> <a class="code" href="class_any_test_1_1_client_authentication_1_1_register_result.html">RegisterResult</a> { Successful = <span class="keyword">true</span> });</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        [HttpGet(<span class="stringliteral">&quot;person&quot;</span>)]</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        [Authorize]</div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller.html#aeb0adf11471a6fb7eb1351e44ba890e6">  106</a></span>&#160;        <span class="keyword">public</span> async Task&lt;Person&gt; <a class="code" href="class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller.html#aeb0adf11471a6fb7eb1351e44ba890e6">Person</a> ()</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        {</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a> person = <span class="keyword">new</span> <a class="code" href="class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller.html#aeb0adf11471a6fb7eb1351e44ba890e6">Person</a>();</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            <span class="keywordflow">if</span> (HttpContext.User.Identity is ClaimsIdentity identity)</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            {</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                var email = identity.FindFirst(ClaimTypes.Email).Value;                </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                person = await _people.FindByEmail(email) ?? <span class="keyword">new</span> <a class="code" href="class_any_test_1_1_model_1_1_person.html">Person</a> { Email = email};</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <span class="keywordflow">return</span> person; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        }</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    }</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller_html"><div class="ttname"><a href="class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller.html">AnyTest.DataService.Controllers.AccountsController</a></div><div class="ttdef"><b>Definition:</b> <a href="_accounts_controller_8cs_source.html#l00021">AccountsController.cs:21</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller_html"><div class="ttname"><a href="class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller.html">AnyTest.DataService.Controllers.AccountsController</a></div><div class="ttdoc">A controller for managing user accounts</div><div class="ttdef"><b>Definition:</b> <a href="_accounts_controller_8cs_source.html#l00025">AccountsController.cs:25</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller_html_aeb0adf11471a6fb7eb1351e44ba890e6"><div class="ttname"><a href="class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller.html#aeb0adf11471a6fb7eb1351e44ba890e6">AnyTest.DataService.Controllers.AccountsController.Person</a></div><div class="ttdeci">async Task&lt; Person &gt; Person()</div><div class="ttdoc">Returns a Person correspoinding current registered user A Person object with user data An example of ...</div><div class="ttdef"><b>Definition:</b> <a href="_accounts_controller_8cs_source.html#l00106">AccountsController.cs:106</a></div></div>
 <div class="ttc" id="aclass_any_test_1_1_client_authentication_1_1_auth_service_html"><div class="ttname"><a href="class_any_test_1_1_client_authentication_1_1_auth_service.html">AnyTest.ClientAuthentication.AuthService</a></div><div class="ttdoc">A service class for authenticating with JWT tokens</div><div class="ttdef"><b>Definition:</b> <a href="_auth_service_8cs_source.html#l00019">AuthService.cs:19</a></div></div>
 <div class="ttc" id="anamespace_any_test_html"><div class="ttname"><a href="namespace_any_test.html">AnyTest</a></div><div class="ttdef"><b>Definition:</b> <a href="_api_authenticaion_state_provider_8cs_source.html#l00013">ApiAuthenticaionStateProvider.cs:13</a></div></div>
 <div class="ttc" id="anamespace_any_test_1_1_i_data_repository_html"><div class="ttname"><a href="namespace_any_test_1_1_i_data_repository.html">AnyTest.IDataRepository</a></div><div class="ttdef"><b>Definition:</b> <a href="_i_deleter_8cs_source.html#l00006">IDeleter.cs:6</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller_html_aea90b5159e3c28be26433b824262e14e"><div class="ttname"><a href="class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller.html#aea90b5159e3c28be26433b824262e14e">AnyTest.DataService.Controllers.AccountsController.Post</a></div><div class="ttdeci">async Task&lt; IActionResult &gt; Post([FromBody] RegisterModel model)</div><div class="ttdoc">Creates a new user account An instance of a RegisterModel, conatining new user acccount data A result...</div><div class="ttdef"><b>Definition:</b> <a href="_accounts_controller_8cs_source.html#l00068">AccountsController.cs:68</a></div></div>
 <div class="ttc" id="anamespace_any_test_1_1_client_authentication_html"><div class="ttname"><a href="namespace_any_test_1_1_client_authentication.html">AnyTest.ClientAuthentication</a></div><div class="ttdef"><b>Definition:</b> <a href="_api_authenticaion_state_provider_8cs_source.html#l00013">ApiAuthenticaionStateProvider.cs:13</a></div></div>
 <div class="ttc" id="anamespace_any_test_1_1_data_service_1_1_controllers_html"><div class="ttname"><a href="namespace_any_test_1_1_data_service_1_1_controllers.html">AnyTest.DataService.Controllers</a></div><div class="ttdef"><b>Definition:</b> <a href="_accounts_controller_8cs_source.html#l00017">AccountsController.cs:17</a></div></div>
-<div class="ttc" id="aclass_any_test_1_1_client_authentication_1_1_register_result_html"><div class="ttname"><a href="class_any_test_1_1_client_authentication_1_1_register_result.html">AnyTest.ClientAuthentication.RegisterResult</a></div><div class="ttdef"><b>Definition:</b> <a href="_register_result_8cs_source.html#l00007">RegisterResult.cs:7</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_client_authentication_1_1_register_result_html"><div class="ttname"><a href="class_any_test_1_1_client_authentication_1_1_register_result.html">AnyTest.ClientAuthentication.RegisterResult</a></div><div class="ttdoc">A class for a result of a user registration</div><div class="ttdef"><b>Definition:</b> <a href="_register_result_8cs_source.html#l00011">RegisterResult.cs:11</a></div></div>
 <div class="ttc" id="ainterface_any_test_1_1_i_data_repository_1_1_i_person_repository_html"><div class="ttname"><a href="interface_any_test_1_1_i_data_repository_1_1_i_person_repository.html">AnyTest.IDataRepository.IPersonRepository</a></div><div class="ttdef"><b>Definition:</b> <a href="_i_person_repository_8cs_source.html#l00009">IPersonRepository.cs:9</a></div></div>
 <div class="ttc" id="anamespace_any_test_1_1_model_html"><div class="ttname"><a href="namespace_any_test_1_1_model.html">AnyTest.Model</a></div><div class="ttdef"><b>Definition:</b> <a href="_course_8cs_source.html#l00008">Course.cs:8</a></div></div>
-<div class="ttc" id="aclass_any_test_1_1_client_authentication_1_1_register_model_html"><div class="ttname"><a href="class_any_test_1_1_client_authentication_1_1_register_model.html">AnyTest.ClientAuthentication.RegisterModel</a></div><div class="ttdef"><b>Definition:</b> <a href="_register_model_8cs_source.html#l00009">RegisterModel.cs:9</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_client_authentication_1_1_register_model_html"><div class="ttname"><a href="class_any_test_1_1_client_authentication_1_1_register_model.html">AnyTest.ClientAuthentication.RegisterModel</a></div><div class="ttdoc">A model for user registering</div><div class="ttdef"><b>Definition:</b> <a href="_register_model_8cs_source.html#l00013">RegisterModel.cs:13</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller_html_a666b6333e351949ddf761c861b699ea0"><div class="ttname"><a href="class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller.html#a666b6333e351949ddf761c861b699ea0">AnyTest.DataService.Controllers.AccountsController.AccountsController</a></div><div class="ttdeci">AccountsController(UserManager&lt; IdentityUser &gt; userManager, IPersonRepository people)</div><div class="ttdoc">Creates new instance of AccountsController UserManager{IdentitityUser} instance. Dependency....</div><div class="ttdef"><b>Definition:</b> <a href="_accounts_controller_8cs_source.html#l00042">AccountsController.cs:42</a></div></div>
 <div class="ttc" id="aclass_any_test_1_1_client_authentication_1_1_auth_service_html_a2d9e27af235a0ad929d6f5df5214c018"><div class="ttname"><a href="class_any_test_1_1_client_authentication_1_1_auth_service.html#a2d9e27af235a0ad929d6f5df5214c018">AnyTest.ClientAuthentication.AuthService.Roles</a></div><div class="ttdeci">static readonly List&lt; string &gt; Roles</div><div class="ttdoc">A list of valid roles</div><div class="ttdef"><b>Definition:</b> <a href="_auth_service_8cs_source.html#l00029">AuthService.cs:29</a></div></div>
 <div class="ttc" id="aclass_any_test_1_1_model_1_1_person_html"><div class="ttname"><a href="class_any_test_1_1_model_1_1_person.html">AnyTest.Model.Person</a></div><div class="ttdef"><b>Definition:</b> <a href="_person_8cs_source.html#l00010">Person.cs:10</a></div></div>
 <!-- start footer part -->
