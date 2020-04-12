@@ -42,5 +42,15 @@ namespace AnyTest.ClientAuthentication
         /// \~ukrainian Об'єкт класу <c>RegisterResult</c> з інформацією про реєстрацію
         /// </returns>
         Task<RegisterResult> Register(RegisterModel registerModel);
+
+        /// <summary>
+        /// \~english Gets token from local storage to <c>HttpClient</c>
+        /// \~ukrainian Додає токен із локального сховища до <c>HttpClient</c>
+        /// </summary>
+        /// <returns>
+        /// \~english Returns <c>bool</c> defining whether local storage contains token
+        /// \~ukrainian Повертає <c>bool</c>, що містить інформацію про наявність токена в локальному сховищі
+        /// </returns>
+        Task<bool> GetToken();
     }
 }

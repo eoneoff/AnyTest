@@ -72,7 +72,7 @@ namespace AnyTest.ClientAuthentication
         public ContainsLoweCase() : base("[a-z]") { }
     }
 
-    //// <summary>
+    /// <summary>
     /// \~english  Specifies that a data field value in ASP.NET Dynamic Data must contain lowercase letters
     /// \~ukrainian Визначає, що поле даних для ASP.NET Dynamic Data має містити заглавні літери
     /// </summary>

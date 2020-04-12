@@ -14,6 +14,18 @@ namespace AnyTest.Infrastructure
     /// </summary>
     public static class HttpClientHelpers
     {
+        public static async Task<T> GetJsonAsync<T>(this HttpClient client, string requestUri)
+        {
+            var response = await client.GetAsync(requestUri);
+            if(!response.IsSuccessStatusCode)
+            {
+                throw new HttpRequestException($"{response.StatusCode} {response.ReasonPhrase}");
+            }
+
+            var result = JsonSerializer.Deserialize<T>(await response.Content.ReadAsStringAsync(), new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+            return result;
+        }
+
         /// <summary>
         /// \~english Extension metod to serialize an deserialize POST requests
         /// \~ukrainian Метод розширення, який серіалізує та десеріалізує POST запити

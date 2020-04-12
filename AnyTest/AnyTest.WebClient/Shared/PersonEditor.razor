@@ -1,0 +1,56 @@
+<EditForm Model="@Person" OnValidSubmit="OnSubmit">
+    <DataAnnotationsValidator />
+    <div class="form-group row">
+        <div class="col-lg-2 d-flex flex-column justify-content-lg-end align-content-start align-content-lg-end">
+            <label for="firstname" class="col-form-label text-left text-lg-right font-weight-bold">@Localizer[nameof(Resources.FirstName)]:</label>
+        </div>
+        <div class="col-lg-10 d-flex flex-column px-0">
+            <ValidationMessage For="@(()=>Person.FirstName)" />
+            <InputText Id="firstname" Class="form-control" @bind-Value="Person.FirstName" @oninput="@(()=>unchanged = false)"/>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-lg-2 d-flex flex-column justify-content-lg-end align-content-start align-content-lg-end">
+            <label for="familyname" class="col-form-label text-left text-lg-right font-weight-bold">@Localizer[nameof(Resources.FamilyName)]:</label>
+        </div>
+        <div class="col-lg-10 d-flex flex-column px-0">
+            <ValidationMessage For="@(()=>Person.FamilyName)" />
+            <InputText Id="familyname" Class="form-control" @bind-Value="Person.FamilyName" @oninput="@(()=>unchanged = false)"/>
+        </div>
+    </div>
+    <div class="form-grop row">
+        <label for="patronimic" class="col-lg-2 col-form-label text-left text-lg-right font-weight-bold">@Localizer[nameof(Resources.Patronimic)]:</label>
+        <InputText Id="patronimic" Class="form-control col-lg-10" @bind-Value="Person.Patronimic" @oninput="@(()=>unchanged = false)"/>
+    </div>
+    <div class="form-grop row mt-3">
+        <label for="phone" class="col-lg-2 col-form-label text-left text-lg-right font-weight-bold">@Localizer[nameof(Resources.Phone)]:</label>
+        <InputText Id="phone" Class="form-control col-lg-10" @bind-Value="Person.Phone" @oninput="@(()=>unchanged = false)"/>
+    </div>
+    <div class="form-grop row mt-3">
+        <div class="col-lg-2 d-flex flex-column justify-content-lg-end align-content-start align-content-lg-end">
+            <label for="familyname" class="col-form-label text-left text-lg-right font-weight-bold">e-mail:</label>
+        </div>
+        <div class="col-lg-10 d-flex flex-column px-0">
+            <ValidationMessage For="@(()=>Person.Email)" />
+            <InputText Id="familyname" Class="form-control" @bind-Value="Person.Email" disabled @oninput="@(()=>unchanged = false)"/>
+        </div>
+    </div>
+    <div class="d-flex flex-row justify-content-between mt-3">
+        <button type="submit" class="btn btn-primary" disabled="@unchanged">@(Person.Id == 0 ? Localizer[nameof(Resources.Create)] : Localizer[nameof(Resources.Save)])</button>
+        <button type="button" class="btn btn-danger" @onclick="OnCancel">@Localizer[nameof(Resources.Cancel)]</button>
+    </div>
+</EditForm>
+
+@code
+{
+    private bool unchanged = true;
+
+    [Parameter]
+    public Person Person { get; set; }
+
+    [Parameter]
+    public EventCallback OnSubmit { get; set; }
+
+    [Parameter]
+    public EventCallback OnCancel { get; set; }
+}

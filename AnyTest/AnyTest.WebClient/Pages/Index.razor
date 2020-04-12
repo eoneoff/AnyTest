@@ -1,9 +1,83 @@
 ﻿@page "/"
 
-<Person></Person>
+<div>
+    <div class="card m-5 flex-grow-1">
+        <h3 class="card-header">
+            @Localizer[nameof(Resources.UserInfo)]
+        </h3>
+        <div class="card-body">
+            <div class="card-title">
+                @Localizer[nameof(Resources.LookOrChangePersonalInfo)]
+            </div>
+            <div class="container">
+                @if (editing)
+                {
+                    <PersonEditor Person="EditPerson" OnSubmit="ConfirmSave.Show" OnCancel="CancelEdit"></PersonEditor>
+                }
+                else
+                {
+                    <PersonViewer Person="State.Person" EnableEditToggle="true" OnEditToggle="EditModeOn"></PersonViewer>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<ModalDialog @ref="ConfirmSave" OnConfirm="SavePerson">
+    <Header>
+        @Localizer[nameof(Resources.SavePerson)]?
+    </Header>
+    <Content>
+        <table class="table table-sm table-borderless">
+            <tr><th class="text-right">@Localizer[nameof(Resources.FirstName)]:</th><td class="@(State.Person.FirstName!=EditPerson.FirstName ? "text-danger" : "")">@EditPerson.FirstName</td></tr>
+            <tr><th class="text-right">@Localizer[nameof(Resources.FamilyName)]:</th><td class="@(State.Person.FamilyName!=EditPerson.FamilyName ? "text-danger" : "")">@EditPerson.FamilyName</td></tr>
+            <tr><th class="text-right">@Localizer[nameof(Resources.Patronimic)]:</th><td class="@(State.Person.Patronimic!=EditPerson.Patronimic ? "text-danger" : "")">@EditPerson.Patronimic</td></tr>
+            <tr><th class="text-right">@Localizer[nameof(Resources.Phone)]:</th><td class="@(State.Person.Phone!=EditPerson.Phone ? "text-danger" : "")">@EditPerson.Phone</td></tr>
+            <tr><th class="text-right">e-mail:</th><td class="@(State.Person.Email!=EditPerson.Email ? "text-danger" : "")">@EditPerson.Email</td></tr>
+        </table>
+    </Content>
+</ModalDialog>
+
+@if(saving) { <div class="modal-backdrop"></div> }
+
 
 @code
 {
-    [CascadingParameter(Name = "UserName")]
-    protected string User { get; set; }
+    private Model.Person EditPerson { get; set; } = new Model.Person();
+    private bool editing = false;
+    private bool saving = false;
+    private ModalDialog ConfirmSave;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if((State?.Person?.Id ?? 0) == 0)
+        {
+            await State.GetPersonByAuthorizedUser();
+        }
+    }
+
+    private void EditModeOn()
+    {
+        editing = true;
+        EditPerson = State.GetCopyOfPerson();
+    }
+
+    private async Task SavePerson()
+    {
+        saving = true;
+        try
+        {
+            await State.SavePerson(EditPerson);
+        }
+        finally
+        {
+            saving = false;
+            editing = false;
+        }
+    }
+
+    private void CancelEdit()
+    {
+        editing = false;
+    }
 }

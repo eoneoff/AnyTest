@@ -51,7 +51,7 @@ namespace AnyTest.DataService.Controllers
         }
 
         [HttpGet("person")]
-        [Authorize(Roles = "Administrator")]
+        [Authorize]
         public async Task<Person> Person ()
         {
             Person person = new Person();
@@ -59,10 +59,10 @@ namespace AnyTest.DataService.Controllers
             if (HttpContext.User.Identity is ClaimsIdentity identity)
             {
                 var email = identity.FindFirst(ClaimTypes.Email).Value;                
-                person = await _people.FindByEmail(email);
+                person = await _people.FindByEmail(email) ?? new Person { Email = email};
             }
 
-            return person;
+            return person; 
         }
     }
 }

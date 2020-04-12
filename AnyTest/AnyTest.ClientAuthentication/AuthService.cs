@@ -40,10 +40,11 @@ namespace AnyTest.ClientAuthentication
         /// <param name="httpClient">
         /// \~english An instance of <c>HttpClient</c> class. Depencency
         /// \~ukrainian Езкемплярр класу <c>HttpClient</c>. Залежність
-        /// <param>
+        /// </param>
         /// <param name="authenticationStateProvider">
         /// \~english An instance of <c>AuthenticationStateProvider</c> class. Depencency
-        /// \~ukrainian Езкемплярр класу <c>AuthenticationStateProvider</c>. Залежність</param>
+        /// \~ukrainian Езкемплярр класу <c>AuthenticationStateProvider</c>. Залежність
+        /// </param>
         /// <param name="localStorage">
         /// \~english A class, implementing an <c>ILocalStorageService</c> interface. Dependency.
         /// \~ukrainian Клас. який наслідує інтерфейсу <c>ILocalStorageSerivce</c>. Залежність.
@@ -85,6 +86,20 @@ namespace AnyTest.ClientAuthentication
         {
             var result = await _httpClient.PostJsonAsync<RegisterResult>("api/accounts", registerModel);
             return result;
+        }
+
+        /// <inheritdoc />
+        public async Task<bool> GetToken()
+        {
+            var savedToken = await _localStorage.GetItemAsync<string>("authToken");
+            if (string.IsNullOrWhiteSpace(savedToken))
+            {
+                return false;
+            }
+
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", savedToken);
+
+            return true;
         }
     }
 }

@@ -78,7 +78,24 @@
             \~ukrainian Перелік дійснийх ролей
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:AnyTest.ClientAuthentication.AuthService.#ctor(System.Net.Http.HttpClient,Microsoft.AspNetCore.Components.Authorization.AuthenticationStateProvider,Blazored.LocalStorage.ILocalStorageService)" -->
+        <member name="M:AnyTest.ClientAuthentication.AuthService.#ctor(System.Net.Http.HttpClient,Microsoft.AspNetCore.Components.Authorization.AuthenticationStateProvider,Blazored.LocalStorage.ILocalStorageService)">
+            <summary>
+            \~english Initalizes a new instance of <c>AuthService</c> class
+            \~ukrainian Ініціалізує новий екземпляр класу <c>AuthService</c>
+            </summary>
+            <param name="httpClient">
+            \~english An instance of <c>HttpClient</c> class. Depencency
+            \~ukrainian Езкемплярр класу <c>HttpClient</c>. Залежність
+            </param>
+            <param name="authenticationStateProvider">
+            \~english An instance of <c>AuthenticationStateProvider</c> class. Depencency
+            \~ukrainian Езкемплярр класу <c>AuthenticationStateProvider</c>. Залежність
+            </param>
+            <param name="localStorage">
+            \~english A class, implementing an <c>ILocalStorageService</c> interface. Dependency.
+            \~ukrainian Клас. який наслідує інтерфейсу <c>ILocalStorageSerivce</c>. Залежність.
+            </param>
+        </member>
         <member name="M:AnyTest.ClientAuthentication.AuthService.Login(AnyTest.ClientAuthentication.LoginModel)">
             <inheritdoc />
         </member>
@@ -86,6 +103,9 @@
             <inheritdoc />
         </member>
         <member name="M:AnyTest.ClientAuthentication.AuthService.Register(AnyTest.ClientAuthentication.RegisterModel)">
+            <inheritdoc />
+        </member>
+        <member name="M:AnyTest.ClientAuthentication.AuthService.GetToken">
             <inheritdoc />
         </member>
         <member name="T:AnyTest.ClientAuthentication.IAuthService">
@@ -124,6 +144,16 @@
             <returns>
             \~english <c>RegisterResult</c> object with info about registration
             \~ukrainian Об'єкт класу <c>RegisterResult</c> з інформацією про реєстрацію
+            </returns>
+        </member>
+        <member name="M:AnyTest.ClientAuthentication.IAuthService.GetToken">
+            <summary>
+            \~english Gets token from local storage to <c>HttpClient</c>
+            \~ukrainian Додає токен із локального сховища до <c>HttpClient</c>
+            </summary>
+            <returns>
+            \~english Returns <c>bool</c> defining whether local storage contains token
+            \~ukrainian Повертає <c>bool</c>, що містить інформацію про наявність токена в локальному сховищі
             </returns>
         </member>
         <member name="T:AnyTest.ClientAuthentication.LoginModel">
@@ -222,7 +252,12 @@
             \~ukrainian Ініціалізує новий екземлпяр класу <c>ContainsLowerCase</c>
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "T:AnyTest.ClientAuthentication.ContainsUpperCase" -->
+        <member name="T:AnyTest.ClientAuthentication.ContainsUpperCase">
+            <summary>
+            \~english  Specifies that a data field value in ASP.NET Dynamic Data must contain lowercase letters
+            \~ukrainian Визначає, що поле даних для ASP.NET Dynamic Data має містити заглавні літери
+            </summary>
+        </member>
         <member name="M:AnyTest.ClientAuthentication.ContainsUpperCase.#ctor">
             <summary>
             \~english Initializes a new instance of <c>ContainsUpperCase</c> class

@@ -17,13 +17,24 @@ namespace AnyTest.WebClient.ViewModels
 
         public Person Person { get; private set; } = new Person();
 
+        private Person LoadingStub = new Person
+        {
+            FirstName = "Loading...",
+            FamilyName = "Loading...",
+            Patronimic = "Loading...",
+            Phone = "Loading...",
+            Email = "Loading.."
+        };
+
+        public void ResetPerson() => Person = new Person();
+
         public async Task GetPersonByAuthorizedUser()
         {
-            var response = await _httpClient.GetAsync("Accounts/Person");
+            Person = LoadingStub;
             Person person = new Person();
             try
             {
-                person = JsonSerializer.Deserialize<Person>(await response.Content.ReadAsStringAsync());
+                person = await _httpClient.GetJsonAsync<Person>("Accounts/Person");
             }
             catch (Exception ex)
             {

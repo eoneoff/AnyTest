@@ -28,7 +28,16 @@ namespace AnyTest.MSSQLNetCoreDataRepository
 
         public virtual async Task<bool> Exists(params object[] key)
         {
-            return await _db.Set<T>().FindAsync(key) != null;
+            var found = await _db.Set<T>().FindAsync(key);
+            if(found == null)
+            {
+                return false;
+            }
+            else
+            {
+                _db.Entry<T>(found).State = EntityState.Detached;
+                return true;
+            }
         }
 
         public virtual async Task<IEnumerable<T>> Get()
@@ -38,13 +47,20 @@ namespace AnyTest.MSSQLNetCoreDataRepository
 
         public virtual async Task<T> Get(params object[] key)
         {
-            return await _db.Set<T>().FindAsync(key);
+            var item = await _db.Set<T>().FindAsync(key);
+            if(item != null)
+            {
+                _db.Entry<T>(item).State = EntityState.Detached;
+            }
+
+            return item;
         }
 
         public virtual async Task<T> Post(T item)
         {
             _db.Add(item);
             await _db.SaveChangesAsync();
+            _db.Entry(item).State = EntityState.Detached;
             return item;
 
         }
@@ -53,6 +69,7 @@ namespace AnyTest.MSSQLNetCoreDataRepository
         {
             _db.Update(item);
             await _db.SaveChangesAsync();
+            _db.Entry(item).State = EntityState.Detached;
             return item;
         }
     }
