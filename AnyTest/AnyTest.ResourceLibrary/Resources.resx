@@ -228,6 +228,9 @@
   <data name="TestCreationAndTestingApp" xml:space="preserve">
     <value>Додаток для створення і проходження тестів</value>
   </data>
+  <data name="User" xml:space="preserve">
+    <value>Користувач</value>
+  </data>
   <data name="UserInfo" xml:space="preserve">
     <value>Дані користувача</value>
   </data>
@@ -236,5 +239,8 @@
   </data>
   <data name="UsernameOrPasswordInvalid" xml:space="preserve">
     <value>Невірні логін або пароль</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Користувачі</value>
   </data>
 </root>

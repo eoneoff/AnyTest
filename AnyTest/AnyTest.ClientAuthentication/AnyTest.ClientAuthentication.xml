@@ -36,7 +36,10 @@
             \~english Marks a user as authenticated for an <c>AuthorizeView</c> component
             \~ukrainian Позначає користувача аутентивікованим для компонента <c>AuthorizeView</c> 
             </summary>
-            <param name="userName">user name</param>
+            <param name="token">
+            \~ JWT token
+            \~ JWT токен
+            </param>
         </member>
         <member name="M:AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider.MarkUserAsLoggedOut">
             <summary>

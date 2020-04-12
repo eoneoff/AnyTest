@@ -9,7 +9,7 @@
             <div class="card-title">
                 @Localizer[nameof(Resources.LookOrChangePersonalInfo)]
             </div>
-            <div class="container">
+            <div class="container mx-0">
                 @if (editing)
                 {
                     <PersonEditor Person="EditPerson" OnSubmit="ConfirmSave.Show" OnCancel="CancelEdit"></PersonEditor>

@@ -394,6 +394,15 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Користувач.
+        /// </summary>
+        public static string User {
+            get {
+                return ResourceManager.GetString("User", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Дані користувача.
         /// </summary>
         public static string UserInfo {
@@ -417,6 +426,15 @@ namespace AnyTest.ResourceLibrary {
         public static string UsernameOrPasswordInvalid {
             get {
                 return ResourceManager.GetString("UsernameOrPasswordInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Користувачі.
+        /// </summary>
+        public static string Users {
+            get {
+                return ResourceManager.GetString("Users", resourceCulture);
             }
         }
     }

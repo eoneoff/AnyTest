@@ -63,10 +63,14 @@ namespace AnyTest.ClientAuthentication
         /// \~english Marks a user as authenticated for an <c>AuthorizeView</c> component
         /// \~ukrainian Позначає користувача аутентивікованим для компонента <c>AuthorizeView</c> 
         /// </summary>
-        /// <param name="userName">user name</param>
-        public void MarkUserAsAuthenticated(string userName)
+        /// <param name="token">
+        /// \~ JWT token
+        /// \~ JWT токен
+        /// </param>
+        public void MarkUserAsAuthenticated(string token)
         {
-            var authenticatedUser = new ClaimsPrincipal(new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, userName) }, "apiauth"));
+
+            var authenticatedUser = new ClaimsPrincipal(new ClaimsIdentity(ParseClaimsFromJwt(token), "apiauth"));
             var authState = Task.FromResult(new AuthenticationState(authenticatedUser));
             NotifyAuthenticationStateChanged(authState);
         }
