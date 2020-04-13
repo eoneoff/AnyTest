@@ -11,6 +11,8 @@ using Microsoft.AspNetCore.Http;
 using System.Web;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Data.SqlClient;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -25,6 +27,7 @@ namespace AnyTest.DataService.Controllers
     public class AccountsController : ControllerBase
     {
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly AnyTestIdentityDbContext _idb;
         private readonly IPersonRepository _people;
 
         /// <summary>
@@ -39,10 +42,11 @@ namespace AnyTest.DataService.Controllers
         /// \~english The class <c>IPersonRepository</c> instance. Dependency.
         /// \~ukrainian Екземпляр класу, який втілює <c>IPersonRepository</c>. Залежність
         /// </param>
-        public AccountsController(UserManager<IdentityUser> userManager, IPersonRepository people)
+        public AccountsController(UserManager<IdentityUser> userManager, IPersonRepository people, AnyTestIdentityDbContext idb)
         {
             _userManager = userManager;
             _people = people;
+            _idb = idb;
         }
 
         /// <summary>
@@ -114,6 +118,43 @@ namespace AnyTest.DataService.Controllers
             }
 
             return person; 
+        }
+
+        /// <summary>
+        /// \~english Returns an info about all registered users
+        /// \~ukrainian Пвертає дані усіх зареєстрованих користувачів
+        /// </summary>
+        /// <returns>
+        /// \~english A collection of user info
+        /// \~ukrainian Колекцію даних всіх зареєстрованих користувачів
+        /// </returns>
+        /// /// <example>
+        /// \~english An example of HTTP request to get all registered user's info
+        /// \~ukrainian Приклад HTTP запиту даних усіх зареєстроваих користувачів
+        /// <code>
+        /// GET: api/Accounts/Users
+        /// </code>
+        /// </example>
+        [HttpGet("users")]
+        [Authorize(Roles = "Administrator")]
+        public async Task<IEnumerable<UserInfo>> Users()
+        {
+            var identityUserInfo = await _idb.UserInfos();
+            var personalInfo = await _people.Get();
+
+            var result = from user in identityUserInfo
+                     join person in personalInfo on user.Email equals person.Email into grp
+                     from pordef in grp.DefaultIfEmpty()
+                     select new UserInfo
+                     {
+                         User = user.User,
+                         Email = user.Email,
+                         Name = $"{pordef?.FamilyName ?? ""} {pordef?.FirstName ?? ""} {pordef?.Patronimic ?? ""}".Trim(),
+                         UserPersonId = pordef?.Id,
+                         Roles = user.Roles
+                     };
+
+            return result;
         }
     }
 }

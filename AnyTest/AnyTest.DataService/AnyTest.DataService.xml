@@ -37,7 +37,7 @@
             \~ukrainia Контроллер для керуввання аккаунтами користувачі
             </summary>
         </member>
-        <member name="M:AnyTest.DataService.Controllers.AccountsController.#ctor(Microsoft.AspNetCore.Identity.UserManager{Microsoft.AspNetCore.Identity.IdentityUser},AnyTest.IDataRepository.IPersonRepository)">
+        <member name="M:AnyTest.DataService.Controllers.AccountsController.#ctor(Microsoft.AspNetCore.Identity.UserManager{Microsoft.AspNetCore.Identity.IdentityUser},AnyTest.IDataRepository.IPersonRepository,AnyTest.DataService.AnyTestIdentityDbContext)">
             <summary>
             \~english Creates new instance of <c>AccountsController</c>
             \~ukrainian Створює новий екземляр <c>AccountsController</c>
@@ -86,6 +86,23 @@
             \~ukrainian Приклад HTTP запиту особистих даних зареєстрованого користувача
             <code>
             GET: api/Accounts/Person
+            </code>
+            </example>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.AccountsController.Users">
+            <summary>
+            \~english Returns an info about all registered users
+            \~ukrainian Пвертає дані усіх зареєстрованих користувачів
+            </summary>
+            <returns>
+            \~english A collection of user info
+            \~ukrainian Колекцію даних всіх зареєстрованих користувачів
+            </returns>
+            /// <example>
+            \~english An example of HTTP request to get all registered user's info
+            \~ukrainian Приклад HTTP запиту даних усіх зареєстроваих користувачів
+            <code>
+            GET: api/Accounts/Users
             </code>
             </example>
         </member>

@@ -309,5 +309,41 @@
             \~ukrainian Містить помилки реєстрації
             </summary>
         </member>
+        <member name="T:AnyTest.ClientAuthentication.UserInfo">
+            <summary>
+            \~english A class, containing user info
+            \~ukrainian Клас, якій містить дані користувача
+            </summary>
+        </member>
+        <member name="P:AnyTest.ClientAuthentication.UserInfo.User">
+            <summary>
+            \~english Identity user name
+            \~ukrainian Логін користувач
+            </summary>
+        </member>
+        <member name="P:AnyTest.ClientAuthentication.UserInfo.Email">
+            <summary>
+            \~english User email
+            \~ukrainian Email користувача
+            </summary>
+        </member>
+        <member name="P:AnyTest.ClientAuthentication.UserInfo.Roles">
+            <summary>
+            \~english A collection of user's roles
+            \~ukrainian Колекція ролей користувача
+            </summary>
+        </member>
+        <member name="P:AnyTest.ClientAuthentication.UserInfo.UserPersonId">
+            <summary>
+            \~english Id of users's <c>Person</c>
+            \~ukrainian Id особистих даних користувача
+            </summary>
+        </member>
+        <member name="P:AnyTest.ClientAuthentication.UserInfo.Name">
+            <summary>
+            \~english Usert's full name
+            \~ukrainian Повне ім'я користувача
+            </summary>
+        </member>
     </members>
 </doc>

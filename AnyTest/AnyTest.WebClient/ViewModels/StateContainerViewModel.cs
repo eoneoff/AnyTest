@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
+using AnyTest.ClientAuthentication;
 
 namespace AnyTest.WebClient.ViewModels
 {
@@ -16,6 +17,7 @@ namespace AnyTest.WebClient.ViewModels
         public StateContainerViewModel(HttpClient httpClient) => _httpClient = httpClient;
 
         public Person Person { get; private set; } = new Person();
+        public IEnumerable<UserInfo> Users = new List<UserInfo>();
 
         private Person LoadingStub = new Person
         {
@@ -69,5 +71,11 @@ namespace AnyTest.WebClient.ViewModels
         /// </param>
         public async Task SavePerson(Person person) =>
             Person =  person.Id == 0 ? await  _httpClient.PostJsonAsync<Person>("people",person) : await _httpClient.PutJsonAsync<Person>($"people/{person.Id}", person);
+
+        /// <summary>
+        /// \~english Gets a complete list of users from server
+        /// \~ukrainian Отримує з сервера повний список користувачів
+        /// </summary>
+        public async Task GetUsers() => Users = await _httpClient.GetJsonAsync<IEnumerable<UserInfo>>("accounts/users");
     }
 }

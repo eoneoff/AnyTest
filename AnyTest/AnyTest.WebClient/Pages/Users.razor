@@ -1,9 +1,15 @@
 @page "/users"
 
 <div>
+    
 </div>
 
 @code
-{
-    
+{   protected override async Task OnInitializedAsync()
+    {
+        if(State.Users.Count() == 0)
+        {
+            await State.GetUsers();
+        }
+    }
 }

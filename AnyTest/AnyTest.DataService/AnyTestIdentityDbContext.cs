@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Threading.Tasks;
 using AnyTest.ClientAuthentication;
@@ -58,6 +59,55 @@ namespace AnyTest.DataService
                     await userManager.AddToRoleAsync(defaultAdmin, "Administrator");
                 }
             }
+        }
+
+        /// <summary>
+        /// \~english Returns a collection of users with roles
+        /// \~ukrainian Повертає колекцію користувачів з ролями
+        /// </summary>
+        /// <returns>
+        /// \~english A collection of <c>UserInfo</c> objects withour users's personal information
+        /// \~ukrainian Колекція об'єктів <c>UserInfo</c> без персональних даних користувачів
+        /// </returns>
+        public async Task<IEnumerable<UserInfo>> UserInfos()
+        {
+            string query =
+                  @"SELECT U.UserName, U.Email, R.Name AS Role
+                    FROM AspNetUsers AS U
+                    INNER JOIN AspNetUserRoles AS UR ON U.Id = UR.UserId
+                    INNER JOIN AspNetRoles AS R ON UR.RoleId = R.Id";
+
+            using var connection = Database.GetDbConnection();
+            using var command = connection.CreateCommand();
+
+            command.CommandType = System.Data.CommandType.Text;
+            command.CommandText = query;
+
+            var identityQueryResult = new List<(string User, string Email, string Role)>();
+
+            await connection.OpenAsync();
+            using var reader = await command.ExecuteReaderAsync();
+
+            while (await reader.ReadAsync())
+            {
+                identityQueryResult.Add
+                ((
+                    User: reader["UserName"].ToString(),
+                    Email: reader["Email"].ToString(),
+                    Role: reader["Role"].ToString()
+                ));
+            }
+
+            var result  = identityQueryResult
+                .GroupBy(iqr => new { iqr.User, iqr.Email })
+                .Select(gr => new UserInfo
+                {
+                    User = gr.Key.User,
+                    Email = gr.Key.Email,
+                    Roles = gr.Select(r => r.Role)
+                });
+
+            return result;
         }
     }
 }
