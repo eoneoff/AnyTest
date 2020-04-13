@@ -29,7 +29,7 @@
                     <ValidationMessage For="@(()=>loginModel.Password)" />
                 </div>
                 <div class="d-flex flex-row justify-content-lg-between">
-                    <button type="submit" class="btn btn-primary" disabled="@IsAuthenticating">@Localizer[nameof(Resources.DoLogin)]</button>
+                    <button type="submit" class="btn btn-success" disabled="@IsAuthenticating">@Localizer[nameof(Resources.DoLogin)]</button>
                     <a class="btn btn-link" href="#">@Localizer[nameof(Resources.StudentRegistration)]</a>
                 </div>
             </EditForm>

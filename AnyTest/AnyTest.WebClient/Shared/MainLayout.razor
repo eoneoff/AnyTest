@@ -22,7 +22,7 @@
                         </ul>
                         <AuthorizeView>
                             <Authorized>
-                                <a href="/" class="text-white mr-4">@context.User.Identity.Name</a>
+                                <a href="/" class="text-white mr-4" @onclick="@(()=>Page="/")">@context.User.Identity.Name</a>
                                 <button class="btn btn-light" @onclick="@AuthService.Logout">
                                     @Localizer[nameof(Resources.Logout)]
                                 </button>

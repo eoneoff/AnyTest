@@ -99,6 +99,27 @@ app {
     }
 }
 
+/*button style*/
+.btn-success {
+    background-image: $success-button-background;
+    border-color: $default-button-border-color;
+    border-width: 1px 2px 2px 1px;
+}
+
+.btn-success:hover {
+    background-image: $success-button-hover-background;
+}
+
+.btn-danger {
+    background-image: $danger-button-background;
+    border-color: $default-button-border-color;
+    border-width: 1px 2px 2px 1px;
+}
+
+.btn-danger:hover {
+    background-image: $danger-button-hover-background;
+}
+
 /*validation style*/
 .valid.modified:not([type=checkbox]) {
     outline: 1px solid $valid-modified-color;

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
-using AnyTest.Infrastructure;
+using Microsoft.AspNetCore.Components;
 
 namespace AnyTest.WebClient.ViewModels
 {
@@ -23,7 +23,7 @@ namespace AnyTest.WebClient.ViewModels
             FamilyName = "Loading...",
             Patronimic = "Loading...",
             Phone = "Loading...",
-            Email = "Loading.."
+            Email = "Loading..."
         };
 
         public void ResetPerson() => Person = new Person();
@@ -68,6 +68,6 @@ namespace AnyTest.WebClient.ViewModels
         /// \~ukrainian Об'єкт <c>Person</c>
         /// </param>
         public async Task SavePerson(Person person) =>
-            Person =  person.Id == 0 ? await  _httpClient.PostAsJsonAsync<Person, Person>("people", person) : await _httpClient.PutAsJsonAsync<Person, Person>($"people/{person.Id}", person);
+            Person =  person.Id == 0 ? await  _httpClient.PostJsonAsync<Person>("people",person) : await _httpClient.PutJsonAsync<Person>($"people/{person.Id}", person);
     }
 }
