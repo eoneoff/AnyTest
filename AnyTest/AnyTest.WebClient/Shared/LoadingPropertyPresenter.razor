@@ -1,0 +1,14 @@
+@if (Content == "Loading...")
+{
+    <div class="spinner-border spinner-border-sm text-success"></div>
+}
+else
+{
+    @(Content ?? "")
+}
+
+@code
+{
+    [Parameter]
+    public string Content {get; set;}
+}

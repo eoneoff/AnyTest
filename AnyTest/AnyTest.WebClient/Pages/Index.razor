@@ -38,7 +38,14 @@
     </Content>
 </ModalDialog>
 
-@if(saving) { <div class="modal-backdrop"></div> }
+@if(saving)
+{
+    <div class="modal-backdrop">
+        <div class="d-flex justify-content-center flex-column align-items-center h-100">
+            <div class="spinner-border text-white" style="width:20vh; height:20vh;border-width:30px;"></div>
+        </div>
+    </div>
+}
 
 
 @code

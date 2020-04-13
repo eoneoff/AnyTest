@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="d-flex flex-column align-items-stretch">
                 <nav class="navbar navbar-expand-lg navbar-dark bg-secondary w-100 mt-4 mb-2">
-                    <a class="navbar-brand" href="/" @onclick="@(()=>Page="/")">AnyTest</a>
+                    <a class="navbar-brand" href="">AnyTest</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -15,14 +15,14 @@
                             <AuthorizeView Roles="Administrator">
                                 <Authorized>
                                     <li class="nav-item">
-                                        <a class="nav-link @(Page=="users" ? "active" : "")" href="/users" @onclick="@(()=>Page="users")">@Localizer[nameof(Resources.Users)]</a>
+                                        <NavLink class="nav-link" href="users">@Localizer[nameof(Resources.Users)]</NavLink>
                                     </li>
                                 </Authorized>
                             </AuthorizeView>
                         </ul>
                         <AuthorizeView>
                             <Authorized>
-                                <a href="/" class="text-white mr-4" @onclick="@(()=>Page="/")">@context.User.Identity.Name</a>
+                                <a href="" class="text-white mr-4">@context.User.Identity.Name</a>
                                 <button class="btn btn-light" @onclick="@AuthService.Logout">
                                     @Localizer[nameof(Resources.Logout)]
                                 </button>
@@ -48,8 +48,3 @@
         </div>
     </div>
 </div>
-
-@code
-{
-    private string Page = "/";
-}
