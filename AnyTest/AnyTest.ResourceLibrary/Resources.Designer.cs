@@ -61,6 +61,15 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Адміністратор.
+        /// </summary>
+        public static string Administrator {
+            get {
+                return ResourceManager.GetString("Administrator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Віповідь.
         /// </summary>
         public static string Answer {
@@ -214,6 +223,24 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Записів на сторінці.
+        /// </summary>
+        public static string ItemsPerPage {
+            get {
+                return ResourceManager.GetString("ItemsPerPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Логін.
+        /// </summary>
+        public static string Login {
+            get {
+                return ResourceManager.GetString("Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Вхід.
         /// </summary>
         public static string LoginAction {
@@ -349,6 +376,24 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Роль.
+        /// </summary>
+        public static string Role {
+            get {
+                return ResourceManager.GetString("Role", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Ролі.
+        /// </summary>
+        public static string Roles {
+            get {
+                return ResourceManager.GetString("Roles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Зберегти.
         /// </summary>
         public static string Save {
@@ -363,6 +408,15 @@ namespace AnyTest.ResourceLibrary {
         public static string SavePerson {
             get {
                 return ResourceManager.GetString("SavePerson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Студент.
+        /// </summary>
+        public static string Student {
+            get {
+                return ResourceManager.GetString("Student", resourceCulture);
             }
         }
         
@@ -390,6 +444,15 @@ namespace AnyTest.ResourceLibrary {
         public static string TestCreationAndTestingApp {
             get {
                 return ResourceManager.GetString("TestCreationAndTestingApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Викладач.
+        /// </summary>
+        public static string Tutor {
+            get {
+                return ResourceManager.GetString("Tutor", resourceCulture);
             }
         }
         

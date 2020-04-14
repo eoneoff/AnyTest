@@ -1,7 +1,31 @@
 @page "/users"
 
-<div>
-    
+<div class="m-5">
+    <PageView Items="State.Users" ContainerClass="table-bordered table-sm table-hover">
+        <Header>
+            <tr>
+                <th>@Localizer[nameof(Resources.Login)]</th>
+                <th>e-mail</th>
+                <th>@Localizer[nameof(Resources.UserName)]</th>
+                <th>@Localizer[nameof(Resources.Roles)]</th>
+            </tr>
+        </Header>
+        <ItemTemplate Context="user">
+            <tr @onclick="()=>SelectedUser = user" class="@(user.User == SelectedUser?.User ? "selected-table-row" : "")">
+                <td>@user.User</td>
+                <td>@user.Email</td>
+                <td>@user.Name</td>
+                <td>
+                    <ul>
+                        @foreach(var role in user.Roles)
+                        {
+                            <li>@Localizer[role]</li>
+                        }
+                    </ul>
+                </td>
+            </tr>
+        </ItemTemplate>
+    </PageView>
 </div>
 
 @code
@@ -12,4 +36,6 @@
             await State.GetUsers();
         }
     }
+
+    private UserInfo SelectedUser;
 }

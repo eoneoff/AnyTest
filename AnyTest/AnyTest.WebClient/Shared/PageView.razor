@@ -1,0 +1,61 @@
+﻿@typeparam TItem
+
+<div>
+    <table class="table @ContainerClass">
+        <thead>
+            @Header
+        </thead>
+        <tbody>
+            @foreach (var item in Items.Skip((CurrentPage-1)*PageSize).Take(PageSize))
+            {
+                @ItemTemplate(item)
+            }
+        </tbody>
+    </table>
+    <div class="d-flex flex-row mx-0">
+        <div class="btn-group">
+            @for (int i = 1; i <= PageCount; i++)
+            {
+                var pageNumber = i;
+                <button class="btn @(pageNumber == CurrentPage ? "btn-success" : "btn-outline-success")" @onclick="@(()=>CurrentPage = pageNumber)">@pageNumber</button>
+            }
+        </div>
+        <span class="ml-auto mr-1 my-auto">@Localizer[nameof(Resources.ItemsPerPage)]:</span>
+        <input type="number" style="width:5em;" class="form-control" @bind-value="PageSize" />
+    </div>
+    
+</div>
+
+@code
+{
+    private int pageSize = 10;
+
+    [Parameter]
+    public RenderFragment Header { get; set; }
+
+    [Parameter]
+    public RenderFragment<TItem> ItemTemplate { get; set; }
+
+    [Parameter]
+    public IEnumerable<TItem> Items { get; set; }
+
+    [Parameter]
+    public int CurrentPage { get; set; } = 1;
+
+    [Parameter]
+    public int PageSize
+    {
+        get => pageSize;
+        set
+        {
+            CurrentPage = 1;
+            pageSize = value;
+        }
+    }
+
+    [Parameter]
+    public string ContainerClass { get; set; }
+
+    private int PageCount => (int)Math.Ceiling((decimal)(Items?.Count() ?? 0) / PageSize);
+
+}

@@ -31,6 +31,16 @@
             \~ukrainian Клас-будівник доадтку, викликаючого метод
             </param>
         </member>
+        <member name="M:AnyTest.DataService.AnyTestIdentityDbContext.UserInfos">
+            <summary>
+            \~english Returns a collection of users with roles
+            \~ukrainian Повертає колекцію користувачів з ролями
+            </summary>
+            <returns>
+            \~english A collection of <c>UserInfo</c> objects withour users's personal information
+            \~ukrainian Колекція об'єктів <c>UserInfo</c> без персональних даних користувачів
+            </returns>
+        </member>
         <member name="T:AnyTest.DataService.Controllers.AccountsController">
             <summary>
             \~english A controller for managing user accounts

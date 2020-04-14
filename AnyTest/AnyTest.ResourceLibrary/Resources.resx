@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Administrator" xml:space="preserve">
+    <value>Адміністратор</value>
+  </data>
   <data name="Answer" xml:space="preserve">
     <value>Віповідь</value>
   </data>
@@ -168,6 +171,12 @@
   <data name="FirstName" xml:space="preserve">
     <value>Ім'я</value>
   </data>
+  <data name="ItemsPerPage" xml:space="preserve">
+    <value>Записів на сторінці</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Логін</value>
+  </data>
   <data name="LoginAction" xml:space="preserve">
     <value>Вхід</value>
   </data>
@@ -213,11 +222,20 @@
   <data name="Question" xml:space="preserve">
     <value>Питання</value>
   </data>
+  <data name="Role" xml:space="preserve">
+    <value>Роль</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>Ролі</value>
+  </data>
   <data name="Save" xml:space="preserve">
     <value>Зберегти</value>
   </data>
   <data name="SavePerson" xml:space="preserve">
     <value>Зберегти особисті дані</value>
+  </data>
+  <data name="Student" xml:space="preserve">
+    <value>Студент</value>
   </data>
   <data name="StudentRegistration" xml:space="preserve">
     <value>Реєстрація студента</value>
@@ -227,6 +245,9 @@
   </data>
   <data name="TestCreationAndTestingApp" xml:space="preserve">
     <value>Додаток для створення і проходження тестів</value>
+  </data>
+  <data name="Tutor" xml:space="preserve">
+    <value>Викладач</value>
   </data>
   <data name="User" xml:space="preserve">
     <value>Користувач</value>

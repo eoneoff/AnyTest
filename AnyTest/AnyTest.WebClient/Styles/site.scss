@@ -89,7 +89,7 @@ app {
 
 .modal-backdrop {
     z-index:500;
-    background: rgba(138,163,83,0.7);
+    background: $backdrop-background-color;
 }
 
 .modal-header {
@@ -98,6 +98,12 @@ app {
         color: $modal-window-text-color;
     }
 }
+
+/*form style*/
+.form-control:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem $form-focus-color;
+} 
 
 /*button style*/
 .btn-success {
@@ -110,6 +116,10 @@ app {
     background-image: $success-button-hover-background;
 }
 
+.btn-outline-success:hover{
+    background-image:$success-button-hover-background;
+}
+
 .btn-danger {
     background-image: $danger-button-background;
     border-color: $default-button-border-color;
@@ -118,6 +128,24 @@ app {
 
 .btn-danger:hover {
     background-image: $danger-button-hover-background;
+}
+
+/*table style*/
+.selected-table-row {
+    background-color: $selected-grid-row-color !important;
+
+    tr {
+        background-color: $selected-grid-row-color !important;
+    }
+
+    td {
+        background-color: $selected-grid-row-color !important;
+    }
+}
+
+.table-hover tbody tr:hover td,
+.table-hover tbody tr:hover th {
+    background-color: $table-hover-color;
 }
 
 /*validation style*/

@@ -38,6 +38,10 @@ namespace AnyTest.DataService.Controllers
         /// \~english <c>UserManager{IdentitityUser}</c> instance. Dependency.
         /// \~ukrainian Екземпляр <c>UserManager{IdentitityUser}</c>. Залежність.
         /// </param>
+        /// <param name="idb">
+        /// \~english An identity database context instance. Dependency/
+        /// \~ukrainian Екземпляр контексту бази даних користувачів. Залежність.
+        /// </param>
         /// <param name="people">
         /// \~english The class <c>IPersonRepository</c> instance. Dependency.
         /// \~ukrainian Екземпляр класу, який втілює <c>IPersonRepository</c>. Залежність

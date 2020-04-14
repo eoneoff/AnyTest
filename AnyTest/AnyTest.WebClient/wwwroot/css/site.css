@@ -79,6 +79,11 @@ app {
   .modal-header button {
     color: white; }
 
+/*form style*/
+.form-control:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25); }
+
 /*button style*/
 .btn-success {
   background-image: linear-gradient(#688744, #577534 70%);
@@ -88,6 +93,9 @@ app {
 .btn-success:hover {
   background-image: linear-gradient(#589754, #678544 70%); }
 
+.btn-outline-success:hover {
+  background-image: linear-gradient(#589754, #678544 70%); }
+
 .btn-danger {
   background-image: linear-gradient(tomato, red 70%);
   border-color: black;
@@ -95,6 +103,18 @@ app {
 
 .btn-danger:hover {
   background-image: linear-gradient(#FF8367, #FF2020 70%); }
+
+/*table style*/
+.selected-table-row {
+  background-color: #c4db9e !important; }
+  .selected-table-row tr {
+    background-color: #c4db9e !important; }
+  .selected-table-row td {
+    background-color: #c4db9e !important; }
+
+.table-hover tbody tr:hover td,
+.table-hover tbody tr:hover th {
+  background-color: #e6f5ce; }
 
 /*validation style*/
 .valid.modified:not([type=checkbox]) {

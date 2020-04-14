@@ -8,13 +8,18 @@ $invalid-color: red;
 $success-button-background: linear-gradient(#688744, #577534 70%);
 $success-button-hover-background:linear-gradient(#589754, #678544 70%);
 
+$form-focus-color: rgba(40, 167, 69, 0.25);
+
 $danger-button-background: linear-gradient(tomato, red 70%);
 $danger-button-hover-background: linear-gradient(#FF8367, #FF2020 70%);
 $default-button-border-color: black;
+
+$selected-grid-row-color: #c4db9e;
+$table-hover-color: #e6f5ce;
 
 $spinner-border-success-color:$base-back-color;
 
 $blazor-error-ui-color: lightyellow;
 
-$backdrop-background-color: rgba(138, 163, 183, 0.5);
+$backdrop-background-color: rgba(138,163,83,0.7);
 $modal-window-text-color: white;
