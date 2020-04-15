@@ -1,7 +1,10 @@
 @page "/users"
 
 <div class="m-5">
-    <PageView Items="State.Users" ContainerClass="table-bordered table-sm table-hover">
+    <div class="d-flex flex-row mb-2">
+        <button type="button" class="btn btn-success" @onclick="@(()=>editor.Show())">@Localizer[nameof(Resources.AddUser)]</button>
+    </div>
+    <PageView Items="State.Users" PageSize="12" ContainerClass="table-bordered table-sm table-hover">
         <Header>
             <tr>
                 <th>@Localizer[nameof(Resources.Login)]</th>
@@ -11,7 +14,7 @@
             </tr>
         </Header>
         <ItemTemplate Context="user">
-            <tr @onclick="()=>SelectedUser = user" class="@(user.User == SelectedUser?.User ? "selected-table-row" : "")">
+            <tr @onclick="()=>selectedUser = user" class="@(user.User == selectedUser?.User ? "selected-table-row" : "")">
                 <td>@user.User</td>
                 <td>@user.Email</td>
                 <td>@user.Name</td>
@@ -28,14 +31,59 @@
     </PageView>
 </div>
 
+<ModalDialog @ref="editor" Style="width:80vw;" OkButtonText="@Localizer[nameof(Resources.Save)]" OnConfirm="SaveUser" CloseOnOk="false">
+    <Header></Header>
+    <Content>
+        <div class="row mx-0">
+            <div class="col-lg-6">
+                <UserEditor @ref="userEditor" HideButtons="true"></UserEditor>
+            </div>
+            <div class="col-lg-6">
+                <div>
+                    <PersonEditor HideButtons="true" Disabled="@(!enableEditPerson)"></PersonEditor>
+                </div>
+                <div class="mt-2 custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="personEditSwitch" @bind-value="@enableEditPerson"/>
+                    <label class="custom-control-label" for="personEditSwitch">@Localizer[nameof(Resources.EditPerson)]</label>
+                </div>
+            </div>
+        </div>
+    </Content>
+</ModalDialog>
+
 @code
-{   protected override async Task OnInitializedAsync()
+{  
+    private UserInfo selectedUser;
+    private UserInfo editUser= new UserInfo();
+    private ModalDialog editor;
+    private bool enableEditPerson = false;
+    private UserEditor userEditor;
+
+    private UserInfo EditUser
     {
-        if(State.Users.Count() == 0)
+        get => editUser;
+        set
+        {
+            editUser.User = value.User;
+            editUser.Email = value.Email;
+            editUser.Name = value.Name;
+            editUser.UserPersonId = value.UserPersonId;
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (State.Users.Count() == 0)
         {
             await State.GetUsers();
         }
     }
 
-    private UserInfo SelectedUser;
+    private async Task SaveUser()
+    {
+        if(userEditor.Validate())
+        {
+            
+        }
+    }
 }

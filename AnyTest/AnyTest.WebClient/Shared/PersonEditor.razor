@@ -1,56 +1,88 @@
-<EditForm Model="@Person" OnValidSubmit="OnSubmit">
+<EditForm EditContext="@editContext" OnValidSubmit="OnSubmit">
     <DataAnnotationsValidator />
-    <div class="form-group row">
-        <div class="col-lg-2 d-flex flex-column justify-content-lg-end align-content-start align-content-lg-end">
-            <label for="familyname" class="col-form-label text-left text-lg-right font-weight-bold">@Localizer[nameof(Resources.FamilyName)]:</label>
+    <div class="form-group @(Wide?"row":"")">
+        <div class="@(Wide?"col-lg-2":"") d-flex flex-column justify-content-lg-end align-content-start align-content-lg-end">
+            <label for="familyname" class="col-form-label text-left @(Wide?"text-lg-right":"") font-weight-bold text-nowrap">@Localizer[nameof(Resources.FamilyName)]:</label>
         </div>
-        <div class="col-lg-10 d-flex flex-column px-0">
+        <div class="@(Wide?"col-lg-10":"") d-flex flex-column px-0">
             <ValidationMessage For="@(()=>Person.FamilyName)" />
-            <InputText Id="familyname" Class="form-control" @bind-Value="Person.FamilyName" @oninput="@(()=>unchanged = false)"/>
+            <InputText Id="familyname" Class="form-control" @bind-Value="Person.FamilyName" @oninput="@(()=>unchanged = false)" disabled="@Disabled"/>
         </div>
     </div>
-    <div class="form-group row">
-        <div class="col-lg-2 d-flex flex-column justify-content-lg-end align-content-start align-content-lg-end">
-            <label for="firstname" class="col-form-label text-left text-lg-right font-weight-bold">@Localizer[nameof(Resources.FirstName)]:</label>
+    <div class="form-group @(Wide?"row":"")">
+        <div class="@(Wide?"col-lg-2":"") d-flex flex-column justify-content-lg-end align-content-start align-content-lg-end">
+            <label for="firstname" class="col-form-label text-left @(Wide?"text-lg-right":"") font-weight-bold text-nowrap">@Localizer[nameof(Resources.FirstName)]:</label>
         </div>
-        <div class="col-lg-10 d-flex flex-column px-0">
+        <div class="@(Wide?"col-lg-10":"") d-flex flex-column px-0">
             <ValidationMessage For="@(()=>Person.FirstName)" />
-            <InputText Id="firstname" Class="form-control" @bind-Value="Person.FirstName" @oninput="@(()=>unchanged = false)"/>
+            <InputText Id="firstname" Class="form-control" @bind-Value="Person.FirstName" @oninput="@(()=>unchanged = false)" disabled="@Disabled"/>
         </div>
     </div>
-    <div class="form-grop row">
-        <label for="patronimic" class="col-lg-2 col-form-label text-left text-lg-right font-weight-bold">@Localizer[nameof(Resources.Patronimic)]:</label>
-        <InputText Id="patronimic" Class="form-control col-lg-10" @bind-Value="Person.Patronimic" @oninput="@(()=>unchanged = false)"/>
-    </div>
-    <div class="form-grop row mt-3">
-        <label for="phone" class="col-lg-2 col-form-label text-left text-lg-right font-weight-bold">@Localizer[nameof(Resources.Phone)]:</label>
-        <InputText Id="phone" Class="form-control col-lg-10" @bind-Value="Person.Phone" @oninput="@(()=>unchanged = false)"/>
-    </div>
-    <div class="form-grop row mt-3">
-        <div class="col-lg-2 d-flex flex-column justify-content-lg-end align-content-start align-content-lg-end">
-            <label for="familyname" class="col-form-label text-left text-lg-right font-weight-bold">e-mail:</label>
+    <div class="form-grop @(Wide?"row":"")">
+        <label for="patronimic" class="@(Wide?"col-lg-2":"") col-form-label text-left @(Wide?"text-lg-right":"") font-weight-bold text-nowrap">@Localizer[nameof(Resources.Patronimic)]:</label>
+        <div class="@(Wide?"col-lg-10":"") px-0">
+            <InputText Id="patronimic" Class="form-control" @bind-Value="Person.Patronimic" @oninput="@(()=>unchanged = false)" disabled="@Disabled"/>
         </div>
-        <div class="col-lg-10 d-flex flex-column px-0">
+    </div>
+    <div class="form-grop @(Wide?"row":"") mt-3">
+        <label for="phone" class="@(Wide?"col-lg-2":"") col-form-label text-left @(Wide?"text-lg-right":"") font-weight-bold text-nowrap">@Localizer[nameof(Resources.Phone)]:</label>
+        <div class="@(Wide?"col-lg-10":"") px-0">
+            <InputText Id="phone" Class="form-control" @bind-Value="Person.Phone" @oninput="@(()=>unchanged = false)" disabled="@Disabled"/>
+        </div>
+    </div>
+    <div class="form-grop @(Wide?"row":"") mt-3">
+        <div class="@(Wide?"col-lg-2":"") d-flex flex-column justify-content-lg-end align-content-start align-content-lg-end">
+            <label for="personEmail" class="col-form-label text-left @(Wide?"text-lg-right":"") font-weight-bold text-nowrap">e-mail:</label>
+        </div>
+        <div class="@(Wide?"col-lg-10":"") d-flex flex-column px-0">
             <ValidationMessage For="@(()=>Person.Email)" />
-            <InputText Id="familyname" Class="form-control" @bind-Value="Person.Email" disabled @oninput="@(()=>unchanged = false)"/>
+            <InputText Id="personEmail" Class="form-control" @bind-Value="Person.Email" disabled="@(Disabled || true)" @oninput="@(()=>unchanged = false)" />
         </div>
     </div>
-    <div class="d-flex flex-row justify-content-between mt-3">
-        <button type="submit" class="btn btn-success" disabled="@unchanged">@(Person.Id == 0 ? Localizer[nameof(Resources.Create)] : Localizer[nameof(Resources.Save)])</button>
-        <button type="button" class="btn btn-danger" @onclick="OnCancel">@Localizer[nameof(Resources.Cancel)]</button>
-    </div>
+    @if (!HideButtons)
+    {
+        <div class="d-flex flex-row justify-content-between mt-3">
+            <button type="submit" class="btn btn-success" disabled="@unchanged">@(Person.Id == 0 ? Localizer[nameof(Resources.Create)] : Localizer[nameof(Resources.Save)])</button>
+            <button type="button" class="btn btn-danger" @onclick="OnCancel">@Localizer[nameof(Resources.Cancel)]</button>
+        </div>
+    }
 </EditForm>
 
 @code
 {
     private bool unchanged = true;
+    private EditContext editContext;
 
     [Parameter]
-    public Person Person { get; set; }
+    public Person Person { get; set; } = new Person();
+
+    [Parameter]
+    public bool HideButtons { get; set; } = false;
 
     [Parameter]
     public EventCallback OnSubmit { get; set; }
 
     [Parameter]
     public EventCallback OnCancel { get; set; }
+
+    [Parameter]
+    public bool Wide { get; set; } = false;
+
+    [Parameter]
+    public bool Disabled { get; set; } = false;
+
+    protected override void OnInitialized()
+    {
+        editContext = new EditContext(Person);
+    }
+
+    public override async Task SetParametersAsync(ParameterView parameters)
+    {
+        EditContext prev = editContext;
+        await base.SetParametersAsync(parameters);
+        if (editContext != prev)
+        {
+            editContext = new EditContext(Person);
+        }
+    }
 }

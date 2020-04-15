@@ -1,5 +1,7 @@
-﻿using System;
+﻿using AnyTest.ResourceLibrary;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace AnyTest.ClientAuthentication

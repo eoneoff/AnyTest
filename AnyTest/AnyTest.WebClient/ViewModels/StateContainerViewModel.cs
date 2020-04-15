@@ -7,6 +7,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using AnyTest.ClientAuthentication;
+using System.Net;
 
 namespace AnyTest.WebClient.ViewModels
 {
@@ -37,6 +38,16 @@ namespace AnyTest.WebClient.ViewModels
             try
             {
                 person = await _httpClient.GetJsonAsync<Person>("Accounts/Person");
+            }
+            catch (HttpRequestException ex)
+            {
+                if(ex.InnerException is WebException wex
+                    && wex.Status == WebExceptionStatus.ProtocolError
+                    && wex.Response is HttpWebResponse response
+                    && response.StatusCode == HttpStatusCode.Unauthorized)
+                {
+                    throw new Exception("Unauthorized");
+                }
             }
             catch (Exception ex)
             {

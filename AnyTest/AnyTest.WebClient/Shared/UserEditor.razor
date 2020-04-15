@@ -1,0 +1,98 @@
+﻿<EditForm EditContext="@editContext" OnValidSubmit="OnSubmit">
+    <DataAnnotationsValidator />
+    <div class="form-group @(Wide?"row":"")">
+        <div class="@(Wide?"col-lg-4":"") d-flex flex-column justify-content-lg-end align-content-start align-content-lg-end">
+            <label for="login" class="col-form-label text-left @(Wide?"text-lg-right":"") font-weight-bold text-nowrap">@Localizer[nameof(Resources.UserName)]</label>
+        </div>
+        <div class="@(Wide?"col-lg-8":"") d-flex flex-column px-0">
+            <ValidationMessage For="@(()=>Model.UserName)" />
+            <InputText Id="login" Class="form-control" @bind-Value="Model.UserName" @oninput="@(()=>unchanged = false)" />
+        </div>
+    </div>
+    <div class="form-group @(Wide?"row":"")">
+        <div class="@(Wide?"col-lg-4":"") d-flex flex-column justify-content-lg-end align-content-start align-content-lg-end">
+            <label for="userEmail" class="col-form-label text-left @(Wide?"text-lg-right":"") font-weight-bold text-nowrap">e-mail</label>
+        </div>
+        <div class="@(Wide?"col-lg-8":"") d-flex flex-column px-0">
+            <ValidationMessage For="@(()=>Model.Email)" />
+            <InputText Id="userEmail" Class="form-control" @bind-Value="Model.Email" @oninput="@(()=>unchanged = false)" />
+        </div>
+    </div>
+    <div class="form-group @(Wide?"row":"")">
+        <div class="@(Wide?"col-lg-4":"") d-flex flex-column justify-content-lg-end align-content-start align-content-lg-end">
+            <label for="password" class="col-form-label text-left @(Wide?"text-lg-right":"") font-weight-bold text-nowrap">@Localizer[nameof(Resources.Password)]</label>
+        </div>
+        <div class="@(Wide?"col-lg-8":"") d-flex flex-column px-0">
+            <ValidationMessage For="@(()=>Model.Password)" />
+            <InputText Id="password" Class="form-control" @bind-Value="Model.Password" @oninput="@(()=>unchanged = false)" />
+        </div>
+    </div>
+    <div class="form-group @(Wide?"row":"")">
+        <div class="@(Wide?"col-lg-4":"") d-flex flex-column justify-content-lg-end align-content-start align-content-lg-end">
+            <label for="confirmPassword" class="col-form-label text-left @(Wide?"text-lg-right":"") font-weight-bold text-nowrap">@Localizer[nameof(Resources.ConfirmPassword)]</label>
+        </div>
+        <div class="@(Wide?"col-lg-8":"") d-flex flex-column px-0">
+            <ValidationMessage For="@(()=>Model.ConfirmPassword)" />
+            <InputText Id="confirmPassword" Class="form-control" @bind-Value="Model.ConfirmPassword" @oninput="@(()=>unchanged = false)" />
+        </div>
+    </div>
+    <h6>@Localizer[nameof(Resources.Roles)]</h6>
+    <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="adminRoleCheckbox">
+        <label class="custom-control-label" for="adminRoleCheckbox">@Localizer[nameof(Resources.Administrator)]</label>
+    </div>
+    <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="tutorRoleCheckbox">
+        <label class="custom-control-label" for="tutorRoleCheckbox">@Localizer[nameof(Resources.Tutor)]</label>
+    </div>
+    <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="studentRoleCheckbox">
+        <label class="custom-control-label" for="studentRoleCheckbox">@Localizer[nameof(Resources.Student)]</label>
+    </div>
+    @if (!HideButtons)
+    {
+        <div class="d-flex flex-@(Wide?"row":"") justify-content-between mt-3">
+            <button type="submit" class="btn btn-success" disabled="@unchanged">@(string.IsNullOrWhiteSpace(Model.UserName) ? Localizer[nameof(Resources.Create)] : Localizer[nameof(Resources.Save)])</button>
+            <button type="button" class="btn btn-danger" @onclick="OnCancel">@Localizer[nameof(Resources.Cancel)]</button>
+        </div>
+    }
+</EditForm>
+
+@code
+{
+    private bool unchanged = true;
+
+    private EditContext editContext { get; set; }
+
+    [Parameter]
+    public RegisterModel Model { get; set; } = new RegisterModel();
+
+    [Parameter]
+    public bool HideButtons { get; set; } = false;
+
+    [Parameter]
+    public EventCallback OnSubmit { get; set; }
+
+    [Parameter]
+    public EventCallback OnCancel { get; set; }
+
+    [Parameter]
+    public bool Wide { get; set; } = false;
+
+    protected override void OnInitialized()
+    {
+        editContext = new EditContext(Model);
+    }
+
+    public override async Task SetParametersAsync(ParameterView parameters)
+    {
+        EditContext prev = editContext;
+        await base.SetParametersAsync(parameters);
+        if(editContext != prev)
+        {
+            editContext = new EditContext(Model);
+        }
+    }
+
+    public bool Validate() => editContext.Validate();
+}

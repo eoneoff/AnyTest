@@ -25,7 +25,7 @@ namespace AnyTest.ClientAuthentication
         /// \~ukrainian Email нового користувача
         /// </summary>
         [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = nameof(Resources.EnterEmail))]
-        [EmailAddress]
+        [EmailAddress(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = nameof(Resources.WrongEmailFormat))]
         [Display(Name = "e-mail")]
         public string Email { get; set; }
 
@@ -33,12 +33,8 @@ namespace AnyTest.ClientAuthentication
         /// \~english New user password
         /// \~ukrainian Пароль нового користувача
         /// </summary>
-        [Required]
+        [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = nameof(Resources.PasswordRequired))]
         [StringLength(100, ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = nameof(Resources.PasswordLengthWarning), MinimumLength = 6)]
-        [ContainsLoweCase(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = nameof(Resources.PasswordMustContainLowerCase))]
-        [ContainsUpperCase(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = nameof(Resources.PasswordMustContainUppercase))]
-        [ContainsDigit(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = nameof(Resources.PasswordMustContainDigits))]
-        [ContainsSymbol(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = nameof(Resources.PasswordMustContainSymbols))]
         [DataType(DataType.Password)]
         [Display(ResourceType = typeof(Resources), Name = nameof(Resources.Password))]
         public string Password { get; set; }
@@ -56,58 +52,6 @@ namespace AnyTest.ClientAuthentication
         /// \~english A role for a new user
         /// \~ukrainian Роль нового користувача
         /// </summary>
-        public string Role { get; set; }
-    }
-
-    /// <summary>
-    /// \~english  Specifies that a data field value in ASP.NET Dynamic Data must contain lowercase letters
-    /// \~ukrainian Визначає, що поле даних для ASP.NET Dynamic Data має містити строчні літери
-    /// </summary>
-    public class ContainsLoweCase : RegularExpressionAttribute
-    {
-        /// <summary>
-        /// \~english Initializes a new instance of <c>ContainsLowerCase</c> class
-        /// \~ukrainian Ініціалізує новий екземлпяр класу <c>ContainsLowerCase</c>
-        /// </summary>
-        public ContainsLoweCase() : base("[a-z]") { }
-    }
-
-    /// <summary>
-    /// \~english  Specifies that a data field value in ASP.NET Dynamic Data must contain lowercase letters
-    /// \~ukrainian Визначає, що поле даних для ASP.NET Dynamic Data має містити заглавні літери
-    /// </summary>
-    public class ContainsUpperCase : RegularExpressionAttribute
-    {
-        /// <summary>
-        /// \~english Initializes a new instance of <c>ContainsUpperCase</c> class
-        /// \~ukrainian Ініціалізує новий екземлпяр класу <c>ContainsUpperCase</c>
-        /// </summary>
-        public ContainsUpperCase() : base ("[A-Z]") { }
-    }
-
-    /// <summary>
-    /// \~english  Specifies that a data field value in ASP.NET Dynamic Data must contain a digin
-    /// \~ukrainian Визначає, що поле даних для ASP.NET Dynamic Data має містити цифри
-    /// </summary>
-    public class ContainsDigit : RegularExpressionAttribute
-    {
-        /// <summary>
-        /// \~english Initializes a new instance of <c>ContainsDigit</c> class
-        /// \~ukrainian Ініціалізує новий екземлпяр класу <c>ContainsDigit</c>
-        /// </summary>
-        public ContainsDigit() : base(@"\d") {}
-    }
-
-    /// <summary>
-    /// \~english  Specifies that a data field value in ASP.NET Dynamic Data must contain a special symbol
-    /// \~ukrainian Визначає, що поле даних для ASP.NET Dynamic Data має містити символи
-    /// </summary>
-    public class ContainsSymbol : RegularExpressionAttribute
-    {
-        /// <summary>
-        /// \~english Initializes a new instance of <c>ContainsSymbol</c> class
-        /// \~ukrainian Ініціалізує новий екземлпяр класу <c>ContainsLowerSymbol</c>
-        /// </summary>
-        public ContainsSymbol() : base(@"[^a-z|^A-Z|^\d]") { }
+        public IEnumerable<string> Roles { get; set; }
     }
 }

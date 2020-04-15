@@ -2,7 +2,7 @@
 
 <div>
     <table class="table @ContainerClass">
-        <thead>
+        <thead class="@HeaderClass">
             @Header
         </thead>
         <tbody>
@@ -55,6 +55,9 @@
 
     [Parameter]
     public string ContainerClass { get; set; }
+
+    [Parameter]
+    public string HeaderClass { get; set; }
 
     private int PageCount => (int)Math.Ceiling((decimal)(Items?.Count() ?? 0) / PageSize);
 

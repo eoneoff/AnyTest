@@ -59,19 +59,13 @@ app {
   background-color: #577534;
   padding: 10px;
   max-height: 90vh;
-  overflow: visible;
-  z-index: 1000; }
+  overflow: visible; }
 
 .modal-window-show-panel {
   max-height: 80vh;
   overflow-y: auto; }
 
-.confirmation-dialog {
-  width: 400px;
-  z-index: 1000; }
-
 .modal-backdrop {
-  z-index: 500;
   background: rgba(138, 163, 83, 0.7); }
 
 .modal-header {
@@ -84,6 +78,35 @@ app {
   border-color: #28a745;
   box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25); }
 
+.custom-switch .custom-control-label::after {
+  background-color: #b2c9a7; }
+
+/*.custom-switch .custom-control-input:disabled:checked ~ .custom-control-label::before {
+    background-color: rgba(87, 117, 52, 0.5);
+}*/
+/*custom input checked background*/
+.custom-control-input:checked ~ .custom-control-label::before {
+  border-color: #577534;
+  background-color: #577534; }
+
+/*custom input shadow focus*/
+.custom-control-input:focus ~ .custom-control-label::before {
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25); }
+
+.custom-control-input:focus:not(:checked) ~ .custom-control-label::before {
+  border-color: #b2c9a7; }
+
+.custom-control-input:not(:disabled):active ~ .custom-control-label::before {
+  background-color: #b2c9a7;
+  border-color: #b2c9a7; }
+
+/*.custom-control-input[disabled] ~ .custom-control-label {
+    color: #747d6c;
+}
+
+.custom-control-input[disabled] ~ .custom-control-label::before {
+    background-color: #e9efea;
+}*/
 /*button style*/
 .btn-success {
   background-image: linear-gradient(#688744, #577534 70%);

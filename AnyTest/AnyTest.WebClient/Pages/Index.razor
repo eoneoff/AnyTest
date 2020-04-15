@@ -1,5 +1,7 @@
 ﻿@page "/"
 
+@inject IAuthService AuthService
+
 <div>
     <div class="card m-5 flex-grow-1">
         <h3 class="card-header">
@@ -12,7 +14,7 @@
             <div class="container mx-0">
                 @if (editing)
                 {
-                    <PersonEditor Person="EditPerson" OnSubmit="ConfirmSave.Show" OnCancel="CancelEdit"></PersonEditor>
+                    <PersonEditor Person="EditPerson" OnSubmit="ConfirmSave.Show" OnCancel="CancelEdit" Wide="true"></PersonEditor>
                 }
                 else
                 {
@@ -59,7 +61,14 @@
     {
         if((State?.Person?.Id ?? 0) == 0)
         {
-            await State.GetPersonByAuthorizedUser();
+            try
+            {
+                await State.GetPersonByAuthorizedUser();
+            }
+            catch(Exception ex)
+            {
+                if (ex.Message == "Unauthorized") await AuthService.Logout();
+            }
         }
     }
 

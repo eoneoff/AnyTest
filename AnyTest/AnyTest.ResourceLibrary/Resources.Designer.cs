@@ -61,6 +61,15 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Додати користувача.
+        /// </summary>
+        public static string AddUser {
+            get {
+                return ResourceManager.GetString("AddUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Адміністратор.
         /// </summary>
         public static string Administrator {
@@ -129,6 +138,15 @@ namespace AnyTest.ResourceLibrary {
         public static string Edit {
             get {
                 return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Змінини особисті дані.
+        /// </summary>
+        public static string EditPerson {
+            get {
+                return ResourceManager.GetString("EditPerson", resourceCulture);
             }
         }
         
@@ -498,6 +516,15 @@ namespace AnyTest.ResourceLibrary {
         public static string Users {
             get {
                 return ResourceManager.GetString("Users", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Невірний формат електронної адреси.
+        /// </summary>
+        public static string WrongEmailFormat {
+            get {
+                return ResourceManager.GetString("WrongEmailFormat", resourceCulture);
             }
         }
     }

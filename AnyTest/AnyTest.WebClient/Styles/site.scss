@@ -1,4 +1,5 @@
-﻿@import "partials/_colors.scss";
+﻿
+@import "partials/_colors.scss";
 
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -74,7 +75,6 @@ app {
     padding: 10px;
     max-height: 90vh;
     overflow: visible;
-    z-index:1000;
 }
 
 .modal-window-show-panel {
@@ -82,13 +82,7 @@ app {
     overflow-y: auto;
 }
 
-.confirmation-dialog {
-    width: 400px;
-    z-index:1000;
-}
-
 .modal-backdrop {
-    z-index:500;
     background: $backdrop-background-color;
 }
 
@@ -103,7 +97,43 @@ app {
 .form-control:focus {
     border-color: #28a745;
     box-shadow: 0 0 0 0.2rem $form-focus-color;
-} 
+}
+
+.custom-switch .custom-control-label::after {
+    background-color: #b2c9a7;
+}
+
+/*.custom-switch .custom-control-input:disabled:checked ~ .custom-control-label::before {
+    background-color: rgba(87, 117, 52, 0.5);
+}*/
+
+/*custom input checked background*/
+.custom-control-input:checked ~ .custom-control-label::before {
+    border-color: $base-back-color;
+    background-color: $base-back-color;
+}
+
+/*custom input shadow focus*/
+.custom-control-input:focus ~ .custom-control-label::before {
+    box-shadow: 0 0 0 0.2rem $form-focus-color;
+}
+
+.custom-control-input:focus:not(:checked) ~ .custom-control-label::before {
+    border-color: $form-focus-shadow;
+}
+
+.custom-control-input:not(:disabled):active ~ .custom-control-label::before {
+    background-color: $form-focus-shadow;
+    border-color: $form-focus-shadow;
+}
+
+/*.custom-control-input[disabled] ~ .custom-control-label {
+    color: #747d6c;
+}
+
+.custom-control-input[disabled] ~ .custom-control-label::before {
+    background-color: #e9efea;
+}*/
 
 /*button style*/
 .btn-success {

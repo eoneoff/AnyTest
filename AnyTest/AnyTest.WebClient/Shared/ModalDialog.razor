@@ -1,7 +1,7 @@
 ﻿@if (isOpen)
 {
-    <div class="modal-backdrop"></div>
-    <div class="d-flex modal-window flex-column confirmation-dialog">
+    <div class="modal-backdrop" style="z-index:@BackdropZIndex;"></div>
+    <div class="d-flex modal-window flex-column @Class" style="z-index:@DialogZIndex; @Style">
         <div class="modal-header">
             @Header
             <button class="close ml-auto" @onclick="@(()=>isOpen = false)">
@@ -9,7 +9,7 @@
             </button>
         </div>
         <div class="show-panel modal-window-show-panel flex-column flex-grow-1">
-            <div class="px-1 pt-2 pb-5">
+            <div class="px-1 py-2">
                 @Content
             </div>
             <div class="d-flex flex-row justify-content-end flex-nowrap mt-2">
@@ -38,15 +38,36 @@
     [Parameter]
     public EventCallback OnConfirm { get; set; }
 
+    [Parameter]
+    public int Level { get; set; } = 1;
+
+    [Parameter]
+    public string Class { get; set; }
+
+    [Parameter]
+    public string Style { get; set; }
+
+    [Parameter]
+    public bool CloseOnOk { get; set; } = true;
+
+    private int DialogZIndex => Level * 1000;
+    private int BackdropZIndex => Level * 1000 - 500;
+
     public void Show()
     {
         isOpen = true;
         StateHasChanged();
     }
 
-    private void OkClicked()
+    public void Hide()
     {
         isOpen = false;
+        StateHasChanged();
+    }
+
+    private void OkClicked()
+    {
+        if(CloseOnOk) isOpen = false;
         OnConfirm.InvokeAsync(null);
     }
 }
