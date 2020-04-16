@@ -49,6 +49,7 @@ namespace AnyTest.ClientAuthentication
         /// </summary>
         [DataType(DataType.Password)]
         [Display(ResourceType = typeof(Resources), Name = nameof(Resources.ConfirmPassword))]
+        [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = nameof(Resources.ConfirmPassword))]
         [Compare(nameof(Password), ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = nameof(Resources.ConfirmaitonNotMahch))]
         public string ConfirmPassword { get; set; }
 
@@ -56,7 +57,7 @@ namespace AnyTest.ClientAuthentication
         /// \~english A role for a new user
         /// \~ukrainian Роль нового користувача
         /// </summary>
-        public IEnumerable<string> Roles { get; set; }
+        public List<string> Roles { get; set; } = new List<string>();
     }
 
     /// <summary>

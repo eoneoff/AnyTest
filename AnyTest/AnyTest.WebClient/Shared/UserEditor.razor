@@ -24,7 +24,7 @@
         </div>
         <div class="@(Wide?"col-lg-8":"") d-flex flex-column px-0">
             <ValidationMessage For="@(()=>Model.Password)" />
-            <InputText Id="password" Class="form-control" @bind-Value="Model.Password" @oninput="@(()=>unchanged = false)" />
+            <InputText Id="password" type="password" Class="form-control" @bind-Value="Model.Password" @oninput="@(()=>unchanged = false)" />
         </div>
     </div>
     <div class="form-group @(Wide?"row":"")">
@@ -33,21 +33,28 @@
         </div>
         <div class="@(Wide?"col-lg-8":"") d-flex flex-column px-0">
             <ValidationMessage For="@(()=>Model.ConfirmPassword)" />
-            <InputText Id="confirmPassword" Class="form-control" @bind-Value="Model.ConfirmPassword" @oninput="@(()=>unchanged = false)" />
+            <InputText Id="confirmPassword" type="password" Class="form-control" @bind-Value="Model.ConfirmPassword" @oninput="@(()=>unchanged = false)" />
         </div>
     </div>
     <h6>@Localizer[nameof(Resources.Roles)]</h6>
-    <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="adminRoleCheckbox">
-        <label class="custom-control-label" for="adminRoleCheckbox">@Localizer[nameof(Resources.Administrator)]</label>
-    </div>
-    <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="tutorRoleCheckbox">
-        <label class="custom-control-label" for="tutorRoleCheckbox">@Localizer[nameof(Resources.Tutor)]</label>
-    </div>
-    <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="studentRoleCheckbox">
-        <label class="custom-control-label" for="studentRoleCheckbox">@Localizer[nameof(Resources.Student)]</label>
+    <div class="d-flex flex-column flex-lg-row">
+        <div class="@(noRolesError ? "invalid" : "") p-1">
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" @bind="@isAdmin" class="custom-control-input" id="adminRoleCheckbox">
+                <label class="custom-control-label" for="adminRoleCheckbox">@Localizer[nameof(Resources.Administrator)]</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" @bind="@isTutor" class="custom-control-input" id="tutorRoleCheckbox">
+                <label class="custom-control-label" for="tutorRoleCheckbox">@Localizer[nameof(Resources.Tutor)]</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" @bind="@isStudent" class="custom-control-input" id="studentRoleCheckbox">
+                <label class="custom-control-label" for="studentRoleCheckbox">@Localizer[nameof(Resources.Student)]</label>
+            </div>
+        </div>
+        <div class="mt-2 mt-lg-1 mt-lg-0 ml-0 ml-lg-2">
+            @if (noRolesError) { <span class="text-danger">@Localizer[nameof(Resources.ChooseARole)]</span> }
+        </div>
     </div>
     @if (!HideButtons)
     {
@@ -61,8 +68,59 @@
 @code
 {
     private bool unchanged = true;
-
     private EditContext editContext { get; set; }
+    private bool noRolesError = false;
+
+    private bool isAdmin
+    {
+        get => Model.Roles.Contains("Administrator");
+        set
+        {
+            if(value)
+            {
+                if(!Model.Roles.Contains("Administrator"))
+                {
+                    Model.Roles.Add("Administrator");
+                    noRolesError = false;
+                }
+            }
+            else Model.Roles.Remove("Administrator");
+        }
+    }
+
+    private bool isTutor
+    {
+        get => Model.Roles.Contains("Tutor");
+        set
+        {
+            if(value)
+            {
+                if(!Model.Roles.Contains("Tutor"))
+                {
+                    Model.Roles.Add("Tutor");
+                    noRolesError = false;
+                }
+            }
+            else Model.Roles.Remove("Tutor");
+        }
+    }
+
+    private bool isStudent
+    {
+        get => Model.Roles.Contains("Student");
+        set
+        {
+            if(value)
+            {
+                if(!Model.Roles.Contains("Student"))
+                {
+                    Model.Roles.Add("Student");
+                    noRolesError = false;
+                }
+            }
+            else Model.Roles.Remove("Student");
+        }
+    }
 
     [Parameter]
     public RegisterModel Model { get; set; } = new RegisterModel();
@@ -94,5 +152,9 @@
         }
     }
 
-    public bool Validate() => editContext.Validate();
+    public bool Validate()
+    {
+        if (Model.Roles.Count == 0) noRolesError = true;
+        return editContext.Validate() && !noRolesError;
+    }
 }

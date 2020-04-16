@@ -129,6 +129,9 @@
   <data name="Cancel" xml:space="preserve">
     <value>Відміна</value>
   </data>
+  <data name="ChooseARole" xml:space="preserve">
+    <value>Оберіть роль</value>
+  </data>
   <data name="ConfirmaitonNotMahch" xml:space="preserve">
     <value>Пароль та підтвердження не збігаються</value>
   </data>
@@ -137,6 +140,9 @@
   </data>
   <data name="Create" xml:space="preserve">
     <value>Створити</value>
+  </data>
+  <data name="CreateUser" xml:space="preserve">
+    <value>Створити користувача</value>
   </data>
   <data name="DoLogin" xml:space="preserve">
     <value>Увійти</value>
@@ -239,6 +245,9 @@
   </data>
   <data name="SavePerson" xml:space="preserve">
     <value>Зберегти особисті дані</value>
+  </data>
+  <data name="SaveUser" xml:space="preserve">
+    <value>Зберегти користувача</value>
   </data>
   <data name="Student" xml:space="preserve">
     <value>Студент</value>

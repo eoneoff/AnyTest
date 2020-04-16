@@ -1,5 +1,7 @@
 @page "/users"
 
+@inject HttpClient httpClient
+
 <div class="m-5">
     <div class="d-flex flex-row mb-2">
         <button type="button" class="btn btn-success" @onclick="@(()=>editor.Show())">@Localizer[nameof(Resources.AddUser)]</button>
@@ -31,16 +33,16 @@
     </PageView>
 </div>
 
-<ModalDialog @ref="editor" Style="width:80vw;" OkButtonText="@Localizer[nameof(Resources.Save)]" OnConfirm="SaveUser" CloseOnOk="false">
+<ModalDialog @ref="editor" Style="width:80vw;" OkButtonText="@Localizer[nameof(Resources.Save)]" OnConfirm="SaveUserClicked" CloseOnOk="false">
     <Header></Header>
     <Content>
         <div class="row mx-0">
             <div class="col-lg-6">
-                <UserEditor @ref="userEditor" HideButtons="true"></UserEditor>
+                <UserEditor @ref="userEditor" Model="registerModel" HideButtons="true"></UserEditor>
             </div>
             <div class="col-lg-6">
                 <div>
-                    <PersonEditor HideButtons="true" Disabled="@(!enableEditPerson)"></PersonEditor>
+                    <PersonEditor @ref="personEditor" HideButtons="true" Disabled="@(!enableEditPerson)"></PersonEditor>
                 </div>
                 <div class="mt-2 custom-control custom-switch">
                     <input type="checkbox" class="custom-control-input" id="personEditSwitch" @bind-value="@enableEditPerson"/>
@@ -50,26 +52,38 @@
         </div>
     </Content>
 </ModalDialog>
+<ModalDialog @ref="saveConfirmation" Level="2" OnConfirm="SaveUser">
+    <Header>@Localizer[nameof(Resources.CreateUser)]?</Header>
+    <Content>
+        <div>
+            <table class="table table-sm table-borderless">
+                <tr><th class="text-right">@Localizer[nameof(Resources.UserName)]:</th><td>@registerModel.UserName</td></tr>
+                <tr><th class="text-right">e-mail:</th><td>@registerModel.Email</td></tr>
+            </table>
+            <h6>@Localizer[nameof(Resources.Roles)]</h6>
+            <ul>
+                @foreach(var role in registerModel.Roles)
+                {
+                    <li>@Localizer[role]</li>
+                }
+            </ul>
+        </div>
+    </Content>
+</ModalDialog>
 
 @code
 {  
     private UserInfo selectedUser;
-    private UserInfo editUser= new UserInfo();
-    private ModalDialog editor;
-    private bool enableEditPerson = false;
-    private UserEditor userEditor;
 
-    private UserInfo EditUser
-    {
-        get => editUser;
-        set
-        {
-            editUser.User = value.User;
-            editUser.Email = value.Email;
-            editUser.Name = value.Name;
-            editUser.UserPersonId = value.UserPersonId;
-        }
-    }
+    private ModalDialog editor;
+    private ModalDialog saveConfirmation;
+
+    private bool enableEditPerson = false;
+
+    private UserEditor userEditor;
+    private PersonEditor personEditor;
+
+    private RegisterModel registerModel = new RegisterModel();
 
     protected override async Task OnInitializedAsync()
     {
@@ -79,11 +93,24 @@
         }
     }
 
+    private void SaveUserClicked()
+    {
+        if (userEditor.Validate())
+        {
+            saveConfirmation.Show();
+        }
+    }
+
     private async Task SaveUser()
     {
-        if(userEditor.Validate())
+        editor.Hide();
+        var newUser = new UserInfo
         {
-            
-        }
+            User = registerModel.UserName,
+            Email = registerModel.Email,
+            Roles = registerModel.Roles
+        };
+
+        State.Users.Add(newUser);
     }
 }

@@ -97,6 +97,15 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Оберіть роль.
+        /// </summary>
+        public static string ChooseARole {
+            get {
+                return ResourceManager.GetString("ChooseARole", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Пароль та підтвердження не збігаються.
         /// </summary>
         public static string ConfirmaitonNotMahch {
@@ -120,6 +129,15 @@ namespace AnyTest.ResourceLibrary {
         public static string Create {
             get {
                 return ResourceManager.GetString("Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Створити користувача.
+        /// </summary>
+        public static string CreateUser {
+            get {
+                return ResourceManager.GetString("CreateUser", resourceCulture);
             }
         }
         
@@ -426,6 +444,15 @@ namespace AnyTest.ResourceLibrary {
         public static string SavePerson {
             get {
                 return ResourceManager.GetString("SavePerson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Зберегти користувача.
+        /// </summary>
+        public static string SaveUser {
+            get {
+                return ResourceManager.GetString("SaveUser", resourceCulture);
             }
         }
         
