@@ -85,9 +85,9 @@ namespace AnyTest.DataService.Controllers
                 return Ok(new RegisterResult { Successful = false, Errors = errors });
             }
 
-            if(AuthService.Roles.Contains(model.Role))
+            foreach(var role in model.Roles)
             {
-                await _userManager.AddToRoleAsync(newUser, model.Role);
+                if(AuthService.Roles.Contains(role)) await _userManager.AddToRoleAsync(newUser, role);
             }
 
             return Ok(new RegisterResult { Successful = true });

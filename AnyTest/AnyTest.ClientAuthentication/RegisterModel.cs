@@ -35,6 +35,10 @@ namespace AnyTest.ClientAuthentication
         /// </summary>
         [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = nameof(Resources.PasswordRequired))]
         [StringLength(100, ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = nameof(Resources.PasswordLengthWarning), MinimumLength = 6)]
+        [ContainsLoweCase(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = nameof(Resources.PasswordMustContainLowerCase))]
+        [ContainsUpperCase(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = nameof(Resources.PasswordMustContainUppercase))]
+        [ContainsDigit(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = nameof(Resources.PasswordMustContainDigits))]
+        [ContainsSymbol(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = nameof(Resources.PasswordMustContainSymbols))]
         [DataType(DataType.Password)]
         [Display(ResourceType = typeof(Resources), Name = nameof(Resources.Password))]
         public string Password { get; set; }
@@ -53,5 +57,57 @@ namespace AnyTest.ClientAuthentication
         /// \~ukrainian Роль нового користувача
         /// </summary>
         public IEnumerable<string> Roles { get; set; }
+    }
+
+    /// <summary>
+    /// \~english  Specifies that a data field value in ASP.NET Dynamic Data must contain lowercase letters
+    /// \~ukrainian Визначає, що поле даних для ASP.NET Dynamic Data має містити строчні літери
+    /// </summary>
+    public class ContainsLoweCaseAttribute : RegularExpressionAttribute
+    {
+        /// <summary>
+        /// \~english Initializes a new instance of <c>ContainsLowerCase</c> class
+        /// \~ukrainian Ініціалізує новий екземлпяр класу <c>ContainsLowerCase</c>
+        /// </summary>
+        public ContainsLoweCaseAttribute() : base(".*[a-z]+.*") { }
+    }
+
+    /// <summary>
+    /// \~english  Specifies that a data field value in ASP.NET Dynamic Data must contain lowercase letters
+    /// \~ukrainian Визначає, що поле даних для ASP.NET Dynamic Data має містити заглавні літери
+    /// </summary>
+    public class ContainsUpperCaseAttribute : RegularExpressionAttribute
+    {
+        /// <summary>
+        /// \~english Initializes a new instance of <c>ContainsUpperCase</c> class
+        /// \~ukrainian Ініціалізує новий екземлпяр класу <c>ContainsUpperCase</c>
+        /// </summary>
+        public ContainsUpperCaseAttribute() : base (".*[A-Z]+.*") { }
+    }
+
+    /// <summary>
+    /// \~english  Specifies that a data field value in ASP.NET Dynamic Data must contain a digin
+    /// \~ukrainian Визначає, що поле даних для ASP.NET Dynamic Data має містити цифри
+    /// </summary>
+    public class ContainsDigitAttribute : RegularExpressionAttribute
+    {
+        /// <summary>
+        /// \~english Initializes a new instance of <c>ContainsDigit</c> class
+        /// \~ukrainian Ініціалізує новий екземлпяр класу <c>ContainsDigit</c>
+        /// </summary>
+        public ContainsDigitAttribute() : base(@".*\d+.*") {}
+    }
+
+    /// <summary>
+    /// \~english  Specifies that a data field value in ASP.NET Dynamic Data must contain a special symbol
+    /// \~ukrainian Визначає, що поле даних для ASP.NET Dynamic Data має містити символи
+    /// </summary>
+    public class ContainsSymbolAttribute : RegularExpressionAttribute
+    {
+        /// <summary>
+        /// \~english Initializes a new instance of <c>ContainsSymbol</c> class
+        /// \~ukrainian Ініціалізує новий екземлпяр класу <c>ContainsLowerSymbol</c>
+        /// </summary>
+        public ContainsSymbolAttribute() : base(@".*[^a-z|^A-Z|^\d]+.*") { }
     }
 }

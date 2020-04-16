@@ -243,6 +243,54 @@
             \~ukrainian Роль нового користувача
             </summary>
         </member>
+        <member name="T:AnyTest.ClientAuthentication.ContainsLoweCaseAttribute">
+            <summary>
+            \~english  Specifies that a data field value in ASP.NET Dynamic Data must contain lowercase letters
+            \~ukrainian Визначає, що поле даних для ASP.NET Dynamic Data має містити строчні літери
+            </summary>
+        </member>
+        <member name="M:AnyTest.ClientAuthentication.ContainsLoweCaseAttribute.#ctor">
+            <summary>
+            \~english Initializes a new instance of <c>ContainsLowerCase</c> class
+            \~ukrainian Ініціалізує новий екземлпяр класу <c>ContainsLowerCase</c>
+            </summary>
+        </member>
+        <member name="T:AnyTest.ClientAuthentication.ContainsUpperCaseAttribute">
+            <summary>
+            \~english  Specifies that a data field value in ASP.NET Dynamic Data must contain lowercase letters
+            \~ukrainian Визначає, що поле даних для ASP.NET Dynamic Data має містити заглавні літери
+            </summary>
+        </member>
+        <member name="M:AnyTest.ClientAuthentication.ContainsUpperCaseAttribute.#ctor">
+            <summary>
+            \~english Initializes a new instance of <c>ContainsUpperCase</c> class
+            \~ukrainian Ініціалізує новий екземлпяр класу <c>ContainsUpperCase</c>
+            </summary>
+        </member>
+        <member name="T:AnyTest.ClientAuthentication.ContainsDigitAttribute">
+            <summary>
+            \~english  Specifies that a data field value in ASP.NET Dynamic Data must contain a digin
+            \~ukrainian Визначає, що поле даних для ASP.NET Dynamic Data має містити цифри
+            </summary>
+        </member>
+        <member name="M:AnyTest.ClientAuthentication.ContainsDigitAttribute.#ctor">
+            <summary>
+            \~english Initializes a new instance of <c>ContainsDigit</c> class
+            \~ukrainian Ініціалізує новий екземлпяр класу <c>ContainsDigit</c>
+            </summary>
+        </member>
+        <member name="T:AnyTest.ClientAuthentication.ContainsSymbolAttribute">
+            <summary>
+            \~english  Specifies that a data field value in ASP.NET Dynamic Data must contain a special symbol
+            \~ukrainian Визначає, що поле даних для ASP.NET Dynamic Data має містити символи
+            </summary>
+        </member>
+        <member name="M:AnyTest.ClientAuthentication.ContainsSymbolAttribute.#ctor">
+            <summary>
+            \~english Initializes a new instance of <c>ContainsSymbol</c> class
+            \~ukrainian Ініціалізує новий екземлпяр класу <c>ContainsLowerSymbol</c>
+            </summary>
+        </member>
         <member name="T:AnyTest.ClientAuthentication.RegisterResult">
             <summary>
             \~english A class for a result of a user registration
