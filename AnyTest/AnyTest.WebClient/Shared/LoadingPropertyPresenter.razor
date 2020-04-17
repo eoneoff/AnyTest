@@ -1,4 +1,4 @@
-@if (Content == "Loading...")
+@if (LoadingCondition || (ContentDefined && Content == LoadingStub))
 {
     <div class="spinner-border spinner-border-sm text-success"></div>
 }
@@ -9,6 +9,15 @@ else
 
 @code
 {
+    [Parameter]
+    public string LoadingStub { get; set; } = "Loading...";
+
+    [Parameter]
+    public bool ContentDefined { get; set; } = true;
+
+    [Parameter]
+    public bool LoadingCondition { get; set; } = false;
+
     [Parameter]
     public string Content {get; set;}
 }

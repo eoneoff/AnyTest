@@ -1,5 +1,4 @@
 @page "/users"
-
 @inject HttpClient httpClient
 
 <div class="m-5">
@@ -111,6 +110,10 @@
             Roles = registerModel.Roles
         };
 
-        State.Users.Add(newUser);
+        var registerResult = await httpClient.PostJsonAsync<RegisterResult>("accounts", registerModel);
+        if(registerResult.Successful)
+        {
+            State.Users.Add(newUser);
+        }
     }
 }
