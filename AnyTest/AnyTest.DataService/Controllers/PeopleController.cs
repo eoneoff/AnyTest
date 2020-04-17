@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using AnyTest.IDataRepository;
 using AnyTest.Model;
@@ -126,6 +127,11 @@ namespace AnyTest.DataService.Controllers
         [HttpPut("{id:long}")]
         public async Task<IActionResult> Put(long id, [FromBody] Person person)
         {
+            var userEmail = (HttpContext.User.Identity as ClaimsIdentity).FindFirst(ClaimTypes.Email).Value;
+            var personEmail = (await _repository.Get(id)).Email;
+
+            if (userEmail != personEmail && !HttpContext.User.IsInRole("Administrator")) return Unauthorized();
+
             if(!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

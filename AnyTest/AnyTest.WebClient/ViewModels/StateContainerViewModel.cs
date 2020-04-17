@@ -18,6 +18,8 @@ namespace AnyTest.WebClient.ViewModels
         public StateContainerViewModel(HttpClient httpClient) => _httpClient = httpClient;
 
         public Person Person { get; private set; } = new Person();
+        public Tutor Tutor { get; private set; }
+        public Student Student { get; private set; }
         public List<UserInfo> Users = new List<UserInfo>();
 
         private Person LoadingStub = new Person
@@ -83,6 +85,8 @@ namespace AnyTest.WebClient.ViewModels
         public async Task SavePerson(Person person) =>
             Person = person.Id == 0 ? await _httpClient.PostJsonAsync<Person>("people", person) : await _httpClient.PutJsonAsync<Person>($"people/{person.Id}", person);
 
+            
+
         /// <summary>
         /// \~english Gets a complete list of users from server
         /// \~ukrainian Отримує з сервера повний список користувачів
@@ -90,7 +94,42 @@ namespace AnyTest.WebClient.ViewModels
         public async Task GetUsers()
         {
             Users = await _httpClient.GetJsonAsync<List<UserInfo>>("accounts/users");
-            Users.AddRange(GenerateStubUsers());
+        }
+
+        /// <summary>
+        /// \~english Saves a <c>Tutor</c> to database
+        /// \~ukrainian Зберігає <c>Tutor</c> до бази даних
+        /// </summary>
+        /// <param name="tutor">
+        /// \~english A <c>Tutor</c> object
+        /// \~ukrainian Об'єкт <cTutor</c>
+        /// </param>
+        public async Task SaveTutor(Tutor tutor)
+        {
+            if (tutor.Id == 0)
+            {
+                tutor.Id = Person.Id;
+                Tutor = await _httpClient.PostJsonAsync<Tutor>("tutors", tutor);
+            }
+            else Tutor = await _httpClient.PutJsonAsync<Tutor>("tutors", tutor);
+        }
+
+        /// <summary>
+        /// \~english Saves a <c>Student</c> to database
+        /// \~ukrainian Зберігає <c>Student</c> до бази даних
+        /// </summary>
+        /// <param name="student">
+        /// \~english A <c>Student</c> object
+        /// \~ukrainian Об'єкт <c>Student</c>
+        /// </param>
+        public async Task SaveStudent(Student student)
+        {
+            if (student.Id == 0)
+            {
+                student.Id = Person.Id;
+                Tutor = await _httpClient.PostJsonAsync<Tutor>("tutors", student);
+            }
+            else Tutor = await _httpClient.PutJsonAsync<Tutor>("tutors", student);
         }
 
         private List<UserInfo> GenerateStubUsers(int count = 18)
