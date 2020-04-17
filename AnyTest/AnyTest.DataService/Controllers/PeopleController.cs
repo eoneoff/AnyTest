@@ -7,6 +7,7 @@ using AnyTest.IDataRepository;
 using AnyTest.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AnyTest.DataService.Controllers
 {
@@ -47,6 +48,7 @@ namespace AnyTest.DataService.Controllers
         /// </code>
         /// </example>
         [HttpGet]
+        [Authorize(Roles="Administrator")]
         public async Task<IEnumerable<Person>> Get() => await _repository.Get();
 
 
@@ -69,6 +71,7 @@ namespace AnyTest.DataService.Controllers
         /// </code>
         /// </example>
         [HttpGet("{id:long}", Name = "Get")]
+        [Authorize]
         public async Task<Person> Get(long id) => await _repository.Get(id);
 
         /// <summary>
@@ -125,12 +128,10 @@ namespace AnyTest.DataService.Controllers
         /// </code>
         /// </example>
         [HttpPut("{id:long}")]
+        [Authorize]
         public async Task<IActionResult> Put(long id, [FromBody] Person person)
         {
-            var userEmail = (HttpContext.User.Identity as ClaimsIdentity).FindFirst(ClaimTypes.Email).Value;
-            var personEmail = (await _repository.Get(id)).Email;
-
-            if (userEmail != personEmail && !HttpContext.User.IsInRole("Administrator")) return Unauthorized();
+            if (!await IsOwner(id) && !HttpContext.User.IsInRole("Administrator")) return Unauthorized();
 
             if(!ModelState.IsValid)
             {
@@ -162,18 +163,29 @@ namespace AnyTest.DataService.Controllers
         /// \~english An example of HTTP request to delete a person
         /// \~ukrainian Приклад HTTP запиту видалення особистих даних користувача
         /// <code>
-        /// DELETE: api/ApiWithActions/5
+        /// DELETE: api/Tutors/5
         /// </code>
         /// </example>
         [HttpDelete("{id:long}")]
+        [Authorize]
         public async Task<IActionResult> Delete(long id)
         {
+            if (!await IsOwner(id) && !HttpContext.User.IsInRole("Administrator")) return Unauthorized();
+
             if(!await _repository.Exists(id))
             {
                 return BadRequest("User does not exist");
             }
 
             return Ok(await _repository.Delete(id));
+        }
+
+        private async Task<bool> IsOwner(long id)
+        {
+            var userEmail = (HttpContext.User.Identity as ClaimsIdentity).FindFirst(ClaimTypes.Email).Value;
+            var personEmail = (await _repository.Get(id)).Email;
+
+            return userEmail == personEmail;
         }
     }
 }

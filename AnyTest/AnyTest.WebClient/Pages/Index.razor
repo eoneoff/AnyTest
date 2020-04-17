@@ -48,7 +48,6 @@
     </div>
 }
 
-
 @code
 {
     private Model.Person EditPerson { get; set; } = new Model.Person();
@@ -85,10 +84,11 @@
         saving = true;
         try
         {
-            await State.SavePerson(EditPerson);
+            var roles = new List<string>();
             var user = (await authStateTask).User;
-            if(user.IsInRole("Tutor")) { }
-            if(user.IsInRole("Student")) { }
+            if(user.IsInRole("Tutor")) roles.Add("Tutor");
+            if(user.IsInRole("Student")) roles.Add("Student");
+            await State.SavePerson(EditPerson, roles);
         }
         finally
         {

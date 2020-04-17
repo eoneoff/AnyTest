@@ -18,8 +18,6 @@ namespace AnyTest.WebClient.ViewModels
         public StateContainerViewModel(HttpClient httpClient) => _httpClient = httpClient;
 
         public Person Person { get; private set; } = new Person();
-        public Tutor Tutor { get; private set; }
-        public Student Student { get; private set; }
         public List<UserInfo> Users = new List<UserInfo>();
 
         private Person LoadingStub = new Person
@@ -43,13 +41,7 @@ namespace AnyTest.WebClient.ViewModels
             }
             catch (HttpRequestException ex)
             {
-                if(ex.InnerException is WebException wex
-                    && wex.Status == WebExceptionStatus.ProtocolError
-                    && wex.Response is HttpWebResponse response
-                    && response.StatusCode == HttpStatusCode.Unauthorized)
-                {
-                    throw new Exception("Unauthorized");
-                }
+                if(ex.InnerException is WebException {Status:WebExceptionStatus.ProtocolError, Response:HttpWebResponse {StatusCode: HttpStatusCode.Unauthorized } } ) throw new Exception("Unauthorized");
             }
             catch (Exception ex)
             {
@@ -75,15 +67,29 @@ namespace AnyTest.WebClient.ViewModels
         }
 
         /// <summary>
-        /// \~english Saves a <c>Person</c> to database
-        /// \~ukrainian Зберігає <c>Person</c> до бази даних
+        /// \~english Saves a <c>Person</c> to database. Creates <c>Tutor</c> or <c>Student</c> if user is tutor or student
+        /// \~ukrainian Зберігає <c>Person</c> до бази даних. Створює викладача або студета якщо користувач є викладачем або студентом
         /// </summary>
         /// <param name="person">
         /// \~english A <c>Person</c> object
         /// \~ukrainian Об'єкт <c>Person</c>
         /// </param>
-        public async Task SavePerson(Person person) =>
-            Person = person.Id == 0 ? await _httpClient.PostJsonAsync<Person>("people", person) : await _httpClient.PutJsonAsync<Person>($"people/{person.Id}", person);
+        /// <param name="roles">
+        /// \~english Contains a list of person's roles
+        /// \~ukrainian Список ролей користувача
+        /// <param>
+        public async Task SavePerson(Person person, IEnumerable<string> roles = null)
+        {
+            if(person.Id == 0)
+            {
+                Person = await _httpClient.PostJsonAsync<Person>("people", person);
+                roles ??= new List<string>();
+                if(roles.Contains("Tutor")) await SaveTutor(new Tutor());
+                if(roles.Contains("Student")) await SaveStudent(new Student());
+            }
+
+            else Person = await _httpClient.PutJsonAsync<Person>($"people/{person.Id}", person);
+        }
 
             
 
@@ -109,9 +115,9 @@ namespace AnyTest.WebClient.ViewModels
             if (tutor.Id == 0)
             {
                 tutor.Id = Person.Id;
-                Tutor = await _httpClient.PostJsonAsync<Tutor>("tutors", tutor);
+                Person.Tutor = await _httpClient.PostJsonAsync<Tutor>("tutors", tutor);
             }
-            else Tutor = await _httpClient.PutJsonAsync<Tutor>("tutors", tutor);
+            else Person.Tutor = await _httpClient.PutJsonAsync<Tutor>("tutors", tutor);
         }
 
         /// <summary>
@@ -127,9 +133,9 @@ namespace AnyTest.WebClient.ViewModels
             if (student.Id == 0)
             {
                 student.Id = Person.Id;
-                Tutor = await _httpClient.PostJsonAsync<Tutor>("tutors", student);
+                Person.Student = await _httpClient.PostJsonAsync<Student>("students", student);
             }
-            else Tutor = await _httpClient.PutJsonAsync<Tutor>("tutors", student);
+            else Person.Student = await _httpClient.PutJsonAsync<Student>("students", student);
         }
 
         private List<UserInfo> GenerateStubUsers(int count = 18)
