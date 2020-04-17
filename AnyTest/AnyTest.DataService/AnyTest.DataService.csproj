@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>D:\AnyTest\AnyTest\AnyTest.DataService\AnyTest.DataService.xml</DocumentationFile>
+    <DocumentationFile>AnyTest.DataService.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
