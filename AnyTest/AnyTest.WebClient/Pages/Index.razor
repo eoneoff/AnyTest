@@ -56,6 +56,9 @@
     private bool saving = false;
     private ModalDialog ConfirmSave;
 
+    [CascadingParameter]
+    private Task<AuthenticationState> authStateTask { get; set; }
+
     protected override async Task OnInitializedAsync()
     {
         if((State?.Person?.Id ?? 0) == 0)
@@ -83,6 +86,9 @@
         try
         {
             await State.SavePerson(EditPerson);
+            var user = (await authStateTask).User;
+            if(user.IsInRole("Tutor")) { }
+            if(user.IsInRole("Student")) { }
         }
         finally
         {
