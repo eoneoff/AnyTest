@@ -1,4 +1,21 @@
-﻿html, body {
+﻿.sidebar .sidebar-content {
+  width: 15rem;
+  transition: width .25s ease-out;
+  overflow-x: hidden; }
+
+.sidebar.hidden .sidebar-content {
+  width: 15rem; }
+
+.sidebar .sidebar-button {
+  display: none; }
+
+@media (max-width: 992px) {
+  .sidebar.hidden .sidebar-content {
+    width: 0 !important; }
+  .sidebar .sidebar-button {
+    display: block; } }
+
+html, body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background-color: #577534; }
 
@@ -75,7 +92,10 @@ app {
 
 /*sidebar style*/
 .sidebar {
-  background-color: #577534; }
+  background-color: #577534 !important; }
+
+.sidebar-content {
+  background-color: white !important; }
 
 /*form style*/
 .form-control:focus {

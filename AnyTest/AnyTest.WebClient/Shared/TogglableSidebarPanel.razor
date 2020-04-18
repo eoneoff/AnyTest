@@ -1,7 +1,7 @@
 ﻿<div class="d-flex flex-row h-100">
     <div class="sidebar @(isHidden?"hidden":"") pr-2 @Class" style="@Style">
         <button class="sidebar-button w-100 mb-2 @ToggleButtonClass" @onclick="()=>isHidden = !isHidden"><i class="fa fa-bars"></i></button>
-        <div class="sidebar-content h-100 bg-white">
+        <div class="sidebar-content h-100">
             @SidebarContent
         </div>
     </div>
@@ -13,26 +13,10 @@
 <style>
     .sidebar .sidebar-content {
         width: @($"{Width}rem");
-        transition: width .25s ease-out;
-        overflow-x: hidden;
     }
 
     .sidebar.hidden .sidebar-content {
         width: @($"{Width}rem");
-    }
-
-    .sidebar .sidebar-button {
-        display: none;
-    }
-
-    @@media(max-width: 992px) {
-        .sidebar.hidden .sidebar-content {
-            width: 0;
-        }
-
-        .sidebar .sidebar-button {
-            display: block;
-        }
     }
 </style>
 

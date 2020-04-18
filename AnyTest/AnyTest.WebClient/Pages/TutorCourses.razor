@@ -5,11 +5,168 @@
 
 
 
-<TogglableSidebarPanel ToggleButtonClass="btn btn-outline-success">
+<TogglableSidebarPanel ToggleButtonClass="btn btn-outline-success" Class="bg-white">
     <SidebarContent>
-        SomeContent
+        <div class="mx-1">
+            @foreach(var subj in source)
+            {
+            <div>
+                <TreeMenu Items="subj.Courses" ButtonText="@subj.Name">
+                    <ItemTemplate Context="courxe">
+                        <TreeMenu Items="courxe.Tests" ButtonText="@courxe.Name">
+                            <ItemTemplate Context="test">
+                                @test.Test.Name
+                            </ItemTemplate>
+                        </TreeMenu>
+                    </ItemTemplate>
+                </TreeMenu>
+            </div>
+            }
+        </div>
     </SidebarContent>
     <MainContent>
         
     </MainContent>
 </TogglableSidebarPanel>
+
+@code
+{
+    List<Subject> source = new List<Subject>
+    {
+        new Subject
+        {
+            Name = "Math",
+            Courses = new List<Course>
+            {
+                new Course
+                {
+                    Name="Algebra",
+                    Tests = new List<TestCourse>
+                    {
+                        new TestCourse
+                        {
+                            Test = new Test{Name = "Test1"}
+                        },
+                        new TestCourse
+                        {
+                            Test = new Test {Name = "Test 2"}
+                        },
+                        new TestCourse
+                        {
+                            Test = new Test {Name = "Test 3"}
+                        }
+                    }
+                },
+                new Course
+                {
+                    Name="Calculus",
+                    Tests = new List<TestCourse>
+                    {
+                        new TestCourse
+                        {
+                            Test = new Test{Name = "Test1"}
+                        },
+                        new TestCourse
+                        {
+                            Test = new Test {Name = "Test 2"}
+                        },
+                        new TestCourse
+                        {
+                            Test = new Test {Name = "Test 3"}
+                        }
+                    }
+                }
+            }
+        },
+        new Subject
+        {
+            Name = "Programming",
+            Courses = new List<Course>
+            {
+                new Course
+                {
+                    Name = "C#",
+                    Tests = new List<TestCourse>
+                    {
+                        new TestCourse
+                        {
+                            Test = new Test{Name = "Test1"}
+                        },
+                        new TestCourse
+                        {
+                            Test = new Test {Name = "Test 2"}
+                        },
+                        new TestCourse
+                        {
+                            Test = new Test {Name = "Test 3"}
+                        }
+                    }
+                },
+                new Course
+                {
+                    Name="Python",
+                    Tests = new List<TestCourse>
+                    {
+                        new TestCourse
+                        {
+                            Test = new Test{Name = "Test1"}
+                        },
+                        new TestCourse
+                        {
+                            Test = new Test {Name = "Test 2"}
+                        },
+                        new TestCourse
+                        {
+                            Test = new Test {Name = "Test 3"}
+                        }
+                    }
+                }
+            }
+        },
+        new Subject
+        {
+            Name = "Phisycs",
+            Courses = new List<Course>
+            {
+                new Course
+                {
+                    Name = "Electromagnetics",
+                    Tests = new List<TestCourse>
+                    {
+                         new TestCourse
+                        {
+                            Test = new Test{Name = "Test1"}
+                        },
+                        new TestCourse
+                        {
+                            Test = new Test {Name = "Test 2"}
+                        },
+                        new TestCourse
+                        {
+                            Test = new Test {Name = "Test 3"}
+                        }
+                    }
+                },
+                new Course
+                {
+                    Name = "Nuclear pyshics",
+                    Tests = new List<TestCourse>
+                    {
+                         new TestCourse
+                        {
+                            Test = new Test{Name = "Test1"}
+                        },
+                        new TestCourse
+                        {
+                            Test = new Test {Name = "Test 2"}
+                        },
+                        new TestCourse
+                        {
+                            Test = new Test {Name = "Test 3"}
+                        }
+                    }
+                }
+            }
+        }
+    };
+}

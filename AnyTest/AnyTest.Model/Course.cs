@@ -29,5 +29,6 @@ namespace AnyTest.Model
         public virtual Tutor Author { get; set; }
         public virtual ICollection<TutorCourse> Owners { get; set; }
         public virtual ICollection<StudentCourse> Students { get; set; }
+        public virtual ICollection<TestCourse> Tests { get; set; }
     }
 }

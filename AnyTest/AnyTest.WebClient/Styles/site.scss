@@ -1,5 +1,6 @@
 ﻿
 @import "partials/_colors.scss";
+@import "partials/_togglableSidebarPanel.scss";
 
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -95,7 +96,11 @@ app {
 
 /*sidebar style*/
 .sidebar {
-    background-color: $base-back-color;
+    background-color: $base-back-color!important;
+}
+
+.sidebar-content {
+    background-color:$neutral-background-color!important;
 }
 
 /*form style*/

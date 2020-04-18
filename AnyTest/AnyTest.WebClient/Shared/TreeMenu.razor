@@ -1,0 +1,30 @@
+﻿@typeparam TItem
+
+
+<button type="button" class="btn btn-link" @onclick="()=>isOpen=!isOpen">
+    <i class="fa fa-caret-@(isOpen ? "down" : "right") mr-1"></i>@ButtonText
+</button>
+
+@if (isOpen)
+{
+<ul style="list-style-type:none;" class="mb-3">
+    @foreach (var item in Items)
+    {
+        <li>@ItemTemplate(item)</li>
+    }
+</ul>
+}
+
+@code
+{
+    private bool isOpen = false;
+
+    [Parameter]
+    public string ButtonText { get; set; }
+
+    [Parameter]
+    public IEnumerable<TItem> Items { get; set; }
+
+    [Parameter]
+    public RenderFragment<TItem> ItemTemplate { get; set; }
+}
