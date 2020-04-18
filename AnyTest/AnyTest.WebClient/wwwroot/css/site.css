@@ -73,6 +73,10 @@ app {
   .modal-header button {
     color: white; }
 
+/*sidebar style*/
+.sidebar {
+  background-color: #577534; }
+
 /*form style*/
 .form-control:focus {
   border-color: #28a745;

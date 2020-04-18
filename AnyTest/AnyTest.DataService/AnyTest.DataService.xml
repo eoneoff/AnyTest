@@ -281,7 +281,7 @@
             \~english An example of HTTP request to delete a person
             \~ukrainian Приклад HTTP запиту видалення особистих даних користувача
             <code>
-            DELETE: api/ApiWithActions/5
+            DELETE: api/Tutors/5
             </code>
             </example>
         </member>
@@ -308,21 +308,149 @@
             </code>
             </example>
         </member>
+        <member name="T:AnyTest.DataService.Controllers.StudentsController">
+            <summary>
+            \~english An API controller Students data
+            \~ukrainian Контроллер API для даних студентів
+            </summary>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.StudentsController.#ctor(AnyTest.IDataRepository.IRepository{AnyTest.Model.Student},AnyTest.IDataRepository.IPersonRepository)">
+             <summary>
+             \~english Initializes a new instance of the <c>StudentsContorller</c> class
+             \~ukrainian Ініціалізує новий екземляр класу <c>StudentsContorller</c>
+             </summary>
+             <param name="repository">
+             \~english An object, implementing an <c>IRepository{Student}</c> interface. Dependency.
+             \~ukrainian Об'єкт, який іплементує інтерфейс <c>IRepository{Student}</c>. Залежність.
+             </param>
+            <param name="people">
+             \~english An object, implementing an <c>IPeopleRepositor</c> interface. Dependency.
+             \~ukrainian Об'єкт, який іплементує інтерфейс <c>IPeopleRepository</c>. Залежність.
+             </param>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.StudentsController.Get">
+            <summary>
+            \~english A method for getting a complete list of Students
+            \~ukrainian Метод для отримання персональних даних всіх студентів
+            </summary>
+            <returns>
+            \~english A collection of <c>Student</c>
+            \~ukrainian Коллекція <c>Student</c>
+            </returns>
+            /// <example>
+            \~english An expample of HTTP request for Students
+            \~ukrainian Приклад HTTP запиту персональних даних всіх студентів
+            <code>
+            GET: api/Students
+            </code>
+            </example>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.StudentsController.Get(System.Int64)">
+            <summary>
+            \~english A method for gettin a single Student by id
+            \~ukrainian Метод для отримання персональних даних студента по id
+            </summary>
+            <param name="id">
+            \~english Student id <c>long</c>
+            \~ukrainian Id студента <c>long</c>
+            </param>
+            <returns>
+            <c>Student</c>
+            </returns>
+            <example>
+            \~english An expample of HTTP request for a Student
+            \~ukrainian Приклад HTTP запиту персональних даних студента
+            <code>
+            GET: api/Students/5
+            </code>
+            </example>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.StudentsController.Post(AnyTest.Model.Student)">
+            <summary>
+            \~english Creates a new Student
+            \~ukrainian Додає персональні дані нового студента
+            </summary>
+            <param name="Student">
+            \~english An instance of a <c>Student</c>, conatining new user data
+            \~ukrainian Екземпляр класу <c>Student</c>, якій місить дані нового студента
+            </param>
+            <returns>
+            \~english A result of a Student creation
+            \~ukrainian Результат створення студента
+            </returns>
+            <example>
+            \~english An example of HTTP request to create a Student
+            \~ukrainian Приклад HTTP запиту створення студента студента
+            <code>
+            POST: api/Students
+            </code>
+            </example>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.StudentsController.Put(System.Int64,AnyTest.Model.Student)">
+            <summary>
+            \~english Edits an existing Student
+            \~ukrainian Змінює пресональні дані існуючого студента
+            </summary>
+            <param name="id">
+            \~english A <c>Student</c> id. <c>long</c>
+            \~ukrainian Id студента. <c>long</c>
+            </param>
+            <param name="Student">
+            \~english A <c>Student</c> object with updated Student data
+            \~ukrainian Об'єкт класту <c>Student</c> із зміненими особистими даними
+            </param>
+            <returns>
+            \~english A result of Student updating
+            \~ukrainian Результат оновлення студента
+            </returns>
+            <example>
+            \~english An example of HTTP request to update a Student
+            \~ukrainian Приклад HTTP запиту зміни студента
+            <code>
+            PUT: api/Students/5
+            </code>
+            </example>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.StudentsController.Delete(System.Int64)">
+            <summary>
+            \~english Deleted a Student
+            \~ukrainian Видаляє особисті дані студентаа
+            </summary>
+            <param name="id">
+            \~english Student id <c>long</c>
+            \~ukrainian Id студента <c>long</c>
+            </param>
+            <returns>
+            \~english A result of deleting a Student
+            \~ukrainian Результат видалення особистих даних студента
+            </returns>
+            <example>
+            \~english An example of HTTP request to delete a Student
+            \~ukrainian Приклад HTTP запиту видалення особистих даних студента
+            <code>
+            DELETE: api/Students/5
+            </code>
+            </example>
+        </member>
         <member name="T:AnyTest.DataService.Controllers.TutorsController">
             <summary>
             \~english An API controller tutors data
             \~ukrainian Контроллер API для даних викладачів
             </summary>
         </member>
-        <member name="M:AnyTest.DataService.Controllers.TutorsController.#ctor(AnyTest.IDataRepository.IRepository{AnyTest.Model.Tutor})">
-            <summary>
-            \~english Initializes a new instance of the <c>TutorsContorller</c> class
-            \~ukrainian Ініціалізує новий екземляр класу <c>TutorsContorller</c>
-            </summary>
-            <param name="repository">
-            \~english An object, implementing an <c>IRepository{Tutor}</c> interface. Dependency.
-            \~ukrainian Об'єкт, який іплементує інтерфейс <c>IRepository{Tutor}</c>. Залежність.
-            </param>
+        <member name="M:AnyTest.DataService.Controllers.TutorsController.#ctor(AnyTest.IDataRepository.IRepository{AnyTest.Model.Tutor},AnyTest.IDataRepository.IPersonRepository)">
+             <summary>
+             \~english Initializes a new instance of the <c>TutorsContorller</c> class
+             \~ukrainian Ініціалізує новий екземляр класу <c>TutorsContorller</c>
+             </summary>
+             <param name="repository">
+             \~english An object, implementing an <c>IRepository{Tutor}</c> interface. Dependency.
+             \~ukrainian Об'єкт, який іплементує інтерфейс <c>IRepository{Tutor}</c>. Залежність.
+             </param>
+            <param name="people">
+             \~english An object, implementing an <c>IPeopleRepositor</c> interface. Dependency.
+             \~ukrainian Об'єкт, який іплементує інтерфейс <c>IPeopleRepository</c>. Залежність.
+             </param>
         </member>
         <member name="M:AnyTest.DataService.Controllers.TutorsController.Get">
             <summary>
@@ -351,13 +479,80 @@
             \~ukrainian Id викладача <c>long</c>
             </param>
             <returns>
-            <c>Person</c>
+            <c>tutor</c>
             </returns>
             <example>
             \~english An expample of HTTP request for a tutor
             \~ukrainian Приклад HTTP запиту персональних даних викладача
             <code>
             GET: api/Tutors/5
+            </code>
+            </example>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.TutorsController.Post(AnyTest.Model.Tutor)">
+            <summary>
+            \~english Creates a new tutor
+            \~ukrainian Додає персональні дані нового викладача
+            </summary>
+            <param name="tutor">
+            \~english An instance of a <c>Tutor</c>, conatining new user data
+            \~ukrainian Екземпляр класу <c>Tutor</c>, якій місить дані нового викладача
+            </param>
+            <returns>
+            \~english A result of a tutor creation
+            \~ukrainian Результат створення викладача
+            </returns>
+            <example>
+            \~english An example of HTTP request to create a tutor
+            \~ukrainian Приклад HTTP запиту створення викладача викладача
+            <code>
+            POST: api/Tutors
+            </code>
+            </example>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.TutorsController.Put(System.Int64,AnyTest.Model.Tutor)">
+            <summary>
+            \~english Edits an existing tutor
+            \~ukrainian Змінює пресональні дані існуючого викладача
+            </summary>
+            <param name="id">
+            \~english A <c>Tutor</c> id. <c>long</c>
+            \~ukrainian Id викладача. <c>long</c>
+            </param>
+            <param name="tutor">
+            \~english A <c>Tutor</c> object with updated tutor data
+            \~ukrainian Об'єкт класту <c>Tutor</c> із зміненими особистими даними
+            </param>
+            <returns>
+            \~english A result of tutor updating
+            \~ukrainian Результат оновлення викладача
+            </returns>
+            <example>
+            \~english An example of HTTP request to update a tutor
+            \~ukrainian Приклад HTTP запиту зміни викладача
+            <code>
+            PUT: api/Tutors/5
+            </code>
+            </example>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.TutorsController.Delete(System.Int64)">
+            <summary>
+            \~english Deleted a tutor
+            \~ukrainian Видаляє особисті дані викладачаа
+            </summary>
+            <param name="id">
+            \~english Tutor id <c>long</c>
+            \~ukrainian Id викладача <c>long</c>
+            </param>
+            <returns>
+            \~english A result of deleting a tutor
+            \~ukrainian Результат видалення особистих даних викладача
+            </returns>
+            <example>
+            \~english An example of HTTP request to delete a tutor
+            \~ukrainian Приклад HTTP запиту видалення особистих даних викладача
+            <code>
+            DELETE: api/Tutors/5
             </code>
             </example>
         </member>

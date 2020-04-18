@@ -93,6 +93,11 @@ app {
     }
 }
 
+/*sidebar style*/
+.sidebar {
+    background-color: $base-back-color;
+}
+
 /*form style*/
 .form-control:focus {
     border-color: #28a745;

@@ -1,0 +1,15 @@
+﻿@page "/tutor"
+@page "/tutor/courses"
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize(Roles = "Tutor")]
+
+
+
+<TogglableSidebarPanel ToggleButtonClass="btn btn-outline-success">
+    <SidebarContent>
+        SomeContent
+    </SidebarContent>
+    <MainContent>
+        
+    </MainContent>
+</TogglableSidebarPanel>
