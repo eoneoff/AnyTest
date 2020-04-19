@@ -54,6 +54,12 @@ namespace AnyTest.ClientAuthentication
                 return new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity()));
             }
 
+            if(TokenExprired(savedToken))
+            {
+                await _localStorage.RemoveItemAsync("authToken");
+                return new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity()));
+            }
+
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", savedToken);
 
             return new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity(ParseClaimsFromJwt(savedToken), "jwt")));
@@ -85,6 +91,18 @@ namespace AnyTest.ClientAuthentication
             var authState = Task.FromResult(new AuthenticationState(anonymousUser));
             NotifyAuthenticationStateChanged(authState);
         }
+
+        /// <summary>
+        /// \~english Defines if current token is expired
+        /// \~ukrainian Визначає, чи не сплив термін дії збереженого токену
+        /// </summary>
+        /// <param name="jwt">
+        /// \~english JWT token
+        /// \~ukrainian JWT токен
+        /// </param>
+        /// <returns></returns>
+        private bool TokenExprired (string jwt) =>
+            new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Local).AddSeconds(long.Parse(ParseClaimsFromJwt(jwt).FirstOrDefault(c => c.Type == "exp")?.Value)) < DateTime.Now;
 
         /// <summary>
         ///\~english Parses JWT token into collection of security Claims

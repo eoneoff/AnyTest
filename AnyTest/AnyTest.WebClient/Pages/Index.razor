@@ -61,18 +61,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        if((State?.Person?.Id ?? 0) == 0)
-        {
-            try
-            {
-                await State.GetPersonByAuthorizedUser();
-            }
-            catch(HttpRequestException ex)
-            {
-                Console.WriteLine(ex.Message);
-;                if(ex.InnerException is WebException {Status:WebExceptionStatus.ProtocolError, Response:HttpWebResponse {StatusCode: HttpStatusCode.Unauthorized } } ) await AuthService.Logout();
-            }
-        }
+        if((State?.Person?.Id ?? 0) == 0) await State.GetPersonByAuthorizedUser();
     }
 
     private void EditModeOn()

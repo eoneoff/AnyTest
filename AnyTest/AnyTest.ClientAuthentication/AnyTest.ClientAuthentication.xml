@@ -47,6 +47,17 @@
             \~ukrainian Позначає, що коритсувач вийшов для компонента <c>AuthorizeView</c>
             </summary>
         </member>
+        <member name="M:AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider.TokenExprired(System.String)">
+            <summary>
+            \~english Defines if current token is expired
+            \~ukrainian Визначає, чи не сплив термін дії збереженого токену
+            </summary>
+            <param name="jwt">
+            \~english JWT token
+            \~ukrainian JWT токен
+            </param>
+            <returns></returns>
+        </member>
         <member name="M:AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider.ParseClaimsFromJwt(System.String)">
              <summary>
             \~english Parses JWT token into collection of security Claims
