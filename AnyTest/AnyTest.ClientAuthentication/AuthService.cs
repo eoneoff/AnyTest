@@ -66,8 +66,8 @@ namespace AnyTest.ClientAuthentication
             if(response.IsSuccessStatusCode)
             {
                 await _localStorage.SetItemAsync("authToken", loginResult.Token);
-                (_authenticationStateProvider as ApiAuthenticaionStateProvider).MarkUserAsAuthenticated(loginResult.Token);
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", loginResult.Token);
+                (_authenticationStateProvider as ApiAuthenticaionStateProvider).MarkUserAsAuthenticated(loginResult.Token);
             }
 
             return loginResult;

@@ -30,7 +30,7 @@
                         <AuthorizeView>
                             <Authorized>
                                 <a href="" class="text-white mr-4">@context.User.Identity.Name</a>
-                                <button class="btn btn-light" @onclick="@AuthService.Logout">
+                                <button class="btn btn-light" @onclick="Logout">
                                     @Localizer[nameof(Resources.Logout)]
                                 </button>
                             </Authorized>
@@ -55,3 +55,12 @@
         </div>
     </div>
 </div>
+
+@code
+{
+    private void Logout()
+    {
+        State.ResetPerson();
+        AuthService.Logout();
+    }
+}

@@ -1,7 +1,7 @@
 @page "/users"
 @inject HttpClient httpClient
 @using Microsoft.AspNetCore.Authorization
-@attribute [Authorize(Roles = "Administrator")]
+@inject NavigationManager NavigationManager
 
 <div class="m-5">
     <div class="d-flex flex-row mb-2">
@@ -74,6 +74,8 @@
 
 @code
 {  
+    [CascadingParameter]
+    private Task<AuthenticationState> authStateTask {get; set;}
     private UserInfo selectedUser;
 
     private ModalDialog editor;
@@ -88,6 +90,13 @@
 
     protected override async Task OnInitializedAsync()
     {
+        if(!(await authStateTask).User.IsInRole("Administrator"))
+        {
+            NavigationManager.NavigateTo("/");
+            return;
+        } 
+        
+
         if (State.Users.Count() == 0)
         {
             await State.GetUsers();

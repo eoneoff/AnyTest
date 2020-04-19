@@ -41,7 +41,7 @@ namespace AnyTest.WebClient.ViewModels
             }
             catch (HttpRequestException ex)
             {
-                if(ex.InnerException is WebException {Status:WebExceptionStatus.ProtocolError, Response:HttpWebResponse {StatusCode: HttpStatusCode.Unauthorized } } ) throw new Exception("Unauthorized");
+                if(ex.InnerException is WebException {Status:WebExceptionStatus.ProtocolError, Response:HttpWebResponse {StatusCode: HttpStatusCode.Unauthorized } } ) throw;
             }
             catch (Exception ex)
             {

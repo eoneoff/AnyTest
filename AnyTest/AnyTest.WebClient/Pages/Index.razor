@@ -1,4 +1,5 @@
 ﻿@page "/"
+@using System.Net
 @inject IAuthService AuthService
 
 <div>
@@ -66,9 +67,10 @@
             {
                 await State.GetPersonByAuthorizedUser();
             }
-            catch(Exception ex)
+            catch(HttpRequestException ex)
             {
-                if (ex.Message == "Unauthorized") await AuthService.Logout();
+                Console.WriteLine(ex.Message);
+;                if(ex.InnerException is WebException {Status:WebExceptionStatus.ProtocolError, Response:HttpWebResponse {StatusCode: HttpStatusCode.Unauthorized } } ) await AuthService.Logout();
             }
         }
     }
