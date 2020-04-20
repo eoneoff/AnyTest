@@ -261,8 +261,17 @@
   <data name="Subject" xml:space="preserve">
     <value>Предмет</value>
   </data>
+  <data name="Subjects" xml:space="preserve">
+    <value>Предмети</value>
+  </data>
+  <data name="Test" xml:space="preserve">
+    <value>Тест</value>
+  </data>
   <data name="TestCreationAndTestingApp" xml:space="preserve">
     <value>Додаток для створення і проходження тестів</value>
+  </data>
+  <data name="Tests" xml:space="preserve">
+    <value>Тести</value>
   </data>
   <data name="Tutor" xml:space="preserve">
     <value>Викладач</value>

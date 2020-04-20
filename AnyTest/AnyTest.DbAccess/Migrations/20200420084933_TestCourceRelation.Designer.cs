@@ -4,14 +4,16 @@ using AnyTest.DbAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AnyTest.DbAccess.Migrations
 {
     [DbContext(typeof(AnyTestDbContext))]
-    partial class AnyTestDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200420084933_TestCourceRelation")]
+    partial class TestCourceRelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -260,21 +262,6 @@ namespace AnyTest.DbAccess.Migrations
                     b.ToTable("TestQuestions");
                 });
 
-            modelBuilder.Entity("AnyTest.Model.TestSubject", b =>
-                {
-                    b.Property<long>("TestId")
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("SubjectId")
-                        .HasColumnType("bigint");
-
-                    b.HasKey("TestId", "SubjectId");
-
-                    b.HasIndex("SubjectId");
-
-                    b.ToTable("TestSubject");
-                });
-
             modelBuilder.Entity("AnyTest.Model.Tutor", b =>
                 {
                     b.Property<long>("Id")
@@ -421,21 +408,6 @@ namespace AnyTest.DbAccess.Migrations
                         .WithMany("TestQuestions")
                         .HasForeignKey("TestId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("AnyTest.Model.TestSubject", b =>
-                {
-                    b.HasOne("AnyTest.Model.Subject", "Subject")
-                        .WithMany("Tests")
-                        .HasForeignKey("SubjectId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.HasOne("AnyTest.Model.Test", "Test")
-                        .WithMany("Subjects")
-                        .HasForeignKey("TestId")
-                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 

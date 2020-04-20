@@ -14,11 +14,7 @@ namespace AnyTest.Model
         public long TestId { get; set; }
         public long CourseId { get; set; }
         public uint OrderNo { get; set; }
-
-        [ForeignKey(nameof(TestId))]
         public virtual Test Test { get; set; }
-
-        [ForeignKey(nameof(CourseId))]
         public virtual Course Course { get; set; }
         public virtual ICollection<Precondition> Preconditions { get; set; }
         public virtual ICollection<Precondition> Dependent { get; set; }

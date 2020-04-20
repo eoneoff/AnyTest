@@ -1,5 +1,4 @@
 ﻿@page "/tutor"
-@page "/tutor/courses"
 @using Microsoft.AspNetCore.Authorization
 @attribute [Authorize(Roles = "Tutor")]
 
@@ -8,12 +7,32 @@
 <TogglableSidebarPanel ToggleButtonClass="btn btn-outline-success" Class="bg-white">
     <SidebarContent>
         <div class="mx-1">
-            @foreach(var subj in source)
-            {
             <div>
-                <TreeMenu Items="subj.Courses" ButtonText="@subj.Name">
-                    <ItemTemplate Context="courxe">
-                        <TreeMenu Items="courxe.Tests" ButtonText="@courxe.Name">
+                <TreeMenu ButtonText="@Localizer[nameof(Resources.Subjects)]" Items="State.Subjects.OrderBy(s => s.Name)">
+                    <ItemTemplate Context="subject">
+                        <TreeMenu ButtonText="@subject.Name" Items="SubjectChildren(subject.Id)">
+                            <ItemTemplate Context="course_test">
+                                @if (course_test.test == null)
+                                {
+                                    <TreeMenu ButtonText="@course_test.course.Name" Items="@course_test.course.Tests.OrderBy(t => t.Test.Name)">
+                                        <ItemTemplate Context="test">
+                                            @test.Test.Name
+                                        </ItemTemplate>
+                                    </TreeMenu>
+                                }
+                                else
+                                {
+                                    @course_test.test.Name
+                                }
+                            </ItemTemplate>
+                        </TreeMenu>
+                    </ItemTemplate>
+                </TreeMenu>
+            </div>
+            <div>
+                <TreeMenu ButtonText="@Localizer[nameof(Resources.Courses)]" Items="State.Courses.OrderBy(c => c.Name)">
+                    <ItemTemplate Context="course">
+                        <TreeMenu ButtonText="@course.Name" Items="@course.Tests.OrderBy(t => t.Test.Name)">
                             <ItemTemplate Context="test">
                                 @test.Test.Name
                             </ItemTemplate>
@@ -21,7 +40,13 @@
                     </ItemTemplate>
                 </TreeMenu>
             </div>
-            }
+            <div>
+                <TreeMenu ButtonText="@Localizer[nameof(Resources.Tests)]" Items="@State.Tests">
+                    <ItemTemplate Context="test">
+                        @test.Name
+                    </ItemTemplate>
+                </TreeMenu>
+            </div>
         </div>
     </SidebarContent>
     <MainContent>
@@ -30,143 +55,20 @@
 </TogglableSidebarPanel>
 
 @code
-{
-    List<Subject> source = new List<Subject>
+{   protected override async Task OnInitializedAsync()
     {
-        new Subject
-        {
-            Name = "Math",
-            Courses = new List<Course>
-            {
-                new Course
-                {
-                    Name="Algebra",
-                    Tests = new List<TestCourse>
-                    {
-                        new TestCourse
-                        {
-                            Test = new Test{Name = "Test1"}
-                        },
-                        new TestCourse
-                        {
-                            Test = new Test {Name = "Test 2"}
-                        },
-                        new TestCourse
-                        {
-                            Test = new Test {Name = "Test 3"}
-                        }
-                    }
-                },
-                new Course
-                {
-                    Name="Calculus",
-                    Tests = new List<TestCourse>
-                    {
-                        new TestCourse
-                        {
-                            Test = new Test{Name = "Test1"}
-                        },
-                        new TestCourse
-                        {
-                            Test = new Test {Name = "Test 2"}
-                        },
-                        new TestCourse
-                        {
-                            Test = new Test {Name = "Test 3"}
-                        }
-                    }
-                }
-            }
-        },
-        new Subject
-        {
-            Name = "Programming",
-            Courses = new List<Course>
-            {
-                new Course
-                {
-                    Name = "C#",
-                    Tests = new List<TestCourse>
-                    {
-                        new TestCourse
-                        {
-                            Test = new Test{Name = "Test1"}
-                        },
-                        new TestCourse
-                        {
-                            Test = new Test {Name = "Test 2"}
-                        },
-                        new TestCourse
-                        {
-                            Test = new Test {Name = "Test 3"}
-                        }
-                    }
-                },
-                new Course
-                {
-                    Name="Python",
-                    Tests = new List<TestCourse>
-                    {
-                        new TestCourse
-                        {
-                            Test = new Test{Name = "Test1"}
-                        },
-                        new TestCourse
-                        {
-                            Test = new Test {Name = "Test 2"}
-                        },
-                        new TestCourse
-                        {
-                            Test = new Test {Name = "Test 3"}
-                        }
-                    }
-                }
-            }
-        },
-        new Subject
-        {
-            Name = "Phisycs",
-            Courses = new List<Course>
-            {
-                new Course
-                {
-                    Name = "Electromagnetics",
-                    Tests = new List<TestCourse>
-                    {
-                         new TestCourse
-                        {
-                            Test = new Test{Name = "Test1"}
-                        },
-                        new TestCourse
-                        {
-                            Test = new Test {Name = "Test 2"}
-                        },
-                        new TestCourse
-                        {
-                            Test = new Test {Name = "Test 3"}
-                        }
-                    }
-                },
-                new Course
-                {
-                    Name = "Nuclear pyshics",
-                    Tests = new List<TestCourse>
-                    {
-                         new TestCourse
-                        {
-                            Test = new Test{Name = "Test1"}
-                        },
-                        new TestCourse
-                        {
-                            Test = new Test {Name = "Test 2"}
-                        },
-                        new TestCourse
-                        {
-                            Test = new Test {Name = "Test 3"}
-                        }
-                    }
-                }
-            }
-        }
-    };
+        await State.GetTests();
+    }
+
+
+    private IEnumerable<(Course course, Test test)> SubjectChildren(long subjectId)
+    {
+        var courses = State.Courses.Where(c => c.SubjectId == subjectId)
+            .Select<Course, (Course course, Test test)>(c => (course: c, test: null))
+            .OrderBy(ct => ct.course.Name).ToList();
+        var tests = State.Tests.Where(t => t.Subjects.Any(ts => ts.SubjectId == subjectId) && t.Courses.Count() == 0)
+            .Select<Test, (Course course, Test test)>(t => (course: null, test: t))
+            .OrderBy(ct => ct.test.Name).OrderBy(ct => ct.test.Name).ToList();
+        return courses.Concat(tests);
+    }
 }

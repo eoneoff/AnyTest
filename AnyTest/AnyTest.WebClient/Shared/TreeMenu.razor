@@ -1,19 +1,20 @@
 ﻿@typeparam TItem
 
+<div>
+    <button type="button" class="btn btn-link text-left pl-0" @onclick="()=>isOpen=!isOpen">
+        <i class="fa fa-caret-@(isOpen ? "down" : "right") mr-1"></i>@ButtonText
+    </button>
 
-<button type="button" class="btn btn-link" @onclick="()=>isOpen=!isOpen">
-    <i class="fa fa-caret-@(isOpen ? "down" : "right") mr-1"></i>@ButtonText
-</button>
-
-@if (isOpen)
-{
-<ul style="list-style-type:none;" class="mb-3">
-    @foreach (var item in Items)
+    @if (isOpen)
     {
-        <li>@ItemTemplate(item)</li>
-    }
-</ul>
+    <ul style="list-style-type:none;" class="mb-3 pl-3">
+        @foreach (var item in Items)
+        {
+            <li>@ItemTemplate(item)</li>
+        }
+    </ul>
 }
+</div>
 
 @code
 {

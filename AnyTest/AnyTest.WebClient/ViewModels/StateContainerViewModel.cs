@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Components;
 using AnyTest.ClientAuthentication;
 using System.Net;
 using System.Collections;
+using AnyTest.Model.Api;
 
 namespace AnyTest.WebClient.ViewModels
 {
@@ -19,7 +20,10 @@ namespace AnyTest.WebClient.ViewModels
         public StateContainerViewModel(HttpClient httpClient) => _httpClient = httpClient;
 
         public Person Person { get; private set; } = new Person();
-        public List<UserInfo> Users = new List<UserInfo>();
+        public List<UserInfo> Users { get; private set; } = new List<UserInfo>();
+        public List<Subject> Subjects { get; private set; } = new List<Subject>();
+        public List<Course> Courses { get; private set; } = new List<Course>();
+        public List<Test> Tests { get; private set; } = new List<Test>();
 
         private Person LoadingStub = new Person
         {
@@ -131,30 +135,114 @@ namespace AnyTest.WebClient.ViewModels
             else Person.Student = await _httpClient.PutJsonAsync<Student>("students", student);
         }
 
-        private List<UserInfo> GenerateStubUsers(int count = 18)
+        public async Task GetTests()
         {
-            var result = new List<UserInfo> { new UserInfo { User = "user1", Email = "email1@email.com", Name = "name1", Roles = new List<string> { "Administrator", "Tutor" } } };
-            var random = new Random();
-            for(int i = 2; i<=count;i++)
+            GetDummyTests();
+        }
+
+        private void GetDummyTests()
+        {
+            var testNames = new Dictionary<string, List<string>>
             {
-                var userInfo = new UserInfo
+                { "Математика", new List<string>
                 {
-                    User = $"user{i}",
-                    Email = $"email{1}@email.com",
-                    Name = $"name{i}"
-                };
-                var roles = new List<string>();
-                if (random.Next() % 5 == 0)
+                    "Алгебра",
+                    "Математичний аналіз"
+                } },
+                {"Розробка програмного забезпечення", new List<string>
                 {
-                    if (random.Next() % 10 == 0) roles.Add("Administrator");
-                    roles.Add("Tutor");
+                    "C#",
+                    "Python"
+                } },
+                {"Фізика", new List<string>
+                {
+                    "Електромагнетизм",
+                    "Ядерна фізика"
+                } },
+                {"-", new List<string>
+                {
+                    "Конституційне право"
+                } }
+            };
+
+            Subjects = new List<Subject>();
+            Courses = new List<Course>();
+            Tests = new List<Test>();
+            long subjectId = 1;
+            long courseId = 1;
+            long testId = 1;
+            var rnd = new Random();
+
+            foreach(var subj in testNames)
+            {
+                Subject subject = null;
+
+                if(subj.Key != "-")
+                {
+                    subject = new Subject
+                    {
+                        Id = subjectId++,
+                        Name = subj.Key,
+                        Courses = new List<Course>(),
+                        Tests = new List<TestSubject>()
+                    };
+
+                    Subjects.Add(subject);
+
+                    AddTestsToSubject(subject, null, rnd, ref testId);
                 }
-                else
-                    roles.Add("Student");
-                userInfo.Roles = roles;
-                result.Add(userInfo);
+
+                foreach(var crs in subj.Value)
+                {
+                    var course = new Course
+                    {
+                        Id = courseId++,
+                        Name = crs,
+                        SubjectId = subject?.Id,
+                        Tests = new List<TestCourse>()
+                    };
+
+                    if (subject != null) subject.Courses.Add(course);
+                    Courses.Add(course);
+                    AddTestsToSubject(subject, course, rnd, ref testId);
+                }
             }
-            return result;
+
+            AddTestsToSubject(null, null, rnd, ref testId);
+        }
+
+        private void AddTestsToSubject(Subject subject, Course course, Random rnd, ref long testId )
+        {
+            int count = rnd.Next() % 3;
+
+            if (course != null) count++;
+
+            for (int i = 0; i < count; i++, testId++)
+            {
+                var test = new Test
+                {
+                    Id = testId,
+                    Name = $"Test {testId}",
+                    Subjects = new List<TestSubject>(),
+                    Courses = new List<TestCourse>()
+                };
+
+                if(subject != null)
+                {
+                    var testSubject = new TestSubject { TestId = testId, SubjectId = subject.Id, Test = test };
+                    test.Subjects.Add(testSubject);
+                    subject.Tests.Add(testSubject);
+                }
+
+                if(course != null)
+                {
+                    var testCourse = new TestCourse { TestId = testId, CourseId = course.Id, Test = test };
+                    test.Courses.Add(testCourse);
+                    course.Tests.Add(testCourse);
+                }
+
+                Tests.Add(test);
+            }
         }
     }
 }

@@ -45,6 +45,12 @@ namespace AnyTest.DbAccess
             model.Entity<StudentCourse>().HasOne(cs => cs.Student).WithMany(s => s.Courses).HasForeignKey(sc => sc.StudentId).OnDelete(DeleteBehavior.NoAction);
             model.Entity<StudentCourse>().HasOne(sc => sc.Course).WithMany(c => c.Students).HasForeignKey(sc => sc.CourseId).OnDelete(DeleteBehavior.NoAction);
 
+            model.Entity<TestSubject>().HasKey(ts => new { ts.TestId, ts.SubjectId });
+            model.Entity<TestSubject>().HasOne(ts => ts.Test).WithMany(t => t.Subjects).HasForeignKey(ts => ts.TestId).OnDelete(DeleteBehavior.NoAction);
+            model.Entity<TestSubject>().HasOne(ts => ts.Subject).WithMany(s => s.Tests).HasForeignKey(ts => ts.SubjectId).OnDelete(DeleteBehavior.NoAction);
+
+            model.Entity<TestCourse>().HasOne(tc => tc.Test).WithMany(t => t.Courses).HasForeignKey(tc => tc.TestId).OnDelete(DeleteBehavior.NoAction);
+            model.Entity<TestCourse>().HasOne(tc => tc.Course).WithMany(c => c.Tests).HasForeignKey(tc => tc.CourseId).OnDelete(DeleteBehavior.NoAction);
             model.Entity<TestCourse>().HasIndex(tc => tc.CourseId);
 
             model.Entity<Precondition>().HasKey(p => new { p.TestId, p.PreconditionId });
