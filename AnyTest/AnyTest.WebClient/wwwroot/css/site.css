@@ -131,6 +131,15 @@ app {
 .custom-control-input[disabled] ~ .custom-control-label::before {
     background-color: #e9efea;
 }*/
+.custom-select:focus {
+  border-color: #28a745;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25); }
+
+/*.custom-select:disabled {
+    color: #6c757d;
+    background-color: #e9ecef;
+}*/
 /*button style*/
 .btn-success {
   background-image: linear-gradient(#688744, #577534 70%);

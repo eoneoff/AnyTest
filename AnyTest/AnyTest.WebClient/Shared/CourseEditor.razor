@@ -1,0 +1,25 @@
+﻿@inherits ValidatableFormViewModel<Course>
+
+<ValidatableForm @ref="form" Model="Course" OnSubmit="OnSubmit" OnCancel="OnCancel" Unchanged="@unchanged" Disabled="@Disabled" HideButtons="@HideButtons">
+    <div class="container-fluid">
+        <ValidatableFormField Wide="@Wide" Label="@Localizer[nameof(Resources.Name)]" Id="coursename">
+            <ValidationMessage For="@(()=>Course.Name)" />
+            <InputText Id="coursename" Class="form-control" @bind-Value="Course.Name" @oninput="@(()=>unchanged = false)" disabled="@Disabled" />
+        </ValidatableFormField>
+        <ValidatableFormField Wide="@Wide" Label="@Localizer[nameof(Resources.Subject)]" Id="coursesubject">
+            <select @bind="Course.SubjectId" class="custom-select">
+                <option value="" id="coursesubject"></option>
+                @foreach (var subj in State.Subjects)
+                {
+                    <option value="@subj.Id">@subj.Name</option>
+                }
+            </select>
+        </ValidatableFormField>
+    </div>
+</ValidatableForm>
+
+@code
+{
+    [Parameter]
+    public Course Course { get; set; } = new Course();
+}

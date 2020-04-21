@@ -138,6 +138,9 @@
   <data name="ConfirmPassword" xml:space="preserve">
     <value>Введіть пароль повторно</value>
   </data>
+  <data name="Course" xml:space="preserve">
+    <value>Курс</value>
+  </data>
   <data name="Courses" xml:space="preserve">
     <value>Курси</value>
   </data>

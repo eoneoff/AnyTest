@@ -1,0 +1,23 @@
+﻿<div class="form-group @(Wide?"row":"")">
+    <div class="@(Wide?"col-lg-2":"") d-flex flex-column justify-content-lg-end align-content-start align-content-lg-end">
+        <label for="@Id" class="col-form-label text-left @(Wide?"text-lg-right":"") font-weight-bold text-nowrap">@Label:</label>
+    </div>
+    <div class="@(Wide?"col-lg-10":"") d-flex flex-column px-0">
+        @ChildContent
+    </div>
+</div>
+
+@code
+{
+    [Parameter]
+    public bool Wide { get; set; } = true;
+
+    [Parameter]
+    public string Label { get; set; }
+
+    [Parameter]
+    public string Id { get; set; }
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+}

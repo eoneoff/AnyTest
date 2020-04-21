@@ -105,7 +105,7 @@ app {
 
 /*form style*/
 .form-control:focus {
-    border-color: #28a745;
+    border-color: $form-focus-border-color;
     box-shadow: 0 0 0 0.2rem $form-focus-color;
 }
 
@@ -143,6 +143,17 @@ app {
 
 .custom-control-input[disabled] ~ .custom-control-label::before {
     background-color: #e9efea;
+}*/
+
+.custom-select:focus {
+    border-color: $form-focus-border-color;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem $form-focus-color;
+}
+
+/*.custom-select:disabled {
+    color: #6c757d;
+    background-color: #e9ecef;
 }*/
 
 /*button style*/

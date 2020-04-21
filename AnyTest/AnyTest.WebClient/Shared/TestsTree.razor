@@ -1,0 +1,54 @@
+﻿<div>
+    <TreeMenu ButtonText="@Localizer[nameof(Resources.Subjects)]" Items="State.Subjects.OrderBy(s => s.Name)">
+        <ItemTemplate Context="subject">
+            <TreeMenu ButtonText="@subject.Name" Items="SubjectChildren(subject.Id)">
+                <ItemTemplate Context="course_test">
+                    @if (course_test.test == null)
+                    {
+                        <TreeMenu ButtonText="@course_test.course.Name" Items="@course_test.course.Tests.OrderBy(t => t.Test.Name)">
+                            <ItemTemplate Context="test">
+                                @test.Test.Name
+                            </ItemTemplate>
+                        </TreeMenu>
+                    }
+                    else
+                    {
+                        @course_test.test.Name
+                    }
+                </ItemTemplate>
+            </TreeMenu>
+        </ItemTemplate>
+    </TreeMenu>
+</div>
+<div>
+    <TreeMenu ButtonText="@Localizer[nameof(Resources.Courses)]" Items="State.Courses.OrderBy(c => c.Name)">
+        <ItemTemplate Context="course">
+            <TreeMenu ButtonText="@course.Name" Items="@course.Tests.OrderBy(t => t.Test.Name)">
+                <ItemTemplate Context="test">
+                    @test.Test.Name
+                </ItemTemplate>
+            </TreeMenu>
+        </ItemTemplate>
+    </TreeMenu>
+</div>
+<div>
+    <TreeMenu ButtonText="@Localizer[nameof(Resources.Tests)]" Items="@State.Tests">
+        <ItemTemplate Context="test">
+            @test.Name
+        </ItemTemplate>
+    </TreeMenu>
+</div>
+
+@code
+{
+    private IEnumerable<(Course course, Test test)> SubjectChildren(long subjectId)
+    {
+        var courses = State.Courses.Where(c => c.SubjectId == subjectId)
+            .Select<Course, (Course course, Test test)>(c => (course: c, test: null))
+            .OrderBy(ct => ct.course.Name).ToList();
+        var tests = State.Tests.Where(t => t.Subjects.Any(ts => ts.SubjectId == subjectId) && t.Courses.Count() == 0)
+            .Select<Test, (Course course, Test test)>(t => (course: null, test: t))
+            .OrderBy(ct => ct.test.Name).OrderBy(ct => ct.test.Name).ToList();
+        return courses.Concat(tests);
+    }
+}

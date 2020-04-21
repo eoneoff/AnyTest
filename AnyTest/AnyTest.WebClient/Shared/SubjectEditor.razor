@@ -1,0 +1,17 @@
+﻿@inherits ValidatableFormViewModel<Subject>
+
+<ValidatableForm @ref="form" Model="Subject" Unchanged="@unchanged" Disabled="@Disabled" OnSubmit="OnSubmit" OnCancel="OnCancel">
+    <div class="container-fluid">
+        <ValidatableFormField Wide="@Wide" Label="@($"{Localizer[nameof(Resources.Name)]}:")" Id="subjectname">
+            <ValidationMessage For="@(()=>Subject.Name)" />
+            <InputText Id="subjectname" Class="form-control" @bind-Value="Subject.Name" @oninput="@(()=>unchanged = false)" disabled="@Disabled" />
+        </ValidatableFormField>
+    </div>
+</ValidatableForm>
+
+
+@code
+{
+    [Parameter]
+    public Subject Subject { get; set; } = new Subject();
+}

@@ -1,0 +1,19 @@
+﻿@inherits ValidatableFormViewModel<Test>
+
+<ValidatableForm Model="Test" OnSubmit="OnSubmit" OnCancel="OnCancel" Unchanged="@unchanged" Disabled="@Disabled" HideButtons="@HideButtons">
+    <div class="container-fluid">
+        <ValidatableFormField Wide="@Wide" Label="@Localizer[nameof(Resources.Name)]" Id="coursename">
+            <ValidationMessage For="@(()=>Test.Name)" />
+            <InputText Id="coursename" Class="form-control" @bind-Value="Test.Name" @oninput="@(()=>unchanged = false)" disabled="@Disabled" />
+        </ValidatableFormField>
+    </div>
+</ValidatableForm>
+
+
+@code
+{
+    [Parameter]
+    public Test Test { get; set; } = new Test();
+
+    private List<TestQuestion> Questions { get; set; }
+}

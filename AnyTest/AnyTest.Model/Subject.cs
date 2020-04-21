@@ -13,7 +13,7 @@ namespace AnyTest.Model
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
 
-        [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = nameof(Resources.Name))]
+        [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = nameof(Resources.EnterName))]
         [Display(ResourceType = typeof(Resources), Name = nameof(Resources.Name))]
         public string Name { get; set; }
 

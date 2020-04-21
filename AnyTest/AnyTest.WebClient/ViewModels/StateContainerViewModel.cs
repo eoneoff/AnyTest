@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Components;
 using AnyTest.ClientAuthentication;
 using System.Net;
 using System.Collections;
-using AnyTest.Model.Api;
 
 namespace AnyTest.WebClient.ViewModels
 {
