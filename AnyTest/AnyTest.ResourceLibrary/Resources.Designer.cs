@@ -457,6 +457,15 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Зберегти курс.
+        /// </summary>
+        public static string SaveCourse {
+            get {
+                return ResourceManager.GetString("SaveCourse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Зберегти особисті дані.
         /// </summary>
         public static string SavePerson {

@@ -85,7 +85,7 @@ namespace AnyTest.DataService.Controllers
         /// </code>
         /// </example>
         [HttpPost]
-        public virtual async Task<IActionResult> Post(T item)
+        public virtual async Task<IActionResult> Post([FromBody]T item)
         {
             if (!ModelState.IsValid)
             {
@@ -119,7 +119,7 @@ namespace AnyTest.DataService.Controllers
         /// </code>
         /// </example>
         [HttpPut("{id:long}")]
-        public virtual async Task<IActionResult> Put(long id, T item)
+        public virtual async Task<IActionResult> Put(long id, [FromBody] T item)
         {
             if (!ModelState.IsValid)
             {

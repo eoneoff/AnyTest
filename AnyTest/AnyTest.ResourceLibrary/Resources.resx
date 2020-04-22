@@ -249,6 +249,9 @@
   <data name="Save" xml:space="preserve">
     <value>Зберегти</value>
   </data>
+  <data name="SaveCourse" xml:space="preserve">
+    <value>Зберегти курс</value>
+  </data>
   <data name="SavePerson" xml:space="preserve">
     <value>Зберегти особисті дані</value>
   </data>

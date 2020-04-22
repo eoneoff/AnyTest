@@ -136,7 +136,16 @@ namespace AnyTest.WebClient.ViewModels
 
         public async Task GetTests()
         {
-            GetDummyTests();
+            Subjects = await _httpClient.GetJsonAsync<List<Subject>>("subjects");
+            Courses = await _httpClient.GetJsonAsync<List<Course>>("courses");
+            foreach(var g in Courses.GroupBy(c => c.SubjectId))
+            {
+                if(g.Key is long id)
+                {
+                    var subj = Subjects.Find(s => s.Id == id);
+                    subj.Courses = g.ToList();
+                }
+            }
         }
 
         public async Task SaveSubject(Subject subject)
@@ -144,6 +153,27 @@ namespace AnyTest.WebClient.ViewModels
             if(subject.Id == 0)
             {
                 Subjects.Add(await _httpClient.PostJsonAsync<Subject>("subjects", subject));
+            }
+            else
+            {
+
+            }
+        }
+
+        public async Task SaveCourse(Course course)
+        {
+            if(course.Id == 0)
+            {
+                if (Person.Id == 0) await GetPersonByAuthorizedUser();
+                course.AuthorId = Person.Id;
+                course = await _httpClient.PostJsonAsync<Course>("courses", course);
+                Courses.Add(course);
+                if(course.SubjectId!=0)
+                {
+                    var subject = Subjects.First(s => s.Id == course.SubjectId);
+                    subject.Courses ??= new List<Course>();
+                    subject.Courses.Add(course);
+                }
             }
             else
             {

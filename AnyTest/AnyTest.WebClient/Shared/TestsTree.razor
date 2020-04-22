@@ -5,7 +5,7 @@
                 <ItemTemplate Context="course_test">
                     @if (course_test.test == null)
                     {
-                        <TreeMenu ButtonText="@course_test.course.Name" Items="@course_test.course.Tests.OrderBy(t => t.Test.Name)">
+                        <TreeMenu ButtonText="@course_test.course.Name" Items="@((course_test.course.Tests ?? new List<TestCourse>() ).OrderBy(t => t.Test.Name))">
                             <ItemTemplate Context="test">
                                 @test.Test.Name
                             </ItemTemplate>
@@ -23,7 +23,7 @@
 <div>
     <TreeMenu ButtonText="@Localizer[nameof(Resources.Courses)]" Items="State.Courses.OrderBy(c => c.Name)">
         <ItemTemplate Context="course">
-            <TreeMenu ButtonText="@course.Name" Items="@course.Tests.OrderBy(t => t.Test.Name)">
+            <TreeMenu ButtonText="@course.Name" Items="@((course.Tests ?? new List<TestCourse>()).OrderBy(t => t.Test.Name))">
                 <ItemTemplate Context="test">
                     @test.Test.Name
                 </ItemTemplate>
@@ -51,4 +51,6 @@
             .OrderBy(ct => ct.test.Name).OrderBy(ct => ct.test.Name).ToList();
         return courses.Concat(tests);
     }
+
+    public void Refresh() => StateHasChanged();
 }

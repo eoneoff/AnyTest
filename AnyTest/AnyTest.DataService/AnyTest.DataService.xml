@@ -136,7 +136,23 @@
             \~ukrainian Об'єкт, який іплементує інтерфейс <c>IRepository{T}</c>. Залежність.
             </param>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:AnyTest.DataService.Controllers.ApiControllerBase`1.Get" -->
+        <member name="M:AnyTest.DataService.Controllers.ApiControllerBase`1.Get">
+            <summary>
+            \~english A method for getting all data
+            \~ukrainian Метод для отримання всіх даних
+            </summary>
+            <returns>
+            \~english A collection of <c>T</c>
+            \~ukrainian Коллекція <c>T</c>
+            </returns>
+            /// <example>
+            \~english An expample of HTTP request
+            \~ukrainian Приклад HTTP запиту
+            <code>
+            GET: api/[controller]
+            </code>
+            </example>
+        </member>
         <member name="M:AnyTest.DataService.Controllers.ApiControllerBase`1.Get(System.Int64)">
             <summary>
             \~english A method for gettin a single item by id
@@ -223,6 +239,21 @@
             DELETE: api/[controller]/5
             </code>
             </example>
+        </member>
+        <member name="T:AnyTest.DataService.Controllers.CoursesController">
+            <inheritdoc />
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.CoursesController.#ctor(AnyTest.IDataRepository.IRepository{AnyTest.Model.Course})">
+            <inheritdoc />
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.CoursesController.Post(AnyTest.Model.Course)">
+            <inheritdoc />
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.CoursesController.Put(System.Int64,AnyTest.Model.Course)">
+            <inheritdoc />
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.CoursesController.Delete(System.Int64)">
+            <inheritdoc />
         </member>
         <member name="T:AnyTest.DataService.Controllers.LoginController">
             <summary>

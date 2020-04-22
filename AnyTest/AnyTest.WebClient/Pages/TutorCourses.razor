@@ -7,7 +7,7 @@
 <TogglableSidebarPanel ToggleButtonClass="btn btn-outline-success" Class="bg-white">
     <SidebarContent>
         <div class="mx-1">
-            <TestsTree />
+            <TestsTree @ref="testsTree"/>
         </div>
     </SidebarContent>
     <MainContent>
@@ -29,7 +29,7 @@
             }
             else if (typeToCreate == nameof(Course))
             {
-                <CourseEditor Wide="true" OnCancel="()=>typeToCreate=String.Empty"/>
+                <CourseEditor Wide="true" Course="EditingCourse" OnSubmit="SaveCourse" OnCancel="()=>typeToCreate=String.Empty"/>
             }
             else if (typeToCreate == nameof(Test))
             {
@@ -43,16 +43,28 @@
 {   
     private string typeToCreate = "";
     private Subject EditingSubject = new Subject();
+    private Course EditingCourse = new Course();
+    private TestsTree testsTree;
 
     protected override async Task OnInitializedAsync()
     {
         await State.GetTests();
+        testsTree.Refresh();
     }
 
     private async void SaveSubject()
     {
         typeToCreate = "";
         await State.SaveSubject(EditingSubject);
+        testsTree.Refresh();
         EditingSubject = new Subject();
+    }
+
+    private async void SaveCourse()
+    {
+        typeToCreate = "";
+        await State.SaveCourse(EditingCourse);
+        testsTree.Refresh();
+        EditingCourse = new Course();
     }
 }
