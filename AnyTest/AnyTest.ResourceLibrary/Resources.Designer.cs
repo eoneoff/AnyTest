@@ -466,6 +466,15 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Зберегти предмет.
+        /// </summary>
+        public static string SaveSubject {
+            get {
+                return ResourceManager.GetString("SaveSubject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Зберегти користувача.
         /// </summary>
         public static string SaveUser {

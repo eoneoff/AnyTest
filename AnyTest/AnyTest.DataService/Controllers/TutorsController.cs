@@ -11,7 +11,7 @@ using System.Security.Claims;
 
 namespace AnyTest.DataService.Controllers
 {
-     /// <summary>
+    /// <summary>
     /// \~english An API controller tutors data
     /// \~ukrainian Контроллер API для даних викладачів
     /// </summary>

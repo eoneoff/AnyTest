@@ -1,6 +1,6 @@
 ﻿@inherits ValidatableFormViewModel<Subject>
 
-<ValidatableForm @ref="form" Model="Subject" Unchanged="@unchanged" Disabled="@Disabled" OnSubmit="OnSubmit" OnCancel="OnCancel">
+<ValidatableForm @ref="form" Model="Subject" Unchanged="@unchanged" Disabled="@Disabled" OnSubmit="()=>SaveConfirmationDialog.Show()" OnCancel="OnCancel">
     <div class="container-fluid">
         <ValidatableFormField Wide="@Wide" Label="@($"{Localizer[nameof(Resources.Name)]}:")" Id="subjectname">
             <ValidationMessage For="@(()=>Subject.Name)" />
@@ -9,9 +9,20 @@
     </div>
 </ValidatableForm>
 
+<ModalDialog @ref="SaveConfirmationDialog" OnConfirm="OnSubmit">
+    <Header>@Localizer[nameof(Resources.SaveSubject)]?</Header>
+    <Content>
+        <table class="table table-sm table-borderless">
+            <tr><th class="text-right">@Localizer[nameof(Resources.Name)]:</th><td>@Subject.Name</td></tr>
+        </table>
+    </Content>
+</ModalDialog>
+
 
 @code
 {
+    private ModalDialog SaveConfirmationDialog;
+
     [Parameter]
     public Subject Subject { get; set; } = new Subject();
 }

@@ -139,6 +139,18 @@ namespace AnyTest.WebClient.ViewModels
             GetDummyTests();
         }
 
+        public async Task SaveSubject(Subject subject)
+        {
+            if(subject.Id == 0)
+            {
+                Subjects.Add(await _httpClient.PostJsonAsync<Subject>("subjects", subject));
+            }
+            else
+            {
+
+            }
+        }
+
         private void GetDummyTests()
         {
             var testNames = new Dictionary<string, List<string>>

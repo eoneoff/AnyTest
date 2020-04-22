@@ -120,6 +120,110 @@
             </code>
             </example>
         </member>
+        <member name="T:AnyTest.DataService.Controllers.ApiControllerBase`1">
+            <summary>
+            \~english An API controller with CRUD methods
+            \~ukrainian Контроллер API з методами CRUD
+            </summary>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.ApiControllerBase`1.#ctor(AnyTest.IDataRepository.IRepository{`0})">
+            <summary>
+            \~english Initializes a new instance of the controller
+            \~ukrainian Ініціалізує новий екземляр контроллеру
+            </summary>
+            <param name="repository">
+            \~english An object, implementing an <c>IRepository{T}</c> interface. Dependency.
+            \~ukrainian Об'єкт, який іплементує інтерфейс <c>IRepository{T}</c>. Залежність.
+            </param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:AnyTest.DataService.Controllers.ApiControllerBase`1.Get" -->
+        <member name="M:AnyTest.DataService.Controllers.ApiControllerBase`1.Get(System.Int64)">
+            <summary>
+            \~english A method for gettin a single item by id
+            \~ukrainian Метод для отримання одного об'єкту по id
+            </summary>
+            <param name="id">
+            \~english Id <c>long</c>
+            \~ukrainian Id <c>long</c>
+            </param>
+            <returns>
+            <c>tutor</c>
+            </returns>
+            <example>
+            \~english An expample of HTTP request
+            \~ukrainian Приклад HTTP запиту
+            <code>
+            GET: api/[controller]/5
+            </code>
+            </example>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.ApiControllerBase`1.Post(`0)">
+            <summary>
+            \~english Creates a new item
+            \~ukrainian Додає нових об'єкт
+            </summary>
+            <param name="item">
+            \~english An instance of a <c>T</c>
+            \~ukrainian Екземпляр класу <c>T</c>
+            </param>
+            <returns>
+            \~english A result of creation
+            \~ukrainian Результат створення
+            </returns>
+            <example>
+            \~english An example of HTTP request
+            \~ukrainian Приклад HTTP запиту
+            <code>
+            POST: api/[controller]
+            </code>
+            </example>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.ApiControllerBase`1.Put(System.Int64,`0)">
+            <summary>
+            \~english Edits an existing item
+            \~ukrainian Змінює дані існуючого об'єктур
+            </summary>
+            <param name="id">
+            \~english A <c>T</c> id. <c>long</c>
+            \~ukrainian Id <c>long</c>
+            </param>
+            <param name="item">
+            \~english A <c>T</c> object with updated data
+            \~ukrainian Об'єкт класу <c>T</c> із зміненими даними
+            </param>
+            <returns>
+            \~english A result of updating
+            \~ukrainian Результат оновлення
+            </returns>
+            <example>
+            \~english An example of HTTP request
+            \~ukrainian Приклад HTTP запиту
+            <code>
+            PUT: api/[controller]/5
+            </code>
+            </example>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.ApiControllerBase`1.Delete(System.Int64)">
+            <summary>
+            \~english Deletes a object
+            \~ukrainian Видаляє дані
+            </summary>
+            <param name="id">
+            \~english Id <c>long</c>
+            \~ukrainian Id <c>long</c>
+            </param>
+            <returns>
+            \~english A result of deleting
+            \~ukrainian Результат видалення
+            </returns>
+            <example>
+            \~english An example of HTTP request
+            \~ukrainian Приклад HTTP запиту
+            <code>
+            DELETE: api/[controller]/5
+            </code>
+            </example>
+        </member>
         <member name="T:AnyTest.DataService.Controllers.LoginController">
             <summary>
             \~english An API controller for user login
@@ -431,6 +535,21 @@
             DELETE: api/Students/5
             </code>
             </example>
+        </member>
+        <member name="T:AnyTest.DataService.Controllers.SubjectsController">
+            <inheritdoc />
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.SubjectsController.#ctor(AnyTest.IDataRepository.IRepository{AnyTest.Model.Subject})">
+            <inheritdoc />
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.SubjectsController.Post(AnyTest.Model.Subject)">
+            <inheritdoc />
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.SubjectsController.Put(System.Int64,AnyTest.Model.Subject)">
+            <inheritdoc />
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.SubjectsController.Delete(System.Int64)">
+            <inheritdoc />
         </member>
         <member name="T:AnyTest.DataService.Controllers.TutorsController">
             <summary>
