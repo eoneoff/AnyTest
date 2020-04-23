@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,6 +19,7 @@ using AnyTest.IDataRepository;
 using AnyTest.MSSQLNetCoreDataRepository;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using AnyTest.Model;
 
 namespace AnyTest.DataService
 {
@@ -63,6 +64,7 @@ namespace AnyTest.DataService
 
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped<IPersonRepository, PersonRepository>();
+            services.AddScoped<IRepository<Course>, CourseRepository>();
 
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AnyTestIdentityDbContext>().AddDefaultTokenProviders();
 

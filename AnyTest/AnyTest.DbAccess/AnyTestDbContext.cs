@@ -13,6 +13,7 @@ namespace AnyTest.DbAccess
         public virtual DbSet<Person> People { get; set; }
         public virtual DbSet<Tutor> Tutors { get; set; }
         public virtual DbSet<Student> Students { get; set; }
+        public virtual DbSet<Subject> Subjects { get; set; }
         public virtual DbSet<Test> Tests { get; set; }
         public virtual DbSet<Course> Courses { get; set; }
         public virtual DbSet<TestQuestion> TestQuestions { get; set; }

@@ -582,6 +582,21 @@
         <member name="M:AnyTest.DataService.Controllers.SubjectsController.Delete(System.Int64)">
             <inheritdoc />
         </member>
+        <member name="T:AnyTest.DataService.Controllers.TestsController">
+            <inheritdoc/>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.TestsController.#ctor(AnyTest.IDataRepository.IRepository{AnyTest.Model.Test})">
+            <inheritdoc/>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.TestsController.Post(AnyTest.Model.Test)">
+            <inheritdoc />
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.TestsController.Put(System.Int64,AnyTest.Model.Test)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.TestsController.Delete(System.Int64)">
+            <inheritdoc/>
+        </member>
         <member name="T:AnyTest.DataService.Controllers.TutorsController">
             <summary>
             \~english An API controller tutors data

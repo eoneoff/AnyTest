@@ -4,14 +4,16 @@ using AnyTest.DbAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AnyTest.DbAccess.Migrations
 {
     [DbContext(typeof(AnyTestDbContext))]
-    partial class AnyTestDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200423160918_SubjectsAndTestQuestionsOrder")]
+    partial class SubjectsAndTestQuestionsOrder
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -191,11 +193,8 @@ namespace AnyTest.DbAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("OrderNo")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Percent")
-                        .HasColumnType("int");
+                    b.Property<long>("Percent")
+                        .HasColumnType("bigint");
 
                     b.Property<byte[]>("RowVersion")
                         .IsConcurrencyToken()

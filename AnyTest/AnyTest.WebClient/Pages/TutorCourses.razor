@@ -33,7 +33,7 @@
             }
             else if (typeToCreate == nameof(Test))
             {
-                <TestEditor Wide="true" OnCancel="()=>typeToCreate=String.Empty"/>
+                <TestEditor Wide="true" Test="EditingTest" OnSubmit="SaveTest" OnCancel="()=>typeToCreate=String.Empty"/>
             }
         </div>
     </MainContent>
@@ -44,6 +44,7 @@
     private string typeToCreate = "";
     private Subject EditingSubject = new Subject();
     private Course EditingCourse = new Course();
+    private Test EditingTest = new Test();
     private TestsTree testsTree;
 
     protected override async Task OnInitializedAsync()
@@ -66,5 +67,13 @@
         await State.SaveCourse(EditingCourse);
         testsTree.Refresh();
         EditingCourse = new Course();
+    }
+
+    private async void SaveTest()
+    {
+        typeToCreate = "";
+        //await State.SaveTest(EditingTest);
+        testsTree.Refresh();
+        EditingTest = new Test();
     }
 }

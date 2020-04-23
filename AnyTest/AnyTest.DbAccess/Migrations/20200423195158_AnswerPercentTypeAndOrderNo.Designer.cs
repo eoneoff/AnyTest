@@ -4,14 +4,16 @@ using AnyTest.DbAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AnyTest.DbAccess.Migrations
 {
     [DbContext(typeof(AnyTestDbContext))]
-    partial class AnyTestDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200423195158_AnswerPercentTypeAndOrderNo")]
+    partial class AnswerPercentTypeAndOrderNo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -20,6 +20,9 @@ namespace AnyTest.Model
         [Required]
         public long TestId { get; set; }
 
+        [Required]
+        public int OrderNo { get; set; }
+
         [Timestamp]
         public byte[] RowVersion { get; set; }
 

@@ -1,6 +1,6 @@
 ﻿@inherits ValidatableFormViewModel<Test>
 
-<ValidatableForm Model="Test" OnSubmit="OnSubmit" OnCancel="OnCancel" Unchanged="@unchanged" Disabled="@Disabled" HideButtons="@HideButtons">
+<ValidatableForm @ref="form" Model="Test" OnSubmit="OnSubmit" OnCancel="OnCancel" Unchanged="@unchanged" Disabled="@Disabled" HideButtons="true">
     <div class="container-fluid">
         <ValidatableFormField Wide="@Wide" Label="@Localizer[nameof(Resources.Name)]" Id="coursename">
             <ValidationMessage For="@(()=>Test.Name)" />
@@ -8,12 +8,41 @@
         </ValidatableFormField>
     </div>
 </ValidatableForm>
+<div class="row mt-2">
+    <div class="col-lg-6 d-flex flex-row">
+        <div class="flex-grow-1 align-self-lg-stretch border border-success p-1">
+            <table class="table table-sm table-borderless table-hover border border-success">
+                @foreach (var q in (Test.TestQuestions ?? new List<TestQuestion>()).OrderBy(q => q.OrderNo))
+                {
+                    <tr @key="q.Id"><td>@q.OrderNo</td><td>@q.Question.</td></tr>
+                }
+            </table>
+        </div>
+        <div class="d-flex flex-column pl-1">
+            <button type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
+            <button type="button" class="btn btn-success mt-1"><i class="fa fa-pen"></i></button>
+            <button type="button" class="btn btn-danger mt-1"><i class="fa fa-trash"></i></button>
+            <button type="button" class="btn btn-success mt-1"><i class="fa fa-arrow-up"></i></button>
+            <button type="button" class="btn btn-success mt-1"><i class="fa fa-arrow-down"></i></button>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <QuestionEditor />
+    </div>
+</div>
+@if (!HideButtons)
+{
+    <div class="d-flex flex-row justify-content-between mt-3">
+        <button type="submit" class="btn btn-success" disabled="@unchanged">@Localizer[nameof(Resources.Save)]</button>
+        <button type="button" class="btn btn-danger" @onclick="OnCancel">@Localizer[nameof(Resources.Cancel)]</button>
+    </div>
+}
 
 
 @code
 {
+    private TestQuestion editingQuestion = null;
+
     [Parameter]
     public Test Test { get; set; } = new Test();
-
-    private List<TestQuestion> Questions { get; set; }
 }

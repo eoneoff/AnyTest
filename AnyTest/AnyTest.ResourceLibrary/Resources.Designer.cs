@@ -88,6 +88,15 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Відповіді.
+        /// </summary>
+        public static string Answers {
+            get {
+                return ResourceManager.GetString("Answers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Відміна.
         /// </summary>
         public static string Cancel {
@@ -331,11 +340,29 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Кілька відповідей.
+        /// </summary>
+        public static string MultilpeCorrectOptions {
+            get {
+                return ResourceManager.GetString("MultilpeCorrectOptions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Назва.
         /// </summary>
         public static string Name {
             get {
                 return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Одна відповідь.
+        /// </summary>
+        public static string OneCorrectOption {
+            get {
+                return ResourceManager.GetString("OneCorrectOption", resourceCulture);
             }
         }
         

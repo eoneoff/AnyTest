@@ -1,0 +1,26 @@
+﻿@inherits ValidatableFormViewModel<TestQuestion>
+
+<ValidatableForm @ref="form" Model="Question" OnSubmit="OnSubmit" OnCancel="OnCancel" Unchanged="@unchanged" HideButtons="true">
+    <ValidatableFormField Wide="@Wide" Label="@Localizer[nameof(Resources.Question)]" Id="question">
+        <ValidationMessage For="@(()=>Question.Question)" />
+        <InputTextArea Id="question" Class="form-control" @bind-Value="Question.Question" @oninput="@(()=>unchanged = false)" />
+    </ValidatableFormField>
+</ValidatableForm>
+<div class="d-flex flex-row">
+    <label class="mr-1">@Localizer[nameof(Resources.OneCorrectOption)]</label>
+    <div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="multiple-answer" @bind-value="multiple" />
+        <label class="custom-control-label" for="multiple-answer">@Localizer[nameof(Resources.MultilpeCorrectOptions)]</label>
+    </div>
+</div>
+<h6>@Localizer[nameof(Resources.Answers)]</h6>
+<AnswerEditor Multiple="@multiple"/>
+
+
+@code
+{
+    private bool multiple;
+
+    [Parameter]
+    public TestQuestion Question { get; set; } = new TestQuestion { TestAnswers = new List<TestAnswer>() };
+}

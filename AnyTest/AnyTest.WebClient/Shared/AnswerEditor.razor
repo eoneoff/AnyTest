@@ -1,0 +1,46 @@
+﻿@inherits ValidatableFormViewModel<TestAnswer>
+
+    <ValidatableForm @ref="form" Model="Answer" HideButtons="true">
+        <div class="d-flex flex-row flex-nowrap">
+            <ValidatableFormField Wide="@Wide" Class="flex-grow-1 mr-2">
+                <ValidationMessage For="@(()=>Answer.Answer)" />
+                <InputTextArea Class="form-control" @bind-Value="Answer.Answer" @oninput="@(()=>unchanged = false)" />
+            </ValidatableFormField>
+            @if (Multiple)
+            {
+                <ValidatableFormField Wide="@Wide">
+                    <ValidationMessage For="@(()=>Answer.Answer)" />
+                    <div class="d-flex flex-row flex-nowrap align-content-center">
+                        <InputNumber Class="form-control form-control-sm text-right" Style="width:3.5rem;" @bind-Value="Answer.Percent" @oninput="@(()=>unchanged = false)" />
+                        <span class="font-weight-bold align-text-bottom">%</span>
+                    </div>
+                </ValidatableFormField>
+            }
+            else
+            {
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" @bind="isCorrect" class="custom-control-input" id="@($"is-correct-answer{Answer.OrderNo}")">
+                    <label class="custom-control-label" for="@($"is-correct-answer{Answer.OrderNo}")"></label>
+                </div>
+            }
+        </div>
+    </ValidatableForm>
+
+@code
+{
+    private bool isCorrect
+    {
+        get => Answer.Percent == 100;
+        set
+        {
+            if (value) Answer.Percent = 100;
+            else Answer.Percent = 0;
+        }
+    }
+
+    [Parameter]
+    public TestAnswer Answer { get; set; } = new TestAnswer();
+
+    [Parameter]
+    public bool Multiple { get; set; }
+}

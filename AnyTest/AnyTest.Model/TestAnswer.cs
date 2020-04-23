@@ -18,7 +18,10 @@ namespace AnyTest.Model
         public string Answer { get; set; }
 
         [Range(0, 100)]
-        public uint Percent { get; set; }
+        public int Percent { get; set; }
+
+        [Required]
+        public int OrderNo { get; set; }
 
         [Required]
         public long TestQuestionId { get; set; }

@@ -85,9 +85,7 @@ namespace AnyTest.WebClient.ViewModels
             }
 
             else Person = await _httpClient.PutJsonAsync<Person>($"people/{person.Id}", person);
-        }
-
-            
+        }          
 
         /// <summary>
         /// \~english Gets a complete list of users from server
@@ -174,6 +172,20 @@ namespace AnyTest.WebClient.ViewModels
                     subject.Courses ??= new List<Course>();
                     subject.Courses.Add(course);
                 }
+            }
+            else
+            {
+
+            }
+        }
+
+        public async Task SaveTest(Test test)
+        {
+            if(test.Id == 0)
+            {
+                if (Person.Id == 0) await GetPersonByAuthorizedUser();
+                test.AuthorId = Person.Id;
+                Tests.Add(await _httpClient.PostJsonAsync<Test>("tests", test));
             }
             else
             {

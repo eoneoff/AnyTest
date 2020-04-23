@@ -126,6 +126,9 @@
   <data name="Answer" xml:space="preserve">
     <value>Віповідь</value>
   </data>
+  <data name="Answers" xml:space="preserve">
+    <value>Відповіді</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Відміна</value>
   </data>
@@ -207,8 +210,14 @@
   <data name="LookOrChangePersonalInfo" xml:space="preserve">
     <value>Ви можете переглянути або змінити особисті дані</value>
   </data>
+  <data name="MultilpeCorrectOptions" xml:space="preserve">
+    <value>Кілька відповідей</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Назва</value>
+  </data>
+  <data name="OneCorrectOption" xml:space="preserve">
+    <value>Одна відповідь</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Пароль</value>
