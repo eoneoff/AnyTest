@@ -137,6 +137,18 @@ app {
     border-color: $form-focus-shadow;
 }
 
+.dropdown {
+    .dropdown-menu {
+        .dropdown-item.active {
+            background-color: $base-back-color !important;
+        }
+
+        .dropdown-item:active {
+            background-color: $base-back-color !important;
+        }
+    }
+}
+
 /*.custom-control-input[disabled] ~ .custom-control-label {
     color: #747d6c;
 }

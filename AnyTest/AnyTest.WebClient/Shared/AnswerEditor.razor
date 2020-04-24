@@ -11,7 +11,7 @@
                 <ValidatableFormField Wide="@Wide">
                     <ValidationMessage For="@(()=>Answer.Answer)" />
                     <div class="d-flex flex-row flex-nowrap align-content-center">
-                        <InputNumber Class="form-control form-control-sm text-right" Style="width:3.5rem;" @bind-Value="Answer.Percent" @oninput="@(()=>unchanged = false)" />
+                        <InputNumber Class="form-control form-control-sm text-right" Min="0" Max="@maxPercent" Style="width:3.5rem;" @bind-Value="Percent" />
                         <span class="font-weight-bold align-text-bottom">%</span>
                     </div>
                 </ValidatableFormField>
@@ -28,13 +28,39 @@
 
 @code
 {
+    private int maxPercent = 100;
+
     private bool isCorrect
     {
         get => Answer.Percent == 100;
         set
         {
-            if (value) Answer.Percent = 100;
+            if (value)
+            {
+                Answer.Percent = 100;
+                SetAsCorrect.InvokeAsync(Answer.OrderNo);
+            }
             else Answer.Percent = 0;
+        }
+    }
+
+    private int Percent
+    {
+        get => Answer.Percent;
+        set
+        {
+            unchanged=false;
+            var total = Answers.Where(a => a.OrderNo != Answer.OrderNo).Sum(a => a.Percent);
+            if(value + total <= 100)
+            {
+                Answer.Percent = value;
+                maxPercent = 100 - total;
+            }
+            else
+            {
+                maxPercent = 100-total;
+                Answer.Percent = 100-total;
+            }
         }
     }
 
@@ -43,4 +69,10 @@
 
     [Parameter]
     public bool Multiple { get; set; }
+
+    [Parameter]
+    public EventCallback<int>SetAsCorrect { get; set; }
+
+    [CascadingParameter(Name="Answers")]
+    private IEnumerable<TestAnswer> Answers { get; set; }
 }

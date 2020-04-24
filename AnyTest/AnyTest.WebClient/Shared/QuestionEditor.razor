@@ -14,13 +14,46 @@
     </div>
 </div>
 <h6>@Localizer[nameof(Resources.Answers)]</h6>
-<AnswerEditor Multiple="@multiple"/>
+<div class="d-flex flex-row">
+    <div class="flex-grow-1 align-self-stretch border boder-success p-1">
+        <CascadingValue Value="Question.TestAnswers" Name="Answers">
+            <table class="table table-sm table-borderless">
+                @foreach (var answ in Question.TestAnswers)
+                {
+                    <tr><th>@(answ.OrderNo).</th><td><AnswerEditor Multiple="@multiple" Answer="@answ" SetAsCorrect="SetCorrectAnswer"/></td></tr>
+                }
+            </table> 
+        </CascadingValue>    
+    </div>
+    <div class="d-flex flex-column pl-1">
+        <button type="button" class="btn btn-success" @onclick="AddAnswer"><i class="fa fa-plus"></i></button>
+        <button type="button" class="btn btn-success mt-1"><i class="fa fa-pen"></i></button>
+        <button type="button" class="btn btn-danger mt-1"><i class="fa fa-trash"></i></button>
+        <button type="button" class="btn btn-success mt-1"><i class="fa fa-arrow-up"></i></button>
+        <button type="button" class="btn btn-success mt-1"><i class="fa fa-arrow-down"></i></button>
+    </div>
+</div>
 
 
 @code
 {
     private bool multiple;
+    private int sum = 0;
 
     [Parameter]
     public TestQuestion Question { get; set; } = new TestQuestion { TestAnswers = new List<TestAnswer>() };
+
+    private void AddAnswer()
+    {
+        Question.TestAnswers ??= new List<TestAnswer>();
+        Question.TestAnswers.Add(new TestAnswer { OrderNo = Question.TestAnswers.Count + 1 });
+    }
+
+    private void SetCorrectAnswer(int correct)
+    {
+        foreach(var answ in Question.TestAnswers)
+        {
+            if(answ.OrderNo != correct) answ.Percent = 0;
+        }
+    }
 }

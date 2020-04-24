@@ -124,6 +124,12 @@ app {
   background-color: #b2c9a7;
   border-color: #b2c9a7; }
 
+.dropdown .dropdown-menu .dropdown-item.active {
+  background-color: #577534 !important; }
+
+.dropdown .dropdown-menu .dropdown-item:active {
+  background-color: #577534 !important; }
+
 /*.custom-control-input[disabled] ~ .custom-control-label {
     color: #747d6c;
 }
