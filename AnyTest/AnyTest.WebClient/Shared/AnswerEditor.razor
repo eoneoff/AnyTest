@@ -49,6 +49,7 @@
         get => Answer.Percent;
         set
         {
+            PercentChanged.InvokeAsync(null);
             unchanged=false;
             var total = Answers.Where(a => a.OrderNo != Answer.OrderNo).Sum(a => a.Percent);
             if(value + total <= 100)
@@ -72,6 +73,9 @@
 
     [Parameter]
     public EventCallback<int>SetAsCorrect { get; set; }
+
+    [Parameter]
+    public EventCallback PercentChanged { get; set; }
 
     [CascadingParameter(Name="Answers")]
     private IEnumerable<TestAnswer> Answers { get; set; }

@@ -14,14 +14,17 @@
     </div>
 </div>
 <h6>@Localizer[nameof(Resources.Answers)]</h6>
+@if(noAnswers) { <span class="text-danger">@Localizer[nameof(Resources.AddAnswer)]</span>}
+else if (notCompleteAnswers) { <span class="text-danger">@(multiple ? Localizer[nameof(Resources.CorrectAnswersMustBe100Percent)] : Localizer[nameof(Resources.DefineCorrectAnswer)])</span> }
 <div class="d-flex flex-row">
-    <div class="flex-grow-1 align-self-stretch border boder-success p-1">
+    <div class="flex-grow-1 align-self-stretch border @(noAnswers || notCompleteAnswers?"border-danger":"boder-success") p-1">
         <CascadingValue Value="Question.TestAnswers" Name="Answers">
             <table class="table table-sm table-borderless table-hover">
-                @foreach (var answ in Question.TestAnswers.OrderBy(a => a.OrderNo))
+                @foreach (var answ in (Question.TestAnswers ?? new List<TestAnswer>()).OrderBy(a => a.OrderNo))
                 {
                     <tr @onclick="()=>selectedAnswer = answ.OrderNo" class="@(answ.OrderNo  == selectedAnswer ? "selected-table-row" : "")">
-                        <th>@(answ.OrderNo).</th><td><AnswerEditor Multiple="@multiple" Answer="@answ" SetAsCorrect="SetCorrectAnswer"/></td>
+                        <th>@(answ.OrderNo).</th>
+                        <td><AnswerEditor @ref="AddEditor" Multiple="@multiple" Answer="@answ" SetAsCorrect="SetCorrectAnswer" PercentChanged="()=>notCompleteAnswers = false"/></td>
                     </tr>
                 }
             </table> 
@@ -42,18 +45,24 @@
     private bool multiple;
     private int sum = 0;
     private int selectedAnswer = 0;
+    private List<AnswerEditor> answers = new List<AnswerEditor>();
+    private AnswerEditor AddEditor { set => answers.Add(value); }
+    private bool notCompleteAnswers = false;
+    private bool noAnswers = false;
 
     [Parameter]
     public TestQuestion Question { get; set; } = new TestQuestion { TestAnswers = new List<TestAnswer>() };
 
     private void AddAnswer()
     {
+        noAnswers = false;
         Question.TestAnswers ??= new List<TestAnswer>();
         Question.TestAnswers.Add(new TestAnswer { OrderNo = Question.TestAnswers.Count + 1 });
     }
 
     private void SetCorrectAnswer(int correct)
     {
+        notCompleteAnswers = false;
         foreach(var answ in Question.TestAnswers)
         {
             if(answ.OrderNo != correct) answ.Percent = 0;
@@ -84,10 +93,26 @@
 
     private void Delete()
     {
+        var editor = answers.First(a => a.Answer.OrderNo == selectedAnswer);
         Question.TestAnswers = Question.TestAnswers.Where(a => a.OrderNo != selectedAnswer).Select(a =>
         {
-            if(a.OrderNo > selectedAnswer) a.OrderNo--;
+            if (a.OrderNo > selectedAnswer) a.OrderNo--;
             return a;
         }).ToList();
+        answers.Remove(editor);
+        if (Question.TestAnswers.Count() == 0) noAnswers = true;
+    }
+
+    public override bool Validate()
+    {
+        if(noAnswers || (Question.TestAnswers ?? new List<TestAnswer>()).Count() == 0) noAnswers = true;
+        else notCompleteAnswers = Question.TestAnswers.Sum(a => a.Percent) != 100;
+        bool answersValid = true;
+        foreach(var answer in answers)
+        {
+            if(!answer.Validate()) answersValid = false;
+        }
+        StateHasChanged();
+        return base.Validate() && notCompleteAnswers && answersValid;
     }
 }

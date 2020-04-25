@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddAnswer" xml:space="preserve">
+    <value>Додайте відповіді</value>
+  </data>
   <data name="AddUser" xml:space="preserve">
     <value>Додати користувача</value>
   </data>
@@ -141,6 +144,9 @@
   <data name="ConfirmPassword" xml:space="preserve">
     <value>Введіть пароль повторно</value>
   </data>
+  <data name="CorrectAnswersMustBe100Percent" xml:space="preserve">
+    <value>Сумма правильних відповідей має складати 100 відсотків</value>
+  </data>
   <data name="Course" xml:space="preserve">
     <value>Курс</value>
   </data>
@@ -152,6 +158,9 @@
   </data>
   <data name="CreateUser" xml:space="preserve">
     <value>Створити користувача</value>
+  </data>
+  <data name="DefineCorrectAnswer" xml:space="preserve">
+    <value>Позначне правильну відповідь</value>
   </data>
   <data name="DoLogin" xml:space="preserve">
     <value>Увійти</value>

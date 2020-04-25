@@ -61,6 +61,15 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Додайте відповіді.
+        /// </summary>
+        public static string AddAnswer {
+            get {
+                return ResourceManager.GetString("AddAnswer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Додати користувача.
         /// </summary>
         public static string AddUser {
@@ -133,6 +142,15 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Сумма правильних відповідей має складати 100 відсотків.
+        /// </summary>
+        public static string CorrectAnswersMustBe100Percent {
+            get {
+                return ResourceManager.GetString("CorrectAnswersMustBe100Percent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Курс.
         /// </summary>
         public static string Course {
@@ -165,6 +183,15 @@ namespace AnyTest.ResourceLibrary {
         public static string CreateUser {
             get {
                 return ResourceManager.GetString("CreateUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Позначне правильну відповідь.
+        /// </summary>
+        public static string DefineCorrectAnswer {
+            get {
+                return ResourceManager.GetString("DefineCorrectAnswer", resourceCulture);
             }
         }
         
