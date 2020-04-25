@@ -37,6 +37,16 @@
     </div>
 </div>
 
+@if(IsAuthenticating)
+{
+    <div class="modal-backdrop">
+        <div class="d-flex justify-content-center flex-column align-items-center h-100">
+            <div class="spinner-border text-white" style="width:20vh; height:20vh;border-width:30px;"></div>
+            <h3 class="text-white font-weight-bold">Loading...</h3>
+        </div>
+    </div>
+}
+
 
 @code
 {

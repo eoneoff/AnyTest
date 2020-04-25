@@ -17,20 +17,22 @@
 <div class="d-flex flex-row">
     <div class="flex-grow-1 align-self-stretch border boder-success p-1">
         <CascadingValue Value="Question.TestAnswers" Name="Answers">
-            <table class="table table-sm table-borderless">
-                @foreach (var answ in Question.TestAnswers)
+            <table class="table table-sm table-borderless table-hover">
+                @foreach (var answ in Question.TestAnswers.OrderBy(a => a.OrderNo))
                 {
-                    <tr><th>@(answ.OrderNo).</th><td><AnswerEditor Multiple="@multiple" Answer="@answ" SetAsCorrect="SetCorrectAnswer"/></td></tr>
+                    <tr @onclick="()=>selectedAnswer = answ.OrderNo" class="@(answ.OrderNo  == selectedAnswer ? "selected-table-row" : "")">
+                        <th>@(answ.OrderNo).</th><td><AnswerEditor Multiple="@multiple" Answer="@answ" SetAsCorrect="SetCorrectAnswer"/></td>
+                    </tr>
                 }
             </table> 
         </CascadingValue>    
     </div>
     <div class="d-flex flex-column pl-1">
         <button type="button" class="btn btn-success" @onclick="AddAnswer"><i class="fa fa-plus"></i></button>
-        <button type="button" class="btn btn-success mt-1"><i class="fa fa-pen"></i></button>
-        <button type="button" class="btn btn-danger mt-1"><i class="fa fa-trash"></i></button>
-        <button type="button" class="btn btn-success mt-1"><i class="fa fa-arrow-up"></i></button>
-        <button type="button" class="btn btn-success mt-1"><i class="fa fa-arrow-down"></i></button>
+        @if (Question.Id > 0) { <button type="button" class="btn btn-success mt-1"><i class="fa fa-pen"></i></button> }
+        <button type="button" class="btn btn-danger mt-1" @onclick="Delete"><i class="fa fa-trash"></i></button>
+        <button type="button" class="btn btn-success mt-1" @onclick="MoveUp"><i class="fa fa-arrow-up"></i></button>
+        <button type="button" class="btn btn-success mt-1" @onclick="MoveDown"><i class="fa fa-arrow-down"></i></button>
     </div>
 </div>
 
@@ -39,6 +41,7 @@
 {
     private bool multiple;
     private int sum = 0;
+    private int selectedAnswer = 0;
 
     [Parameter]
     public TestQuestion Question { get; set; } = new TestQuestion { TestAnswers = new List<TestAnswer>() };
@@ -55,5 +58,36 @@
         {
             if(answ.OrderNo != correct) answ.Percent = 0;
         }
+    }
+
+    private void MoveUp()
+    {
+        if(selectedAnswer > 1)
+        {
+            var answer = Question.TestAnswers.First(a => a.OrderNo == selectedAnswer);
+            var prevAnswer = Question.TestAnswers.First(a => a.OrderNo == selectedAnswer - 1);
+            (answer.OrderNo, prevAnswer.OrderNo) = (prevAnswer.OrderNo, answer.OrderNo);
+            selectedAnswer--;
+        }
+    }
+
+    private void MoveDown()
+    {
+        if(selectedAnswer < Question.TestAnswers.Count())
+        {
+            var answer = Question.TestAnswers.First(a => a.OrderNo == selectedAnswer);
+            var nextAnswer = Question.TestAnswers.First(a => a.OrderNo == selectedAnswer + 1);
+            (answer.OrderNo, nextAnswer.OrderNo) = (nextAnswer.OrderNo, answer.OrderNo);
+            selectedAnswer++;
+        }
+    }
+
+    private void Delete()
+    {
+        Question.TestAnswers = Question.TestAnswers.Where(a => a.OrderNo != selectedAnswer).Select(a =>
+        {
+            if(a.OrderNo > selectedAnswer) a.OrderNo--;
+            return a;
+        }).ToList();
     }
 }
