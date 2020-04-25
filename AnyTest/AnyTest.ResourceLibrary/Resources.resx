@@ -120,6 +120,9 @@
   <data name="AddAnswer" xml:space="preserve">
     <value>Додайте відповіді</value>
   </data>
+  <data name="AddQuestion" xml:space="preserve">
+    <value>Додайте питання</value>
+  </data>
   <data name="AddUser" xml:space="preserve">
     <value>Додати користувача</value>
   </data>

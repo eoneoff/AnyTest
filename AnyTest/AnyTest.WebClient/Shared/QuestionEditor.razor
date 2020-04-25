@@ -82,7 +82,7 @@ else if (notCompleteAnswers) { <span class="text-danger">@(multiple ? Localizer[
 
     private void MoveDown()
     {
-        if(selectedAnswer < Question.TestAnswers.Count())
+        if(selectedAnswer > 0 && selectedAnswer < Question.TestAnswers.Count())
         {
             var answer = Question.TestAnswers.First(a => a.OrderNo == selectedAnswer);
             var nextAnswer = Question.TestAnswers.First(a => a.OrderNo == selectedAnswer + 1);
@@ -113,6 +113,6 @@ else if (notCompleteAnswers) { <span class="text-danger">@(multiple ? Localizer[
             if(!answer.Validate()) answersValid = false;
         }
         StateHasChanged();
-        return base.Validate() && notCompleteAnswers && answersValid;
+        return base.Validate() && !noAnswers && !notCompleteAnswers && answersValid;
     }
 }
