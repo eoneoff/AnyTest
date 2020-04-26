@@ -8,16 +8,62 @@
         </ValidatableFormField>
     </div>
 </ValidatableForm>
+<h6>@Localizer[nameof(Resources.Subjects)]</h6>
+<div class="d-flex flex-column flex-lg-row">
+    <select class="custom-select mr-lg-2" @bind="selectedSubject">
+        <option value=""></option>
+        @foreach (var subject in State.Subjects)
+        {
+            <option value="@subject.Id">@subject.Name</option>
+        }
+    </select>
+    <button type="button" class="btn btn-success" @onclick="AddSubject">@Localizer[nameof(Resources.Add)]</button>
+</div>
+<div class="border border-success p-2 my-2">
+    <table class="table table-sm table-hover table-borderless">
+        @foreach (var subject in (Test.Subjects ?? new List<TestSubject>()))
+        {
+            <tr>
+                <td>@State.Subjects.First(s => s.Id == subject.SubjectId).Name</td>
+                <td class="text-right"><button type="button" class="btn btn-outline-danger" @onclick="()=>RemoveSubject(subject.SubjectId)"><i class="fa fa-trash"></i></button></td>
+            </tr>
+        }
+    </table>
+</div>
+<h6>@Localizer[nameof(Resources.Courses)]</h6>
+<div class="d-flex flex-column flex-lg-row">
+    <select class="custom-select mr-lg-2" @bind="selectedCourse">
+        <option value=""></option>
+        @foreach (var course in State.Courses)
+        {
+            <option value="@course.Id">@course.Name</option>
+        }
+    </select>
+    <button type="button" class="btn btn-success" @onclick="AddCourse">@Localizer[nameof(Resources.Add)]</button>
+</div>
+<div class="border border-success p-2 mt-2">
+    <table class="table table-sm table-hover table-borderless">
+        @foreach (var course in (Test.Courses ?? new List<TestCourse>()))
+        {
+            <tr>
+                <td>@State.Courses.First(c => c.Id == course.CourseId).Name</td>
+                <td class="text-right"><button type="button" class="btn btn-outline-danger" @onclick="()=>RemoveCourse(course.CourseId)"><i class="fa fa-trash"></i></button></td>
+            </tr>
+        }
+    </table>
+</div>
 <div class="row mt-2">
     <div class="col-lg-6">
-        @if(noQuestions) { <span class="text-danger">@Localizer[nameof(Resources.AddQuestion)]</span> }
+        @if (noQuestions)
+        {<span class="text-danger">@Localizer[nameof(Resources.AddQuestion)]</span>}
         <div class="d-flex flex-row">
             <div class="border @(noQuestions ? "border-danger" : "border-success") flex-grow-1 p-1">
                 <table class="table table-sm table-borderless table-hover">
                     @foreach (var q in (Test.TestQuestions ?? new List<TestQuestion>()).OrderBy(q => q.OrderNo))
                     {
                         <tr @onclick="()=>selectedQuestion = q" class="@(selectedQuestion.OrderNo == q.OrderNo ? "selected-table-row" : "")">
-                            <td>@q.OrderNo</td><td>@q.Question.</td>
+                            <td>@q.OrderNo</td>
+                            <td>@q.Question.</td>
                         </tr>
                     }
                 </table>
@@ -31,7 +77,8 @@
         </div>
     </div>
     <div class="col-lg-6">
-        @if(selectedQuestion.OrderNo > 0) { <QuestionEditor @ref="questionEditor" Question = "selectedQuestion"/> }
+        @if (selectedQuestion.OrderNo > 0)
+        {<QuestionEditor @ref="questionEditor" Question="selectedQuestion" />}
     </div>
 </div>
 @if (!HideButtons)
@@ -48,25 +95,27 @@
     private TestQuestion selectedQuestion = new TestQuestion { OrderNo = 1 };
     private QuestionEditor questionEditor;
     private bool noQuestions = false;
+    private long? selectedSubject;
+    private long? selectedCourse;
 
     [Parameter]
     public Test Test { get; set; } = new Test();
 
     private void AddQuestion()
     {
-        if(selectedQuestion.OrderNo == 0 || questionEditor.Validate())
+        if (selectedQuestion.OrderNo == 0 || questionEditor.Validate())
         {
             unchanged = false;
             noQuestions = false;
-            Test.TestQuestions??=new List<TestQuestion>();
+            Test.TestQuestions ??= new List<TestQuestion>();
             Test.TestQuestions.Add(selectedQuestion);
-            selectedQuestion = new TestQuestion { OrderNo = Test.TestQuestions.Count() + 1};
+            selectedQuestion = new TestQuestion { OrderNo = Test.TestQuestions.Count() + 1 };
         }
     }
 
     private void MoveUp()
     {
-        if(selectedQuestion.OrderNo > 1)
+        if (selectedQuestion.OrderNo > 1)
         {
             unchanged = false;
             var prevQuestion = Test.TestQuestions.First(q => q.OrderNo == selectedQuestion.OrderNo - 1);
@@ -76,7 +125,7 @@
 
     private void MoveDown()
     {
-        if(Test.TestQuestions != null && selectedQuestion.OrderNo < Test.TestQuestions.Count())
+        if (Test.TestQuestions != null && selectedQuestion.OrderNo < Test.TestQuestions.Count())
         {
             unchanged = false;
             var nextQuestion = Test.TestQuestions.First(q => q.OrderNo == selectedQuestion.OrderNo + 1);
@@ -86,12 +135,12 @@
 
     private void Delete()
     {
-        if(Test.TestQuestions != null && selectedQuestion.OrderNo <= Test.TestQuestions.Count())
+        if (Test.TestQuestions != null && selectedQuestion.OrderNo <= Test.TestQuestions.Count())
         {
             Test.TestQuestions = Test.TestQuestions.Where(q => q.OrderNo != selectedQuestion.OrderNo)
             .Select(q =>
             {
-                if(q.OrderNo > selectedQuestion.OrderNo) q.OrderNo--;
+                if (q.OrderNo > selectedQuestion.OrderNo) q.OrderNo--;
                 return q;
             }).ToList();
             selectedQuestion = new TestQuestion { OrderNo = Test.TestQuestions.Count() + 1 };
@@ -100,14 +149,43 @@
 
     private void Save()
     {
-        if(Test.TestQuestions == null || Test.TestQuestions.Count() == 0)
+        if (Test.TestQuestions == null || Test.TestQuestions.Count() == 0)
         {
             noQuestions = true;
             StateHasChanged();
         }
-        if(form.Validate() && !noQuestions)
+        if (form.Validate() && !noQuestions)
         {
-            
+
         }
+    }
+
+    private void AddSubject()
+    {
+        if (selectedSubject is long subjectId)
+        {
+            Test.Subjects ??= new List<TestSubject>();
+            if (!Test.Subjects.Any(s => s.SubjectId == subjectId)) Test.Subjects.Add(new TestSubject { TestId = Test.Id, SubjectId = subjectId });
+
+        }
+    }
+
+    private void RemoveSubject(long subjectId)
+    {
+        Test.Subjects = Test.Subjects.Where(s => s.SubjectId != subjectId).ToList();
+    }
+
+    private void AddCourse()
+    {
+        if (selectedCourse is long courseId)
+        {
+            Test.Courses ??= new List<TestCourse>();
+            if (!Test.Courses.Any(s => s.CourseId == courseId)) Test.Courses.Add(new TestCourse { TestId = Test.Id, CourseId = courseId});
+        }
+    }
+
+    private void RemoveCourse(long courseId)
+    {
+        Test.Courses = Test.Courses.Where(c => c.CourseId != courseId).ToList();
     }
 }
