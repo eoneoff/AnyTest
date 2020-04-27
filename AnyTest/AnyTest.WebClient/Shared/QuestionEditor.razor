@@ -43,7 +43,6 @@ else if (notCompleteAnswers) { <span class="text-danger">@(multiple ? Localizer[
 @code
 {
     private bool multiple;
-    private int sum = 0;
     private int selectedAnswer = 0;
     private List<AnswerEditor> answers = new List<AnswerEditor>();
     private AnswerEditor AddEditor { set => answers.Add(value); }

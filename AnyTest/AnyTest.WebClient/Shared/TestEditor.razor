@@ -17,11 +17,11 @@
             <option value="@subject.Id">@subject.Name</option>
         }
     </select>
-    <button type="button" class="btn btn-success" @onclick="AddSubject">@Localizer[nameof(Resources.Add)]</button>
+    <button type="button" class="btn btn-success mt-2 mt-lg-0" @onclick="AddSubject">@Localizer[nameof(Resources.Add)]</button>
 </div>
 <div class="border border-success p-2 my-2">
     <table class="table table-sm table-hover table-borderless">
-        @foreach (var subject in (Test.Subjects ?? new List<TestSubject>()))
+        @foreach (var subject in Subjects)
         {
             <tr>
                 <td>@State.Subjects.First(s => s.Id == subject.SubjectId).Name</td>
@@ -39,11 +39,11 @@
             <option value="@course.Id">@course.Name</option>
         }
     </select>
-    <button type="button" class="btn btn-success" @onclick="AddCourse">@Localizer[nameof(Resources.Add)]</button>
+    <button type="button" class="btn btn-success mt-2 mt-lg-0" @onclick="AddCourse">@Localizer[nameof(Resources.Add)]</button>
 </div>
 <div class="border border-success p-2 mt-2">
     <table class="table table-sm table-hover table-borderless">
-        @foreach (var course in (Test.Courses ?? new List<TestCourse>()))
+        @foreach (var course in Courses)
         {
             <tr>
                 <td>@State.Courses.First(c => c.Id == course.CourseId).Name</td>
@@ -84,10 +84,19 @@
 @if (!HideButtons)
 {
     <div class="d-flex flex-row justify-content-between mt-3">
-        <button type="button" class="btn btn-success" @onclick="Save" disabled="@unchanged">@Localizer[nameof(Resources.Save)]</button>
+        <button type="button" class="btn btn-success" @onclick="SaveClicked" disabled="@unchanged">@Localizer[nameof(Resources.Save)]</button>
         <button type="button" class="btn btn-danger" @onclick="OnCancel">@Localizer[nameof(Resources.Cancel)]</button>
     </div>
 }
+
+<ModalDialog @ref="saveConfirmationDialog" OnConfirm="Save">
+    <Header>@Localizer[nameof(Resources.SaveTest)]?</Header>
+    <Content>
+        <table class="table table-sm table-borderless">
+            <tr><th class="text-right">@Localizer[nameof(Resources.Name)]</th><td>Test.Name</td></tr>
+        </table>
+    </Content>
+</ModalDialog>
 
 
 @code
@@ -97,6 +106,13 @@
     private bool noQuestions = false;
     private long? selectedSubject;
     private long? selectedCourse;
+    private ModalDialog saveConfirmationDialog;
+
+    private List<TestSubject> subjects = new List<TestSubject>();
+    private IEnumerable<TestSubject> Subjects => State.Subjects.Where(s => s.Tests != null).SelectMany(s => s.Tests .Where(ts => ts.TestId == Test.Id)).Concat(subjects);
+
+    private List<TestCourse> courses = new List<TestCourse>();
+    private IEnumerable<TestCourse> Courses => State.Courses.Where(c => c.Tests != null).SelectMany(c => c.Tests.Where(tc => tc.TestId == Test.Id)).Concat(courses);
 
     [Parameter]
     public Test Test { get; set; } = new Test();
@@ -147,7 +163,7 @@
         }
     }
 
-    private void Save()
+    private void SaveClicked()
     {
         if (Test.TestQuestions == null || Test.TestQuestions.Count() == 0)
         {
@@ -156,36 +172,45 @@
         }
         if (form.Validate() && !noQuestions)
         {
-
+            saveConfirmationDialog.Show();
         }
+    }
+
+    private async void Save()
+    {
+        await OnSubmit.InvokeAsync(null);
     }
 
     private void AddSubject()
     {
-        if (selectedSubject is long subjectId)
+        if (selectedSubject is long subjectId && !Subjects.Any(s => s.SubjectId == subjectId))
         {
-            Test.Subjects ??= new List<TestSubject>();
-            if (!Test.Subjects.Any(s => s.SubjectId == subjectId)) Test.Subjects.Add(new TestSubject { TestId = Test.Id, SubjectId = subjectId });
+            subjects.Add(new TestSubject { TestId = Test.Id, SubjectId = subjectId });
 
         }
     }
 
     private void RemoveSubject(long subjectId)
     {
-        Test.Subjects = Test.Subjects.Where(s => s.SubjectId != subjectId).ToList();
+        if(subjects.Any(s => s.SubjectId == subjectId))
+        {
+            subjects = subjects.Where(s => s.SubjectId != subjectId).ToList();
+        }
     }
 
     private void AddCourse()
     {
-        if (selectedCourse is long courseId)
+        if (selectedCourse is long courseId && !Courses.Any(s => s.CourseId == courseId))
         {
-            Test.Courses ??= new List<TestCourse>();
-            if (!Test.Courses.Any(s => s.CourseId == courseId)) Test.Courses.Add(new TestCourse { TestId = Test.Id, CourseId = courseId});
+            courses.Add(new TestCourse { TestId = Test.Id, CourseId = courseId});
         }
     }
 
     private void RemoveCourse(long courseId)
     {
-        Test.Courses = Test.Courses.Where(c => c.CourseId != courseId).ToList();
+        if(courses.Any(c => c.CourseId == courseId))
+        {
+            courses = courses.Where(c => c.CourseId != courseId).ToList();
+        }
     }
 }

@@ -282,6 +282,9 @@
   <data name="SaveSubject" xml:space="preserve">
     <value>Зберегти предмет</value>
   </data>
+  <data name="SaveTest" xml:space="preserve">
+    <value>Зберегти тест</value>
+  </data>
   <data name="SaveUser" xml:space="preserve">
     <value>Зберегти користувача</value>
   </data>

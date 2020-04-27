@@ -72,7 +72,7 @@
     private async void SaveTest()
     {
         typeToCreate = "";
-        //await State.SaveTest(EditingTest);
+        await State.SaveTest(EditingTest);
         testsTree.Refresh();
         EditingTest = new Test();
     }
