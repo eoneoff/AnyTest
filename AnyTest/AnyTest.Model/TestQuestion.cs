@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace AnyTest.Model
 {
@@ -26,6 +27,7 @@ namespace AnyTest.Model
         [Timestamp]
         public byte[] RowVersion { get; set; }
 
+        [JsonIgnore]
         [ForeignKey(nameof(TestId))]
         public virtual Test Test { get; set; }
         public virtual ICollection<TestAnswer> TestAnswers { get; set; }
