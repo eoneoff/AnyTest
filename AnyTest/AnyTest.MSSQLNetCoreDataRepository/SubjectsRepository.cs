@@ -8,15 +8,14 @@ using System.Threading.Tasks;
 
 namespace AnyTest.MSSQLNetCoreDataRepository
 {
-    public class CourseRepository : Repository<Course>
+    public class SubjectsRepository : Repository<Subject>
     {
-        public CourseRepository(AnyTestDbContext db) : base(db)
+        public SubjectsRepository(AnyTestDbContext db) : base(db)
         {
         }
 
-        public override async Task<IEnumerable<Course>> Get() => await _db.Courses
-            .Include(c => c.Tests)
-            .Include(c => c.Owners)
+        public override async Task<IEnumerable<Subject>> Get() =>
+            await _db.Subjects.Include(s => s.Tests)
             .AsNoTracking().ToListAsync();
     }
 }

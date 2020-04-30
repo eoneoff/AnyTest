@@ -48,9 +48,19 @@ else if (notCompleteAnswers) { <span class="text-danger">@(multiple ? Localizer[
     private AnswerEditor AddEditor { set => answers.Add(value); }
     private bool notCompleteAnswers = false;
     private bool noAnswers = false;
+    private TestQuestion question = new TestQuestion { TestAnswers = new List<TestAnswer>() };
 
     [Parameter]
-    public TestQuestion Question { get; set; } = new TestQuestion { TestAnswers = new List<TestAnswer>() };
+    public TestQuestion Question
+    {
+        get => question;
+        set
+        {
+            if (value.TestAnswers != null && value.TestAnswers.Any(a => a.Percent > 0 && a.Percent < 100)) multiple = true;
+            else multiple = false;
+            question = value;
+        }
+    }
 
     private void AddAnswer()
     {

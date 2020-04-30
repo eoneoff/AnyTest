@@ -1,0 +1,41 @@
+﻿@page "/tutor/tests/new"
+@page "/tutor/tests/{Id:long}"
+@layout TutorPageLayout
+@inject HttpClient _httpClient
+
+<div class="container-fluid">
+    <TestEditor Test="@test" />
+</div>
+
+@if (loading)
+{
+    <div class="modal-backdrop">
+        <div class="d-flex justify-content-center flex-column align-items-center h-100">
+            <div class="spinner-border text-white" style="width:20vh; height:20vh;border-width:30px;"></div>
+            <h3 class="text-white font-weight-bold">@(Localizer[nameof(Resources.PleaseWait)])...</h3>
+        </div>
+    </div>
+}
+
+@code
+{
+    private Test test = new Test { TestQuestions = new List<TestQuestion>() };
+    private bool loading = false;
+
+    [Parameter]
+    public long Id { get; set; } = 0;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (Id != 0)
+        {
+            loading = true;
+            test = await _httpClient.GetJsonAsync<Test>($"tests/{Id}");
+            loading = false;
+        }
+        else
+        {
+            test = new Test { TestQuestions = new List<TestQuestion>() };
+        }
+    }
+}

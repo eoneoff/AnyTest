@@ -1,7 +1,7 @@
 ﻿@inherits ValidatableFormViewModel<Test>
 
 <ValidatableForm @ref="form" Model="Test" OnSubmit="OnSubmit" OnCancel="OnCancel" Unchanged="@unchanged" Disabled="@Disabled" HideButtons="true">
-    <div class="container-fluid">
+    <div class="container-fluid px-0">
         <ValidatableFormField Wide="@Wide" Label="@Localizer[nameof(Resources.Name)]" Id="coursename">
             <ValidationMessage For="@(()=>Test.Name)" />
             <InputText Id="coursename" Class="form-control" @bind-Value="Test.Name" @oninput="@(()=>unchanged = false)" disabled="@Disabled" />
@@ -24,7 +24,7 @@
         @foreach (var subject in Subjects)
         {
             <tr>
-                <td>@State.Subjects.First(s => s.Id == subject.SubjectId).Name</td>
+                <td>SubjectName</td>
                 <td class="text-right"><button type="button" class="btn btn-outline-danger" @onclick="()=>RemoveSubject(subject.SubjectId)"><i class="fa fa-trash"></i></button></td>
             </tr>
         }
@@ -46,7 +46,7 @@
         @foreach (var course in Courses)
         {
             <tr>
-                <td>@State.Courses.First(c => c.Id == course.CourseId).Name</td>
+                <td>CourseName</td>
                 <td class="text-right"><button type="button" class="btn btn-outline-danger" @onclick="()=>RemoveCourse(course.CourseId)"><i class="fa fa-trash"></i></button></td>
             </tr>
         }
@@ -109,10 +109,10 @@
     private ModalDialog saveConfirmationDialog;
 
     private List<TestSubject> subjects = new List<TestSubject>();
-    private IEnumerable<TestSubject> Subjects => State.Subjects.Where(s => s.Tests != null).SelectMany(s => s.Tests .Where(ts => ts.TestId == Test.Id)).Concat(subjects);
+    private IEnumerable<TestSubject> Subjects => subjects;
 
     private List<TestCourse> courses = new List<TestCourse>();
-    private IEnumerable<TestCourse> Courses => State.Courses.Where(c => c.Tests != null).SelectMany(c => c.Tests.Where(tc => tc.TestId == Test.Id)).Concat(courses);
+    private IEnumerable<TestCourse> Courses => courses;
 
     [Parameter]
     public Test Test { get; set; } = new Test();

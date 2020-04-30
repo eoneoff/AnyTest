@@ -15,6 +15,21 @@
   .sidebar .sidebar-button {
     display: block; } }
 
+.tree-root .fa-caret-down {
+  display: none; }
+
+.tree-root.active .fa-caret-right {
+  display: none; }
+
+.tree-root.active .fa-caret-down {
+  display: inline; }
+
+.tree-root.active + .tree-subtree {
+  display: block; }
+
+.tree-subtree {
+  display: none; }
+
 html, body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background-color: #577534; }

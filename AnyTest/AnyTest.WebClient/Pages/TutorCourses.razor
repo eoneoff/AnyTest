@@ -1,79 +1,9 @@
 ﻿@page "/tutor"
-@using Microsoft.AspNetCore.Authorization
-@attribute [Authorize(Roles = "Tutor")]
+@page "/tutor/subjects"
+@page "/tutor/courses"
+@page "/tutor/tests"
+@layout TutorPageLayout
 
 
 
-<TogglableSidebarPanel ToggleButtonClass="btn btn-outline-success" Class="bg-white">
-    <SidebarContent>
-        <div class="mx-1">
-            <TestsTree @ref="testsTree"/>
-        </div>
-    </SidebarContent>
-    <MainContent>
-        <div class="dropdown mt-2">
-            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-                @Localizer[nameof(Resources.Create)]
-            </button>
-            <div class="dropdown-menu">
-                <button type="button" class="dropdown-item" @onclick="()=>typeToCreate=nameof(Subject)">@Localizer[nameof(Resources.Subject)]</button>
-                <button type="button" class="dropdown-item" @onclick="()=>typeToCreate=nameof(Course)">@Localizer[nameof(Resources.Course)]</button>
-                <button type="button" class="dropdown-item" @onclick="()=>typeToCreate=nameof(Test)">@Localizer[nameof(Resources.Test)]</button>
-            </div>
-        </div>
-        <hr class="w-100" />
-        <div class="m-2">
-            @if (typeToCreate == nameof(Subject))
-            {
-                <SubjectEditor Wide="true" Subject="EditingSubject" OnSubmit="SaveSubject" OnCancel="()=>typeToCreate=String.Empty"/>
-            }
-            else if (typeToCreate == nameof(Course))
-            {
-                <CourseEditor Wide="true" Course="EditingCourse" OnSubmit="SaveCourse" OnCancel="()=>typeToCreate=String.Empty"/>
-            }
-            else if (typeToCreate == nameof(Test))
-            {
-                <TestEditor Wide="true" Test="EditingTest" OnSubmit="SaveTest" OnCancel="()=>typeToCreate=String.Empty"/>
-            }
-        </div>
-    </MainContent>
-</TogglableSidebarPanel>
 
-@code
-{   
-    private string typeToCreate = "";
-    private Subject EditingSubject = new Subject();
-    private Course EditingCourse = new Course();
-    private Test EditingTest = new Test();
-    private TestsTree testsTree;
-
-    protected override async Task OnInitializedAsync()
-    {
-        await State.GetTests();
-        testsTree.Refresh();
-    }
-
-    private async void SaveSubject()
-    {
-        typeToCreate = "";
-        await State.SaveSubject(EditingSubject);
-        testsTree.Refresh();
-        EditingSubject = new Subject();
-    }
-
-    private async void SaveCourse()
-    {
-        typeToCreate = "";
-        await State.SaveCourse(EditingCourse);
-        testsTree.Refresh();
-        EditingCourse = new Course();
-    }
-
-    private async void SaveTest()
-    {
-        typeToCreate = "";
-        await State.SaveTest(EditingTest);
-        testsTree.Refresh();
-        EditingTest = new Test();
-    }
-}

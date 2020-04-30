@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Components;
 using AnyTest.ClientAuthentication;
 using System.Net;
 using System.Collections;
+using AnyTest.Model.ApiModels;
 
 namespace AnyTest.WebClient.ViewModels
 {
@@ -20,9 +21,16 @@ namespace AnyTest.WebClient.ViewModels
 
         public Person Person { get; private set; } = new Person();
         public List<UserInfo> Users { get; private set; } = new List<UserInfo>();
-        public List<Subject> Subjects { get; private set; } = new List<Subject>();
-        public List<Course> Courses { get; private set; } = new List<Course>();
-        public List<Test> Tests { get; private set; } = new List<Test>();
+
+        public Dictionary<string, List<TestsTreeModel>> TestsTreeList { get; private set; } = new Dictionary<string, List<TestsTreeModel>>();
+        public IEnumerable<Subject> Subjects =>
+            TestsTreeList.ContainsKey("subjects") ? TestsTreeList["subjects"].Select(tm => new Subject { Id = tm.Id, Name = tm.Name }) : new List<Subject>();
+
+        public IEnumerable<Course> Courses =>
+            TestsTreeList.ContainsKey("courses") ? TestsTreeList["courses"].Select(tm => new Course { Id = tm.Id, Name = tm.Name }) : new List<Course>();
+
+        public IEnumerable<Test> Tests =>
+            TestsTreeList.ContainsKey("tests") ? TestsTreeList["tests"].Select(tm => new Test { Id = tm.Id, Name = tm.Name }) : new List<Test>();
 
         private Person LoadingStub = new Person
         {
@@ -132,170 +140,9 @@ namespace AnyTest.WebClient.ViewModels
             else Person.Student = await _httpClient.PutJsonAsync<Student>("students", student);
         }
 
-        public async Task GetTests()
+        public async Task GetTestsList()
         {
-            Subjects = await _httpClient.GetJsonAsync<List<Subject>>("subjects");
-            Courses = await _httpClient.GetJsonAsync<List<Course>>("courses");
-            foreach(var g in Courses.GroupBy(c => c.SubjectId))
-            {
-                if(g.Key is long id)
-                {
-                    var subj = Subjects.Find(s => s.Id == id);
-                    subj.Courses = g.ToList();
-                }
-            }
-        }
-
-        public async Task SaveSubject(Subject subject)
-        {
-            if(subject.Id == 0)
-            {
-                Subjects.Add(await _httpClient.PostJsonAsync<Subject>("subjects", subject));
-            }
-            else
-            {
-
-            }
-        }
-
-        public async Task SaveCourse(Course course)
-        {
-            if(course.Id == 0)
-            {
-                if (Person.Id == 0) await GetPersonByAuthorizedUser();
-                course.AuthorId = Person.Id;
-                course = await _httpClient.PostJsonAsync<Course>("courses", course);
-                Courses.Add(course);
-                if(course.SubjectId!=0)
-                {
-                    var subject = Subjects.First(s => s.Id == course.SubjectId);
-                    subject.Courses ??= new List<Course>();
-                    subject.Courses.Add(course);
-                }
-            }
-            else
-            {
-
-            }
-        }
-
-        public async Task SaveTest(Test test)
-        {
-            if(test.Id == 0)
-            {
-                if (Person.Id == 0) await GetPersonByAuthorizedUser();
-                test.AuthorId = Person.Id;
-                Tests.Add(await _httpClient.PostJsonAsync<Test>("tests", test));
-            }
-            else
-            {
-
-            }
-        }
-
-        private void GetDummyTests()
-        {
-            var testNames = new Dictionary<string, List<string>>
-            {
-                { "Математика", new List<string>
-                {
-                    "Алгебра",
-                    "Математичний аналіз"
-                } },
-                {"Розробка програмного забезпечення", new List<string>
-                {
-                    "C#",
-                    "Python"
-                } },
-                {"Фізика", new List<string>
-                {
-                    "Електромагнетизм",
-                    "Ядерна фізика"
-                } },
-                {"-", new List<string>
-                {
-                    "Конституційне право"
-                } }
-            };
-
-            Subjects = new List<Subject>();
-            Courses = new List<Course>();
-            Tests = new List<Test>();
-            long subjectId = 1;
-            long courseId = 1;
-            long testId = 1;
-            var rnd = new Random();
-
-            foreach(var subj in testNames)
-            {
-                Subject subject = null;
-
-                if(subj.Key != "-")
-                {
-                    subject = new Subject
-                    {
-                        Id = subjectId++,
-                        Name = subj.Key,
-                        Courses = new List<Course>(),
-                        Tests = new List<TestSubject>()
-                    };
-
-                    Subjects.Add(subject);
-
-                    AddTestsToSubject(subject, null, rnd, ref testId);
-                }
-
-                foreach(var crs in subj.Value)
-                {
-                    var course = new Course
-                    {
-                        Id = courseId++,
-                        Name = crs,
-                        SubjectId = subject?.Id,
-                        Tests = new List<TestCourse>()
-                    };
-
-                    if (subject != null) subject.Courses.Add(course);
-                    Courses.Add(course);
-                    AddTestsToSubject(subject, course, rnd, ref testId);
-                }
-            }
-
-            AddTestsToSubject(null, null, rnd, ref testId);
-        }
-
-        private void AddTestsToSubject(Subject subject, Course course, Random rnd, ref long testId )
-        {
-            int count = rnd.Next() % 3;
-
-            if (course != null) count++;
-
-            for (int i = 0; i < count; i++, testId++)
-            {
-                var test = new Test
-                {
-                    Id = testId,
-                    Name = $"Test {testId}",
-                    Subjects = new List<TestSubject>(),
-                    Courses = new List<TestCourse>()
-                };
-
-                if(subject != null)
-                {
-                    var testSubject = new TestSubject { TestId = testId, SubjectId = subject.Id, Test = test };
-                    test.Subjects.Add(testSubject);
-                    subject.Tests.Add(testSubject);
-                }
-
-                if(course != null)
-                {
-                    var testCourse = new TestCourse { TestId = testId, CourseId = course.Id, Test = test };
-                    test.Courses.Add(testCourse);
-                    course.Tests.Add(testCourse);
-                }
-
-                Tests.Add(test);
-            }
+            TestsTreeList = await _httpClient.GetJsonAsync<Dictionary<string, List<TestsTreeModel>>>("tests/list");
         }
     }
 }

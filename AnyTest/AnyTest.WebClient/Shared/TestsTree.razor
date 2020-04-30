@@ -1,56 +1,30 @@
-﻿<div>
-    <TreeMenu ButtonText="@Localizer[nameof(Resources.Subjects)]" Items="State.Subjects.OrderBy(s => s.Name)">
-        <ItemTemplate Context="subject">
-            <TreeMenu ButtonText="@subject.Name" Items="SubjectChildren(subject.Id)">
-                <ItemTemplate Context="course_test">
-                    @if (course_test.test == null)
-                    {
-                        <TreeMenu ButtonText="@course_test.course.Name" Items="@((course_test.course.Tests ?? new List<TestCourse>() ).OrderBy(t => t.Test.Name))">
-                            <ItemTemplate Context="test">
-                                @test.Test.Name
-                            </ItemTemplate>
-                        </TreeMenu>
-                    }
-                    else
-                    {
-                        @course_test.test.Name
-                    }
-                </ItemTemplate>
-            </TreeMenu>
-        </ItemTemplate>
-    </TreeMenu>
-</div>
+﻿@using AnyTest.Model.ApiModels
+
 <div>
-    <TreeMenu ButtonText="@Localizer[nameof(Resources.Courses)]" Items="State.Courses.OrderBy(c => c.Name)">
-        <ItemTemplate Context="course">
-            <TreeMenu ButtonText="@course.Name" Items="@((course.Tests ?? new List<TestCourse>()).OrderBy(t => t.Test.Name))">
-                <ItemTemplate Context="test">
-                    @test.Test.Name
-                </ItemTemplate>
-            </TreeMenu>
-        </ItemTemplate>
-    </TreeMenu>
-</div>
-<div>
-    <TreeMenu ButtonText="@Localizer[nameof(Resources.Tests)]" Items="@State.Tests">
-        <ItemTemplate Context="test">
-            @test.Name
-        </ItemTemplate>
-    </TreeMenu>
+    <NavLink class="btn btn-link tree-root text-left" href="@($"{UrlRoot}/{Tree.Url}")" Match="NavLinkMatch.Prefix">
+        <i class="fa fa-caret-right"></i>
+        <i class="fa fa-caret-down"></i>
+        @Tree.Name
+    </NavLink>
+
+    @if (Tree.Children != null && Tree.Children.Count() > 0)
+    {
+        <div class="tree-subtree">
+            <ul style="list-style:none" class="mb-3 pl-3">
+                @foreach(var child in Tree.Children)
+                {
+                    <li><TestsTree Tree="child" UrlRoot="@UrlRoot"/></li>
+                }
+            </ul>
+        </div>
+    }
 </div>
 
 @code
 {
-    private IEnumerable<(Course course, Test test)> SubjectChildren(long subjectId)
-    {
-        var courses = State.Courses.Where(c => c.SubjectId == subjectId)
-            .Select<Course, (Course course, Test test)>(c => (course: c, test: null))
-            .OrderBy(ct => ct.course.Name).ToList();
-        var tests = State.Tests.Where(t => t.Subjects.Any(ts => ts.SubjectId == subjectId) && t.Courses.Count() == 0)
-            .Select<Test, (Course course, Test test)>(t => (course: null, test: t))
-            .OrderBy(ct => ct.test.Name).OrderBy(ct => ct.test.Name).ToList();
-        return courses.Concat(tests);
-    }
+    [Parameter]
+    public TestsTreeModel Tree { get; set; }
 
-    public void Refresh() => StateHasChanged();
+    [Parameter]
+    public string UrlRoot { get; set; }
 }

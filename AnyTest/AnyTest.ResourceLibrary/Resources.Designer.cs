@@ -403,6 +403,33 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Новий курс.
+        /// </summary>
+        public static string NewCourse {
+            get {
+                return ResourceManager.GetString("NewCourse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Новий предмет.
+        /// </summary>
+        public static string NewSubject {
+            get {
+                return ResourceManager.GetString("NewSubject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Новий тест.
+        /// </summary>
+        public static string NewTest {
+            get {
+                return ResourceManager.GetString("NewTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Одна відповідь.
         /// </summary>
         public static string OneCorrectOption {
@@ -489,6 +516,15 @@ namespace AnyTest.ResourceLibrary {
         public static string Phone {
             get {
                 return ResourceManager.GetString("Phone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Будь ласка, зачекайте.
+        /// </summary>
+        public static string PleaseWait {
+            get {
+                return ResourceManager.GetString("PleaseWait", resourceCulture);
             }
         }
         

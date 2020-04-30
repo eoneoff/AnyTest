@@ -65,6 +65,8 @@ namespace AnyTest.DataService
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped<IPersonRepository, PersonRepository>();
             services.AddScoped<IRepository<Course>, CourseRepository>();
+            services.AddScoped<IRepository<Subject>, SubjectsRepository>();
+            services.AddScoped<IRepository<Test>, TestsRepository>();
 
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AnyTestIdentityDbContext>().AddDefaultTokenProviders();
 

@@ -1,0 +1,20 @@
+﻿.tree-root {
+    .fa-caret-down {
+        display:none;
+    }
+    &.active {
+        .fa-caret-right {
+            display:none;
+        }
+        .fa-caret-down {
+            display:inline;
+        }
+        + .tree-subtree {
+            display:block;
+        }
+    }
+}
+
+.tree-subtree {
+    display: none;
+}

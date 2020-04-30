@@ -14,7 +14,7 @@ namespace AnyTest.DataService.Controllers
     [ApiController]
     public class ApiControllerBase<T> : ControllerBase
     {
-        private IRepository<T> _repository;
+        protected IRepository<T> _repository;
 
         /// <summary>
         /// \~english Initializes a new instance of the controller

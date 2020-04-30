@@ -1,0 +1,43 @@
+﻿@using AnyTest.Model.ApiModels
+@inherits LayoutComponentBase
+@layout MainLayout
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize(Roles = "Tutor")]
+
+<TogglableSidebarPanel ToggleButtonClass="btn btn-outline-success" Class="bg-white">
+    <SidebarContent>
+        <div class="mx-1 d-flex flex-column justify-content-start">
+            <NavLink class="btn btn-link text-left" href="tutor/subjects/new">@Localizer[nameof(Resources.NewSubject)]</NavLink>
+            <NavLink class="btn btn-link text-left" href="tutor/courses/new">@Localizer[Resources.NewCourse]</NavLink>
+            <NavLink class="btn btn-link text-left" href="tutor/tests/new">@Localizer[Resources.NewTest]</NavLink>
+            <TestsTree Tree="@(new TestsTreeModel
+                               {
+                                   Name=Localizer[nameof(Resources.Subjects)],
+                                   Url="subjects",
+                                   Children = State.TestsTreeList.ContainsKey("subjects") ? State.TestsTreeList["subjects"] : null
+                               })" UrlRoot="tutor" />
+            <TestsTree Tree="@(new TestsTreeModel
+                               {
+                                   Name=Localizer[nameof(Resources.Courses)],
+                                   Url = "courses",
+                                   Children = State.TestsTreeList.ContainsKey("courses") ? State.TestsTreeList["courses"] : null
+                               })" UrlRoot="tutor" />
+            <TestsTree Tree="@(new TestsTreeModel
+                               {
+                                   Name = Localizer[nameof(Resources.Tests)],
+                                   Url = "tests",
+                                   Children = State.TestsTreeList.ContainsKey("tests") ? State.TestsTreeList["tests"] : null
+                               })" UrlRoot="tutor" />
+        </div>
+    </SidebarContent>
+    <MainContent>
+        @Body
+    </MainContent>
+</TogglableSidebarPanel>
+
+@code
+{ protected override async Task OnInitializedAsync()
+    {
+        if (State.TestsTreeList.Count() == 0) await State.GetTestsList();
+    }
+}

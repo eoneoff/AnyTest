@@ -597,6 +597,23 @@
         <member name="M:AnyTest.DataService.Controllers.TestsController.Delete(System.Int64)">
             <inheritdoc/>
         </member>
+        <member name="M:AnyTest.DataService.Controllers.TestsController.GetTestsList">
+            <summary>
+            \~english A method to gett a structured list of subjects, courses and tests
+            \~ukrainian Метод для отримання структурованого списку предметів, курсів та тестів
+            </summary>
+            <returns>
+            \~english A list of subjects, courses and tests, organized as a tree
+            \~ukrainian Список предметів, курсів та тестів деревоподібної структури
+            </returns>
+            /// <example>
+            \~english An expample of HTTP request
+            \~ukrainian Приклад HTTP запиту
+            <code>
+            GET: api/[controller]/list
+            </code>
+            </example>
+        </member>
         <member name="T:AnyTest.DataService.Controllers.TutorsController">
             <summary>
             \~english An API controller tutors data

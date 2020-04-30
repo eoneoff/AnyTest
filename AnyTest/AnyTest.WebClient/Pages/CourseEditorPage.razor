@@ -1,0 +1,41 @@
+﻿@page "/tutor/courses/new"
+@page "/tutor/courses/{Id:long}"
+@layout TutorPageLayout
+@inject HttpClient _httpClient;
+
+<div class="container-fluid">
+    <CourseEditor Course="@course" />
+</div>
+
+@if (loading)
+{
+    <div class="modal-backdrop">
+        <div class="d-flex justify-content-center flex-column align-items-center h-100">
+            <div class="spinner-border text-white" style="width:20vh; height:20vh;border-width:30px;"></div>
+            <h3 class="text-white font-weight-bold">@(Localizer[nameof(Resources.PleaseWait)])...</h3>
+        </div>
+    </div>
+}
+
+@code
+{
+    private Course course = new Course();
+    private bool loading = false;
+
+    [Parameter]
+    public long Id { get; set; } = 0;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (Id != 0)
+        {
+            loading = true;
+            course = await _httpClient.GetJsonAsync<Course>($"courses/{Id}");
+            loading = false;
+        }
+        else
+        {
+            course = new Course();
+        }
+    }
+}

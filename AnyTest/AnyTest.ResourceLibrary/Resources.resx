@@ -231,6 +231,15 @@
   <data name="Name" xml:space="preserve">
     <value>Назва</value>
   </data>
+  <data name="NewCourse" xml:space="preserve">
+    <value>Новий курс</value>
+  </data>
+  <data name="NewSubject" xml:space="preserve">
+    <value>Новий предмет</value>
+  </data>
+  <data name="NewTest" xml:space="preserve">
+    <value>Новий тест</value>
+  </data>
   <data name="OneCorrectOption" xml:space="preserve">
     <value>Одна відповідь</value>
   </data>
@@ -260,6 +269,9 @@
   </data>
   <data name="Phone" xml:space="preserve">
     <value>Телефон</value>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>Будь ласка, зачекайте</value>
   </data>
   <data name="Question" xml:space="preserve">
     <value>Питання</value>

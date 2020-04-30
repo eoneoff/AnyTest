@@ -1,7 +1,7 @@
 ﻿@inherits ValidatableFormViewModel<Course>
 
 <ValidatableForm @ref="form" Model="Course" OnSubmit="()=>saveConfirmationDialog.Show()" OnCancel="OnCancel" Unchanged="@unchanged" Disabled="@Disabled" HideButtons="@HideButtons">
-    <div class="container-fluid">
+    <div class="container-fluid px-0">
         <ValidatableFormField Wide="@Wide" Label="@Localizer[nameof(Resources.Name)]" Id="coursename">
             <ValidationMessage For="@(()=>Course.Name)" />
             <InputText Id="coursename" Class="form-control" @bind-Value="Course.Name" @oninput="@(()=>unchanged = false)" disabled="@Disabled" />
@@ -25,7 +25,7 @@
             <tr><th class="text-right">@Localizer[nameof(Resources.Name)]:</th><td>@Course.Name</td></tr>
             <tr>
                 <th class="text-right">@Localizer[nameof(Resources.Subject)]:</th>
-                <td>@(State.Subjects != null ? State.Subjects.FirstOrDefault(s => s.Id == Course.SubjectId)?.Name ?? "" : "")</td>
+                <td>@(new List<Subject>() != null ? new List<Subject>().FirstOrDefault(s => s.Id == Course.SubjectId)?.Name ?? "" : "")</td>
             </tr>
         </table>
     </Content>
