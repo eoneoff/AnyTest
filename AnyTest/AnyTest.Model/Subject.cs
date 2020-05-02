@@ -16,6 +16,7 @@ namespace AnyTest.Model
         [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = nameof(Resources.EnterName))]
         [Display(ResourceType = typeof(Resources), Name = nameof(Resources.Name))]
         public string Name { get; set; }
+        public bool Changed { get; set; }
 
         public virtual ICollection<Course> Courses { get; set; }
         public virtual ICollection<TestSubject> Tests { get; set; }

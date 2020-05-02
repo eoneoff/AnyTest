@@ -17,6 +17,8 @@ namespace AnyTest.Model
         [Display(ResourceType = typeof(Resources), Name = nameof(Resources.Name))]
         public string Name { get; set; }
         public long AuthorId { get; set; }
+        public bool Changed { get; set; }
+
         [Timestamp]
         public byte[] RowVerstion { get; set; }
 

@@ -1,6 +1,6 @@
 ﻿@typeparam TItem
 
-<EditForm EditContext="editContext" OnValidSubmit="OnSubmit">
+<EditForm @ref="editForm" Model="Model" OnValidSubmit="OnSubmit">
     <DataAnnotationsValidator />
     @ChildContent(Model)
     @if (!HideButtons)
@@ -16,6 +16,7 @@
 @code
 {
     private EditContext editContext;
+    private EditForm editForm;
 
     [Parameter]
     public TItem Model { get; set; }
@@ -44,20 +45,5 @@
     [Parameter]
     public string CancelButtonText { get; set; }
 
-    protected override void OnInitialized()
-    {
-        editContext = new EditContext(Model);
-    }
-
-    public override async Task SetParametersAsync(ParameterView parameters)
-    {
-        EditContext prev = editContext;
-        await base.SetParametersAsync(parameters);
-        if (editContext != prev)
-        {
-            editContext = new EditContext(Model);
-        }
-    }
-
-    public bool Validate() => editContext.Validate();
+    public bool Validate() => editForm.EditContext.Validate();
 }

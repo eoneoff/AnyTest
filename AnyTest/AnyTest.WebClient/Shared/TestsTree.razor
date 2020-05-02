@@ -2,8 +2,11 @@
 
 <div>
     <NavLink class="btn btn-link tree-root text-left" href="@($"{UrlRoot}/{Tree.Url}")" Match="NavLinkMatch.Prefix">
-        <i class="fa fa-caret-right"></i>
-        <i class="fa fa-caret-down"></i>
+        @if(Tree.Children != null && Tree.Children.Count() > 0)
+        {
+            <i class="fa fa-caret-right"></i>
+            <i class="fa fa-caret-down"></i>
+        }
         @Tree.Name
     </NavLink>
 

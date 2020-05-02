@@ -131,7 +131,7 @@ namespace AnyTest.DataService.Controllers
                 return BadRequest("Tutor does not exist");
             }
 
-            return Ok(await _repository.Put(item));
+            return Ok(await _repository.Put(item, id));
         }
 
 

@@ -23,6 +23,9 @@ namespace AnyTest.WebClient.ViewModels
         public List<UserInfo> Users { get; private set; } = new List<UserInfo>();
 
         public Dictionary<string, List<TestsTreeModel>> TestsTreeList { get; private set; } = new Dictionary<string, List<TestsTreeModel>>();
+
+        public event EventHandler TestsUpdated;
+
         public IEnumerable<Subject> Subjects =>
             TestsTreeList.ContainsKey("subjects") ? TestsTreeList["subjects"].Select(tm => new Subject { Id = tm.Id, Name = tm.Name }) : new List<Subject>();
 
@@ -143,6 +146,49 @@ namespace AnyTest.WebClient.ViewModels
         public async Task GetTestsList()
         {
             TestsTreeList = await _httpClient.GetJsonAsync<Dictionary<string, List<TestsTreeModel>>>("tests/list");
+            TestsUpdated?.Invoke(this, EventArgs.Empty);
+        }
+
+        public async Task SaveSubject(Subject subject)
+        {
+            if(subject.Id == 0)
+            {
+                await _httpClient.PostJsonAsync("subjects", subject);
+            }
+            else
+            {
+                await _httpClient.PutJsonAsync($"subjects/{subject.Id}", subject);
+            }
+
+            await GetTestsList();
+        }
+
+        public async Task SaveCourse(Course course)
+        {
+            if(course.Id == 0)
+            {
+                await _httpClient.PostJsonAsync("courses", course);
+            }
+            else
+            {
+                await _httpClient.PutJsonAsync($"courses/{course.Id}", course);
+            }
+
+            await GetTestsList();
+        }
+
+        public async Task SaveTest(Test test)
+        {
+            if(test.Id == 0)
+            {
+                await _httpClient.PostJsonAsync("tests", test);
+            }
+            else
+            {
+                await _httpClient.PutJsonAsync($"tests/{test.Id}", test);
+            }
+
+            await GetTestsList();
         }
     }
 }

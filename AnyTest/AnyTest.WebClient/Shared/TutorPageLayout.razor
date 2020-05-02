@@ -39,5 +39,6 @@
 { protected override async Task OnInitializedAsync()
     {
         if (State.TestsTreeList.Count() == 0) await State.GetTestsList();
+        State.TestsUpdated += (object sender, EventArgs e) => StateHasChanged();
     }
 }

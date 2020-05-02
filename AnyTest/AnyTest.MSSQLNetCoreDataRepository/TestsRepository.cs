@@ -19,6 +19,7 @@ namespace AnyTest.MSSQLNetCoreDataRepository
 
         public override async Task<IEnumerable<Test>> Get() =>
             await _db.Tests.Include(t => t.Subjects)
+            .Where(t => !t.Changed)
             .Include(t => t.Courses)
             .Include(t => t.TestQuestions).ThenInclude(q => q.TestAnswers)
             .AsNoTracking().ToListAsync();
@@ -27,12 +28,32 @@ namespace AnyTest.MSSQLNetCoreDataRepository
         {
             if (key.Length > 0 && key[0] is long id)
             {
-                return await _db.Tests.Include(t => t.Subjects)
-                .Include(t => t.Courses)
-                .Include(t => t.TestQuestions).ThenInclude(q => q.TestAnswers)
-                .AsNoTracking().SingleOrDefaultAsync(t => t.Id == id);
+               return  await _db.Tests
+                    .Include(t => t.Subjects)
+                    .Include(t => t.Courses)
+                    .Include(t => t.TestQuestions).ThenInclude(q => q.TestAnswers)
+                    .AsNoTracking().SingleOrDefaultAsync(t => t.Id == id);
             }
             else throw new ArgumentException("Test Id must be of type long");
+        }
+
+        public override async Task<Test> Post(Test item) => await base.Put(item);
+
+        public override async Task<Test> Put(Test item, params object[] key)
+        {
+            if (key.Length > 0 && key[0] is long id)
+            {
+                var old = await _db.Tests.FindAsync(id);
+                if (old == null) throw new ArgumentException("No test with such id");
+
+                old.Changed = true;
+                _db.Update(old);
+                item.Id = 0;
+                _db.Add(item);
+                await _db.SaveChangesAsync();
+                return item;
+            }
+            else throw new ArgumentException("Test id must be of type long");
         }
 
         public async Task<Dictionary<string, List<TestsTreeModel>>> GetTestsList()
@@ -44,7 +65,7 @@ namespace AnyTest.MSSQLNetCoreDataRepository
                 {"tests", new List<TestsTreeModel>() }
             };
 
-            var subjects = await _db.Subjects.Include(s => s.Courses).ThenInclude(c => c.Tests).ThenInclude(t => t.Test)
+            var subjects = await _db.Subjects.Where(s => !s.Changed).Include(s => s.Courses).ThenInclude(c => c.Tests).ThenInclude(t => t.Test)
                 .Include(s => s.Tests).ThenInclude(t => t.Test).AsNoTracking().ToListAsync();
             result["subjects"] = subjects.Select(s => new TestsTreeModel
             {
@@ -70,7 +91,7 @@ namespace AnyTest.MSSQLNetCoreDataRepository
                 }))
             }).ToList();
 
-            var courses = await _db.Courses.Include(c => c.Tests).ThenInclude(t => t.Test).AsNoTracking().ToListAsync();
+            var courses = await _db.Courses.Where(c => !c.Changed).Include(c => c.Tests).ThenInclude(t => t.Test).AsNoTracking().ToListAsync();
             result["courses"] = courses.Select(c => new TestsTreeModel
             {
                 Id = c.Id,
@@ -84,7 +105,7 @@ namespace AnyTest.MSSQLNetCoreDataRepository
                 })
             }).ToList();
 
-            var tests = await _db.Tests.AsNoTracking().ToListAsync();
+            var tests = await _db.Tests.Where(t => !t.Changed).AsNoTracking().ToListAsync();
             result["tests"] = tests.Select(t => new TestsTreeModel
             {
                 Id = t.Id,
@@ -93,6 +114,76 @@ namespace AnyTest.MSSQLNetCoreDataRepository
             }).ToList();
 
             return result;
+        }
+
+        public async Task<TestSubject> AddSubject(long testId, long subjectId)
+        {
+            var testSubject = _db.TestSubjects.Find(testId, subjectId);
+            if(testSubject == null)
+            {
+                testSubject = new TestSubject { TestId = testId, SubjectId = subjectId };
+                _db.Add(testSubject);
+                await _db.SaveChangesAsync();
+
+            }
+            else if (testSubject.Deleted)
+            {
+                testSubject.Deleted = false;
+                _db.Update(testSubject);
+                await _db.SaveChangesAsync();
+            }
+
+            _db.Entry(testSubject).State = EntityState.Detached;
+            return testSubject;
+        }
+
+        public async Task<TestSubject> RemoveSubject(long testId, long subjectId)
+        {
+            var testSubject = _db.TestSubjects.Find(testId, subjectId);
+            if(testSubject != null)
+            {
+                testSubject.Deleted = true;
+                _db.Update(testSubject);
+                await _db.SaveChangesAsync();
+                _db.Entry(testSubject).State = EntityState.Detached;
+            }
+
+            return testSubject;
+        }
+
+        public async Task<TestCourse> AddCourse(long testId, long courseId)
+        {
+            var testCourse = _db.TestCourses.Find(testId, courseId);
+            if (testCourse == null)
+            {
+                testCourse = new TestCourse { TestId = testId, CourseId = courseId };
+                _db.Add(testCourse);
+                await _db.SaveChangesAsync();
+
+            }
+            else if (testCourse.Deleted)
+            {
+                testCourse.Deleted = false;
+                _db.Update(testCourse);
+                await _db.SaveChangesAsync();
+            }
+
+            _db.Entry(testCourse).State = EntityState.Detached;
+            return testCourse;
+        }
+
+        public async Task<TestCourse> RemoveCourse(long testId, long courseId)
+        {
+            var testCourse = _db.TestCourses.Find(testId, courseId);
+            if (testCourse != null)
+            {
+                testCourse.Deleted = true;
+                _db.Update(testCourse);
+                await _db.SaveChangesAsync();
+                _db.Entry(testCourse).State = EntityState.Detached;
+            }
+
+            return testCourse;
         }
     }
 }

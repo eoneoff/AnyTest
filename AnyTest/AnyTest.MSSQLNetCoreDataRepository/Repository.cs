@@ -65,7 +65,7 @@ namespace AnyTest.MSSQLNetCoreDataRepository
 
         }
 
-        public virtual async Task<T> Put(T item)
+        public virtual async Task<T> Put(T item, params object[] key)
         {
             _db.Update(item);
             await _db.SaveChangesAsync();

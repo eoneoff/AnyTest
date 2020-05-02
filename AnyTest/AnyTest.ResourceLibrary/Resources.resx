@@ -123,8 +123,20 @@
   <data name="AddAnswer" xml:space="preserve">
     <value>Додайте відповіді</value>
   </data>
+  <data name="AddCourse" xml:space="preserve">
+    <value>Додати курс</value>
+  </data>
+  <data name="AddCourseToTest" xml:space="preserve">
+    <value>Додати тес до курсу {0}</value>
+  </data>
   <data name="AddQuestion" xml:space="preserve">
     <value>Додайте питання</value>
+  </data>
+  <data name="AddSubject" xml:space="preserve">
+    <value>Додати предмет</value>
+  </data>
+  <data name="AddSubjectToTest" xml:space="preserve">
+    <value>Додати тест до предмету {0}</value>
   </data>
   <data name="AddUser" xml:space="preserve">
     <value>Додати користувача</value>
@@ -275,6 +287,18 @@
   </data>
   <data name="Question" xml:space="preserve">
     <value>Питання</value>
+  </data>
+  <data name="RemoveCourse" xml:space="preserve">
+    <value>Видалити курс</value>
+  </data>
+  <data name="RemoveSubject" xml:space="preserve">
+    <value>Видалити предмет</value>
+  </data>
+  <data name="RemoveSubjectFromTest" xml:space="preserve">
+    <value>Видалити тест {0} з предмету</value>
+  </data>
+  <data name="RemoveTestFromCourse" xml:space="preserve">
+    <value>Видалити тест з курсу {0}</value>
   </data>
   <data name="Role" xml:space="preserve">
     <value>Роль</value>

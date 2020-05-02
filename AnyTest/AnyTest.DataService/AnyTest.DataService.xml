@@ -610,7 +610,107 @@
             \~english An expample of HTTP request
             \~ukrainian Приклад HTTP запиту
             <code>
-            GET: api/[controller]/list
+            GET: api/tests/list
+            </code>
+            </example>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.TestsController.AddSubject(System.Int64,System.Int64)">
+            <summary>
+            \~english Adds a test to a subject
+            \~ukrainian Додає тест до предмету
+            </summary>
+            <param name="testId">
+            \~english Test id
+            \~ukrainian Id тесту
+            </param>
+            <param name="subjectId">
+            \~english Subject id
+            \~ukrainian Id предмету
+            </param>
+            <returns>
+            \~english a test-subject connection
+            \~ukrainian зв'язок між тестом та предметом
+            </returns>
+            <example>
+            \~english An expample of HTTP request
+            \~ukrainian Приклад HTTP запиту
+            <code>
+            POST: api/tests/5/subjects/2
+            </code>
+            </example>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.TestsController.RemoveSubject(System.Int64,System.Int64)">
+            <summary>
+            \~english Removes a test from a subject
+            \~ukrainian Видаляє тест з предмету
+            </summary>
+            <param name="testId">
+            \~english Test id
+            \~ukrainian Id тесту
+            </param>
+            <param name="subjectId">
+            \~english Subject id
+            \~ukrainian Id предмету
+            </param>
+            <returns>
+            \~english a test-subject connection
+            \~ukrainian зв'язок між тестом та предметом
+            </returns>
+            <example>
+            \~english An expample of HTTP request
+            \~ukrainian Приклад HTTP запиту
+            <code>
+            DELETE: api/tests/5/subjects/2
+            </code>
+            </example>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.TestsController.AddCourset(System.Int64,System.Int64)">
+            <summary>
+            \~english Adds a test to a course
+            \~ukrainian Додає тест до курсу
+            </summary>
+            <param name="testId">
+            \~english Test id
+            \~ukrainian Id тесту
+            </param>
+            <param name="courseId">
+            \~english Course id
+            \~ukrainian Id курсу
+            </param>
+            <returns>
+            \~english a test-course connection
+            \~ukrainian зв'язок між тестом та курсом
+            </returns>
+            <example>
+            \~english An expample of HTTP request
+            \~ukrainian Приклад HTTP запиту
+            <code>
+            POST: api/tests/5/courses/2
+            </code>
+            </example>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.TestsController.RemoveCourse(System.Int64,System.Int64)">
+            <summary>
+            \~english Removes a test from a course
+            \~ukrainian Видаляє тест з курсу
+            </summary>
+            <param name="testId">
+            \~english Test id
+            \~ukrainian Id тесту
+            </param>
+            <param name="courseId">
+            \~english Course id
+            \~ukrainian Id курсу
+            </param>
+            <returns>
+            \~english a test-course connection
+            \~ukrainian зв'язок між тестом та курсом
+            </returns>
+            <example>
+            \~english An expample of HTTP request
+            \~ukrainian Приклад HTTP запиту
+            <code>
+            DELETE: api/tests/5/courses/2
             </code>
             </example>
         </member>

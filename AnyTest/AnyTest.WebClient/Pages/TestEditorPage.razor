@@ -38,4 +38,15 @@
             test = new Test { TestQuestions = new List<TestQuestion>() };
         }
     }
+
+    private async void Save()
+    {
+        if(test.Id != 0)
+        {
+            test.Subjects = null;
+            test.Courses = null;
+        }
+
+        await State.SaveTest(test);
+    }
 }

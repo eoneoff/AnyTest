@@ -22,6 +22,7 @@ namespace AnyTest.DbAccess
         public virtual DbSet<TutorTest> TutorTests { get; set; }
         public virtual DbSet<StudentTest> StudentTests { get; set; }
         public virtual DbSet<StudentCourse> StudentCourses { get; set; }
+        public virtual DbSet<TestSubject> TestSubjects { get; set; }
         public virtual DbSet<TestCourse> TestCourses { get; set; }
         public virtual DbSet<Precondition> Preconditions { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) { }

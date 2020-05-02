@@ -4,7 +4,7 @@
 @inject HttpClient _httpClient
 
 <div class="container-fluid">
-    <SubjectEditor Subject="@subject" />
+    <SubjectEditor Subject="@subject" OnSubmit="()=>State.SaveSubject(subject)"/>
 </div>
 
 @if (loading)

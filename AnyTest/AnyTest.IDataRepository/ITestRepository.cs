@@ -18,5 +18,9 @@ namespace AnyTest.IDataRepository
         /// \~ukrainian Список предметів, курсів та тестів деревоподібної структури
         /// </returns>
         public Task<Dictionary<string, List<TestsTreeModel>>> GetTestsList();
+        public Task<TestSubject> AddSubject(long testId, long subjectId);
+        public Task<TestSubject> RemoveSubject(long testId, long subjectId);
+        public Task<TestCourse> AddCourse(long testId, long courseId);
+        public Task<TestCourse> RemoveCourse(long testId, long courseId);
     }
 }

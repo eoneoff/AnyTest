@@ -79,11 +79,47 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Додати курс.
+        /// </summary>
+        public static string AddCourse {
+            get {
+                return ResourceManager.GetString("AddCourse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Додати тес до курсу {0}.
+        /// </summary>
+        public static string AddCourseToTest {
+            get {
+                return ResourceManager.GetString("AddCourseToTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Додайте питання.
         /// </summary>
         public static string AddQuestion {
             get {
                 return ResourceManager.GetString("AddQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Додати предмет.
+        /// </summary>
+        public static string AddSubject {
+            get {
+                return ResourceManager.GetString("AddSubject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Додати тест до предмету {0}.
+        /// </summary>
+        public static string AddSubjectToTest {
+            get {
+                return ResourceManager.GetString("AddSubjectToTest", resourceCulture);
             }
         }
         
@@ -534,6 +570,42 @@ namespace AnyTest.ResourceLibrary {
         public static string Question {
             get {
                 return ResourceManager.GetString("Question", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Видалити курс.
+        /// </summary>
+        public static string RemoveCourse {
+            get {
+                return ResourceManager.GetString("RemoveCourse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Видалити предмет.
+        /// </summary>
+        public static string RemoveSubject {
+            get {
+                return ResourceManager.GetString("RemoveSubject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Видалити тест {0} з предмету.
+        /// </summary>
+        public static string RemoveSubjectFromTest {
+            get {
+                return ResourceManager.GetString("RemoveSubjectFromTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Видалити тест з курсу {0}.
+        /// </summary>
+        public static string RemoveTestFromCourse {
+            get {
+                return ResourceManager.GetString("RemoveTestFromCourse", resourceCulture);
             }
         }
         

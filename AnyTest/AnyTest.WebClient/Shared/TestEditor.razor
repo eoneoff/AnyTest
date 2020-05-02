@@ -1,4 +1,5 @@
 ﻿@inherits ValidatableFormViewModel<Test>
+@inject HttpClient _httpClient
 
 <ValidatableForm @ref="form" Model="Test" OnSubmit="OnSubmit" OnCancel="OnCancel" Unchanged="@unchanged" Disabled="@Disabled" HideButtons="true">
     <div class="container-fluid px-0">
@@ -21,10 +22,10 @@
 </div>
 <div class="border border-success p-2 my-2">
     <table class="table table-sm table-hover table-borderless">
-        @foreach (var subject in Subjects)
+        @foreach (var subject in (Test.Subjects ?? new List<TestSubject>()).Where(s => !s.Deleted))
         {
             <tr>
-                <td>SubjectName</td>
+                <td>@State.Subjects.First(s => s.Id == subject.SubjectId).Name</td>
                 <td class="text-right"><button type="button" class="btn btn-outline-danger" @onclick="()=>RemoveSubject(subject.SubjectId)"><i class="fa fa-trash"></i></button></td>
             </tr>
         }
@@ -43,10 +44,10 @@
 </div>
 <div class="border border-success p-2 mt-2">
     <table class="table table-sm table-hover table-borderless">
-        @foreach (var course in Courses)
+        @foreach (var course in (Test.Courses ?? new List<TestCourse>()).Where(c => !c.Deleted))
         {
             <tr>
-                <td>CourseName</td>
+                <td>@State.Courses.First(c => c.Id == course.CourseId).Name</td>
                 <td class="text-right"><button type="button" class="btn btn-outline-danger" @onclick="()=>RemoveCourse(course.CourseId)"><i class="fa fa-trash"></i></button></td>
             </tr>
         }
@@ -98,6 +99,23 @@
     </Content>
 </ModalDialog>
 
+<ModalDialog @ref="membershipConfirmation" OnConfirm="membershipConfirmationSubmit">
+    <Header>@membershipConfirmaitonHeader</Header>
+    <Content>
+        @membershipConfirmationText
+    </Content>
+</ModalDialog>
+
+@if(saving)
+{
+    <div class="modal-backdrop">
+        <div class="d-flex justify-content-center flex-column align-items-center h-100">
+            <div class="spinner-border text-white" style="width:20vh; height:20vh;border-width:30px;"></div>
+            <h3 class="text-white font-weight-bold">@(Localizer[nameof(Resources.PleaseWait)])...</h3>
+        </div>
+    </div>
+}
+
 
 @code
 {
@@ -107,15 +125,15 @@
     private long? selectedSubject;
     private long? selectedCourse;
     private ModalDialog saveConfirmationDialog;
+    private bool saving = false;
 
-    private List<TestSubject> subjects = new List<TestSubject>();
-    private IEnumerable<TestSubject> Subjects => subjects;
-
-    private List<TestCourse> courses = new List<TestCourse>();
-    private IEnumerable<TestCourse> Courses => courses;
+    private ModalDialog membershipConfirmation;
+    private string membershipConfirmaitonHeader;
+    private string membershipConfirmationText;
+    private Func<Task> membershipConfirmationSubmit;
 
     [Parameter]
-    public Test Test { get; set; } = new Test();
+    public Test Test { get; set; } = new Test { Subjects = new List<TestSubject>(), Courses = new List<TestCourse>() };
 
     private void AddQuestion()
     {
@@ -183,34 +201,85 @@
 
     private void AddSubject()
     {
-        if (selectedSubject is long subjectId && !Subjects.Any(s => s.SubjectId == subjectId))
+        Test.Subjects ??= new List<TestSubject>();
+        if (selectedSubject is long subjectId && !Test.Subjects.Any(s => s.SubjectId == subjectId && !s.Deleted))
         {
-            subjects.Add(new TestSubject { TestId = Test.Id, SubjectId = subjectId });
-
+            membershipConfirmaitonHeader = $"{Localizer[nameof(Resources.AddSubject)]}?";
+            membershipConfirmationText = $"{string.Format(Localizer[nameof(Resources.AddSubjectToTest)].Value, State.Subjects.First(s => s.Id == subjectId).Name)}?";
+            membershipConfirmationSubmit = async () =>
+            {
+                if (Test.Id == 0) Test.Subjects.Add(new TestSubject { TestId = Test.Id, SubjectId = subjectId });
+                else
+                {
+                    saving = true;
+                    Test.Subjects.Add(await _httpClient.PostJsonAsync<TestSubject>($"tests/{Test.Id}/subjects/{subjectId}", null));
+                    await State.GetTestsList();
+                    saving = false;
+                }
+            };
+            membershipConfirmation.Show();
         }
     }
 
     private void RemoveSubject(long subjectId)
     {
-        if(subjects.Any(s => s.SubjectId == subjectId))
+        if (Test.Subjects.Any(s => s.SubjectId == subjectId))
         {
-            subjects = subjects.Where(s => s.SubjectId != subjectId).ToList();
+            membershipConfirmaitonHeader = $"{Localizer[nameof(Resources.RemoveSubject)]}?";
+            membershipConfirmationText = $"{string.Format(Localizer[nameof(Resources.RemoveSubjectFromTest)].Value, State.Subjects.First(s => s.Id == subjectId).Name)}?";
+            membershipConfirmationSubmit = async () =>
+            {
+                if (Test.Id != 0)
+                {
+                    saving = true;
+                    await _httpClient.PostJsonAsync($"tests/{Test.Id}/subjects/{subjectId}", null);
+                    await State.GetTestsList();
+                    saving = false;
+                }
+                Test.Subjects = Test.Subjects.Where(s => s.SubjectId != subjectId).ToList();
+            };
         }
     }
 
     private void AddCourse()
     {
-        if (selectedCourse is long courseId && !Courses.Any(s => s.CourseId == courseId))
+        Test.Courses ??= new List<TestCourse>();
+        if (selectedCourse is long courseId && !Test.Courses.Any(s => s.CourseId == courseId && !s.Deleted))
         {
-            courses.Add(new TestCourse { TestId = Test.Id, CourseId = courseId});
+            membershipConfirmaitonHeader = $"{Localizer[nameof(Resources.AddCourse)]}?";
+            membershipConfirmationText = $"{string.Format(Localizer[nameof(Resources.AddCourseToTest)].Value, State.Subjects.First(s => s.Id == courseId).Name)}?";
+            membershipConfirmationSubmit = async () =>
+            {
+                if (Test.Id == 0) Test.Courses.Add(new TestCourse { TestId = Test.Id, CourseId = courseId });
+                else
+                {
+                    saving = true;
+                    Test.Subjects.Add(await _httpClient.PostJsonAsync<TestSubject>($"tests/{Test.Id}/courses/{courseId}", null));
+                    await State.GetTestsList();
+                    saving = false;
+                }
+            };
+            membershipConfirmation.Show();
         }
     }
 
     private void RemoveCourse(long courseId)
     {
-        if(courses.Any(c => c.CourseId == courseId))
+        if (Test.Courses.Any(s => s.CourseId == courseId))
         {
-            courses = courses.Where(c => c.CourseId != courseId).ToList();
+            membershipConfirmaitonHeader = $"{Localizer[nameof(Resources.RemoveCourse)]}?";
+            membershipConfirmationText = $"{string.Format(Localizer[nameof(Resources.RemoveTestFromCourse)].Value, State.Courses.First(s => s.Id == courseId).Name)}?";
+            membershipConfirmationSubmit = async () =>
+            {
+                if (Test.Id != 0)
+                {
+                    saving = true;
+                    await _httpClient.PostJsonAsync($"tests/{Test.Id}/courses/{courseId}", null);
+                    await State.GetTestsList();
+                    saving = false;
+                }
+                Test.Courses = Test.Courses.Where(s => s.CourseId != courseId).ToList();
+            };
         }
     }
 }

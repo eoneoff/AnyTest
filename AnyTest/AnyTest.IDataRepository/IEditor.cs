@@ -7,6 +7,6 @@ namespace AnyTest.IDataRepository
 {
     public interface IEditor<T>
     {
-        Task<T> Put(T item);
+        Task<T> Put(T item, params object[] key);
     }
 }

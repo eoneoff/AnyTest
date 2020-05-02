@@ -18,6 +18,7 @@ namespace AnyTest.Model
         public string Name { get; set; }
         public long? SubjectId { get; set; }
         public long AuthorId { get; set; }
+        public bool Changed { get; set; }
 
         [Timestamp]
         public byte[] RowVersion { get; set; }
