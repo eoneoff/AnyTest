@@ -37,8 +37,6 @@ namespace AnyTest.MSSQLNetCoreDataRepository
             else throw new ArgumentException("Test Id must be of type long");
         }
 
-        public override async Task<Test> Post(Test item) => await base.Put(item);
-
         public override async Task<Test> Put(Test item, params object[] key)
         {
             if (key.Length > 0 && key[0] is long id)
@@ -49,6 +47,18 @@ namespace AnyTest.MSSQLNetCoreDataRepository
                 old.Changed = true;
                 _db.Update(old);
                 item.Id = 0;
+                foreach (var question in item.TestQuestions)
+                {
+                    question.Id = 0;
+                    question.TestId = 0;
+                    foreach(var answer in question.TestAnswers)
+                    {
+                        answer.Id = 0;
+                        answer.TestQuestionId = 0;
+                    }
+                }
+                foreach(var subject in item.Subjects) subject.TestId = 0;
+                foreach(var course in item.Courses) course.TestId = 0;
                 _db.Add(item);
                 await _db.SaveChangesAsync();
                 return item;

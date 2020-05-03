@@ -78,8 +78,7 @@
         </div>
     </div>
     <div class="col-lg-6">
-        @if (selectedQuestion.OrderNo > 0)
-        {<QuestionEditor @ref="questionEditor" Question="selectedQuestion" />}
+       <QuestionEditor @ref="questionEditor" Question="selectedQuestion" />
     </div>
 </div>
 @if (!HideButtons)
@@ -119,7 +118,7 @@
 
 @code
 {
-    private TestQuestion selectedQuestion = new TestQuestion { OrderNo = 1 };
+    private TestQuestion selectedQuestion = new TestQuestion();
     private QuestionEditor questionEditor;
     private bool noQuestions = false;
     private long? selectedSubject;
@@ -137,13 +136,14 @@
 
     private void AddQuestion()
     {
-        if (selectedQuestion.OrderNo == 0 || questionEditor.Validate())
+        if (questionEditor.Validate())
         {
             unchanged = false;
             noQuestions = false;
             Test.TestQuestions ??= new List<TestQuestion>();
+            selectedQuestion.OrderNo = Test.TestQuestions.Count() + 1;
             Test.TestQuestions.Add(selectedQuestion);
-            selectedQuestion = new TestQuestion { OrderNo = Test.TestQuestions.Count() + 1 };
+            selectedQuestion = new TestQuestion();
         }
     }
 
@@ -247,7 +247,7 @@
         if (selectedCourse is long courseId && !Test.Courses.Any(s => s.CourseId == courseId && !s.Deleted))
         {
             membershipConfirmaitonHeader = $"{Localizer[nameof(Resources.AddCourse)]}?";
-            membershipConfirmationText = $"{string.Format(Localizer[nameof(Resources.AddCourseToTest)].Value, State.Subjects.First(s => s.Id == courseId).Name)}?";
+            membershipConfirmationText = $"{string.Format(Localizer[nameof(Resources.AddCourseToTest)].Value, State.Courses.First(s => s.Id == courseId).Name)}?";
             membershipConfirmationSubmit = async () =>
             {
                 if (Test.Id == 0) Test.Courses.Add(new TestCourse { TestId = Test.Id, CourseId = courseId });

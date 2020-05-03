@@ -4,7 +4,7 @@
 @inject HttpClient _httpClient
 
 <div class="container-fluid">
-    <TestEditor Test="@test" />
+    <TestEditor Test="@test" OnSubmit="()=>State.SaveTest(test)"/>
 </div>
 
 @if (loading)
@@ -37,16 +37,5 @@
         {
             test = new Test { TestQuestions = new List<TestQuestion>() };
         }
-    }
-
-    private async void Save()
-    {
-        if(test.Id != 0)
-        {
-            test.Subjects = null;
-            test.Courses = null;
-        }
-
-        await State.SaveTest(test);
     }
 }

@@ -181,6 +181,8 @@ namespace AnyTest.WebClient.ViewModels
         {
             if(test.Id == 0)
             {
+                if(Person.Id == 0) await GetPersonByAuthorizedUser();
+                test.AuthorId = Person.Id;
                 await _httpClient.PostJsonAsync("tests", test);
             }
             else

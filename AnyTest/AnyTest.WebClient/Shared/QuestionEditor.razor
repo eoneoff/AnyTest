@@ -1,6 +1,6 @@
 ﻿@inherits ValidatableFormViewModel<TestQuestion>
 
-<ValidatableForm @ref="form" Model="Question" OnSubmit="OnSubmit" OnCancel="OnCancel" Unchanged="@unchanged" HideButtons="true">
+<ValidatableForm @ref="form" Model="@Question" OnSubmit="OnSubmit" OnCancel="OnCancel" Unchanged="@unchanged" HideButtons="true">
     <ValidatableFormField Wide="@Wide" Label="@Localizer[nameof(Resources.Question)]" Id="question">
         <ValidationMessage For="@(()=>Question.Question)" />
         <InputTextArea Id="question" Class="form-control" @bind-Value="Question.Question" @oninput="@(()=>unchanged = false)" />
@@ -51,16 +51,7 @@ else if (notCompleteAnswers) { <span class="text-danger">@(multiple ? Localizer[
     private TestQuestion question = new TestQuestion { TestAnswers = new List<TestAnswer>() };
 
     [Parameter]
-    public TestQuestion Question
-    {
-        get => question;
-        set
-        {
-            if (value.TestAnswers != null && value.TestAnswers.Any(a => a.Percent > 0 && a.Percent < 100)) multiple = true;
-            else multiple = false;
-            question = value;
-        }
-    }
+    public TestQuestion Question { get; set; } = new TestQuestion();
 
     private void AddAnswer()
     {
@@ -122,6 +113,6 @@ else if (notCompleteAnswers) { <span class="text-danger">@(multiple ? Localizer[
             if(!answer.Validate()) answersValid = false;
         }
         StateHasChanged();
-        return base.Validate() && !noAnswers && !notCompleteAnswers && answersValid;
+        return form.Validate() && !noAnswers && !notCompleteAnswers && answersValid;
     }
 }

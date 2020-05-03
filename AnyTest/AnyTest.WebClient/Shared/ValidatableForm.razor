@@ -1,7 +1,8 @@
 ﻿@typeparam TItem
 
-<EditForm @ref="editForm" Model="Model" OnValidSubmit="OnSubmit">
+<EditForm Model="Model" OnValidSubmit="OnSubmit">
     <DataAnnotationsValidator />
+    <ContextWatcher @ref="contextWatcher"/>
     @ChildContent(Model)
     @if (!HideButtons)
     {
@@ -15,8 +16,7 @@
 
 @code
 {
-    private EditContext editContext;
-    private EditForm editForm;
+    private ContextWatcher contextWatcher;
 
     [Parameter]
     public TItem Model { get; set; }
@@ -45,5 +45,5 @@
     [Parameter]
     public string CancelButtonText { get; set; }
 
-    public bool Validate() => editForm.EditContext.Validate();
+    public bool Validate() => contextWatcher.Validate();
 }
