@@ -26,6 +26,13 @@
                                     </li>
                                 </Authorized>
                             </AuthorizeView>
+                            <AuthorizeView Roles="Student">
+                                <li class="nav-item">
+                                    <NavLink class="nav-link" Match="NavLinkMatch.Prefix" href="student">
+                                        @Localizer[nameof(Resources.Courses)]
+                                    </NavLink>
+                                </li>
+                            </AuthorizeView>
                         </ul>
                         <AuthorizeView>
                             <Authorized>

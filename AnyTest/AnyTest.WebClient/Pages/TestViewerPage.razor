@@ -1,0 +1,72 @@
+﻿@page "/student/tests/{Id:long}"
+@inject HttpClient _httpClient;
+@layout StudentPageLayout
+
+<div class="p-5">
+    <table class="table table-hover table-borderless w-auto">
+        <tr>
+            <th class="text-right">@Localizer[nameof(Resources.Name)]:</th>
+            <td>@test.Name</td>
+        </tr>
+        <tr>
+            <th class="text-right">@Localizer[nameof(Resources.Subjects)]:</th>
+            <td>
+                <ul>
+                    @foreach (var subject in (test?.Subjects ?? new List<TestSubject>()))
+                    {
+                        <li>
+                            @State.Subjects.FirstOrDefault(s => s.Id == subject.SubjectId).Name
+                        </li>
+                    }
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th class="text-right">@Localizer[nameof(Resources.Courses)]:</th>
+            <td>
+                <ul>
+                    @foreach (var course in (test?.Courses ?? new List<TestCourse>()))
+                    {
+                        <li>
+                            @State.Courses.FirstOrDefault(c => c.Id == course.CourseId).Name
+                        </li>
+                    }
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="text-right">
+                <a href="@($"tests/{test?.Id}/pass")" class="btn btn-success">@Localizer[nameof(Resources.Pass)]</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+@if (loading)
+{
+    <div class="modal-backdrop">
+        <div class="d-flex justify-content-center flex-column align-items-center h-100">
+            <div class="spinner-border text-white" style="width:20vh; height:20vh;border-width:30px;"></div>
+            <h3 class="text-white font-weight-bold">@(Localizer[nameof(Resources.PleaseWait)])...</h3>
+        </div>
+    </div>
+}
+
+@code
+{
+    private bool loading;
+    private Test test = new Test();
+
+    [Parameter]
+    public long Id { get; set; }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (Id != 0)
+        {
+            loading = true;
+            test = await _httpClient.GetJsonAsync<Test>($"tests/{Id}");
+            loading = false;
+        }
+    }
+}

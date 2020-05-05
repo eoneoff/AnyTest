@@ -30,5 +30,6 @@ namespace AnyTest.Model
         public virtual ICollection<StudentTest> Students { get; set; }
         public virtual ICollection<TestSubject> Subjects { get; set; }
         public virtual ICollection<TestCourse> Courses { get; set; }
+        public virtual ICollection<TestPass> Passes { get; set; }
     }
 }

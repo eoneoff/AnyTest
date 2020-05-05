@@ -25,6 +25,8 @@ namespace AnyTest.DbAccess
         public virtual DbSet<TestSubject> TestSubjects { get; set; }
         public virtual DbSet<TestCourse> TestCourses { get; set; }
         public virtual DbSet<Precondition> Preconditions { get; set; }
+        public virtual DbSet<TestPass> TestPasses { get; set; }
+        public DbSet<AnswerPass> AnswerPasses { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) { }
 
         protected override void OnModelCreating(ModelBuilder model)
@@ -58,6 +60,10 @@ namespace AnyTest.DbAccess
             model.Entity<Precondition>().HasKey(p => new { p.TestId, p.PreconditionId });
             model.Entity<Precondition>().HasOne(p => p.Test).WithMany(t => t.Preconditions).HasForeignKey(p => p.TestId).OnDelete(DeleteBehavior.NoAction);
             model.Entity<Precondition>().HasOne(p => p.PreconditionTest).WithMany(t => t.Dependent).HasForeignKey(p => p.PreconditionId).OnDelete(DeleteBehavior.NoAction);
+
+            model.Entity<TestPass>().HasOne(p => p.Test).WithMany(t => t.Passes).HasForeignKey(p => p.TestId).OnDelete(DeleteBehavior.NoAction);
+            model.Entity<AnswerPass>().HasOne(a => a.Pass).WithMany(p => p.Answers).HasForeignKey(a => a.PassId).OnDelete(DeleteBehavior.NoAction);
+            model.Entity<AnswerPass>().HasOne(a => a.Question).WithMany(q => q.Answered).HasForeignKey(a => a.QuestionId).OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

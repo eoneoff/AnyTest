@@ -3,21 +3,18 @@
     <ValidatableForm @ref="form" Model="Person" OnSubmit="OnSubmit" Unchanged="@unchanged" Disabled="@Disabled" HideButtons="@HideButtons" OnCancel="@OnCancel"
                      OkButtonText="@((Person?.Id ?? 0) == 0 ? Localizer[nameof(Resources.Create)] : Localizer[nameof(Resources.Save)])">
 
-        <ValidatableFormField Wide="@Wide" Label="@($"{Localizer[nameof(Resources.FamilyName)]}:")" Id="firstname">
+        <ValidatableFormField Wide="@Wide" Label="@Localizer[nameof(Resources.FamilyName)]" Id="firstname">
             <ValidationMessage For="@(()=>Person.FamilyName)" />
             <InputText Id="firstname" Class="form-control" @bind-Value="Person.FamilyName" @oninput="@(()=>unchanged = false)" disabled="@Disabled" />
         </ValidatableFormField>
-        <ValidatableFormField Wide="@Wide" Label="@($"{Localizer[nameof(Resources.FirstName)]}:")" Id="firstname">
+        <ValidatableFormField Wide="@Wide" Label="@Localizer[nameof(Resources.FirstName)]" Id="firstname">
             <ValidationMessage For="@(()=>Person.FirstName)" />
             <InputText Id="firstname" Class="form-control" @bind-Value="Person.FirstName" @oninput="@(()=>unchanged = false)" disabled="@Disabled" />
         </ValidatableFormField>
-        <ValidatableFormField Wide="@Wide" Label="@($"{Localizer[nameof(Resources.Patronimic)]}:")" Id="patronimic">
+        <ValidatableFormField Wide="@Wide" Label="@Localizer[nameof(Resources.Patronimic)]" Id="patronimic">
             <InputText Id="patronimic" Class="form-control" @bind-Value="Person.Patronimic" @oninput="@(()=>unchanged = false)" disabled="@Disabled" />
         </ValidatableFormField>
-        <ValidatableFormField Wide="@Wide" Label="@($"{Localizer[nameof(Resources.Phone)]}:")" Id="phone">
-            <InputText Id="phone" Class="form-control" @bind-Value="Person.Phone" @oninput="@(()=>unchanged = false)" disabled="@Disabled" />
-        </ValidatableFormField>
-        <ValidatableFormField Wide="@Wide" Label="@($"{Localizer[nameof(Resources.Phone)]}:")" Id="phone">
+        <ValidatableFormField Wide="@Wide" Label="@Localizer[nameof(Resources.Phone)]" Id="phone">
             <InputText Id="phone" Class="form-control" @bind-Value="Person.Phone" @oninput="@(()=>unchanged = false)" disabled="@Disabled" />
         </ValidatableFormField>
         <ValidatableFormField Wide="@Wide" Label="e-mail:" Id="personEmail">

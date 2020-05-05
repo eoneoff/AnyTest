@@ -255,6 +255,9 @@
   <data name="OneCorrectOption" xml:space="preserve">
     <value>Одна відповідь</value>
   </data>
+  <data name="Pass" xml:space="preserve">
+    <value>Пройти</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Пароль</value>
   </data>

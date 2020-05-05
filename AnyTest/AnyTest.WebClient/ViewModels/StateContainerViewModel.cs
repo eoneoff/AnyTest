@@ -90,9 +90,8 @@ namespace AnyTest.WebClient.ViewModels
             if(person.Id == 0)
             {
                 Person = await _httpClient.PostJsonAsync<Person>("people", person);
-                roles ??= new List<string>();
-                if(roles.Contains("Tutor")) await SaveTutor(new Tutor());
-                if(roles.Contains("Student")) await SaveStudent(new Student());
+                if(roles?.Contains("Tutor") ?? false) await SaveTutor(new Tutor());
+                if(roles?.Contains("Student") ?? false) await SaveStudent(new Student());
             }
 
             else Person = await _httpClient.PutJsonAsync<Person>($"people/{person.Id}", person);

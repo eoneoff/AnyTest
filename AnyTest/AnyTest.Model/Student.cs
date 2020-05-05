@@ -17,5 +17,6 @@ namespace AnyTest.Model
 
         public virtual ICollection<StudentTest> Tests { get; set; }
         public virtual ICollection<StudentCourse> Courses { get; set; }
+        public virtual ICollection<TestPass> Passes { get; set; }
     }
 }

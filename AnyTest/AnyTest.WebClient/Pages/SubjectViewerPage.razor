@@ -1,0 +1,41 @@
+﻿@page "/student/subjects/{Id:long}"
+@inject HttpClient _httpClient;
+@layout StudentPageLayout
+
+<div class="p-5">
+    <table class="table table-borderless table-hover">
+        <tr>
+            <th class="text-right">@Localizer[nameof(Resources.Name)]:</th>
+            <td>@subject.Name</td>
+        </tr>
+    </table>
+</div>
+
+@if (loading)
+{
+    <div class="modal-backdrop">
+        <div class="d-flex justify-content-center flex-column align-items-center h-100">
+            <div class="spinner-border text-white" style="width:20vh; height:20vh;border-width:30px;"></div>
+            <h3 class="text-white font-weight-bold">@(Localizer[nameof(Resources.PleaseWait)])...</h3>
+        </div>
+    </div>
+}
+
+@code
+{
+    private bool loading = false;
+    private Subject subject = new Subject();
+
+    [Parameter]
+    public long Id { get; set; } = 0;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (Id != 0)
+        {
+            loading = true;
+            subject = await _httpClient.GetJsonAsync<Subject>($"subjects/{Id}");
+            loading = false;
+        }
+    }
+}

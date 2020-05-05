@@ -33,5 +33,6 @@ namespace AnyTest.Model
         [JsonIgnore]
         [ForeignKey(nameof(TestQuestionId))]
         public virtual TestQuestion TestQuestion { get; set; }
+        public virtual ICollection<AnswerPass> Answered { get; set; }
     }
 }
