@@ -358,6 +358,24 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Завершити тест.
+        /// </summary>
+        public static string FinishTest {
+            get {
+                return ResourceManager.GetString("FinishTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Завершити тест {0} та зберегти результат.
+        /// </summary>
+        public static string FinistTestAndSubmitResult {
+            get {
+                return ResourceManager.GetString("FinistTestAndSubmitResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Ім&apos;я.
         /// </summary>
         public static string FirstName {

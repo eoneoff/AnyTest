@@ -216,6 +216,12 @@
   <data name="FamilyName" xml:space="preserve">
     <value>Фамілія</value>
   </data>
+  <data name="FinishTest" xml:space="preserve">
+    <value>Завершити тест</value>
+  </data>
+  <data name="FinistTestAndSubmitResult" xml:space="preserve">
+    <value>Завершити тест {0} та зберегти результат</value>
+  </data>
   <data name="FirstName" xml:space="preserve">
     <value>Ім'я</value>
   </data>

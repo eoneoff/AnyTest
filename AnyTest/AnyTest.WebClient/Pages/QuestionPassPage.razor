@@ -1,3 +1,90 @@
-﻿@page "/student/tests/{Id:long}/pass"
+﻿@page "/tests/{Id:long}/pass"
 @inject HttpClient _httpClient;
 @layout StudentPageLayout
+
+    <div class="p-5 d-flex flex-lg-column">
+        @if ((pass?.Test?.Id ?? 0) != 0)
+        {
+            <h4>@pass?.Test?.Name</h4>
+            @if (!solved)
+            {
+                @foreach (var question in (pass?.Test?.TestQuestions ?? new List<TestQuestion>()))
+                {
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            @question.Question
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                @foreach (var answer in question.TestAnswers)
+                                {
+                                    <li class="list-group-item d-flex flex-row">
+                                        <span class="flex-grow-1 text-left">@answer.Answer</span>
+                                        <CollectionSelectCheckBox Model="pass.Answers" Value="new AnswerPass { QuestionId = question.Id, AnswerId = answer.Id, Answer = answer}" Key="answer.Id"
+                                                                  Id="@($"answer_{answer.Id}")" Selector="@((value, key) => value.AnswerId == key)" />
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                }
+                <button type="button" class="btn btn-success ml-auto" @onclick="() => saveConfirmationDialog.Show()">@Localizer[nameof(Resources.FinishTest)]</button>
+            }
+            else
+            {
+                 <div class="progress" style="height:35px;">
+                     <div class="progress-bar progress-bar-striped @ProgressColor" style="width:@(CorrectPercent ?? 00)%">@CorrectPercent%</div>
+                 </div>
+            }
+        }
+    </div>
+
+<ModalDialog @ref="saveConfirmationDialog" OnConfirm="() => solved = true">
+    <Header>@Localizer[nameof(Resources.FinishTest)]</Header>
+    <Content>
+        @(string.Format(Localizer[nameof(Resources.FinistTestAndSubmitResult)].Value, pass?.Test?.Name))
+    </Content>
+</ModalDialog>
+
+@if (loading)
+{
+    <div class="modal-backdrop">
+        <div class="d-flex justify-content-center flex-column align-items-center h-100">
+            <div class="spinner-border text-white" style="width:20vh; height:20vh;border-width:30px;"></div>
+            <h3 class="text-white font-weight-bold">@(Localizer[nameof(Resources.PleaseWait)])...</h3>
+        </div>
+    </div>
+}
+
+@code
+{
+    private bool loading = false;
+    private bool solved = false;
+    private TestPass pass = new TestPass();
+    private ModalDialog saveConfirmationDialog;
+
+    [Parameter]
+    public long Id { get; set; }
+
+    private int? CorrectPercent => pass?.Answers?.Sum(a => a.Answer.Percent)/pass?.Test?.TestQuestions?.Count();
+    private string ProgressColor =>
+        CorrectPercent switch
+        {
+            int n when n > 90 => "bg-success",
+            int n when n > 60 => "bg-warning",
+            _ => "bg-danger"
+        };
+
+    protected override async Task OnParametersSetAsync()
+    {
+        var test = await _httpClient.GetJsonAsync<Test>($"tests/{Id}");
+
+        pass = new TestPass
+        {
+            StudentId = State.Person.Id,
+            TestId = test.Id,
+            Test = test,
+            Answers = new List<AnswerPass>()
+        };
+    }
+}

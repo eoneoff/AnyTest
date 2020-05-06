@@ -1,0 +1,38 @@
+﻿@typeparam TItem
+@typeparam UItem
+
+<div class="custom-control custom-checkbox">
+    <input type="checkbox" @bind="Checked" class="custom-control-input" id="@Id" />
+    <label class="custom-control-label" for="@Id">@Label</label>
+</div>
+
+@code
+{
+    private bool Checked
+    {
+        get => Model.Any(item =>  Selector(item, Key));
+        set
+        {
+            if (!value) Model.Remove(Value);
+            else if (!Model.Any(item => Selector(item, Key))) Model.Add(Value);
+        }
+    }
+
+    [Parameter]
+    public TItem Value { get; set; }
+
+    [Parameter]
+    public ICollection<TItem> Model { get; set; }
+
+    [Parameter]
+    public UItem Key { get; set; }
+
+    [Parameter]
+    public Func<TItem, UItem, bool> Selector { get; set; }
+
+    [Parameter]
+    public string Label { get; set; }
+
+    [Parameter]
+    public string Id { get; set; }
+}
