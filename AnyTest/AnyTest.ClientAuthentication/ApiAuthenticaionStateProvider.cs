@@ -54,7 +54,7 @@ namespace AnyTest.ClientAuthentication
                 return new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity()));
             }
 
-            if(TokenExprired(savedToken))
+            if(TokenExpired(savedToken))
             {
                 await _localStorage.RemoveItemAsync("authToken");
                 return new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity()));
@@ -101,7 +101,7 @@ namespace AnyTest.ClientAuthentication
         /// \~ukrainian JWT токен
         /// </param>
         /// <returns></returns>
-        private bool TokenExprired (string jwt) =>
+        public static bool TokenExpired (string jwt) =>
             new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Local).AddSeconds(long.Parse(ParseClaimsFromJwt(jwt).FirstOrDefault(c => c.Type == "exp")?.Value)) < DateTime.Now;
 
         /// <summary>
@@ -116,7 +116,7 @@ namespace AnyTest.ClientAuthentication
         /// \~english A collection of Claimes, containint data from JWT token
         /// \~ukrainian Колекція Клеймів, які містять дані з JWT токена
         /// </returns>
-        private IEnumerable<Claim> ParseClaimsFromJwt(string jwt)
+        private static IEnumerable<Claim> ParseClaimsFromJwt(string jwt)
         {
             var claims = new List<Claim>();
             var payload = jwt.Split('.')[1];//Gets paload from jwt token
@@ -153,7 +153,7 @@ namespace AnyTest.ClientAuthentication
         /// </summary>
         /// <param name="base64">JWT tokey payload string</param>
         /// <returns>byte sequence</returns>
-        private byte[] ParseBase64WithoutPadding(string base64)
+        private static byte[] ParseBase64WithoutPadding(string base64)
         {
             switch(base64.Length % 4)
             {

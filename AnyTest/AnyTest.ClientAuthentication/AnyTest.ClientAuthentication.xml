@@ -47,7 +47,7 @@
             \~ukrainian Позначає, що коритсувач вийшов для компонента <c>AuthorizeView</c>
             </summary>
         </member>
-        <member name="M:AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider.TokenExprired(System.String)">
+        <member name="M:AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider.TokenExpired(System.String)">
             <summary>
             \~english Defines if current token is expired
             \~ukrainian Визначає, чи не сплив термін дії збереженого токену

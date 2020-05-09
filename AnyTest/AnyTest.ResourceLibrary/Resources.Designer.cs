@@ -745,6 +745,15 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Нажміть &quot;назад&quot; ще раз щоб вийти.
+        /// </summary>
+        public static string TapBackAgainToExit {
+            get {
+                return ResourceManager.GetString("TapBackAgainToExit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Тест.
         /// </summary>
         public static string Test {

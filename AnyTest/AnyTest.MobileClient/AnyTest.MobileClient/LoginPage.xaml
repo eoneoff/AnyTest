@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:res="clr-namespace:AnyTest.ResourceLibrary;assembly=AnyTest.ResourceLibrary"
+             mc:Ignorable="d"
+             x:Class="AnyTest.MobileClient.LoginPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="{StaticResource BaseBackColor}">
+            <StackLayout HorizontalOptions="Fill" VerticalOptions="CenterAndExpand" Margin="10,0">
+                <Frame BackgroundColor="{StaticResource ErrorBackground}"  CornerRadius="5"
+                       x:Name="WrongCredentialsMessage" IsVisible="False">
+                    <Label Text="{x:Static res:Resources.UsernameOrPasswordInvalid}" TextColor="Red"/>
+                </Frame>
+                <Frame Padding="5" CornerRadius="5">
+                    <StackLayout>
+                        <Label Text="{x:Static res:Resources.Login}" />
+                        <Entry Text="{Binding UserName}" Keyboard="Text"/>
+                        <Label Text="{x:Static res:Resources.Password}"/>
+                        <Entry IsPassword="True" Text="{Binding Password}" Keyboard="Text"/>
+                        <Button Text="{x:Static res:Resources.DoLogin}" Clicked="LoginButtonClicked"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

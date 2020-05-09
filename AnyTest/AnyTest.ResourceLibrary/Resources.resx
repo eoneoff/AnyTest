@@ -345,6 +345,9 @@
   <data name="Subjects" xml:space="preserve">
     <value>Предмети</value>
   </data>
+  <data name="TapBackAgainToExit" xml:space="preserve">
+    <value>Нажміть "назад" ще раз щоб вийти</value>
+  </data>
   <data name="Test" xml:space="preserve">
     <value>Тест</value>
   </data>

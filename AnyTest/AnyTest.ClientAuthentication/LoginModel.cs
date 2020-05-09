@@ -18,7 +18,7 @@ namespace AnyTest.ClientAuthentication
         /// </summary>
         [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = nameof(Resources.LoginRequired))]
         [Display(ResourceType = typeof(Resources), Name = nameof(Resources.UserName))]
-        public string UserName { get; set; }
+        public virtual string UserName { get; set; }
 
         /// <summary>
         /// \~english Password
@@ -26,12 +26,12 @@ namespace AnyTest.ClientAuthentication
         /// </summary>
         [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = nameof(Resources.PasswordRequired))]
         [Display(ResourceType = typeof(Resources), Name = nameof(Resources.Password))]
-        public string Password { get; set; }
+        public virtual string Password { get; set; }
 
         /// <summary>
         /// \~english Parameter to remember user
         /// \~ukrainian Запам'ятати користувача
         /// </summary>
-        public bool RememberMe { get; set; }
+        public virtual bool RememberMe { get; set; }
     }
 }
