@@ -24,7 +24,11 @@ namespace AnyTest.MobileClient
         private async void LoginButtonClicked(object sender, EventArgs e)
         {
             var result = await AppState.Login(Model);
-            if (result.Sussessfull) await Navigation.PushAsync(new MainPage());
+            if (result.Sussessfull)
+            {
+                WrongCredentialsMessage.IsVisible = false;
+                await Navigation.PushAsync(new MainPage());
+            }
             else WrongCredentialsMessage.IsVisible = true;
         }
     }

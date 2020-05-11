@@ -16,10 +16,10 @@ namespace AnyTest.Model
 
         [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = nameof(Resources.EnterAnswer))]
         [Display(ResourceType = typeof(Resources), Name = nameof(Resources.Answer))]
-        public string Answer { get; set; }
+        public virtual string Answer { get; set; }
 
         [Range(0, 100)]
-        public int Percent { get; set; }
+        public virtual int Percent { get; set; }
 
         [Required]
         public int OrderNo { get; set; }

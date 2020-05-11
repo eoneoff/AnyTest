@@ -16,7 +16,7 @@ namespace AnyTest.Model
 
         [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = nameof(Resources.EnterQuestion))]
         [Display(ResourceType = typeof(Resources), Name = nameof(Resources.Question))]
-        public string Question { get; set; }
+        public virtual string Question { get; set; }
 
         [Required]
         public long TestId { get; set; }

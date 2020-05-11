@@ -18,6 +18,7 @@ namespace AnyTest.MobileClient
         public MainPage()
         {
             InitializeComponent();
+            AppState.LoadTestsList();
         }
 
         protected override bool OnBackButtonPressed()

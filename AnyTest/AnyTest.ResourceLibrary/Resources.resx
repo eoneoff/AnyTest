@@ -258,6 +258,9 @@
   <data name="NewTest" xml:space="preserve">
     <value>Новий тест</value>
   </data>
+  <data name="No" xml:space="preserve">
+    <value>Ні</value>
+  </data>
   <data name="OneCorrectOption" xml:space="preserve">
     <value>Одна відповідь</value>
   </data>
@@ -377,5 +380,8 @@
   </data>
   <data name="WrongEmailFormat" xml:space="preserve">
     <value>Невірний формат електронної адреси</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Так</value>
   </data>
 </root>

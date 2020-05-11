@@ -2,5 +2,25 @@
 <ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <Color x:Key="BaseBackColor">#577534</Color>
+    <Color x:Key="DarkerBackColor">#3c4f26</Color>
     <Color x:Key="ErrorBackground">#eda79d</Color>
+    <Color x:Key="NeutralBackground">White</Color>
+
+    <Style x:Key="LinkButton" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource NeutralBackground}"/>
+        <Setter Property="BorderWidth" Value="0"/>
+        <Setter Property="BorderColor" Value="{StaticResource BaseBackColor}"/>
+        <Setter Property="TextColor" Value="{StaticResource BaseBackColor}"/>
+        <Style.Triggers>
+            <Trigger Property="IsPressed" Value="True" TargetType="Button">
+                <Setter Property="TextColor" Value="{StaticResource DarkerBackColor}"/>
+                <Setter Property="ScaleX" Value="0.95"/>
+                <Setter Property="ScaleY" Value="0.95"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="LinkLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource BaseBackColor}"/>
+        <Setter Property="TextDecorations" Value="Underline"/>
+    </Style>
 </ResourceDictionary>

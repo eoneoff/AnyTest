@@ -4,30 +4,25 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:res="clr-namespace:AnyTest.ResourceLibrary;assembly=AnyTest.ResourceLibrary"
+             xmlns:local="clr-namespace:AnyTest.MobileClient"
              mc:Ignorable="d"
              x:Class="AnyTest.MobileClient.SubjectsPage">
     <ContentPage.Content>
         <StackLayout BackgroundColor="{StaticResource BaseBackColor}">
             <Frame Margin="5" CornerRadius="5" HorizontalOptions="Fill" VerticalOptions="Fill">
-                <StackLayout>
-                    <ListView>
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <ViewCell.View>
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="auto"/>
-                                            </Grid.ColumnDefinitions>
-                                            <Label Grid.Column="0" Text="{x:Static res:Resources.Name}"/>
-                                            <Label Grid.Column="1"/>
-                                        </Grid>
-                                    </ViewCell.View>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </StackLayout>
+                <ListView x:Name="SubjectsList" ItemsSource="{x:Static local:AppState.Subjects}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout>
+                                        <Button Style="{StaticResource LinkButton}" Text="{Binding Name}"/>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </Frame>
         </StackLayout>
     </ContentPage.Content>

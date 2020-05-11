@@ -81,3 +81,23 @@ dotnet tool install --global dotnet-ef
 Чтобы иметь возможность получить их при клонировании или пулл-реквесте репозитория, необходимо скачать и установить [Git Large File Storage](https://git-lfs.github.com/). После установки больше ничего делать не надо, файлы резервных копий будут скачиваться как любые другие файлы в репозитории. Восстановить базы из резервных копий можно при помощи **Microsoft SQL Server Management Studio**
 
 В базе пользователей присутсвуют аккаутны преподавателя (логин `tutor` пароль `Tutorr_1`) и студента (логин `student` пароль `Student_1`), которые можно использовать для тестирования соответсвующих функций.
+
+# Настройка эмулятора Android
+
+В решение добавлены проекты приложения на Android. Для запуска и отладки приложений необходимо иметь рабочий эмулятора Android или подключенное к копьютеру устройство Android с включенным рехимом разработчика.
+
+[Инструкции по настройке и установке поддержки Android в Visual Studio](https://docs.microsoft.com/ru-ru/xamarin/android/get-started/installation/windows)
+
+[Инструкции по настройке и установке пакетов SDK](https://docs.microsoft.com/ru-ru/xamarin/android/get-started/installation/android-sdk?tabs=windows)
+
+[Инструкции по настройке и установке эмулятора Android](https://docs.microsoft.com/ru-ru/xamarin/android/get-started/installation/android-emulator/device-manager?tabs=windows&pivots=windows)
+
+[Инструкции по настройке и установке сетевого соединения на эмуляторе](https://developer.android.com/studio/run/emulator-networking)
+
+[Инструкции по настройке и установке устройства Android для отладки](https://docs.microsoft.com/ru-ru/xamarin/android/get-started/installation/set-up-device-for-development)
+
+Для того, чтобы эмулятор или физическое устройство имело доступ к запущенной службе, необходимо открыть порт службы (в приложении по умолчанию установлен 44358) в брандмауэре Windows для пакетов TCP ([Инструкции как это следать](https://vynesimozg.com/otkryt-port-v-brandmauere-windows-10/)
+
+Чтобы андроид-устройство могло подключаться к слжубе, нужно, чтобы оно было подключено через Wi-Fi к той же локальной сети, к которой подключен компьютер, на котором находится сервер службы данных. IP-адрес службы захардкоженый в приложении 192.168.0.115. Изменение этого адреса пока не реализовано, поэтому можно либо сменить IP-адрес сервера, либо исправить его в коде (файл AnyTest/AnyTest.MobileClient/AnyTest.MobileClient/AppState.cs, строка 28)
+
+

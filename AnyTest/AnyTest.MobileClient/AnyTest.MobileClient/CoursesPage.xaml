@@ -3,32 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:res="clr-namespace:AnyTest.ResourceLibrary;assembly=AnyTest.ResourceLibrary"
+             xmlns:local="clr-namespace:AnyTest.MobileClient"
              mc:Ignorable="d"
              x:Class="AnyTest.MobileClient.CoursesPage">
     <ContentPage.Content>
         <StackLayout BackgroundColor="{StaticResource BaseBackColor}">
             <Frame Margin="5" CornerRadius="5" HorizontalOptions="Fill" VerticalOptions="Fill">
                 <StackLayout>
-                    <ListView>
+                    <ListView x:Name="CoursesList" ItemsSource="{x:Static local:AppState.Courses}">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
                                     <ViewCell.View>
-                                        <Grid>
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition/>
-                                                <RowDefinition/>
-                                            </Grid.RowDefinitions>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="auto"/>
-                                                <ColumnDefinition/>
-                                            </Grid.ColumnDefinitions>
-                                            <Label Grid.Row="0" Grid.Column="0" Text="{x:Static res:Resources.Name}"/>
-                                            <Label Grid.Row="0" Grid.Column="1"/>
-                                            <Label Grid.Row="1" Grid.Column="0" Text="{x:Static res:Resources.Subject}"/>
-                                            <Label Grid.Row="1" Grid.Column="1"/>
-                                        </Grid>
+                                        <StackLayout>
+                                            <Button Style="{StaticResource LinkButton}" Text="{Binding Name}"/>
+                                        </StackLayout>
                                     </ViewCell.View>
                                 </ViewCell>
                             </DataTemplate>

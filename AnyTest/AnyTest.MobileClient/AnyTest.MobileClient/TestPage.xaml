@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:AnyTest.MobileClient"
+             xmlns:res="clr-namespace:AnyTest.ResourceLibrary;assembly=AnyTest.ResourceLibrary"
+             mc:Ignorable="d"
+             x:Class="AnyTest.MobileClient.TestPage"
+             BindingContext="{Binding Source={RelativeSource Self}, Path=Test}">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="{StaticResource BaseBackColor}">
+            <ListView VerticalOptions="Start" ItemsSource="{Binding Questions}" Margin="5,10" HasUnevenRows="True" SelectionMode="None">
+                <ListView.Header>
+                    <Frame Padding="5" CornerRadius="5" BackgroundColor="{StaticResource NeutralBackground}" Margin="0,0,0,10">
+                        <Label FontSize="25" FontAttributes="Bold" Text="{Binding Name}"/>
+                    </Frame>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <local:QuestionCell Pass="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=Pass}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button VerticalOptions="Start" Text="{x:Static res:Resources.FinishTest}" Clicked="SubmitButton_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

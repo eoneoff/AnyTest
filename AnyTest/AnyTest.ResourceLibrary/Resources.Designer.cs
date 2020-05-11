@@ -484,6 +484,15 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Ні.
+        /// </summary>
+        public static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Одна відповідь.
         /// </summary>
         public static string OneCorrectOption {
@@ -840,6 +849,15 @@ namespace AnyTest.ResourceLibrary {
         public static string WrongEmailFormat {
             get {
                 return ResourceManager.GetString("WrongEmailFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Так.
+        /// </summary>
+        public static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
     }

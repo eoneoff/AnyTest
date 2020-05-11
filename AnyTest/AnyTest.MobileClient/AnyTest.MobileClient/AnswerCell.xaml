@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AnyTest.MobileClient.AnswerCell">
+  <ViewCell.View>
+      <StackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Text="{Binding Answer}"/>
+                <CheckBox Grid.Column="1" IsChecked="{Binding Source={RelativeSource AncestorType={x:Type ViewCell}}, Path=IsSelected}"/>
+            </Grid>
+      </StackLayout>
+  </ViewCell.View>
+</ViewCell>
