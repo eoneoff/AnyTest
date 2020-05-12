@@ -127,16 +127,25 @@
     <value>Додати курс</value>
   </data>
   <data name="AddCourseToTest" xml:space="preserve">
-    <value>Додати тес до курсу {0}</value>
+    <value>Додати тест до курсу {0}</value>
   </data>
   <data name="AddQuestion" xml:space="preserve">
     <value>Додайте питання</value>
+  </data>
+  <data name="AddStudentToCourse" xml:space="preserve">
+    <value>Додати студента до курсу</value>
+  </data>
+  <data name="AddStudentToCourseParam" xml:space="preserve">
+    <value>Додати студента {0} до курсу {1}</value>
   </data>
   <data name="AddSubject" xml:space="preserve">
     <value>Додати предмет</value>
   </data>
   <data name="AddSubjectToTest" xml:space="preserve">
     <value>Додати тест до предмету {0}</value>
+  </data>
+  <data name="AddToCourse" xml:space="preserve">
+    <value>Додати до курсу</value>
   </data>
   <data name="AddUser" xml:space="preserve">
     <value>Додати користувача</value>
@@ -225,6 +234,9 @@
   <data name="FirstName" xml:space="preserve">
     <value>Ім'я</value>
   </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Ім'я</value>
+  </data>
   <data name="ItemsPerPage" xml:space="preserve">
     <value>Записів на сторінці</value>
   </data>
@@ -303,6 +315,12 @@
   <data name="RemoveCourse" xml:space="preserve">
     <value>Видалити курс</value>
   </data>
+  <data name="RemoveFromCourse" xml:space="preserve">
+    <value>Видалити з курсу</value>
+  </data>
+  <data name="RemoveStudentFromCourseParam" xml:space="preserve">
+    <value>Видалити студента {0} з курсу {1}</value>
+  </data>
   <data name="RemoveSubject" xml:space="preserve">
     <value>Видалити предмет</value>
   </data>
@@ -339,8 +357,14 @@
   <data name="Student" xml:space="preserve">
     <value>Студент</value>
   </data>
+  <data name="StudentInfo" xml:space="preserve">
+    <value>Дані студента</value>
+  </data>
   <data name="StudentRegistration" xml:space="preserve">
     <value>Реєстрація студента</value>
+  </data>
+  <data name="Students" xml:space="preserve">
+    <value>Студенти</value>
   </data>
   <data name="Subject" xml:space="preserve">
     <value>Предмет</value>

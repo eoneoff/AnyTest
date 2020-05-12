@@ -1,0 +1,46 @@
+﻿@page "/tutor/students"
+@attribute [Microsoft.AspNetCore.Authorization.Authorize(Roles = "Tutor")]
+
+<div class="m-5">
+    <PageView Items="State.Students" PageSize="12" HeaderClass="thead-light" ContainerClass="table-borderless table-sm table-hover">
+        <Header>
+            <tr>
+                <th>@Localizer[nameof(Resources.FullName)]</th>
+                <th></th>
+            </tr>
+        </Header>
+        <ItemTemplate Context="student">
+            <tr @onclick="() => selectedStudent = student" class="@(student.Id == selectedStudent?.Id ? "selected-table-row" : "")">
+                <td>@($"{student?.Person?.FamilyName} {student?.Person?.FirstName} {student?.Person?.Patronimic}")</td>
+                <td class="text-right"><a href="@($"tutor/students/{student.Id}")" @onclick="()=>selectedStudent = new Student()" class="btn btn-success" ><i class="fa fa-user-cog"></i></a></td>
+            </tr>
+        </ItemTemplate>
+    </PageView>
+</div>
+
+@if (loading)
+{
+    <div class="modal-backdrop">
+        <div class="d-flex justify-content-center flex-column align-items-center h-100">
+            <div class="spinner-border text-white" style="width:20vh; height:20vh;border-width:30px;"></div>
+            <h3 class="text-white font-weight-bold">@(Localizer[nameof(Resources.PleaseWait)])...</h3>
+        </div>
+    </div>
+}
+
+@code
+{
+    private bool loading = false;
+    private ModalDialog addToCourseDialog;
+    private ModalDialog addToCourseConfirmationDialog;
+    private Student selectedStudent = new Student();
+    private long selectedCourseId = 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        loading = true;
+        if(!State?.Students?.Any() ?? false) await State.GetStudents();
+        if (!State.Courses.Any()) await State.GetTestsList();
+        loading = false;
+    }
+}

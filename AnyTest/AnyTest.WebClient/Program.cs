@@ -27,7 +27,7 @@ namespace AnyTest.WebClient
             builder.Services.AddBlazoredLocalStorage();
             builder.Services.AddAuthorizationCore();
 
-            builder.Services.AddSingleton(typeof(HttpClient), new HttpClient { BaseAddress = new Uri("https://localhost:44358/api/") });
+            builder.Services.AddSingleton(typeof(HttpClient), new HttpClient { BaseAddress = new Uri("https://192.168.0.115:44358/api/") });
             builder.Services.AddSingleton<StateContainerViewModel>();
 
             builder.Services.AddScoped<AuthenticationStateProvider, ApiAuthenticaionStateProvider>();

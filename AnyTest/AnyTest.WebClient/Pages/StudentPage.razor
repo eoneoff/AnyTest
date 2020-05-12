@@ -1,0 +1,97 @@
+﻿@page "/tutor/students/{StudentId:long}"
+@inject HttpClient _httpClient;
+
+    <div class="p-5">
+        <div class="card m-5 flex-grow-1">
+            <h3 class="card-header">
+                @Localizer[nameof(Resources.StudentInfo)]
+            </h3>
+            <div class="card-body">
+                <PersonViewer Person="student?.Person" />
+            </div>
+        </div>
+        <h5>@Localizer[nameof(Resources.Courses)]</h5>
+        <div class="d-flex flex-column flex-lg-row">
+            <select class="custom-select mr-lg-1" @bind="selectedCourseId">
+                <option value="0"></option>
+                @foreach (var course in AvailableCourses)
+                {
+                    <option @key="course.Id" value="@course.Id">@course.Name</option>
+                }
+            </select>
+            <button type="button" class="btn btn-success mt-1 mt-lg-0 text-nowrap" @onclick="AddCourseClicked">@Localizer[nameof(Resources.AddToCourse)]</button>
+        </div>
+        <div class="mt-2 p=2 border border-success">
+            <table class="table table-sm table-borderless mb-0">
+                @foreach (var course in (student?.Courses ?? new List<StudentCourse>()))
+                {
+                    <tr>
+                        <td class="align-middle">@(State?.Courses?.FirstOrDefault(c => c.Id == course.CourseId)?.Name)</td>
+                        <td class="text-right"><button type="button" class="btn btn-outline-danger" @onclick="()=>RemoveCourseClicked(course.CourseId)"><i class="fa fa-trash"></i></button></td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+
+<ModalDialog @ref="confirmationDialog" OnConfirm="OnConfirm">
+    <Header>@confirmationDialogHeader?</Header>
+    <Content>
+        @confirmationDialogContent
+    </Content>
+</ModalDialog>
+
+@code
+{
+    [Parameter]
+    public long StudentId { get; set; } = 0;
+
+    private long selectedCourseId = 0;
+    private Student student = new Student();
+    private IEnumerable<Course> AvailableCourses=> State?.Courses?.Where(c => !(student?.Courses?.Any(sc => sc.CourseId == c.Id) ?? false)) ?? new List<Course>();
+
+    private ModalDialog confirmationDialog;
+    private string confirmationDialogHeader;
+    private string confirmationDialogContent;
+    private Action OnConfirm;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (!(State?.Students?.Any() ?? false) && StudentId != 0)
+        {
+            student = new Student { Person = State.LoadingStub };
+            student = await _httpClient.GetJsonAsync<Student>($"students/{StudentId}");
+        }
+        else
+            student = State?.Students?.FirstOrDefault(s => s.Id == StudentId) ?? new Student();
+    }
+
+    private void AddCourseClicked()
+    {
+        if (selectedCourseId != 0)
+        {
+            confirmationDialogHeader = Localizer[nameof(Resources.AddToCourse)];
+            confirmationDialogContent = string.Format(Localizer[nameof(Resources.AddStudentToCourseParam)].Value,
+                                                    $"{student?.Person?.FamilyName} {student?.Person?.FirstName} {student?.Person?.Patronimic}".Trim(),
+                                                    State?.Courses?.FirstOrDefault(c => c.Id == selectedCourseId).Name);
+            OnConfirm = () =>
+            {
+                student ??= new Student();
+                student.Courses ??= new List<StudentCourse>();
+                student.Courses.Add(new StudentCourse { StudentId = StudentId, CourseId = selectedCourseId });
+                selectedCourseId = 0;
+            };
+            confirmationDialog.Show();
+        }
+    }
+
+    private void RemoveCourseClicked(long courseId)
+    {
+        confirmationDialogHeader = Localizer[nameof(Resources.RemoveFromCourse)];
+        confirmationDialogContent = string.Format(Localizer[nameof(Resources.RemoveStudentFromCourseParam)].Value,
+            $"{student?.Person?.FamilyName} {student?.Person?.FirstName} {student?.Person?.Patronimic}".Trim(),
+            State?.Courses?.FirstOrDefault(c => c.Id == courseId).Name);
+        OnConfirm = () => student.Courses = student.Courses.Where(c => c.CourseId != courseId).ToList();
+        confirmationDialog.Show();
+    }
+}

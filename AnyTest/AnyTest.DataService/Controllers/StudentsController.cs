@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace AnyTest.DataService.Controllers
 {
@@ -52,7 +53,7 @@ namespace AnyTest.DataService.Controllers
         /// </code>
         /// </example>
         [HttpGet]
-        [Authorize(Roles="Administrator")]
+        [Authorize(Roles="Administrator, Tutor")]
         public async Task<IEnumerable<Student>> Get() => await _repository.Get();
 
         /// <summary>
@@ -183,7 +184,33 @@ namespace AnyTest.DataService.Controllers
             return Ok(await _repository.Delete(id));
         }
 
-         private async Task<bool> IsOwner(long id)
+        /// <summary>
+        /// \~english Returns paginaged list of stucents
+        /// \~ukrainian Повертає список студентів, розбитий на сторінки
+        /// </summary>
+        /// <param name="pageNumber">
+        /// \~english page number
+        /// \~ukrainian Номер сторінки
+        /// </param>
+        /// <param name="pageSize">
+        /// \~english Page size
+        /// \~ Розмір сторінки
+        /// </param>
+        /// <returns>
+        /// \~english A page from list of students
+        /// \~ukrainian Сторінка списку студентів
+        /// </returns>
+        /// <example>
+        /// \~english An example of HTTP request got paginated list of students
+        /// \~ukrainian Приклад HTTP запиту списку студентів, розбитого на сторінки
+        /// <code>
+        /// GET: api/Students/page/3/12
+        /// </code>
+        /// </example>
+        [HttpGet("page/{pageNumber:int}/{pageSize:int}")]
+        public async Task<IEnumerable<Student>> GetStudentsPage(int pageNumber, int pageSize) => await (_repository as IStudentsRepository).GetStudentPage(pageNumber, pageSize);
+
+        private async Task<bool> IsOwner(long id)
         {
             var userEmail = (HttpContext.User.Identity as ClaimsIdentity).FindFirst(ClaimTypes.Email).Value;
             var personEmail = (await _people.Get(id)).Email;

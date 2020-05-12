@@ -21,6 +21,7 @@ namespace AnyTest.WebClient.ViewModels
 
         public Person Person { get; private set; } = new Person();
         public List<UserInfo> Users { get; private set; } = new List<UserInfo>();
+        public List<Student> Students { get; private set; } = new List<Student>();
 
         public Dictionary<string, List<TestsTreeModel>> TestsTreeList { get; private set; } = new Dictionary<string, List<TestsTreeModel>>();
 
@@ -35,7 +36,7 @@ namespace AnyTest.WebClient.ViewModels
         public IEnumerable<Test> Tests =>
             TestsTreeList.ContainsKey("tests") ? TestsTreeList["tests"].Select(tm => new Test { Id = tm.Id, Name = tm.Name }) : new List<Test>();
 
-        private Person LoadingStub = new Person
+        public Person LoadingStub = new Person
         {
             FirstName = "Loading...",
             FamilyName = "Loading...",
@@ -190,6 +191,11 @@ namespace AnyTest.WebClient.ViewModels
             }
 
             await GetTestsList();
+        }
+
+        public async Task GetStudents()
+        {
+            Students = await _httpClient.GetJsonAsync<List<Student>>("students");
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
+using System.Text.Json.Serialization;
 using AnyTest.ResourceLibrary;
 
 namespace AnyTest.Model
@@ -32,7 +33,9 @@ namespace AnyTest.Model
         [Display(Name = "e-mail")]
         public string Email { get; set; }
 
+        [JsonIgnore]
         public virtual Tutor Tutor { get; set; }
+        [JsonIgnore]
         public virtual Student Student { get; set; }
     }
 }

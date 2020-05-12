@@ -22,7 +22,10 @@
                             <AuthorizeView Roles="Tutor">
                                 <Authorized>
                                     <li class="nav-item">
-                                        <NavLink class="nav-link" href="tutor" Match="NavLinkMatch.Prefix">@Localizer[nameof(Resources.Courses)]</NavLink>
+                                        <NavLink class="nav-link" href="tutor/tests" Match="NavLinkMatch.Prefix">@Localizer[nameof(Resources.Courses)]</NavLink>
+                                    </li>
+                                    <li class="nav-item">
+                                        <NavLink class="nav-link" href="tutor/students" Match="NavLinkMatch.Prefix">@Localizer[nameof(Resources.Students)]</NavLink>
                                     </li>
                                 </Authorized>
                             </AuthorizeView>

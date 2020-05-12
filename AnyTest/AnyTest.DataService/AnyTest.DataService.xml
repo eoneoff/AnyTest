@@ -567,6 +567,31 @@
             </code>
             </example>
         </member>
+        <member name="M:AnyTest.DataService.Controllers.StudentsController.GetStudentsPage(System.Int32,System.Int32)">
+            <summary>
+            \~english Returns paginaged list of stucents
+            \~ukrainian Повертає список студентів, розбитий на сторінки
+            </summary>
+            <param name="pageNumber">
+            \~english page number
+            \~ukrainian Номер сторінки
+            </param>
+            <param name="pageSize">
+            \~english Page size
+            \~ Розмір сторінки
+            </param>
+            <returns>
+            \~english A page from list of students
+            \~ukrainian Сторінка списку студентів
+            </returns>
+            <example>
+            \~english An example of HTTP request got paginated list of students
+            \~ukrainian Приклад HTTP запиту списку студентів, розбитого на сторінки
+            <code>
+            GET: api/Students/page/3/12
+            </code>
+            </example>
+        </member>
         <member name="T:AnyTest.DataService.Controllers.SubjectsController">
             <inheritdoc />
         </member>

@@ -88,7 +88,7 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Додати тес до курсу {0}.
+        ///   Ищет локализованную строку, похожую на Додати тест до курсу {0}.
         /// </summary>
         public static string AddCourseToTest {
             get {
@@ -102,6 +102,24 @@ namespace AnyTest.ResourceLibrary {
         public static string AddQuestion {
             get {
                 return ResourceManager.GetString("AddQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Додати студента до курсу.
+        /// </summary>
+        public static string AddStudentToCourse {
+            get {
+                return ResourceManager.GetString("AddStudentToCourse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Додати студента {0} до курсу {1}.
+        /// </summary>
+        public static string AddStudentToCourseParam {
+            get {
+                return ResourceManager.GetString("AddStudentToCourseParam", resourceCulture);
             }
         }
         
@@ -120,6 +138,15 @@ namespace AnyTest.ResourceLibrary {
         public static string AddSubjectToTest {
             get {
                 return ResourceManager.GetString("AddSubjectToTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Додати до курсу.
+        /// </summary>
+        public static string AddToCourse {
+            get {
+                return ResourceManager.GetString("AddToCourse", resourceCulture);
             }
         }
         
@@ -385,6 +412,15 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Ім&apos;я.
+        /// </summary>
+        public static string FullName {
+            get {
+                return ResourceManager.GetString("FullName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Записів на сторінці.
         /// </summary>
         public static string ItemsPerPage {
@@ -619,6 +655,24 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Видалити з курсу.
+        /// </summary>
+        public static string RemoveFromCourse {
+            get {
+                return ResourceManager.GetString("RemoveFromCourse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Видалити студента {0} з курсу {1}.
+        /// </summary>
+        public static string RemoveStudentFromCourseParam {
+            get {
+                return ResourceManager.GetString("RemoveStudentFromCourseParam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Видалити предмет.
         /// </summary>
         public static string RemoveSubject {
@@ -727,11 +781,29 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Дані студента.
+        /// </summary>
+        public static string StudentInfo {
+            get {
+                return ResourceManager.GetString("StudentInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Реєстрація студента.
         /// </summary>
         public static string StudentRegistration {
             get {
                 return ResourceManager.GetString("StudentRegistration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Студенти.
+        /// </summary>
+        public static string Students {
+            get {
+                return ResourceManager.GetString("Students", resourceCulture);
             }
         }
         

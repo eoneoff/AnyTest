@@ -15,19 +15,19 @@
                                    Name=Localizer[nameof(Resources.Subjects)],
                                    Url="subjects",
                                    Children = State.TestsTreeList.ContainsKey("subjects") ? State.TestsTreeList["subjects"] : null
-                               })" UrlRoot="tutor" />
+                               })" UrlRoot="tutor/tests" />
             <TestsTree Tree="@(new TestsTreeModel
                                {
                                    Name=Localizer[nameof(Resources.Courses)],
                                    Url = "courses",
                                    Children = State.TestsTreeList.ContainsKey("courses") ? State.TestsTreeList["courses"] : null
-                               })" UrlRoot="tutor" />
+                               })" UrlRoot="tutor/tests" />
             <TestsTree Tree="@(new TestsTreeModel
                                {
                                    Name = Localizer[nameof(Resources.Tests)],
                                    Url = "tests",
                                    Children = State.TestsTreeList.ContainsKey("tests") ? State.TestsTreeList["tests"] : null
-                               })" UrlRoot="tutor" />
+                               })" UrlRoot="tutor/tests" />
         </div>
     </SidebarContent>
     <MainContent>
