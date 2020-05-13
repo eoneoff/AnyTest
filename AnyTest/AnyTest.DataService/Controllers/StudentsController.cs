@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.DataAnnotations;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace AnyTest.DataService.Controllers
 {
@@ -209,6 +211,66 @@ namespace AnyTest.DataService.Controllers
         /// </example>
         [HttpGet("page/{pageNumber:int}/{pageSize:int}")]
         public async Task<IEnumerable<Student>> GetStudentsPage(int pageNumber, int pageSize) => await (_repository as IStudentsRepository).GetStudentPage(pageNumber, pageSize);
+
+        /// <summary>
+        /// \~english Adds a student to course
+        /// \~ukrainian Додає студента до курсу
+        /// </summary>
+        /// <param name="id">
+        /// \~english A <c>Student</c> id. <c>long</c>
+        /// \~ukrainian Id студента. <c>long</c>
+        /// </param>
+        /// <param name="courseId">
+        /// \~english A course id
+        /// \~ukrainian Id курсу
+        /// </param>
+        /// <returns>
+        /// \~english An object of student-course connection
+        /// \~ukrainian Об'єкт зв'язку студента і курсу
+        /// </returns>
+        /// <example>
+        /// \~english An example of HTTP request to add student to course
+        /// \~ukrainian Приклад HTTP запиту додавання студента до курсу
+        /// <code>
+        /// POST: api/Students/5/Course/3
+        /// </code>
+        /// </example>
+        [HttpPost("{id:long}/courses/{courseId:long}")]
+        public async Task<IActionResult> AddStudentToCourse(long id, long courseId)
+        {
+            if (!await _repository.Exists(id)) return BadRequest();
+            return Ok(await (_repository as IStudentsRepository).AddToCourse(id, courseId));
+        }
+
+        /// <summary>
+        /// \~english Removes a student to course
+        /// \~ukrainian Видаляє студента з курсу
+        /// </summary>
+        /// <param name="id">
+        /// \~english A <c>Student</c> id. <c>long</c>
+        /// \~ukrainian Id студента. <c>long</c>
+        /// </param>
+        /// <param name="courseId">
+        /// \~english A course id
+        /// \~ukrainian Id курсу
+        /// </param>
+        /// <returns>
+        /// \~english An object of student-course connection
+        /// \~ukrainian Об'єкт зв'язку студента і курсу
+        /// </returns>
+        /// <example>
+        /// \~english An example of HTTP request to remove a student to course
+        /// \~ukrainian Приклад HTTP запиту видалення студента до курсу
+        /// <code>
+        /// DELETE: api/Students/5/Course/3
+        /// </code>
+        /// </example>
+        [HttpDelete("{id:long}/courses/{courseId:long}")]
+        public async Task<IActionResult> RemoveStudentFromCourse(long id, long courseId)
+        {
+            if (!await _repository.Exists(id)) return BadRequest();
+            return (Ok(await (_repository as IStudentsRepository).RemoveFromCourse(id, courseId)));
+        }
 
         private async Task<bool> IsOwner(long id)
         {

@@ -772,6 +772,15 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Адреса сервера.
+        /// </summary>
+        public static string ServerIP {
+            get {
+                return ResourceManager.GetString("ServerIP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Студент.
         /// </summary>
         public static string Student {

@@ -1,5 +1,6 @@
 ﻿@inherits LayoutComponentBase
-@inject IAuthService AuthService 
+@inject IAuthService AuthService
+@inject HttpClient _httpClient 
     
 <div>
     <div class="content-wrapper">
@@ -57,7 +58,20 @@
                             </CascadingValue>
                         </Authorized>
                         <NotAuthorized>
-                            <Login />
+                            <div class="d-flex flex-column">
+                                <Login />
+                                <div class="mb-auto mt-3 d-flex flex-column flex-lg-row">
+                                    @if (changeIp)
+                                    {
+                                        <input type="text" class="form-control mr-lg-1 mb-1 mb-lg-0" @bind-value="Ip"@bind-value:event="oninput"/>
+                                        <button type="button" class="btn btn-success" @onclick="ChangeIP"><i class="fa fa-plus"></i></button>
+                                    }
+                                    else
+                                    {
+                                        <button type="button" class="btn btn-outline-light ml-lg-auto" @onclick="()=>changeIp = true">@Localizer[nameof(Resources.ServerIP)]</button>
+                                    }
+                                </div>
+                            </div>
                         </NotAuthorized>
                     </AuthorizeView>
                 </main>
@@ -68,9 +82,26 @@
 
 @code
 {
+    private bool changeIp = false;
+    private string Ip;
+
     private void Logout()
     {
         State.ResetPerson();
         AuthService.Logout();
+    }
+
+    private void ChangeIP()
+    {
+        if(!string.IsNullOrWhiteSpace(Ip))
+        {
+            string addressUnit = @"(25[0-5]|(2[0-4]\d)|[01]?\d{1,2})";
+            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(string.Format("^(localhost|{0}.{0}.{0}.{0}}$", addressUnit));
+            if(regex.Match(Ip).Success)
+            {
+                _httpClient.BaseAddress = new Uri($"https://{Ip}:44358/api");
+                changeIp = false;
+            }
+        }
     }
 }

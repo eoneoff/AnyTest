@@ -592,6 +592,56 @@
             </code>
             </example>
         </member>
+        <member name="M:AnyTest.DataService.Controllers.StudentsController.AddStudentToCourse(System.Int64,System.Int64)">
+            <summary>
+            \~english Adds a student to course
+            \~ukrainian Додає студента до курсу
+            </summary>
+            <param name="id">
+            \~english A <c>Student</c> id. <c>long</c>
+            \~ukrainian Id студента. <c>long</c>
+            </param>
+            <param name="courseId">
+            \~english A course id
+            \~ukrainian Id курсу
+            </param>
+            <returns>
+            \~english An object of student-course connection
+            \~ukrainian Об'єкт зв'язку студента і курсу
+            </returns>
+            <example>
+            \~english An example of HTTP request to add student to course
+            \~ukrainian Приклад HTTP запиту додавання студента до курсу
+            <code>
+            POST: api/Students/5/Course/3
+            </code>
+            </example>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.StudentsController.RemoveStudentFromCourse(System.Int64,System.Int64)">
+            <summary>
+            \~english Removes a student to course
+            \~ukrainian Видаляє студента з курсу
+            </summary>
+            <param name="id">
+            \~english A <c>Student</c> id. <c>long</c>
+            \~ukrainian Id студента. <c>long</c>
+            </param>
+            <param name="courseId">
+            \~english A course id
+            \~ukrainian Id курсу
+            </param>
+            <returns>
+            \~english An object of student-course connection
+            \~ukrainian Об'єкт зв'язку студента і курсу
+            </returns>
+            <example>
+            \~english An example of HTTP request to remove a student to course
+            \~ukrainian Приклад HTTP запиту видалення студента до курсу
+            <code>
+            DELETE: api/Students/5/Course/3
+            </code>
+            </example>
+        </member>
         <member name="T:AnyTest.DataService.Controllers.SubjectsController">
             <inheritdoc />
         </member>

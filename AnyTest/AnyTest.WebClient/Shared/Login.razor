@@ -12,7 +12,7 @@
         </div>
     }
 
-    <div class="card" >
+    <div class="card">
         <div class="card-body">
             <h5 class="card-title">@Localizer[Resources.EnterCredentials]</h5>
             <EditForm Model="loginModel" OnValidSubmit="HandleLogin">
@@ -37,7 +37,7 @@
     </div>
 </div>
 
-@if(IsAuthenticating)
+@if (IsAuthenticating)
 {
     <div class="modal-backdrop">
         <div class="d-flex justify-content-center flex-column align-items-center h-100">
@@ -74,5 +74,10 @@
             await State.GetPersonByAuthorizedUser();
             StateHasChanged();
         }
+    }
+
+    private void ChangeIp()
+    {
+
     }
 }

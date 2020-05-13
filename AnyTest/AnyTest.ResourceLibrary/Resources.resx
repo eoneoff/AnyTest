@@ -354,6 +354,9 @@
   <data name="SaveUser" xml:space="preserve">
     <value>Зберегти користувача</value>
   </data>
+  <data name="ServerIP" xml:space="preserve">
+    <value>Адреса сервера</value>
+  </data>
   <data name="Student" xml:space="preserve">
     <value>Студент</value>
   </data>
