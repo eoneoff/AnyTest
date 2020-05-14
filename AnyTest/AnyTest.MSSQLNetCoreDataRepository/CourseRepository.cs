@@ -21,6 +21,18 @@ namespace AnyTest.MSSQLNetCoreDataRepository
             .Include(c => c.Owners)
             .AsNoTracking().ToListAsync();
 
+        public override async Task<Course> Get(params object[] key)
+        {
+            if (key.Length > 0 && key[0] is long id)
+            {
+                return await _db.Courses.Where(c => !c.Changed)
+                    .Include(c => c.Tests)
+                    .Include(c => c.Owners)
+                    .AsNoTracking().SingleOrDefaultAsync(c => c.Id == id);
+            }
+            else throw new ArgumentException("Course Id must be of type long");
+        }
+
         public override async Task<Course> Post(Course item) => await base.Put(item);
 
         public override async Task<Course> Put(Course item, params object[] key)

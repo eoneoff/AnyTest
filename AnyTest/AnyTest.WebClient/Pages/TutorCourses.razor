@@ -1,8 +1,22 @@
 ﻿@page "/tutor/tests"
 @page "/tutor/tests/subjects"
-@page "/tutor/teste/courses"
+@page "/tutor/tests/courses"
 @layout TutorPageLayout
 
+<PageView Items="State?.Courses" ContainerClass="table-hover table-borderless">
+    <ItemTemplate Context="course">
+        <tr>
+            <td class="align-middle">@course.Name</td>
+            <td class="text-right"><a href="@($"/tutor/tests/courses/{course.Id}")" class="btn btn-success"><i class="fa fa-pen"></i></a></td>
+        </tr>
+    </ItemTemplate>
+</PageView>
 
-
+@code
+{      protected override void OnInitialized()
+    {
+        State.TestsUpdated += (sender, e) => StateHasChanged();
+        base.OnInitialized();
+    }
+}
 

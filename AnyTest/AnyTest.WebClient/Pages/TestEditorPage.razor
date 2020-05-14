@@ -1,10 +1,12 @@
-﻿@page "/tutor/tests/new"
+﻿@page "/tutor/tests/tests/new"
+@page "/tutor/tests/tests/{Id:long}"
+@page "/tutor/tests/new"
 @page "/tutor/tests/{Id:long}"
 @layout TutorPageLayout
 @inject HttpClient _httpClient
 
 <div class="container-fluid">
-    <TestEditor Test="@test" OnSubmit="()=>State.SaveTest(test)"/>
+    <TestEditor Test="@test" OnSubmit="()=>State.SaveTest(test)" />
 </div>
 
 @if (loading)

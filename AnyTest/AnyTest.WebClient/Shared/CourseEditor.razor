@@ -1,6 +1,6 @@
 ﻿@inherits ValidatableFormViewModel<Course>
 
-<ValidatableForm @ref="form" Model="Course" OnSubmit="()=>saveConfirmationDialog.Show()" OnCancel="OnCancel" Unchanged="@unchanged" Disabled="@Disabled" HideButtons="@HideButtons">
+<ValidatableForm @ref="form" Model="Course" OnSubmit="()=>saveConfirmationDialog.Show()" OnCancel="OnCancel" Unchanged="@unchanged" Disabled="@Disabled" HideButtons="true">
     <div class="container-fluid px-0">
         <ValidatableFormField Wide="@Wide" Label="@Localizer[nameof(Resources.Name)]" Id="coursename">
             <ValidationMessage For="@(()=>Course.Name)" />
@@ -17,6 +17,35 @@
         </ValidatableFormField>
     </div>
 </ValidatableForm>
+
+<div class="mt-2">
+    <select class="custom-select">
+        <option value="0"></option>
+        @foreach (var test in (State?.Tests?.Where(t => !Course?.Tests?.Any(tc => tc.TestId == t.Id) ?? false) ?? new List<Test>()))
+        {
+            <option value="@test.Id">@test.Name</option>
+        }
+    </select>
+    <div class="mt-2 border border-success">
+        <table class="table table-sm table-hover mb-0">
+            @foreach (var test in (Course?.Tests ?? new List<TestCourse>()))
+            {
+                <tr>
+                    <td class="align-middle">@(State?.Tests?.SingleOrDefault(t => t.Id == test.TestId)?.Name)</td>
+                    <td class="text-right"><button type="button" class="btn btn-outline-danger"><i class="fa fa-trash"></i></button></td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+@if (!HideButtons)
+{
+    <div class="d-flex flex-row justify-content-between mt-3">
+        <button type="button" class="btn btn-success" @onclick="SaveClicked" disabled="@unchanged">@Localizer[nameof(Resources.Save)]</button>
+        <button type="button" class="btn btn-danger" @onclick="OnCancel">@Localizer[nameof(Resources.Cancel)]</button>
+    </div>
+}
 
 <ModalDialog @ref="saveConfirmationDialog" OnConfirm="OnSubmit">
     <Header>@Localizer[nameof(Resources.SaveCourse)]</Header>
@@ -37,4 +66,9 @@
 
     [Parameter]
     public Course Course { get; set; } = new Course();
+
+    private async void SaveClicked()
+    {
+
+    }
 }
