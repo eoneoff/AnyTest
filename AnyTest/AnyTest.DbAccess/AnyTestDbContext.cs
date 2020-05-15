@@ -56,6 +56,7 @@ namespace AnyTest.DbAccess
             model.Entity<TestCourse>().HasOne(tc => tc.Test).WithMany(t => t.Courses).HasForeignKey(tc => tc.TestId).OnDelete(DeleteBehavior.NoAction);
             model.Entity<TestCourse>().HasOne(tc => tc.Course).WithMany(c => c.Tests).HasForeignKey(tc => tc.CourseId).OnDelete(DeleteBehavior.NoAction);
             model.Entity<TestCourse>().HasIndex(tc => tc.CourseId);
+            model.Entity<TestCourse>().Property(tc => tc.PassScore).HasDefaultValue(50);
 
             model.Entity<Precondition>().HasKey(p => new { p.TestId, p.PreconditionId });
             model.Entity<Precondition>().HasOne(p => p.Test).WithMany(t => t.Preconditions).HasForeignKey(p => p.TestId).OnDelete(DeleteBehavior.NoAction);
