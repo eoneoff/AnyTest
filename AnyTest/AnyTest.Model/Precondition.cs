@@ -8,6 +8,7 @@ namespace AnyTest.Model
     public class Precondition
     {
         public long TestId { get; set; }
+        public long CourseId { get; set; }
         public long PreconditionId { get; set; }
 
         public virtual TestCourse Test { get; set; }
