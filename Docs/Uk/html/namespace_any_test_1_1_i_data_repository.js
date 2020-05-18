@@ -5,5 +5,7 @@ var namespace_any_test_1_1_i_data_repository =
     [ "IGetter", "interface_any_test_1_1_i_data_repository_1_1_i_getter.html", "interface_any_test_1_1_i_data_repository_1_1_i_getter" ],
     [ "IPersonRepository", "interface_any_test_1_1_i_data_repository_1_1_i_person_repository.html", "interface_any_test_1_1_i_data_repository_1_1_i_person_repository" ],
     [ "IPoster", "interface_any_test_1_1_i_data_repository_1_1_i_poster.html", "interface_any_test_1_1_i_data_repository_1_1_i_poster" ],
-    [ "IRepository", "interface_any_test_1_1_i_data_repository_1_1_i_repository.html", null ]
+    [ "IRepository", "interface_any_test_1_1_i_data_repository_1_1_i_repository.html", null ],
+    [ "IStudentsRepository", "interface_any_test_1_1_i_data_repository_1_1_i_students_repository.html", "interface_any_test_1_1_i_data_repository_1_1_i_students_repository" ],
+    [ "ITestRepository", "interface_any_test_1_1_i_data_repository_1_1_i_test_repository.html", "interface_any_test_1_1_i_data_repository_1_1_i_test_repository" ]
 ];

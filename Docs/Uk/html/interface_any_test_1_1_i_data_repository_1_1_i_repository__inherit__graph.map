@@ -1,0 +1,8 @@
+<map id="AnyTest.IDataRepository.IRepository&lt; T &gt;" name="AnyTest.IDataRepository.IRepository&lt; T &gt;">
+<area shape="rect" id="node1" title=" " alt="" coords="142,160,313,252"/>
+<area shape="rect" id="node6" href="$class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_repository.html" title=" " alt="" coords="128,300,327,480"/>
+<area shape="rect" id="node2" href="$interface_any_test_1_1_i_data_repository_1_1_i_getter.html" title=" " alt="" coords="5,5,97,112"/>
+<area shape="rect" id="node3" href="$interface_any_test_1_1_i_data_repository_1_1_i_poster.html" title=" " alt="" coords="121,20,216,97"/>
+<area shape="rect" id="node4" href="$interface_any_test_1_1_i_data_repository_1_1_i_editor.html" title=" " alt="" coords="241,20,331,97"/>
+<area shape="rect" id="node5" href="$interface_any_test_1_1_i_data_repository_1_1_i_deleter.html" title=" " alt="" coords="356,20,453,97"/>
+</map>

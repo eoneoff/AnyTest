@@ -1,0 +1,10 @@
+<map id="AnyTest.MSSQLNetCoreDataRepository.Repository&lt; T &gt;" name="AnyTest.MSSQLNetCoreDataRepository.Repository&lt; T &gt;">
+<area shape="rect" id="node1" title=" " alt="" coords="329,580,523,760"/>
+<area shape="rect" id="node2" href="$interface_any_test_1_1_i_data_repository_1_1_i_repository.html" title=" " alt="" coords="227,301,345,378"/>
+<area shape="rect" id="node3" href="$interface_any_test_1_1_i_data_repository_1_1_i_getter.html" title=" " alt="" coords="5,5,97,112"/>
+<area shape="rect" id="node4" href="$interface_any_test_1_1_i_data_repository_1_1_i_poster.html" title=" " alt="" coords="121,20,216,97"/>
+<area shape="rect" id="node5" href="$interface_any_test_1_1_i_data_repository_1_1_i_editor.html" title=" " alt="" coords="241,20,331,97"/>
+<area shape="rect" id="node6" href="$interface_any_test_1_1_i_data_repository_1_1_i_deleter.html" title=" " alt="" coords="356,20,453,97"/>
+<area shape="rect" id="node7" href="$class_any_test_1_1_db_access_1_1_any_test_db_context.html" title=" " alt="" coords="402,161,589,517"/>
+<area shape="rect" id="node8" title=" " alt="" coords="478,20,561,97"/>
+</map>

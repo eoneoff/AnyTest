@@ -1,0 +1,76 @@
+\hypertarget{interface_any_test_1_1_i_data_repository_1_1_i_students_repository}{}\doxysection{Інтерфейс Any\+Test.\+I\+Data\+Repository.\+I\+Students\+Repository}
+\label{interface_any_test_1_1_i_data_repository_1_1_i_students_repository}\index{AnyTest.IDataRepository.IStudentsRepository@{AnyTest.IDataRepository.IStudentsRepository}}
+
+
+Схема успадкувань для Any\+Test.\+I\+Data\+Repository.\+I\+Students\+Repository
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{interface_any_test_1_1_i_data_repository_1_1_i_students_repository__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Діаграма зв\textquotesingle{}язків класу Any\+Test.\+I\+Data\+Repository.\+I\+Students\+Repository\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{interface_any_test_1_1_i_data_repository_1_1_i_students_repository__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Загальнодоступні елементи}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ I\+Enumerable$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_student}{Student}} $>$ $>$ \mbox{\hyperlink{interface_any_test_1_1_i_data_repository_1_1_i_students_repository_a54b182178b6268f3415f6c4beb175bb5}{Get\+Student\+Page}} (int page\+Nubmer, int page\+Size)
+\item 
+Task$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_student_course}{Student\+Course}} $>$ \mbox{\hyperlink{interface_any_test_1_1_i_data_repository_1_1_i_students_repository_a89facd55532ed62999d3136074c3180b}{Add\+To\+Course}} (long student\+Id, long course\+Id)
+\item 
+Task$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_student_course}{Student\+Course}} $>$ \mbox{\hyperlink{interface_any_test_1_1_i_data_repository_1_1_i_students_repository_a54f4fd543245280308cf291427dbba7a}{Remove\+From\+Course}} (long student\+Id, long course\+Id)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Детальний опис}
+
+
+Див. визначення в файлі I\+Students\+Repository.\+cs, рядок 9
+
+
+
+\doxysubsection{Опис методів компонент}
+\mbox{\Hypertarget{interface_any_test_1_1_i_data_repository_1_1_i_students_repository_a89facd55532ed62999d3136074c3180b}\label{interface_any_test_1_1_i_data_repository_1_1_i_students_repository_a89facd55532ed62999d3136074c3180b}} 
+\index{AnyTest.IDataRepository.IStudentsRepository@{AnyTest.IDataRepository.IStudentsRepository}!AddToCourse@{AddToCourse}}
+\index{AddToCourse@{AddToCourse}!AnyTest.IDataRepository.IStudentsRepository@{AnyTest.IDataRepository.IStudentsRepository}}
+\doxysubsubsection{\texorpdfstring{AddToCourse()}{AddToCourse()}}
+{\footnotesize\ttfamily Task$<$\mbox{\hyperlink{class_any_test_1_1_model_1_1_student_course}{Student\+Course}}$>$ Any\+Test.\+I\+Data\+Repository.\+I\+Students\+Repository.\+Add\+To\+Course (\begin{DoxyParamCaption}\item[{long}]{student\+Id,  }\item[{long}]{course\+Id }\end{DoxyParamCaption})}
+
+
+
+Реалізує в \mbox{\hyperlink{class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_students_repository_a91d19bca7302ad414071c4dc6292000c}{Any\+Test.\+M\+S\+S\+Q\+L\+Net\+Core\+Data\+Repository.\+Students\+Repository}}.
+
+\mbox{\Hypertarget{interface_any_test_1_1_i_data_repository_1_1_i_students_repository_a54b182178b6268f3415f6c4beb175bb5}\label{interface_any_test_1_1_i_data_repository_1_1_i_students_repository_a54b182178b6268f3415f6c4beb175bb5}} 
+\index{AnyTest.IDataRepository.IStudentsRepository@{AnyTest.IDataRepository.IStudentsRepository}!GetStudentPage@{GetStudentPage}}
+\index{GetStudentPage@{GetStudentPage}!AnyTest.IDataRepository.IStudentsRepository@{AnyTest.IDataRepository.IStudentsRepository}}
+\doxysubsubsection{\texorpdfstring{GetStudentPage()}{GetStudentPage()}}
+{\footnotesize\ttfamily Task$<$I\+Enumerable$<$\mbox{\hyperlink{class_any_test_1_1_model_1_1_student}{Student}}$>$ $>$ Any\+Test.\+I\+Data\+Repository.\+I\+Students\+Repository.\+Get\+Student\+Page (\begin{DoxyParamCaption}\item[{int}]{page\+Nubmer,  }\item[{int}]{page\+Size }\end{DoxyParamCaption})}
+
+
+
+Реалізує в \mbox{\hyperlink{class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_students_repository_a0bba91bd34473afd7516a731a6219f43}{Any\+Test.\+M\+S\+S\+Q\+L\+Net\+Core\+Data\+Repository.\+Students\+Repository}}.
+
+\mbox{\Hypertarget{interface_any_test_1_1_i_data_repository_1_1_i_students_repository_a54f4fd543245280308cf291427dbba7a}\label{interface_any_test_1_1_i_data_repository_1_1_i_students_repository_a54f4fd543245280308cf291427dbba7a}} 
+\index{AnyTest.IDataRepository.IStudentsRepository@{AnyTest.IDataRepository.IStudentsRepository}!RemoveFromCourse@{RemoveFromCourse}}
+\index{RemoveFromCourse@{RemoveFromCourse}!AnyTest.IDataRepository.IStudentsRepository@{AnyTest.IDataRepository.IStudentsRepository}}
+\doxysubsubsection{\texorpdfstring{RemoveFromCourse()}{RemoveFromCourse()}}
+{\footnotesize\ttfamily Task$<$\mbox{\hyperlink{class_any_test_1_1_model_1_1_student_course}{Student\+Course}}$>$ Any\+Test.\+I\+Data\+Repository.\+I\+Students\+Repository.\+Remove\+From\+Course (\begin{DoxyParamCaption}\item[{long}]{student\+Id,  }\item[{long}]{course\+Id }\end{DoxyParamCaption})}
+
+
+
+Реалізує в \mbox{\hyperlink{class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_students_repository_a984b85a63fecd31c7469af42c62b0e22}{Any\+Test.\+M\+S\+S\+Q\+L\+Net\+Core\+Data\+Repository.\+Students\+Repository}}.
+
+
+
+Документація цього інтерфейсу була створена з файлу\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Any\+Test/\+Any\+Test/\+Any\+Test.\+I\+Data\+Repository/\mbox{\hyperlink{_i_students_repository_8cs}{I\+Students\+Repository.\+cs}}\end{DoxyCompactItemize}

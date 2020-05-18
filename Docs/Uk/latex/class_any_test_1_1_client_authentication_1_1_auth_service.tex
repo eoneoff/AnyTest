@@ -5,10 +5,24 @@
 Сервісний клас для аутентифікації J\+WT токенів  
 
 
-Схема успадкувань для Any\+Test.\+Client\+Authentication.\+Auth\+Service\begin{figure}[H]
+
+
+Схема успадкувань для Any\+Test.\+Client\+Authentication.\+Auth\+Service
+\nopagebreak
+\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{class_any_test_1_1_client_authentication_1_1_auth_service}
+\includegraphics[width=226pt]{class_any_test_1_1_client_authentication_1_1_auth_service__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Діаграма зв\textquotesingle{}язків класу Any\+Test.\+Client\+Authentication.\+Auth\+Service\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{class_any_test_1_1_client_authentication_1_1_auth_service__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsection*{Загальнодоступні елементи}
@@ -16,7 +30,6 @@
 \item 
 async Task$<$ \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_register_result}{Register\+Result}} $>$ \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_auth_service_a1bfafcaa3de501a3cab9a6fcd355b6c2}{Register}} (\mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_register_model}{Register\+Model}} register\+Model)
 \begin{DoxyCompactList}\small\item\em реєструє нового користувача \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_any_test_1_1_client_authentication_1_1_auth_service_a7abbe76fa32d94ba8889ff9c96f3e837}\label{class_any_test_1_1_client_authentication_1_1_auth_service_a7abbe76fa32d94ba8889ff9c96f3e837}} 
 async Task$<$ bool $>$ \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_auth_service_a7abbe76fa32d94ba8889ff9c96f3e837}{Get\+Token}} ()
 \begin{DoxyCompactList}\small\item\em Додає токен із локального сховища до {\ttfamily Http\+Client} \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Статичні загальнодоступні данні}
@@ -36,6 +49,24 @@ static readonly List$<$ string $>$ \mbox{\hyperlink{class_any_test_1_1_client_au
 
 
 \doxysubsection{Опис методів компонент}
+\mbox{\Hypertarget{class_any_test_1_1_client_authentication_1_1_auth_service_a7abbe76fa32d94ba8889ff9c96f3e837}\label{class_any_test_1_1_client_authentication_1_1_auth_service_a7abbe76fa32d94ba8889ff9c96f3e837}} 
+\index{AnyTest.ClientAuthentication.AuthService@{AnyTest.ClientAuthentication.AuthService}!GetToken@{GetToken}}
+\index{GetToken@{GetToken}!AnyTest.ClientAuthentication.AuthService@{AnyTest.ClientAuthentication.AuthService}}
+\doxysubsubsection{\texorpdfstring{GetToken()}{GetToken()}}
+{\footnotesize\ttfamily async Task$<$bool$>$ Any\+Test.\+Client\+Authentication.\+Auth\+Service.\+Get\+Token (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Додає токен із локального сховища до {\ttfamily Http\+Client} 
+
+
+
+Реалізує \mbox{\hyperlink{interface_any_test_1_1_client_authentication_1_1_i_auth_service_ad85ba346d200bbb1043262e04b0cb374}{Any\+Test.\+Client\+Authentication.\+I\+Auth\+Service}}.
+
+
+
+Див. визначення в файлі Auth\+Service.\+cs, рядок 92
+
 \mbox{\Hypertarget{class_any_test_1_1_client_authentication_1_1_auth_service_a1bfafcaa3de501a3cab9a6fcd355b6c2}\label{class_any_test_1_1_client_authentication_1_1_auth_service_a1bfafcaa3de501a3cab9a6fcd355b6c2}} 
 \index{AnyTest.ClientAuthentication.AuthService@{AnyTest.ClientAuthentication.AuthService}!Register@{Register}}
 \index{Register@{Register}!AnyTest.ClientAuthentication.AuthService@{AnyTest.ClientAuthentication.AuthService}}
@@ -93,4 +124,4 @@ static readonly List$<$ string $>$ \mbox{\hyperlink{class_any_test_1_1_client_au
 
 Документація цього класу була створена з файлу\+:\begin{DoxyCompactItemize}
 \item 
-D\+:/\+Any\+Test/\+Any\+Test/\+Any\+Test.\+Client\+Authentication/Auth\+Service.\+cs\end{DoxyCompactItemize}
+D\+:/\+Any\+Test/\+Any\+Test/\+Any\+Test.\+Client\+Authentication/\mbox{\hyperlink{_auth_service_8cs}{Auth\+Service.\+cs}}\end{DoxyCompactItemize}

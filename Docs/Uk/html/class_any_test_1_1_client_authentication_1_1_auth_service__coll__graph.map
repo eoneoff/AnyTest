@@ -1,0 +1,4 @@
+<map id="AnyTest.ClientAuthentication.AuthService" name="AnyTest.ClientAuthentication.AuthService">
+<area shape="rect" id="node1" title="Сервісний клас для аутентифікації JWT токенів" alt="" coords="5,175,200,281"/>
+<area shape="rect" id="node2" href="$interface_any_test_1_1_client_authentication_1_1_i_auth_service.html" title="Ітерфейс для служби JWT аутентифікації" alt="" coords="53,5,152,127"/>
+</map>

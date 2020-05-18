@@ -1,0 +1,107 @@
+\hypertarget{interface_any_test_1_1_i_data_repository_1_1_i_test_repository}{}\doxysection{Інтерфейс Any\+Test.\+I\+Data\+Repository.\+I\+Test\+Repository}
+\label{interface_any_test_1_1_i_data_repository_1_1_i_test_repository}\index{AnyTest.IDataRepository.ITestRepository@{AnyTest.IDataRepository.ITestRepository}}
+
+
+Схема успадкувань для Any\+Test.\+I\+Data\+Repository.\+I\+Test\+Repository
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{interface_any_test_1_1_i_data_repository_1_1_i_test_repository__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Діаграма зв\textquotesingle{}язків класу Any\+Test.\+I\+Data\+Repository.\+I\+Test\+Repository\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{interface_any_test_1_1_i_data_repository_1_1_i_test_repository__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Загальнодоступні елементи}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ Dictionary$<$ string, List$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_api_models_1_1_tests_tree_model}{Tests\+Tree\+Model}} $>$ $>$ $>$ \mbox{\hyperlink{interface_any_test_1_1_i_data_repository_1_1_i_test_repository_ac66d96a6e442b8070fe4b8fdcb2dd1fd}{Get\+Tests\+List}} ()
+\begin{DoxyCompactList}\small\item\em Метод для отримання структурованого списку предметів, курсів та тестів \end{DoxyCompactList}\item 
+Task$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_test_subject}{Test\+Subject}} $>$ \mbox{\hyperlink{interface_any_test_1_1_i_data_repository_1_1_i_test_repository_ab937491345d99b2426784e8b2ebbaad4}{Add\+Subject}} (long test\+Id, long subject\+Id)
+\item 
+Task$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_test_subject}{Test\+Subject}} $>$ \mbox{\hyperlink{interface_any_test_1_1_i_data_repository_1_1_i_test_repository_ad1166a43711e18a51e1c2a8476477a7e}{Remove\+Subject}} (long test\+Id, long subject\+Id)
+\item 
+Task$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_test_course}{Test\+Course}} $>$ \mbox{\hyperlink{interface_any_test_1_1_i_data_repository_1_1_i_test_repository_afeb054eda9ee9a7ab06db4db5ddcfae1}{Add\+Course}} (long test\+Id, long course\+Id)
+\item 
+Task$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_test_course}{Test\+Course}} $>$ \mbox{\hyperlink{interface_any_test_1_1_i_data_repository_1_1_i_test_repository_a77aaa9ea475ec5a7323bb95de635d9d7}{Remove\+Course}} (long test\+Id, long course\+Id)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Детальний опис}
+
+
+Див. визначення в файлі I\+Test\+Repository.\+cs, рядок 10
+
+
+
+\doxysubsection{Опис методів компонент}
+\mbox{\Hypertarget{interface_any_test_1_1_i_data_repository_1_1_i_test_repository_afeb054eda9ee9a7ab06db4db5ddcfae1}\label{interface_any_test_1_1_i_data_repository_1_1_i_test_repository_afeb054eda9ee9a7ab06db4db5ddcfae1}} 
+\index{AnyTest.IDataRepository.ITestRepository@{AnyTest.IDataRepository.ITestRepository}!AddCourse@{AddCourse}}
+\index{AddCourse@{AddCourse}!AnyTest.IDataRepository.ITestRepository@{AnyTest.IDataRepository.ITestRepository}}
+\doxysubsubsection{\texorpdfstring{AddCourse()}{AddCourse()}}
+{\footnotesize\ttfamily Task$<$\mbox{\hyperlink{class_any_test_1_1_model_1_1_test_course}{Test\+Course}}$>$ Any\+Test.\+I\+Data\+Repository.\+I\+Test\+Repository.\+Add\+Course (\begin{DoxyParamCaption}\item[{long}]{test\+Id,  }\item[{long}]{course\+Id }\end{DoxyParamCaption})}
+
+
+
+Реалізує в \mbox{\hyperlink{class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_tests_repository_a27f3f0a9f6cc4faac8f72a89df88f6bc}{Any\+Test.\+M\+S\+S\+Q\+L\+Net\+Core\+Data\+Repository.\+Tests\+Repository}}.
+
+\mbox{\Hypertarget{interface_any_test_1_1_i_data_repository_1_1_i_test_repository_ab937491345d99b2426784e8b2ebbaad4}\label{interface_any_test_1_1_i_data_repository_1_1_i_test_repository_ab937491345d99b2426784e8b2ebbaad4}} 
+\index{AnyTest.IDataRepository.ITestRepository@{AnyTest.IDataRepository.ITestRepository}!AddSubject@{AddSubject}}
+\index{AddSubject@{AddSubject}!AnyTest.IDataRepository.ITestRepository@{AnyTest.IDataRepository.ITestRepository}}
+\doxysubsubsection{\texorpdfstring{AddSubject()}{AddSubject()}}
+{\footnotesize\ttfamily Task$<$\mbox{\hyperlink{class_any_test_1_1_model_1_1_test_subject}{Test\+Subject}}$>$ Any\+Test.\+I\+Data\+Repository.\+I\+Test\+Repository.\+Add\+Subject (\begin{DoxyParamCaption}\item[{long}]{test\+Id,  }\item[{long}]{subject\+Id }\end{DoxyParamCaption})}
+
+
+
+Реалізує в \mbox{\hyperlink{class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_tests_repository_aad02bead013dfa3c41c358137f9fc92e}{Any\+Test.\+M\+S\+S\+Q\+L\+Net\+Core\+Data\+Repository.\+Tests\+Repository}}.
+
+\mbox{\Hypertarget{interface_any_test_1_1_i_data_repository_1_1_i_test_repository_ac66d96a6e442b8070fe4b8fdcb2dd1fd}\label{interface_any_test_1_1_i_data_repository_1_1_i_test_repository_ac66d96a6e442b8070fe4b8fdcb2dd1fd}} 
+\index{AnyTest.IDataRepository.ITestRepository@{AnyTest.IDataRepository.ITestRepository}!GetTestsList@{GetTestsList}}
+\index{GetTestsList@{GetTestsList}!AnyTest.IDataRepository.ITestRepository@{AnyTest.IDataRepository.ITestRepository}}
+\doxysubsubsection{\texorpdfstring{GetTestsList()}{GetTestsList()}}
+{\footnotesize\ttfamily Task$<$Dictionary$<$string, List$<$\mbox{\hyperlink{class_any_test_1_1_model_1_1_api_models_1_1_tests_tree_model}{Tests\+Tree\+Model}}$>$ $>$ $>$ Any\+Test.\+I\+Data\+Repository.\+I\+Test\+Repository.\+Get\+Tests\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Метод для отримання структурованого списку предметів, курсів та тестів 
+
+\begin{DoxyReturn}{Повертає}
+Список предметів, курсів та тестів деревоподібної структури 
+\end{DoxyReturn}
+
+
+Реалізує в \mbox{\hyperlink{class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_tests_repository_a8b86214091493ad4829d6c03c4f30919}{Any\+Test.\+M\+S\+S\+Q\+L\+Net\+Core\+Data\+Repository.\+Tests\+Repository}}.
+
+\mbox{\Hypertarget{interface_any_test_1_1_i_data_repository_1_1_i_test_repository_a77aaa9ea475ec5a7323bb95de635d9d7}\label{interface_any_test_1_1_i_data_repository_1_1_i_test_repository_a77aaa9ea475ec5a7323bb95de635d9d7}} 
+\index{AnyTest.IDataRepository.ITestRepository@{AnyTest.IDataRepository.ITestRepository}!RemoveCourse@{RemoveCourse}}
+\index{RemoveCourse@{RemoveCourse}!AnyTest.IDataRepository.ITestRepository@{AnyTest.IDataRepository.ITestRepository}}
+\doxysubsubsection{\texorpdfstring{RemoveCourse()}{RemoveCourse()}}
+{\footnotesize\ttfamily Task$<$\mbox{\hyperlink{class_any_test_1_1_model_1_1_test_course}{Test\+Course}}$>$ Any\+Test.\+I\+Data\+Repository.\+I\+Test\+Repository.\+Remove\+Course (\begin{DoxyParamCaption}\item[{long}]{test\+Id,  }\item[{long}]{course\+Id }\end{DoxyParamCaption})}
+
+
+
+Реалізує в \mbox{\hyperlink{class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_tests_repository_ae11451d3763cdcef3a6dc5e243630915}{Any\+Test.\+M\+S\+S\+Q\+L\+Net\+Core\+Data\+Repository.\+Tests\+Repository}}.
+
+\mbox{\Hypertarget{interface_any_test_1_1_i_data_repository_1_1_i_test_repository_ad1166a43711e18a51e1c2a8476477a7e}\label{interface_any_test_1_1_i_data_repository_1_1_i_test_repository_ad1166a43711e18a51e1c2a8476477a7e}} 
+\index{AnyTest.IDataRepository.ITestRepository@{AnyTest.IDataRepository.ITestRepository}!RemoveSubject@{RemoveSubject}}
+\index{RemoveSubject@{RemoveSubject}!AnyTest.IDataRepository.ITestRepository@{AnyTest.IDataRepository.ITestRepository}}
+\doxysubsubsection{\texorpdfstring{RemoveSubject()}{RemoveSubject()}}
+{\footnotesize\ttfamily Task$<$\mbox{\hyperlink{class_any_test_1_1_model_1_1_test_subject}{Test\+Subject}}$>$ Any\+Test.\+I\+Data\+Repository.\+I\+Test\+Repository.\+Remove\+Subject (\begin{DoxyParamCaption}\item[{long}]{test\+Id,  }\item[{long}]{subject\+Id }\end{DoxyParamCaption})}
+
+
+
+Реалізує в \mbox{\hyperlink{class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_tests_repository_a53bce6461503fd847edcf335741a8602}{Any\+Test.\+M\+S\+S\+Q\+L\+Net\+Core\+Data\+Repository.\+Tests\+Repository}}.
+
+
+
+Документація цього інтерфейсу була створена з файлу\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Any\+Test/\+Any\+Test/\+Any\+Test.\+I\+Data\+Repository/\mbox{\hyperlink{_i_test_repository_8cs}{I\+Test\+Repository.\+cs}}\end{DoxyCompactItemize}

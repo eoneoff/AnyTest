@@ -1,0 +1,9 @@
+<map id="Графічна ієрархія класів" name="Графічна ієрархія класів">
+<area shape="rect" id="node1" title=" " alt="" coords="5,177,112,203"/>
+<area shape="rect" id="node2" href="$class_any_test_1_1_data_service_1_1_controllers_1_1_accounts_controller.html" title=" " alt="" coords="160,5,373,47"/>
+<area shape="rect" id="node3" href="$class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base.html" title="Контроллер API з методами CRUD" alt="" coords="160,71,373,112"/>
+<area shape="rect" id="node4" href="$class_any_test_1_1_data_service_1_1_controllers_1_1_login_controller.html" title="Контроллер API для входу користувача" alt="" coords="160,136,373,177"/>
+<area shape="rect" id="node5" href="$class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller.html" title="Контроллер API для особистих даних" alt="" coords="160,201,373,243"/>
+<area shape="rect" id="node6" href="$class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller.html" title=" " alt="" coords="160,267,373,308"/>
+<area shape="rect" id="node7" href="$class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller.html" title="Контроллер API для даних викладачів" alt="" coords="160,332,373,373"/>
+</map>

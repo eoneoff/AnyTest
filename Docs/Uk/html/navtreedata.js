@@ -31,22 +31,31 @@ var NAVTREE =
       [ "Алфавітний покажчик класів", "classes.html", null ],
       [ "Ієрархія класів", "hierarchy.html", "hierarchy" ],
       [ "Елементи класів", "functions.html", [
-        [ "Всі", "functions.html", null ],
-        [ "Функції", "functions_func.html", null ],
-        [ "Змінні", "functions_vars.html", null ],
-        [ "Властивості", "functions_prop.html", null ]
+        [ "Всі", "functions.html", "functions_dup" ],
+        [ "Функції", "functions_func.html", "functions_func" ],
+        [ "Змінні", "functions_vars.html", "functions_vars" ],
+        [ "Властивості", "functions_prop.html", "functions_prop" ],
+        [ "Події", "functions_evnt.html", null ]
       ] ]
     ] ],
     [ "Файли", "files.html", [
-      [ "Файли", "files.html", "files_dup" ]
+      [ "Файли", "files.html", "files_dup" ],
+      [ "Елементи файлу", "globals.html", [
+        [ "Всі", "globals.html", null ],
+        [ "Функції", "globals_func.html", null ],
+        [ "Змінні", "globals_vars.html", null ],
+        [ "Визначення типів", "globals_type.html", null ]
+      ] ]
     ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"20200406070414___initial_8_designer_8cs_source.html",
-"class_any_test_1_1_web_client_1_1_view_models_1_1_state_container_view_model.html#a064b036366e5038a4cd0afed2b1daf2f"
+"20200406070414___initial_8_designer_8cs.html",
+"_test_question_8cs_source.html",
+"class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_students_repository.html",
+"class_any_test_1_1_web_client_1_1_shared_1_1_context_watcher.html#a5afd5a8c63e3b301a26244d60c9c8ff2"
 ];
 
 var SYNCONMSG = 'клацніть мишкою, щоб заборонити синхронізацію панелі';

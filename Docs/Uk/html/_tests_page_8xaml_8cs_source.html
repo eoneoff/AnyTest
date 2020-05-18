@@ -85,7 +85,7 @@ $(document).ready(function(){initNavTree('_tests_page_8xaml_8cs_source.html','')
 <div class="title">TestsPage.xaml.cs</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">using</span> <a class="code" href="namespace_any_test.html">AnyTest</a>.<a class="code" href="namespace_any_test_1_1_mobile_client.html">MobileClient</a>.<a class="code" href="namespace_any_test_1_1_mobile_client_1_1_model.html">Model</a>;</div>
+<a href="_tests_page_8xaml_8cs.html">Див. документацію.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">using</span> <a class="code" href="namespace_any_test.html">AnyTest</a>.<a class="code" href="namespace_any_test_1_1_mobile_client.html">MobileClient</a>.<a class="code" href="namespace_any_test_1_1_mobile_client_1_1_model.html">Model</a>;</div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword">using</span> <a class="code" href="namespace_any_test.html">AnyTest</a>.<a class="code" href="namespace_any_test_1_1_model.html">Model</a>;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using</span> Microsoft.AspNetCore.Components;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">using</span> System;</div>
@@ -104,7 +104,7 @@ $(document).ready(function(){initNavTree('_tests_page_8xaml_8cs_source.html','')
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    [XamlCompilation(XamlCompilationOptions.Compile)]</div>
 <div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_any_test_1_1_mobile_client_1_1_tests_page.html">   18</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">partial class </span><a class="code" href="class_any_test_1_1_mobile_client_1_1_tests_page.html">TestsPage</a> : ContentPage</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keyword">public</span> <a class="code" href="class_any_test_1_1_mobile_client_1_1_tests_page.html">TestsPage</a>()</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_any_test_1_1_mobile_client_1_1_tests_page.html#ac6e21535012119f2324dddd5d2bffdfb">   20</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="class_any_test_1_1_mobile_client_1_1_tests_page.html#ac6e21535012119f2324dddd5d2bffdfb">TestsPage</a>()</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        {</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            InitializeComponent();</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        }</div>
@@ -116,7 +116,7 @@ $(document).ready(function(){initNavTree('_tests_page_8xaml_8cs_source.html','')
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            var response = await AppState.HttpClient.GetAsync(testInfo.Url);</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            var test = JsonSerializer.Deserialize&lt;<a class="code" href="class_any_test_1_1_mobile_client_1_1_model_1_1_test_view_model.html">TestViewModel</a>&gt;(await response.Content.ReadAsStringAsync(), <span class="keyword">new</span> JsonSerializerOptions { PropertyNameCaseInsensitive = <span class="keyword">true</span> });</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="comment">//var test = await AppState.HttpClient.GetJsonAsync&lt;TestViewModel&gt;(testInfo.Url);</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            await Navigation.PushAsync(<span class="keyword">new</span> <a class="code" href="class_any_test_1_1_mobile_client_1_1_test_page.html">TestPage</a>(test));</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            await Navigation.PushAsync(<span class="keyword">new</span> TestPage(test));</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        }</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    }</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
@@ -126,15 +126,15 @@ $(document).ready(function(){initNavTree('_tests_page_8xaml_8cs_source.html','')
 <div class="ttc" id="anamespace_any_test_1_1_model_1_1_api_models_html"><div class="ttname"><a href="namespace_any_test_1_1_model_1_1_api_models.html">AnyTest.Model.ApiModels</a></div><div class="ttdef"><b>Definition:</b> <a href="_tests_tree_model_8cs_source.html#l00005">TestsTreeModel.cs:5</a></div></div>
 <div class="ttc" id="aclass_any_test_1_1_mobile_client_1_1_tests_page_html"><div class="ttname"><a href="class_any_test_1_1_mobile_client_1_1_tests_page.html">AnyTest.MobileClient.TestsPage</a></div><div class="ttdef"><b>Definition:</b> <a href="_tests_page_8xaml_8cs_source.html#l00018">TestsPage.xaml.cs:18</a></div></div>
 <div class="ttc" id="anamespace_any_test_1_1_model_html"><div class="ttname"><a href="namespace_any_test_1_1_model.html">AnyTest.Model</a></div><div class="ttdef"><b>Definition:</b> <a href="_answer_pass_8cs_source.html#l00007">AnswerPass.cs:7</a></div></div>
-<div class="ttc" id="aclass_any_test_1_1_mobile_client_1_1_test_page_html"><div class="ttname"><a href="class_any_test_1_1_mobile_client_1_1_test_page.html">AnyTest.MobileClient.TestPage</a></div><div class="ttdef"><b>Definition:</b> <a href="_test_page_8xaml_8cs_source.html#l00016">TestPage.xaml.cs:16</a></div></div>
 <div class="ttc" id="anamespace_any_test_1_1_mobile_client_1_1_model_html"><div class="ttname"><a href="namespace_any_test_1_1_mobile_client_1_1_model.html">AnyTest.MobileClient.Model</a></div><div class="ttdef"><b>Definition:</b> <a href="_answer_view_model_8cs_source.html#l00008">AnswerViewModel.cs:8</a></div></div>
 <div class="ttc" id="anamespace_any_test_1_1_mobile_client_html"><div class="ttname"><a href="namespace_any_test_1_1_mobile_client.html">AnyTest.MobileClient</a></div><div class="ttdef"><b>Definition:</b> <a href="_answer_cell_8xaml_8cs_source.html#l00012">AnswerCell.xaml.cs:12</a></div></div>
 <div class="ttc" id="aclass_any_test_1_1_mobile_client_1_1_model_1_1_test_view_model_html"><div class="ttname"><a href="class_any_test_1_1_mobile_client_1_1_model_1_1_test_view_model.html">AnyTest.MobileClient.Model.TestViewModel</a></div><div class="ttdef"><b>Definition:</b> <a href="_test_view_model_8cs_source.html#l00013">TestViewModel.cs:13</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_mobile_client_1_1_tests_page_html_ac6e21535012119f2324dddd5d2bffdfb"><div class="ttname"><a href="class_any_test_1_1_mobile_client_1_1_tests_page.html#ac6e21535012119f2324dddd5d2bffdfb">AnyTest.MobileClient.TestsPage.TestsPage</a></div><div class="ttdeci">TestsPage()</div><div class="ttdef"><b>Definition:</b> <a href="_tests_page_8xaml_8cs_source.html#l00020">TestsPage.xaml.cs:20</a></div></div>
 <div class="ttc" id="aclass_any_test_1_1_model_1_1_api_models_1_1_tests_tree_model_html"><div class="ttname"><a href="class_any_test_1_1_model_1_1_api_models_1_1_tests_tree_model.html">AnyTest.Model.ApiModels.TestsTreeModel</a></div><div class="ttdef"><b>Definition:</b> <a href="_tests_tree_model_8cs_source.html#l00007">TestsTreeModel.cs:7</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_74a3ca9024f1e8f77e9916acec202150.html">AnyTest</a></li><li class="navelem"><a class="el" href="dir_7fd9bfd7a8346cd9c786d689b7592344.html">AnyTest.MobileClient</a></li><li class="navelem"><a class="el" href="dir_489df5548a3eae825ab614e72cd3cbc5.html">AnyTest.MobileClient</a></li><li class="navelem"><b>TestsPage.xaml.cs</b></li>
+    <li class="navelem"><a class="el" href="dir_74a3ca9024f1e8f77e9916acec202150.html">AnyTest</a></li><li class="navelem"><a class="el" href="dir_7fd9bfd7a8346cd9c786d689b7592344.html">AnyTest.MobileClient</a></li><li class="navelem"><a class="el" href="dir_489df5548a3eae825ab614e72cd3cbc5.html">AnyTest.MobileClient</a></li><li class="navelem"><a class="el" href="_tests_page_8xaml_8cs.html">TestsPage.xaml.cs</a></li>
     <li class="footer">Створено системою
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>

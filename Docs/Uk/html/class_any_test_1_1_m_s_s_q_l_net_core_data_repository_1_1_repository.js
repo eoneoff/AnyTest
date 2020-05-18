@@ -6,6 +6,6 @@ var class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_repository =
     [ "Get", "class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_repository.html#a6ece90726d144bba91da3675f8130fdb", null ],
     [ "Get", "class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_repository.html#a920011d9b097d01de8e81f2799b3d2b8", null ],
     [ "Post", "class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_repository.html#a91ce0c569f0478e589f16189ca01c115", null ],
-    [ "Put", "class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_repository.html#aaf5a2f8b682868937cfbabb63f083f76", null ],
+    [ "Put", "class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_repository.html#a0de6b9103fd6188621913ff5e69faaaa", null ],
     [ "_db", "class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_repository.html#af74b4e739728c2f99d70115ea50371c1", null ]
 ];
