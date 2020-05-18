@@ -128,8 +128,8 @@ $(document).ready(function(){initNavTree('_auth_service_8cs_source.html',''); in
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keywordflow">if</span>(response.IsSuccessStatusCode)</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            {</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                await _localStorage.SetItemAsync(<span class="stringliteral">&quot;authToken&quot;</span>, loginResult.Token);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                (_authenticationStateProvider as ApiAuthenticaionStateProvider).MarkUserAsAuthenticated(creds.UserName);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                _httpClient.DefaultRequestHeaders.Authorization = <span class="keyword">new</span> AuthenticationHeaderValue(<span class="stringliteral">&quot;bearer&quot;</span>, loginResult.Token);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                _httpClient.DefaultRequestHeaders.Authorization = <span class="keyword">new</span> AuthenticationHeaderValue(<span class="stringliteral">&quot;bearer&quot;</span>, loginResult.Token);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                (_authenticationStateProvider as ApiAuthenticaionStateProvider).MarkUserAsAuthenticated(loginResult.Token);</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            }</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keywordflow">return</span> loginResult;</div>

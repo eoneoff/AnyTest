@@ -120,75 +120,86 @@ $(document).ready(function(){initNavTree('_api_authenticaion_state_provider_8cs_
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">new</span> AuthenticationState(<span class="keyword">new</span> ClaimsPrincipal(<span class="keyword">new</span> ClaimsIdentity()));</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            }</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            _httpClient.DefaultRequestHeaders.Authorization = <span class="keyword">new</span> AuthenticationHeaderValue(<span class="stringliteral">&quot;bearer&quot;</span>, savedToken);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> AuthenticationState(<span class="keyword">new</span> ClaimsPrincipal(<span class="keyword">new</span> ClaimsIdentity(ParseClaimsFromJwt(savedToken), <span class="stringliteral">&quot;jwt&quot;</span>)));</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider.html#abd192774dc9ede456f0c47662f470f9d">   67</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider.html#abd192774dc9ede456f0c47662f470f9d">MarkUserAsAuthenticated</a>(<span class="keywordtype">string</span> userName)</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            var authenticatedUser = <span class="keyword">new</span> ClaimsPrincipal(<span class="keyword">new</span> ClaimsIdentity(<span class="keyword">new</span>[] { <span class="keyword">new</span> Claim(ClaimTypes.Name, userName) }, <span class="stringliteral">&quot;apiauth&quot;</span>));</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            var authState = Task.FromResult(<span class="keyword">new</span> AuthenticationState(authenticatedUser));</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            NotifyAuthenticationStateChanged(authState);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider.html#a01f7fb2ec2a2cd956bd7353116ff6e45">   78</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider.html#a01f7fb2ec2a2cd956bd7353116ff6e45">MarkUserAsLoggedOut</a>()</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        {</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            var anonymousUser = <span class="keyword">new</span> ClaimsPrincipal(<span class="keyword">new</span> ClaimsIdentity());</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            var authState = Task.FromResult(<span class="keyword">new</span> AuthenticationState(anonymousUser));</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            NotifyAuthenticationStateChanged(authState);</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        }</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keyword">private</span> IEnumerable&lt;Claim&gt; ParseClaimsFromJwt(<span class="keywordtype">string</span> jwt)</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        {</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            var claims = <span class="keyword">new</span> List&lt;Claim&gt;();</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            var payload = jwt.Split(<span class="charliteral">&#39;.&#39;</span>)[1];<span class="comment">//Gets paload from jwt token</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            var jsonBytes = ParseBase64WithoutPadding(payload);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            var keyValuePairs = JsonSerializer.Deserialize &lt;Dictionary&lt;string, object&gt;&gt;(jsonBytes);</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            keyValuePairs.TryGetValue(ClaimTypes.Role, out <span class="keywordtype">object</span> roles);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="keywordflow">if</span>(roles != <span class="keyword">null</span>)</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            {</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                <span class="keywordflow">if</span> (roles.ToString().Trim().StartsWith(<span class="stringliteral">&quot;[&quot;</span>))</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                {</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                    var parsedRoles = JsonSerializer.Deserialize&lt;<span class="keywordtype">string</span>[]&gt;(roles.ToString());</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                    <span class="keywordflow">foreach</span>(var parsedRole <span class="keywordflow">in</span> parsedRoles)</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                    {</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                        claims.Add(<span class="keyword">new</span> Claim(ClaimTypes.Role, parsedRole));</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                    }</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                }</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                {</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                    claims.Add(<span class="keyword">new</span> Claim(ClaimTypes.Role, roles.ToString()));</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                }</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            }</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            claims.AddRange(keyValuePairs.Select(kvp =&gt; <span class="keyword">new</span> Claim(kvp.Key, kvp.Value.ToString())));</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            <span class="keywordflow">return</span> claims;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">if</span>(<a class="code" href="class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider.html#ae7cc45f61099258c38a7181b03a5faa2">TokenExpired</a>(savedToken))</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                await _localStorage.RemoveItemAsync(<span class="stringliteral">&quot;authToken&quot;</span>);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">new</span> AuthenticationState(<span class="keyword">new</span> ClaimsPrincipal(<span class="keyword">new</span> ClaimsIdentity()));</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            _httpClient.DefaultRequestHeaders.Authorization = <span class="keyword">new</span> AuthenticationHeaderValue(<span class="stringliteral">&quot;bearer&quot;</span>, savedToken);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> AuthenticationState(<span class="keyword">new</span> ClaimsPrincipal(<span class="keyword">new</span> ClaimsIdentity(ParseClaimsFromJwt(savedToken), <span class="stringliteral">&quot;jwt&quot;</span>)));</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider.html#aed8a7f4f737301842fe7fc2a6e98ebc2">   76</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider.html#aed8a7f4f737301842fe7fc2a6e98ebc2">MarkUserAsAuthenticated</a>(<span class="keywordtype">string</span> token)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        {</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            var authenticatedUser = <span class="keyword">new</span> ClaimsPrincipal(<span class="keyword">new</span> ClaimsIdentity(ParseClaimsFromJwt(token), <span class="stringliteral">&quot;apiauth&quot;</span>));</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            var authState = Task.FromResult(<span class="keyword">new</span> AuthenticationState(authenticatedUser));</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            NotifyAuthenticationStateChanged(authState);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider.html#a01f7fb2ec2a2cd956bd7353116ff6e45">   88</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider.html#a01f7fb2ec2a2cd956bd7353116ff6e45">MarkUserAsLoggedOut</a>()</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            var anonymousUser = <span class="keyword">new</span> ClaimsPrincipal(<span class="keyword">new</span> ClaimsIdentity());</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            var authState = Task.FromResult(<span class="keyword">new</span> AuthenticationState(anonymousUser));</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            NotifyAuthenticationStateChanged(authState);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider.html#ae7cc45f61099258c38a7181b03a5faa2">TokenExpired</a> (<span class="keywordtype">string</span> jwt) =&gt;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            <span class="keyword">new</span> DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Local).AddSeconds(<span class="keywordtype">long</span>.Parse(ParseClaimsFromJwt(jwt).FirstOrDefault(c =&gt; c.Type == <span class="stringliteral">&quot;exp&quot;</span>)?.Value)) &lt; DateTime.Now;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keyword">private</span> <span class="keyword">static</span> IEnumerable&lt;Claim&gt; ParseClaimsFromJwt(<span class="keywordtype">string</span> jwt)</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        {</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            var claims = <span class="keyword">new</span> List&lt;Claim&gt;();</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            var payload = jwt.Split(<span class="charliteral">&#39;.&#39;</span>)[1];<span class="comment">//Gets paload from jwt token</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            var jsonBytes = ParseBase64WithoutPadding(payload);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            var keyValuePairs = JsonSerializer.Deserialize &lt;Dictionary&lt;string, object&gt;&gt;(jsonBytes);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            keyValuePairs.TryGetValue(ClaimTypes.Role, out <span class="keywordtype">object</span> roles);</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="keyword">private</span> <span class="keywordtype">byte</span>[] ParseBase64WithoutPadding(<span class="keywordtype">string</span> base64)</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        {</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            <span class="keywordflow">switch</span>(base64.Length % 4)</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            {</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                <span class="keywordflow">case</span> 2: base64 += <span class="stringliteral">&quot;==&quot;</span>; <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                <span class="keywordflow">case</span> 3: base64 += <span class="stringliteral">&quot;=&quot;</span>; <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;            }</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            <span class="keywordflow">return</span> Convert.FromBase64String(base64);</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        }</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    }</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;}</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            <span class="keywordflow">if</span>(roles != <span class="keyword">null</span>)</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            {</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                <span class="keywordflow">if</span> (roles.ToString().Trim().StartsWith(<span class="stringliteral">&quot;[&quot;</span>))</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                {</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                    var parsedRoles = JsonSerializer.Deserialize&lt;<span class="keywordtype">string</span>[]&gt;(roles.ToString());</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                    <span class="keywordflow">foreach</span>(var parsedRole <span class="keywordflow">in</span> parsedRoles)</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                    {</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                        claims.Add(<span class="keyword">new</span> Claim(ClaimTypes.Role, parsedRole));</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                    }</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                }</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                {</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;                    claims.Add(<span class="keyword">new</span> Claim(ClaimTypes.Role, roles.ToString()));</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                }</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;            }</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;            claims.AddRange(keyValuePairs.Select(kvp =&gt; <span class="keyword">new</span> Claim(kvp.Key, kvp.Value.ToString())));</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            <span class="keywordflow">return</span> claims;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        }</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keywordtype">byte</span>[] ParseBase64WithoutPadding(<span class="keywordtype">string</span> base64)</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        {</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            <span class="keywordflow">switch</span>(base64.Length % 4)</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            {</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                <span class="keywordflow">case</span> 2: base64 += <span class="stringliteral">&quot;==&quot;</span>; <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                <span class="keywordflow">case</span> 3: base64 += <span class="stringliteral">&quot;=&quot;</span>; <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            }</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;            <span class="keywordflow">return</span> Convert.FromBase64String(base64);</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        }</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    }</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclass_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider_html_ae7cc45f61099258c38a7181b03a5faa2"><div class="ttname"><a href="class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider.html#ae7cc45f61099258c38a7181b03a5faa2">AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider.TokenExpired</a></div><div class="ttdeci">static bool TokenExpired(string jwt)</div><div class="ttdoc">Визначає, чи не сплив термін дії збереженого токену</div></div>
 <div class="ttc" id="anamespace_any_test_1_1_client_authentication_html"><div class="ttname"><a href="namespace_any_test_1_1_client_authentication.html">AnyTest.ClientAuthentication</a></div><div class="ttdef"><b>Definition:</b> <a href="_api_authenticaion_state_provider_8cs_source.html#l00013">ApiAuthenticaionStateProvider.cs:13</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider_html_aed8a7f4f737301842fe7fc2a6e98ebc2"><div class="ttname"><a href="class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider.html#aed8a7f4f737301842fe7fc2a6e98ebc2">AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider.MarkUserAsAuthenticated</a></div><div class="ttdeci">void MarkUserAsAuthenticated(string token)</div><div class="ttdoc">Позначає користувача аутентивікованим для компонента AuthorizeView</div><div class="ttdef"><b>Definition:</b> <a href="_api_authenticaion_state_provider_8cs_source.html#l00076">ApiAuthenticaionStateProvider.cs:76</a></div></div>
 <div class="ttc" id="aclass_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider_html"><div class="ttname"><a href="class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider.html">AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider</a></div><div class="ttdoc">Клас, який постачає стан аутентифікації компотенту blazor</div><div class="ttdef"><b>Definition:</b> <a href="_api_authenticaion_state_provider_8cs_source.html#l00019">ApiAuthenticaionStateProvider.cs:19</a></div></div>
 <div class="ttc" id="aclass_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider_html_a40154479fad3839478e846b4ad1064c7"><div class="ttname"><a href="class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider.html#a40154479fad3839478e846b4ad1064c7">AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider.GetAuthenticationStateAsync</a></div><div class="ttdeci">override async Task&lt; AuthenticationState &gt; GetAuthenticationStateAsync()</div><div class="ttdoc">Метод, який викликає компонет blazor щоб визначити стан аутентифікації</div><div class="ttdef"><b>Definition:</b> <a href="_api_authenticaion_state_provider_8cs_source.html#l00047">ApiAuthenticaionStateProvider.cs:47</a></div></div>
-<div class="ttc" id="aclass_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider_html_a01f7fb2ec2a2cd956bd7353116ff6e45"><div class="ttname"><a href="class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider.html#a01f7fb2ec2a2cd956bd7353116ff6e45">AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider.MarkUserAsLoggedOut</a></div><div class="ttdeci">void MarkUserAsLoggedOut()</div><div class="ttdoc">Позначає, що коритсувач вийшов для компонента AuthorizeView</div><div class="ttdef"><b>Definition:</b> <a href="_api_authenticaion_state_provider_8cs_source.html#l00078">ApiAuthenticaionStateProvider.cs:78</a></div></div>
-<div class="ttc" id="aclass_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider_html_abd192774dc9ede456f0c47662f470f9d"><div class="ttname"><a href="class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider.html#abd192774dc9ede456f0c47662f470f9d">AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider.MarkUserAsAuthenticated</a></div><div class="ttdeci">void MarkUserAsAuthenticated(string userName)</div><div class="ttdoc">Позначає користувача аутентивікованим для компонента AuthorizeView</div><div class="ttdef"><b>Definition:</b> <a href="_api_authenticaion_state_provider_8cs_source.html#l00067">ApiAuthenticaionStateProvider.cs:67</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider_html_a01f7fb2ec2a2cd956bd7353116ff6e45"><div class="ttname"><a href="class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider.html#a01f7fb2ec2a2cd956bd7353116ff6e45">AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider.MarkUserAsLoggedOut</a></div><div class="ttdeci">void MarkUserAsLoggedOut()</div><div class="ttdoc">Позначає, що коритсувач вийшов для компонента AuthorizeView</div><div class="ttdef"><b>Definition:</b> <a href="_api_authenticaion_state_provider_8cs_source.html#l00088">ApiAuthenticaionStateProvider.cs:88</a></div></div>
 <div class="ttc" id="aclass_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider_html_a07779e305954856b2a247eee5ab6a99d"><div class="ttname"><a href="class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider.html#a07779e305954856b2a247eee5ab6a99d">AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider.ApiAuthenticaionStateProvider</a></div><div class="ttdeci">ApiAuthenticaionStateProvider(HttpClient httpClient, ILocalStorageService localStorage)</div><div class="ttdoc">Ініціалізує новий екземпляр класу ApiAuthenticationStateProvider</div><div class="ttdef"><b>Definition:</b> <a href="_api_authenticaion_state_provider_8cs_source.html#l00036">ApiAuthenticaionStateProvider.cs:36</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

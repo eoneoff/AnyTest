@@ -18,10 +18,15 @@
 \begin{DoxyCompactList}\small\item\em Ініціалізує новий екземпляр класу {\ttfamily Api\+Authentication\+State\+Provider} \end{DoxyCompactList}\item 
 override async Task$<$ Authentication\+State $>$ \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider_a40154479fad3839478e846b4ad1064c7}{Get\+Authentication\+State\+Async}} ()
 \begin{DoxyCompactList}\small\item\em Метод, який викликає компонет blazor щоб визначити стан аутентифікації \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider_abd192774dc9ede456f0c47662f470f9d}{Mark\+User\+As\+Authenticated}} (string user\+Name)
+void \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider_aed8a7f4f737301842fe7fc2a6e98ebc2}{Mark\+User\+As\+Authenticated}} (string token)
 \begin{DoxyCompactList}\small\item\em Позначає користувача аутентивікованим для компонента {\ttfamily Authorize\+View} \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider_a01f7fb2ec2a2cd956bd7353116ff6e45}{Mark\+User\+As\+Logged\+Out}} ()
 \begin{DoxyCompactList}\small\item\em Позначає, що коритсувач вийшов для компонента {\ttfamily Authorize\+View} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Загальнодоступні статичні елементи}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider_ae7cc45f61099258c38a7181b03a5faa2}{Token\+Expired}} (string jwt)
+\begin{DoxyCompactList}\small\item\em Визначає, чи не сплив термін дії збереженого токену \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Детальний опис}
@@ -75,11 +80,11 @@ An {\ttfamily Authentication\+State} object, containing the jwt token
 
 Див. визначення в файлі Api\+Authenticaion\+State\+Provider.\+cs, рядок 47
 
-\mbox{\Hypertarget{class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider_abd192774dc9ede456f0c47662f470f9d}\label{class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider_abd192774dc9ede456f0c47662f470f9d}} 
+\mbox{\Hypertarget{class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider_aed8a7f4f737301842fe7fc2a6e98ebc2}\label{class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider_aed8a7f4f737301842fe7fc2a6e98ebc2}} 
 \index{AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider@{AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider}!MarkUserAsAuthenticated@{MarkUserAsAuthenticated}}
 \index{MarkUserAsAuthenticated@{MarkUserAsAuthenticated}!AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider@{AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider}}
 \doxysubsubsection{\texorpdfstring{MarkUserAsAuthenticated()}{MarkUserAsAuthenticated()}}
-{\footnotesize\ttfamily void Any\+Test.\+Client\+Authentication.\+Api\+Authenticaion\+State\+Provider.\+Mark\+User\+As\+Authenticated (\begin{DoxyParamCaption}\item[{string}]{user\+Name }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Any\+Test.\+Client\+Authentication.\+Api\+Authenticaion\+State\+Provider.\+Mark\+User\+As\+Authenticated (\begin{DoxyParamCaption}\item[{string}]{token }\end{DoxyParamCaption})}
 
 
 
@@ -87,12 +92,12 @@ An {\ttfamily Authentication\+State} object, containing the jwt token
 
 
 \begin{DoxyParams}{Аргументи}
-{\em user\+Name} & user name\\
+{\em token} & J\+WT token J\+WT токен \\
 \hline
 \end{DoxyParams}
 
 
-Див. визначення в файлі Api\+Authenticaion\+State\+Provider.\+cs, рядок 67
+Див. визначення в файлі Api\+Authenticaion\+State\+Provider.\+cs, рядок 76
 
 \mbox{\Hypertarget{class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider_a01f7fb2ec2a2cd956bd7353116ff6e45}\label{class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider_a01f7fb2ec2a2cd956bd7353116ff6e45}} 
 \index{AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider@{AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider}!MarkUserAsLoggedOut@{MarkUserAsLoggedOut}}
@@ -106,8 +111,26 @@ An {\ttfamily Authentication\+State} object, containing the jwt token
 
 
 
-Див. визначення в файлі Api\+Authenticaion\+State\+Provider.\+cs, рядок 78
+Див. визначення в файлі Api\+Authenticaion\+State\+Provider.\+cs, рядок 88
 
+\mbox{\Hypertarget{class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider_ae7cc45f61099258c38a7181b03a5faa2}\label{class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider_ae7cc45f61099258c38a7181b03a5faa2}} 
+\index{AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider@{AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider}!TokenExpired@{TokenExpired}}
+\index{TokenExpired@{TokenExpired}!AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider@{AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider}}
+\doxysubsubsection{\texorpdfstring{TokenExpired()}{TokenExpired()}}
+{\footnotesize\ttfamily static bool Any\+Test.\+Client\+Authentication.\+Api\+Authenticaion\+State\+Provider.\+Token\+Expired (\begin{DoxyParamCaption}\item[{string}]{jwt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Визначає, чи не сплив термін дії збереженого токену 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em jwt} & J\+WT токен \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+
+\end{DoxyReturn}
 
 
 Документація цього класу була створена з файлу\+:\begin{DoxyCompactItemize}

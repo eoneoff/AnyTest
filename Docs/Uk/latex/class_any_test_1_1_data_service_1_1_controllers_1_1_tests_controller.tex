@@ -1,0 +1,217 @@
+\hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_tests_controller}{}\doxysection{Клас Any\+Test.\+Data\+Service.\+Controllers.\+Tests\+Controller}
+\label{class_any_test_1_1_data_service_1_1_controllers_1_1_tests_controller}\index{AnyTest.DataService.Controllers.TestsController@{AnyTest.DataService.Controllers.TestsController}}
+
+
+ 
+
+
+Схема успадкувань для Any\+Test.\+Data\+Service.\+Controllers.\+Tests\+Controller\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_any_test_1_1_data_service_1_1_controllers_1_1_tests_controller}
+\end{center}
+\end{figure}
+\doxysubsection*{Загальнодоступні елементи}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_tests_controller_a39109185ec83aeb64ce52a1002b4f19c}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_tests_controller_a39109185ec83aeb64ce52a1002b4f19c}} 
+override async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_tests_controller_a39109185ec83aeb64ce52a1002b4f19c}{Post}} (\mbox{[}From\+Body\mbox{]} \mbox{\hyperlink{class_any_test_1_1_model_1_1_test}{Test}} item)
+\begin{DoxyCompactList}\small\item\em inheritdoc/$>$ \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_tests_controller_a1550dde7165d04375f5b4db18c97a799}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_tests_controller_a1550dde7165d04375f5b4db18c97a799}} 
+override async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_tests_controller_a1550dde7165d04375f5b4db18c97a799}{Put}} (long id, \mbox{[}From\+Body\mbox{]} \mbox{\hyperlink{class_any_test_1_1_model_1_1_test}{Test}} item)
+\begin{DoxyCompactList}\small\item\em inheritdoc/$>$ \end{DoxyCompactList}\item 
+override async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_tests_controller_a54bce680c8ea65be074adb3cf3df880f}{Delete}} (long id)
+\begin{DoxyCompactList}\small\item\em Видаляє дані \end{DoxyCompactList}\item 
+async Task$<$ Dictionary$<$ string, List$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_api_models_1_1_tests_tree_model}{Tests\+Tree\+Model}} $>$ $>$ $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_tests_controller_a0710e7c55d83c7d9743e20fe2fab983c}{Get\+Tests\+List}} ()
+\begin{DoxyCompactList}\small\item\em Метод для отримання структурованого списку предметів, курсів та тестів \end{DoxyCompactList}\item 
+async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_tests_controller_accffaec98cacb669d584b5120bcdf3b9}{Add\+Subject}} (long test\+Id, long subject\+Id)
+\begin{DoxyCompactList}\small\item\em Додає тест до предмету \end{DoxyCompactList}\item 
+async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_tests_controller_a4c178bd1c8ce3fd938b63054bf7dd032}{Remove\+Subject}} (long test\+Id, long subject\+Id)
+\begin{DoxyCompactList}\small\item\em Видаляє тест з предмету \end{DoxyCompactList}\item 
+async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_tests_controller_ae19b6b35782b27edadbb0810b54e1824}{Add\+Courset}} (long test\+Id, long course\+Id)
+\begin{DoxyCompactList}\small\item\em Додає тест до курсу \end{DoxyCompactList}\item 
+async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_tests_controller_a555885a8f5b0fdda3ea9002591bfa59e}{Remove\+Course}} (long test\+Id, long course\+Id)
+\begin{DoxyCompactList}\small\item\em Видаляє тест з курсу \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Додаткові успадковані елементи}
+
+
+\doxysubsection{Детальний опис}
+
+
+Див. визначення в файлі Tests\+Controller.\+cs, рядок 18
+
+
+
+\doxysubsection{Опис методів компонент}
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_tests_controller_ae19b6b35782b27edadbb0810b54e1824}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_tests_controller_ae19b6b35782b27edadbb0810b54e1824}} 
+\index{AnyTest.DataService.Controllers.TestsController@{AnyTest.DataService.Controllers.TestsController}!AddCourset@{AddCourset}}
+\index{AddCourset@{AddCourset}!AnyTest.DataService.Controllers.TestsController@{AnyTest.DataService.Controllers.TestsController}}
+\doxysubsubsection{\texorpdfstring{AddCourset()}{AddCourset()}}
+{\footnotesize\ttfamily async Task$<$I\+Action\+Result$>$ Any\+Test.\+Data\+Service.\+Controllers.\+Tests\+Controller.\+Add\+Courset (\begin{DoxyParamCaption}\item[{long}]{test\+Id,  }\item[{long}]{course\+Id }\end{DoxyParamCaption})}
+
+
+
+Додає тест до курсу 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em test\+Id} & Id тесту \\
+\hline
+{\em course\+Id} & Id курсу \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+зв\textquotesingle{}язок між тестом та курсом 
+\end{DoxyReturn}
+
+
+Приклад H\+T\+TP запиту 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{POST: api/tests/5/courses/2}
+\end{DoxyCode}
+ 
+
+Див. визначення в файлі Tests\+Controller.\+cs, рядок 145
+
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_tests_controller_accffaec98cacb669d584b5120bcdf3b9}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_tests_controller_accffaec98cacb669d584b5120bcdf3b9}} 
+\index{AnyTest.DataService.Controllers.TestsController@{AnyTest.DataService.Controllers.TestsController}!AddSubject@{AddSubject}}
+\index{AddSubject@{AddSubject}!AnyTest.DataService.Controllers.TestsController@{AnyTest.DataService.Controllers.TestsController}}
+\doxysubsubsection{\texorpdfstring{AddSubject()}{AddSubject()}}
+{\footnotesize\ttfamily async Task$<$I\+Action\+Result$>$ Any\+Test.\+Data\+Service.\+Controllers.\+Tests\+Controller.\+Add\+Subject (\begin{DoxyParamCaption}\item[{long}]{test\+Id,  }\item[{long}]{subject\+Id }\end{DoxyParamCaption})}
+
+
+
+Додає тест до предмету 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em test\+Id} & Id тесту \\
+\hline
+{\em subject\+Id} & Id предмету \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+зв\textquotesingle{}язок між тестом та предметом 
+\end{DoxyReturn}
+
+
+Приклад H\+T\+TP запиту 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{POST: api/tests/5/subjects/2}
+\end{DoxyCode}
+ 
+
+Див. визначення в файлі Tests\+Controller.\+cs, рядок 80
+
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_tests_controller_a54bce680c8ea65be074adb3cf3df880f}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_tests_controller_a54bce680c8ea65be074adb3cf3df880f}} 
+\index{AnyTest.DataService.Controllers.TestsController@{AnyTest.DataService.Controllers.TestsController}!Delete@{Delete}}
+\index{Delete@{Delete}!AnyTest.DataService.Controllers.TestsController@{AnyTest.DataService.Controllers.TestsController}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily override async Task$<$I\+Action\+Result$>$ Any\+Test.\+Data\+Service.\+Controllers.\+Tests\+Controller.\+Delete (\begin{DoxyParamCaption}\item[{long}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Видаляє дані 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em id} & Id {\ttfamily long} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+Результат видалення 
+\end{DoxyReturn}
+
+
+Приклад H\+T\+TP запиту 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{DELETE: api/[controller]/5}
+\end{DoxyCode}
+ 
+
+Переозначення з \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base_a715ddcfcce37e28a92635817a1ce9088}{Any\+Test.\+Data\+Service.\+Controllers.\+Api\+Controller\+Base$<$ Test $>$}}.
+
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_tests_controller_a0710e7c55d83c7d9743e20fe2fab983c}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_tests_controller_a0710e7c55d83c7d9743e20fe2fab983c}} 
+\index{AnyTest.DataService.Controllers.TestsController@{AnyTest.DataService.Controllers.TestsController}!GetTestsList@{GetTestsList}}
+\index{GetTestsList@{GetTestsList}!AnyTest.DataService.Controllers.TestsController@{AnyTest.DataService.Controllers.TestsController}}
+\doxysubsubsection{\texorpdfstring{GetTestsList()}{GetTestsList()}}
+{\footnotesize\ttfamily async Task$<$Dictionary$<$string, List$<$\mbox{\hyperlink{class_any_test_1_1_model_1_1_api_models_1_1_tests_tree_model}{Tests\+Tree\+Model}}$>$ $>$ $>$ Any\+Test.\+Data\+Service.\+Controllers.\+Tests\+Controller.\+Get\+Tests\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Метод для отримання структурованого списку предметів, курсів та тестів 
+
+\begin{DoxyReturn}{Повертає}
+Список предметів, курсів та тестів деревоподібної структури 
+\end{DoxyReturn}
+/// 
+
+Приклад H\+T\+TP запиту 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{GET: api/tests/list}
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_tests_controller_a555885a8f5b0fdda3ea9002591bfa59e}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_tests_controller_a555885a8f5b0fdda3ea9002591bfa59e}} 
+\index{AnyTest.DataService.Controllers.TestsController@{AnyTest.DataService.Controllers.TestsController}!RemoveCourse@{RemoveCourse}}
+\index{RemoveCourse@{RemoveCourse}!AnyTest.DataService.Controllers.TestsController@{AnyTest.DataService.Controllers.TestsController}}
+\doxysubsubsection{\texorpdfstring{RemoveCourse()}{RemoveCourse()}}
+{\footnotesize\ttfamily async Task$<$I\+Action\+Result$>$ Any\+Test.\+Data\+Service.\+Controllers.\+Tests\+Controller.\+Remove\+Course (\begin{DoxyParamCaption}\item[{long}]{test\+Id,  }\item[{long}]{course\+Id }\end{DoxyParamCaption})}
+
+
+
+Видаляє тест з курсу 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em test\+Id} & Id тесту \\
+\hline
+{\em course\+Id} & Id курсу \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+зв\textquotesingle{}язок між тестом та курсом 
+\end{DoxyReturn}
+
+
+Приклад H\+T\+TP запиту 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{DELETE: api/tests/5/courses/2}
+\end{DoxyCode}
+ 
+
+Див. визначення в файлі Tests\+Controller.\+cs, рядок 177
+
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_tests_controller_a4c178bd1c8ce3fd938b63054bf7dd032}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_tests_controller_a4c178bd1c8ce3fd938b63054bf7dd032}} 
+\index{AnyTest.DataService.Controllers.TestsController@{AnyTest.DataService.Controllers.TestsController}!RemoveSubject@{RemoveSubject}}
+\index{RemoveSubject@{RemoveSubject}!AnyTest.DataService.Controllers.TestsController@{AnyTest.DataService.Controllers.TestsController}}
+\doxysubsubsection{\texorpdfstring{RemoveSubject()}{RemoveSubject()}}
+{\footnotesize\ttfamily async Task$<$I\+Action\+Result$>$ Any\+Test.\+Data\+Service.\+Controllers.\+Tests\+Controller.\+Remove\+Subject (\begin{DoxyParamCaption}\item[{long}]{test\+Id,  }\item[{long}]{subject\+Id }\end{DoxyParamCaption})}
+
+
+
+Видаляє тест з предмету 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em test\+Id} & Id тесту \\
+\hline
+{\em subject\+Id} & Id предмету \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+зв\textquotesingle{}язок між тестом та предметом 
+\end{DoxyReturn}
+
+
+Приклад H\+T\+TP запиту 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{DELETE: api/tests/5/subjects/2}
+\end{DoxyCode}
+ 
+
+Див. визначення в файлі Tests\+Controller.\+cs, рядок 112
+
+
+
+Документація цього класу була створена з файлу\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Any\+Test/\+Any\+Test/\+Any\+Test.\+Data\+Service/\+Controllers/Tests\+Controller.\+cs\end{DoxyCompactItemize}

@@ -2,7 +2,7 @@
 \label{class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller}\index{AnyTest.DataService.Controllers.TutorsController@{AnyTest.DataService.Controllers.TutorsController}}
 
 
- 
+Контроллер A\+PI для даних викладачів  
 
 
 Схема успадкувань для Any\+Test.\+Data\+Service.\+Controllers.\+Tutors\+Controller\begin{figure}[H]
@@ -14,29 +14,35 @@
 \doxysubsection*{Загальнодоступні елементи}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller_a030c71fad83c34f8938da13b3c9f1ccf}{Tutors\+Controller}} (\mbox{\hyperlink{interface_any_test_1_1_i_data_repository_1_1_i_repository}{I\+Repository}}$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_tutor}{Tutor}} $>$ repository)
+\mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller_ac4a1d193ce0085c90aca7f00815d9e4a}{Tutors\+Controller}} (\mbox{\hyperlink{interface_any_test_1_1_i_data_repository_1_1_i_repository}{I\+Repository}}$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_tutor}{Tutor}} $>$ repository, \mbox{\hyperlink{interface_any_test_1_1_i_data_repository_1_1_i_person_repository}{I\+Person\+Repository}} people)
 \begin{DoxyCompactList}\small\item\em Ініціалізує новий екземляр класу {\ttfamily Tutors\+Contorller} \end{DoxyCompactList}\item 
 async Task$<$ I\+Enumerable$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_tutor}{Tutor}} $>$ $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller_adc4e7f18bae4c265fd1bbac3bd1b91de}{Get}} ()
 \begin{DoxyCompactList}\small\item\em Метод для отримання персональних даних всіх викладачів \end{DoxyCompactList}\item 
 async Task$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_tutor}{Tutor}} $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller_a88768001dba101619b7464fdd5ed479a}{Get}} (long id)
-\begin{DoxyCompactList}\small\item\em Метод для отримання персональних даних викладача по id \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Метод для отримання персональних даних викладача по id \end{DoxyCompactList}\item 
+async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller_a1a71b8545c114b95029732fd280f814a}{Post}} (\mbox{\hyperlink{class_any_test_1_1_model_1_1_tutor}{Tutor}} tutor)
+\begin{DoxyCompactList}\small\item\em Додає персональні дані нового викладача \end{DoxyCompactList}\item 
+async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller_a7bcea154255817ba3f4fbf5a0b3ee73a}{Put}} (long id, \mbox{[}From\+Body\mbox{]} \mbox{\hyperlink{class_any_test_1_1_model_1_1_tutor}{Tutor}} tutor)
+\begin{DoxyCompactList}\small\item\em Змінює пресональні дані існуючого викладача \end{DoxyCompactList}\item 
+async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller_afe35c9d0fa8ac5a7818548097873cdbb}{Delete}} (long id)
+\begin{DoxyCompactList}\small\item\em Видаляє особисті дані викладачаа \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Детальний опис}
+Контроллер A\+PI для даних викладачів 
 
 
-Контроллер A\+PI для даних викладачів
 
-Див. визначення в файлі Tutors\+Controller.\+cs, рядок 18
+Див. визначення в файлі Tutors\+Controller.\+cs, рядок 20
 
 
 
 \doxysubsection{Конструктор(и)}
-\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller_a030c71fad83c34f8938da13b3c9f1ccf}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller_a030c71fad83c34f8938da13b3c9f1ccf}} 
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller_ac4a1d193ce0085c90aca7f00815d9e4a}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller_ac4a1d193ce0085c90aca7f00815d9e4a}} 
 \index{AnyTest.DataService.Controllers.TutorsController@{AnyTest.DataService.Controllers.TutorsController}!TutorsController@{TutorsController}}
 \index{TutorsController@{TutorsController}!AnyTest.DataService.Controllers.TutorsController@{AnyTest.DataService.Controllers.TutorsController}}
 \doxysubsubsection{\texorpdfstring{TutorsController()}{TutorsController()}}
-{\footnotesize\ttfamily Any\+Test.\+Data\+Service.\+Controllers.\+Tutors\+Controller.\+Tutors\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_any_test_1_1_i_data_repository_1_1_i_repository}{I\+Repository}}$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_tutor}{Tutor}} $>$}]{repository }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Any\+Test.\+Data\+Service.\+Controllers.\+Tutors\+Controller.\+Tutors\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_any_test_1_1_i_data_repository_1_1_i_repository}{I\+Repository}}$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_tutor}{Tutor}} $>$}]{repository,  }\item[{\mbox{\hyperlink{interface_any_test_1_1_i_data_repository_1_1_i_person_repository}{I\+Person\+Repository}}}]{people }\end{DoxyParamCaption})}
 
 
 
@@ -47,9 +53,37 @@ async Task$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_tutor}{Tutor}} $>$ \
 {\em repository} & Об\textquotesingle{}єкт, який іплементує інтерфейс {\ttfamily I\+Repository\{Tutor\}}. Залежність. \\
 \hline
 \end{DoxyParams}
-
+param name=\char`\"{}people\char`\"{}$>$ Об\textquotesingle{}єкт, який іплементує інтерфейс {\ttfamily I\+People\+Repository}. Залежність. 
 
 \doxysubsection{Опис методів компонент}
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller_afe35c9d0fa8ac5a7818548097873cdbb}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller_afe35c9d0fa8ac5a7818548097873cdbb}} 
+\index{AnyTest.DataService.Controllers.TutorsController@{AnyTest.DataService.Controllers.TutorsController}!Delete@{Delete}}
+\index{Delete@{Delete}!AnyTest.DataService.Controllers.TutorsController@{AnyTest.DataService.Controllers.TutorsController}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily async Task$<$I\+Action\+Result$>$ Any\+Test.\+Data\+Service.\+Controllers.\+Tutors\+Controller.\+Delete (\begin{DoxyParamCaption}\item[{long}]{id }\end{DoxyParamCaption})}
+
+
+
+Видаляє особисті дані викладачаа 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em id} & Id викладача {\ttfamily long} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+Результат видалення особистих даних викладача 
+\end{DoxyReturn}
+
+
+Приклад H\+T\+TP запиту видалення особистих даних викладача 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{DELETE: api/Tutors/5}
+\end{DoxyCode}
+ 
+
+Див. визначення в файлі Tutors\+Controller.\+cs, рядок 174
+
 \mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller_adc4e7f18bae4c265fd1bbac3bd1b91de}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller_adc4e7f18bae4c265fd1bbac3bd1b91de}} 
 \index{AnyTest.DataService.Controllers.TutorsController@{AnyTest.DataService.Controllers.TutorsController}!Get@{Get}}
 \index{Get@{Get}!AnyTest.DataService.Controllers.TutorsController@{AnyTest.DataService.Controllers.TutorsController}}
@@ -85,7 +119,7 @@ async Task$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_tutor}{Tutor}} $>$ \
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Повертає}
-{\ttfamily Person} 
+{\ttfamily tutor} 
 \end{DoxyReturn}
 
 
@@ -93,7 +127,65 @@ async Task$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_tutor}{Tutor}} $>$ \
 \begin{DoxyCode}{0}
 \DoxyCodeLine{GET: api/Tutors/5}
 \end{DoxyCode}
+ \mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller_a1a71b8545c114b95029732fd280f814a}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller_a1a71b8545c114b95029732fd280f814a}} 
+\index{AnyTest.DataService.Controllers.TutorsController@{AnyTest.DataService.Controllers.TutorsController}!Post@{Post}}
+\index{Post@{Post}!AnyTest.DataService.Controllers.TutorsController@{AnyTest.DataService.Controllers.TutorsController}}
+\doxysubsubsection{\texorpdfstring{Post()}{Post()}}
+{\footnotesize\ttfamily async Task$<$I\+Action\+Result$>$ Any\+Test.\+Data\+Service.\+Controllers.\+Tutors\+Controller.\+Post (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_any_test_1_1_model_1_1_tutor}{Tutor}}}]{tutor }\end{DoxyParamCaption})}
+
+
+
+Додає персональні дані нового викладача 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em tutor} & Екземпляр класу {\ttfamily Tutor}, якій місить дані нового викладача \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+Результат створення викладача 
+\end{DoxyReturn}
+
+
+Приклад H\+T\+TP запиту створення викладача викладача 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{POST: api/Tutors}
+\end{DoxyCode}
  
+
+Див. визначення в файлі Tutors\+Controller.\+cs, рядок 101
+
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller_a7bcea154255817ba3f4fbf5a0b3ee73a}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_tutors_controller_a7bcea154255817ba3f4fbf5a0b3ee73a}} 
+\index{AnyTest.DataService.Controllers.TutorsController@{AnyTest.DataService.Controllers.TutorsController}!Put@{Put}}
+\index{Put@{Put}!AnyTest.DataService.Controllers.TutorsController@{AnyTest.DataService.Controllers.TutorsController}}
+\doxysubsubsection{\texorpdfstring{Put()}{Put()}}
+{\footnotesize\ttfamily async Task$<$I\+Action\+Result$>$ Any\+Test.\+Data\+Service.\+Controllers.\+Tutors\+Controller.\+Put (\begin{DoxyParamCaption}\item[{long}]{id,  }\item[{\mbox{[}\+From\+Body\mbox{]} \mbox{\hyperlink{class_any_test_1_1_model_1_1_tutor}{Tutor}}}]{tutor }\end{DoxyParamCaption})}
+
+
+
+Змінює пресональні дані існуючого викладача 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em id} & Id викладача. {\ttfamily long} \\
+\hline
+{\em tutor} & Об\textquotesingle{}єкт класту {\ttfamily Tutor} із зміненими особистими даними \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+Результат оновлення викладача 
+\end{DoxyReturn}
+
+
+Приклад H\+T\+TP запиту зміни викладача 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{PUT: api/Tutors/5}
+\end{DoxyCode}
+ 
+
+Див. визначення в файлі Tutors\+Controller.\+cs, рядок 136
+
+
 
 Документація цього класу була створена з файлу\+:\begin{DoxyCompactItemize}
 \item 

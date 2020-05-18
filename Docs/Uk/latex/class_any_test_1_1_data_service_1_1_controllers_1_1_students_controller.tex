@@ -1,0 +1,284 @@
+\hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller}{}\doxysection{Клас Any\+Test.\+Data\+Service.\+Controllers.\+Students\+Controller}
+\label{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller}\index{AnyTest.DataService.Controllers.StudentsController@{AnyTest.DataService.Controllers.StudentsController}}
+
+
+ 
+
+
+Схема успадкувань для Any\+Test.\+Data\+Service.\+Controllers.\+Students\+Controller\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller}
+\end{center}
+\end{figure}
+\doxysubsection*{Загальнодоступні елементи}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a21fd53ff590a9cfe08281905fbba8728}{Students\+Controller}} (\mbox{\hyperlink{interface_any_test_1_1_i_data_repository_1_1_i_repository}{I\+Repository}}$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_student}{Student}} $>$ repository, \mbox{\hyperlink{interface_any_test_1_1_i_data_repository_1_1_i_person_repository}{I\+Person\+Repository}} people)
+\begin{DoxyCompactList}\small\item\em Ініціалізує новий екземляр класу {\ttfamily Students\+Contorller} \end{DoxyCompactList}\item 
+async Task$<$ I\+Enumerable$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_student}{Student}} $>$ $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a2cb1144f9a8658de5065044b14d722fa}{Get}} ()
+\begin{DoxyCompactList}\small\item\em Метод для отримання персональних даних всіх студентів \end{DoxyCompactList}\item 
+async Task$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_student}{Student}} $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a50ce6a76aa99f4ef8ba4244902f86c64}{Get}} (long id)
+\begin{DoxyCompactList}\small\item\em Метод для отримання персональних даних студента по id \end{DoxyCompactList}\item 
+async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_aef353d8d2be5defe31f6d6193d0a284a}{Post}} (\mbox{\hyperlink{class_any_test_1_1_model_1_1_student}{Student}} \mbox{\hyperlink{class_any_test_1_1_model_1_1_student}{Student}})
+\begin{DoxyCompactList}\small\item\em Додає персональні дані нового студента \end{DoxyCompactList}\item 
+async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a5f8410ae65c1e78aff9ccb6dc5d1d6bd}{Put}} (long id, \mbox{[}From\+Body\mbox{]} \mbox{\hyperlink{class_any_test_1_1_model_1_1_student}{Student}} \mbox{\hyperlink{class_any_test_1_1_model_1_1_student}{Student}})
+\begin{DoxyCompactList}\small\item\em Змінює пресональні дані існуючого студента \end{DoxyCompactList}\item 
+async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a5d75db6d0c764f4886023ea1d077bb22}{Delete}} (long id)
+\begin{DoxyCompactList}\small\item\em Видаляє особисті дані студентаа \end{DoxyCompactList}\item 
+async Task$<$ I\+Enumerable$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_student}{Student}} $>$ $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a262f593c144c5690e4203305d60528a5}{Get\+Students\+Page}} (int page\+Number, int page\+Size)
+\begin{DoxyCompactList}\small\item\em Повертає список студентів, розбитий на сторінки \end{DoxyCompactList}\item 
+async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a75c5714ec0bf4518e7b1a25ccc7e6ff6}{Add\+Student\+To\+Course}} (long id, long course\+Id)
+\begin{DoxyCompactList}\small\item\em Додає студента до курсу \end{DoxyCompactList}\item 
+async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a8c1fd9c2db9affb0dc9a3a2e0b8d9e6a}{Remove\+Student\+From\+Course}} (long id, long course\+Id)
+\begin{DoxyCompactList}\small\item\em Видаляє студента з курсу \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Детальний опис}
+
+
+Контроллер A\+PI для даних студентів
+
+Див. визначення в файлі Students\+Controller.\+cs, рядок 23
+
+
+
+\doxysubsection{Конструктор(и)}
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a21fd53ff590a9cfe08281905fbba8728}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a21fd53ff590a9cfe08281905fbba8728}} 
+\index{AnyTest.DataService.Controllers.StudentsController@{AnyTest.DataService.Controllers.StudentsController}!StudentsController@{StudentsController}}
+\index{StudentsController@{StudentsController}!AnyTest.DataService.Controllers.StudentsController@{AnyTest.DataService.Controllers.StudentsController}}
+\doxysubsubsection{\texorpdfstring{StudentsController()}{StudentsController()}}
+{\footnotesize\ttfamily Any\+Test.\+Data\+Service.\+Controllers.\+Students\+Controller.\+Students\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_any_test_1_1_i_data_repository_1_1_i_repository}{I\+Repository}}$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_student}{Student}} $>$}]{repository,  }\item[{\mbox{\hyperlink{interface_any_test_1_1_i_data_repository_1_1_i_person_repository}{I\+Person\+Repository}}}]{people }\end{DoxyParamCaption})}
+
+
+
+Ініціалізує новий екземляр класу {\ttfamily Students\+Contorller} 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em repository} & Об\textquotesingle{}єкт, який іплементує інтерфейс {\ttfamily I\+Repository\{Student\}}. Залежність. \\
+\hline
+\end{DoxyParams}
+param name=\char`\"{}people\char`\"{}$>$ Об\textquotesingle{}єкт, який іплементує інтерфейс {\ttfamily I\+People\+Repository}. Залежність. 
+
+\doxysubsection{Опис методів компонент}
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a75c5714ec0bf4518e7b1a25ccc7e6ff6}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a75c5714ec0bf4518e7b1a25ccc7e6ff6}} 
+\index{AnyTest.DataService.Controllers.StudentsController@{AnyTest.DataService.Controllers.StudentsController}!AddStudentToCourse@{AddStudentToCourse}}
+\index{AddStudentToCourse@{AddStudentToCourse}!AnyTest.DataService.Controllers.StudentsController@{AnyTest.DataService.Controllers.StudentsController}}
+\doxysubsubsection{\texorpdfstring{AddStudentToCourse()}{AddStudentToCourse()}}
+{\footnotesize\ttfamily async Task$<$I\+Action\+Result$>$ Any\+Test.\+Data\+Service.\+Controllers.\+Students\+Controller.\+Add\+Student\+To\+Course (\begin{DoxyParamCaption}\item[{long}]{id,  }\item[{long}]{course\+Id }\end{DoxyParamCaption})}
+
+
+
+Додає студента до курсу 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em id} & Id студента. {\ttfamily long} \\
+\hline
+{\em course\+Id} & Id курсу \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+Об\textquotesingle{}єкт зв\textquotesingle{}язку студента і курсу 
+\end{DoxyReturn}
+
+
+Приклад H\+T\+TP запиту додавання студента до курсу 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{POST: api/Students/5/Course/3}
+\end{DoxyCode}
+ 
+
+Див. визначення в файлі Students\+Controller.\+cs, рядок 239
+
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a5d75db6d0c764f4886023ea1d077bb22}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a5d75db6d0c764f4886023ea1d077bb22}} 
+\index{AnyTest.DataService.Controllers.StudentsController@{AnyTest.DataService.Controllers.StudentsController}!Delete@{Delete}}
+\index{Delete@{Delete}!AnyTest.DataService.Controllers.StudentsController@{AnyTest.DataService.Controllers.StudentsController}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily async Task$<$I\+Action\+Result$>$ Any\+Test.\+Data\+Service.\+Controllers.\+Students\+Controller.\+Delete (\begin{DoxyParamCaption}\item[{long}]{id }\end{DoxyParamCaption})}
+
+
+
+Видаляє особисті дані студентаа 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em id} & Id студента {\ttfamily long} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+Результат видалення особистих даних студента 
+\end{DoxyReturn}
+
+
+Приклад H\+T\+TP запиту видалення особистих даних студента 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{DELETE: api/Students/5}
+\end{DoxyCode}
+ 
+
+Див. визначення в файлі Students\+Controller.\+cs, рядок 177
+
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a2cb1144f9a8658de5065044b14d722fa}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a2cb1144f9a8658de5065044b14d722fa}} 
+\index{AnyTest.DataService.Controllers.StudentsController@{AnyTest.DataService.Controllers.StudentsController}!Get@{Get}}
+\index{Get@{Get}!AnyTest.DataService.Controllers.StudentsController@{AnyTest.DataService.Controllers.StudentsController}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily async Task$<$I\+Enumerable$<$\mbox{\hyperlink{class_any_test_1_1_model_1_1_student}{Student}}$>$ $>$ Any\+Test.\+Data\+Service.\+Controllers.\+Students\+Controller.\+Get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Метод для отримання персональних даних всіх студентів 
+
+\begin{DoxyReturn}{Повертає}
+Коллекція {\ttfamily Student} 
+\end{DoxyReturn}
+/// 
+
+Приклад H\+T\+TP запиту персональних даних всіх студентів 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{GET: api/Students}
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a50ce6a76aa99f4ef8ba4244902f86c64}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a50ce6a76aa99f4ef8ba4244902f86c64}} 
+\index{AnyTest.DataService.Controllers.StudentsController@{AnyTest.DataService.Controllers.StudentsController}!Get@{Get}}
+\index{Get@{Get}!AnyTest.DataService.Controllers.StudentsController@{AnyTest.DataService.Controllers.StudentsController}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily async Task$<$\mbox{\hyperlink{class_any_test_1_1_model_1_1_student}{Student}}$>$ Any\+Test.\+Data\+Service.\+Controllers.\+Students\+Controller.\+Get (\begin{DoxyParamCaption}\item[{long}]{id }\end{DoxyParamCaption})}
+
+
+
+Метод для отримання персональних даних студента по id 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em id} & Id студента {\ttfamily long} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+{\ttfamily Student} 
+\end{DoxyReturn}
+
+
+Приклад H\+T\+TP запиту персональних даних студента 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{GET: api/Students/5}
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a262f593c144c5690e4203305d60528a5}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a262f593c144c5690e4203305d60528a5}} 
+\index{AnyTest.DataService.Controllers.StudentsController@{AnyTest.DataService.Controllers.StudentsController}!GetStudentsPage@{GetStudentsPage}}
+\index{GetStudentsPage@{GetStudentsPage}!AnyTest.DataService.Controllers.StudentsController@{AnyTest.DataService.Controllers.StudentsController}}
+\doxysubsubsection{\texorpdfstring{GetStudentsPage()}{GetStudentsPage()}}
+{\footnotesize\ttfamily async Task$<$I\+Enumerable$<$\mbox{\hyperlink{class_any_test_1_1_model_1_1_student}{Student}}$>$ $>$ Any\+Test.\+Data\+Service.\+Controllers.\+Students\+Controller.\+Get\+Students\+Page (\begin{DoxyParamCaption}\item[{int}]{page\+Number,  }\item[{int}]{page\+Size }\end{DoxyParamCaption})}
+
+
+
+Повертає список студентів, розбитий на сторінки 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em page\+Number} & Номер сторінки \\
+\hline
+{\em page\+Size} & Розмір сторінки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+Сторінка списку студентів 
+\end{DoxyReturn}
+
+
+Приклад H\+T\+TP запиту списку студентів, розбитого на сторінки 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{GET: api/Students/page/3/12}
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_aef353d8d2be5defe31f6d6193d0a284a}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_aef353d8d2be5defe31f6d6193d0a284a}} 
+\index{AnyTest.DataService.Controllers.StudentsController@{AnyTest.DataService.Controllers.StudentsController}!Post@{Post}}
+\index{Post@{Post}!AnyTest.DataService.Controllers.StudentsController@{AnyTest.DataService.Controllers.StudentsController}}
+\doxysubsubsection{\texorpdfstring{Post()}{Post()}}
+{\footnotesize\ttfamily async Task$<$I\+Action\+Result$>$ Any\+Test.\+Data\+Service.\+Controllers.\+Students\+Controller.\+Post (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_any_test_1_1_model_1_1_student}{Student}}}]{Student }\end{DoxyParamCaption})}
+
+
+
+Додає персональні дані нового студента 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em Student} & Екземпляр класу {\ttfamily Student}, якій місить дані нового студента \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+Результат створення студента 
+\end{DoxyReturn}
+
+
+Приклад H\+T\+TP запиту створення студента студента 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{POST: api/Students}
+\end{DoxyCode}
+ 
+
+Див. визначення в файлі Students\+Controller.\+cs, рядок 104
+
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a5f8410ae65c1e78aff9ccb6dc5d1d6bd}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a5f8410ae65c1e78aff9ccb6dc5d1d6bd}} 
+\index{AnyTest.DataService.Controllers.StudentsController@{AnyTest.DataService.Controllers.StudentsController}!Put@{Put}}
+\index{Put@{Put}!AnyTest.DataService.Controllers.StudentsController@{AnyTest.DataService.Controllers.StudentsController}}
+\doxysubsubsection{\texorpdfstring{Put()}{Put()}}
+{\footnotesize\ttfamily async Task$<$I\+Action\+Result$>$ Any\+Test.\+Data\+Service.\+Controllers.\+Students\+Controller.\+Put (\begin{DoxyParamCaption}\item[{long}]{id,  }\item[{\mbox{[}\+From\+Body\mbox{]} \mbox{\hyperlink{class_any_test_1_1_model_1_1_student}{Student}}}]{Student }\end{DoxyParamCaption})}
+
+
+
+Змінює пресональні дані існуючого студента 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em id} & Id студента. {\ttfamily long} \\
+\hline
+{\em Student} & Об\textquotesingle{}єкт класту {\ttfamily Student} із зміненими особистими даними \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+Результат оновлення студента 
+\end{DoxyReturn}
+
+
+Приклад H\+T\+TP запиту зміни студента 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{PUT: api/Students/5}
+\end{DoxyCode}
+ 
+
+Див. визначення в файлі Students\+Controller.\+cs, рядок 139
+
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a8c1fd9c2db9affb0dc9a3a2e0b8d9e6a}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a8c1fd9c2db9affb0dc9a3a2e0b8d9e6a}} 
+\index{AnyTest.DataService.Controllers.StudentsController@{AnyTest.DataService.Controllers.StudentsController}!RemoveStudentFromCourse@{RemoveStudentFromCourse}}
+\index{RemoveStudentFromCourse@{RemoveStudentFromCourse}!AnyTest.DataService.Controllers.StudentsController@{AnyTest.DataService.Controllers.StudentsController}}
+\doxysubsubsection{\texorpdfstring{RemoveStudentFromCourse()}{RemoveStudentFromCourse()}}
+{\footnotesize\ttfamily async Task$<$I\+Action\+Result$>$ Any\+Test.\+Data\+Service.\+Controllers.\+Students\+Controller.\+Remove\+Student\+From\+Course (\begin{DoxyParamCaption}\item[{long}]{id,  }\item[{long}]{course\+Id }\end{DoxyParamCaption})}
+
+
+
+Видаляє студента з курсу 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em id} & Id студента. {\ttfamily long} \\
+\hline
+{\em course\+Id} & Id курсу \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+Об\textquotesingle{}єкт зв\textquotesingle{}язку студента і курсу 
+\end{DoxyReturn}
+
+
+Приклад H\+T\+TP запиту видалення студента до курсу 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{DELETE: api/Students/5/Course/3}
+\end{DoxyCode}
+ 
+
+Див. визначення в файлі Students\+Controller.\+cs, рядок 269
+
+
+
+Документація цього класу була створена з файлу\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Any\+Test/\+Any\+Test/\+Any\+Test.\+Data\+Service/\+Controllers/Students\+Controller.\+cs\end{DoxyCompactItemize}

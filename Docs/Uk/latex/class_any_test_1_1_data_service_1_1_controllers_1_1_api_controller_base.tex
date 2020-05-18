@@ -1,0 +1,202 @@
+\hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base}{}\doxysection{Шаблон класу Any\+Test.\+Data\+Service.\+Controllers.\+Api\+Controller\+Base$<$ T $>$}
+\label{class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base}\index{AnyTest.DataService.Controllers.ApiControllerBase$<$ T $>$@{AnyTest.DataService.Controllers.ApiControllerBase$<$ T $>$}}
+
+
+Контроллер A\+PI з методами C\+R\+UD  
+
+
+Схема успадкувань для Any\+Test.\+Data\+Service.\+Controllers.\+Api\+Controller\+Base$<$ T $>$\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base}
+\end{center}
+\end{figure}
+\doxysubsection*{Загальнодоступні елементи}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base_a1e5da8fe2cde4e53ff1516abc9cd6e7f}{Api\+Controller\+Base}} (\mbox{\hyperlink{interface_any_test_1_1_i_data_repository_1_1_i_repository}{I\+Repository}}$<$ T $>$ repository)
+\begin{DoxyCompactList}\small\item\em Ініціалізує новий екземляр контроллеру \end{DoxyCompactList}\item 
+virtual async Task$<$ I\+Enumerable$<$ T $>$ $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base_a19c9a70a49153fb817e77f2af75b9554}{Get}} ()
+\begin{DoxyCompactList}\small\item\em Метод для отримання всіх даних \end{DoxyCompactList}\item 
+virtual async Task$<$ T $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base_a6fb013734bfd70d6c879ba2a4262c5fd}{Get}} (long id)
+\begin{DoxyCompactList}\small\item\em Метод для отримання одного об\textquotesingle{}єкту по id \end{DoxyCompactList}\item 
+virtual async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base_acedf1996a9dab3dea59715aadcb27303}{Post}} (\mbox{[}From\+Body\mbox{]}T item)
+\begin{DoxyCompactList}\small\item\em Додає нових об\textquotesingle{}єкт \end{DoxyCompactList}\item 
+virtual async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base_aa25928b1c6bb65b7fafad0029019b6a1}{Put}} (long id, \mbox{[}From\+Body\mbox{]} T item)
+\begin{DoxyCompactList}\small\item\em Змінює дані існуючого об\textquotesingle{}єктур \end{DoxyCompactList}\item 
+virtual async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base_a715ddcfcce37e28a92635817a1ce9088}{Delete}} (long id)
+\begin{DoxyCompactList}\small\item\em Видаляє дані \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Захищені дані}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base_abf519e701ba7771025ebb48ea3721a56}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base_abf519e701ba7771025ebb48ea3721a56}} 
+\mbox{\hyperlink{interface_any_test_1_1_i_data_repository_1_1_i_repository}{I\+Repository}}$<$ T $>$ {\bfseries \+\_\+repository}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Детальний опис}
+Контроллер A\+PI з методами C\+R\+UD 
+
+
+
+Див. визначення в файлі Api\+Controller\+Base.\+cs, рядок 15
+
+
+
+\doxysubsection{Конструктор(и)}
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base_a1e5da8fe2cde4e53ff1516abc9cd6e7f}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base_a1e5da8fe2cde4e53ff1516abc9cd6e7f}} 
+\index{AnyTest.DataService.Controllers.ApiControllerBase$<$ T $>$@{AnyTest.DataService.Controllers.ApiControllerBase$<$ T $>$}!ApiControllerBase@{ApiControllerBase}}
+\index{ApiControllerBase@{ApiControllerBase}!AnyTest.DataService.Controllers.ApiControllerBase$<$ T $>$@{AnyTest.DataService.Controllers.ApiControllerBase$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{ApiControllerBase()}{ApiControllerBase()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base}{Any\+Test.\+Data\+Service.\+Controllers.\+Api\+Controller\+Base}}$<$ T $>$.\mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base}{Api\+Controller\+Base}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_any_test_1_1_i_data_repository_1_1_i_repository}{I\+Repository}}$<$ T $>$}]{repository }\end{DoxyParamCaption})}
+
+
+
+Ініціалізує новий екземляр контроллеру 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em repository} & Об\textquotesingle{}єкт, який іплементує інтерфейс {\ttfamily I\+Repository\{T\}}. Залежність. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Опис методів компонент}
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base_a715ddcfcce37e28a92635817a1ce9088}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base_a715ddcfcce37e28a92635817a1ce9088}} 
+\index{AnyTest.DataService.Controllers.ApiControllerBase$<$ T $>$@{AnyTest.DataService.Controllers.ApiControllerBase$<$ T $>$}!Delete@{Delete}}
+\index{Delete@{Delete}!AnyTest.DataService.Controllers.ApiControllerBase$<$ T $>$@{AnyTest.DataService.Controllers.ApiControllerBase$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily virtual async Task$<$I\+Action\+Result$>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base}{Any\+Test.\+Data\+Service.\+Controllers.\+Api\+Controller\+Base}}$<$ T $>$.Delete (\begin{DoxyParamCaption}\item[{long}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Видаляє дані 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em id} & Id {\ttfamily long} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+Результат видалення 
+\end{DoxyReturn}
+
+
+Приклад H\+T\+TP запиту 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{DELETE: api/[controller]/5}
+\end{DoxyCode}
+ 
+
+Переозначається в \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_tests_controller_a54bce680c8ea65be074adb3cf3df880f}{Any\+Test.\+Data\+Service.\+Controllers.\+Tests\+Controller}}, \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_subjects_controller_ae4bf99281abf792f95aba1dfdd4dd9b6}{Any\+Test.\+Data\+Service.\+Controllers.\+Subjects\+Controller}} і \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_courses_controller_a154eebb7f72903e38478bdfa88a0ff6e}{Any\+Test.\+Data\+Service.\+Controllers.\+Courses\+Controller}}.
+
+
+
+Див. визначення в файлі Api\+Controller\+Base.\+cs, рядок 158
+
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base_a19c9a70a49153fb817e77f2af75b9554}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base_a19c9a70a49153fb817e77f2af75b9554}} 
+\index{AnyTest.DataService.Controllers.ApiControllerBase$<$ T $>$@{AnyTest.DataService.Controllers.ApiControllerBase$<$ T $>$}!Get@{Get}}
+\index{Get@{Get}!AnyTest.DataService.Controllers.ApiControllerBase$<$ T $>$@{AnyTest.DataService.Controllers.ApiControllerBase$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual async Task$<$I\+Enumerable$<$T$>$ $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base}{Any\+Test.\+Data\+Service.\+Controllers.\+Api\+Controller\+Base}}$<$ T $>$.Get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Метод для отримання всіх даних 
+
+\begin{DoxyReturn}{Повертає}
+Коллекція {\ttfamily T} 
+\end{DoxyReturn}
+/// 
+
+Приклад H\+T\+TP запиту 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{GET: api/[controller]}
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base_a6fb013734bfd70d6c879ba2a4262c5fd}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base_a6fb013734bfd70d6c879ba2a4262c5fd}} 
+\index{AnyTest.DataService.Controllers.ApiControllerBase$<$ T $>$@{AnyTest.DataService.Controllers.ApiControllerBase$<$ T $>$}!Get@{Get}}
+\index{Get@{Get}!AnyTest.DataService.Controllers.ApiControllerBase$<$ T $>$@{AnyTest.DataService.Controllers.ApiControllerBase$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual async Task$<$T$>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base}{Any\+Test.\+Data\+Service.\+Controllers.\+Api\+Controller\+Base}}$<$ T $>$.Get (\begin{DoxyParamCaption}\item[{long}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Метод для отримання одного об\textquotesingle{}єкту по id 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em id} & Id {\ttfamily long} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+{\ttfamily tutor} 
+\end{DoxyReturn}
+
+
+Приклад H\+T\+TP запиту 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{GET: api/[controller]/5}
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base_acedf1996a9dab3dea59715aadcb27303}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base_acedf1996a9dab3dea59715aadcb27303}} 
+\index{AnyTest.DataService.Controllers.ApiControllerBase$<$ T $>$@{AnyTest.DataService.Controllers.ApiControllerBase$<$ T $>$}!Post@{Post}}
+\index{Post@{Post}!AnyTest.DataService.Controllers.ApiControllerBase$<$ T $>$@{AnyTest.DataService.Controllers.ApiControllerBase$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Post()}{Post()}}
+{\footnotesize\ttfamily virtual async Task$<$I\+Action\+Result$>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base}{Any\+Test.\+Data\+Service.\+Controllers.\+Api\+Controller\+Base}}$<$ T $>$.Post (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Body\mbox{]} T}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Додає нових об\textquotesingle{}єкт 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em item} & Екземпляр класу {\ttfamily T} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+Результат створення 
+\end{DoxyReturn}
+
+
+Приклад H\+T\+TP запиту 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{POST: api/[controller]}
+\end{DoxyCode}
+ 
+
+Див. визначення в файлі Api\+Controller\+Base.\+cs, рядок 88
+
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base_aa25928b1c6bb65b7fafad0029019b6a1}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base_aa25928b1c6bb65b7fafad0029019b6a1}} 
+\index{AnyTest.DataService.Controllers.ApiControllerBase$<$ T $>$@{AnyTest.DataService.Controllers.ApiControllerBase$<$ T $>$}!Put@{Put}}
+\index{Put@{Put}!AnyTest.DataService.Controllers.ApiControllerBase$<$ T $>$@{AnyTest.DataService.Controllers.ApiControllerBase$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Put()}{Put()}}
+{\footnotesize\ttfamily virtual async Task$<$I\+Action\+Result$>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base}{Any\+Test.\+Data\+Service.\+Controllers.\+Api\+Controller\+Base}}$<$ T $>$.Put (\begin{DoxyParamCaption}\item[{long}]{id,  }\item[{\mbox{[}\+From\+Body\mbox{]} T}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Змінює дані існуючого об\textquotesingle{}єктур 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em id} & Id {\ttfamily long} \\
+\hline
+{\em item} & Об\textquotesingle{}єкт класу {\ttfamily T} із зміненими даними \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+Результат оновлення 
+\end{DoxyReturn}
+
+
+Приклад H\+T\+TP запиту 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{PUT: api/[controller]/5}
+\end{DoxyCode}
+ 
+
+Див. визначення в файлі Api\+Controller\+Base.\+cs, рядок 122
+
+
+
+Документація цього класу була створена з файлу\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Any\+Test/\+Any\+Test/\+Any\+Test.\+Data\+Service/\+Controllers/Api\+Controller\+Base.\+cs\end{DoxyCompactItemize}

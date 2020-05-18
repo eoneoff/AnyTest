@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>AnyTest: Текст програми D:/AnyTest/AnyTest/AnyTest.DataService/Controllers/StudentsController.cs</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">AnyTest
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Створено системою Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Пошук');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Пошук');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('_students_controller_8cs_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">StudentsController.cs</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">using</span> System;</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword">using</span> System.Collections.Generic;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using</span> System.Linq;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">using</span> System.Threading.Tasks;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> <a class="code" href="namespace_any_test.html">AnyTest</a>.<a class="code" href="namespace_any_test_1_1_i_data_repository.html">IDataRepository</a>;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using</span> <a class="code" href="namespace_any_test.html">AnyTest</a>.<a class="code" href="namespace_any_test_1_1_model.html">Model</a>;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">using</span> Microsoft.AspNetCore.Http;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">using</span> Microsoft.AspNetCore.Mvc;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">using</span> Microsoft.AspNetCore.Authorization;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">using</span> System.Security.Claims;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">using</span> Microsoft.AspNetCore.Mvc.RazorPages;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">using</span> Microsoft.AspNetCore.Mvc.DataAnnotations;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">using</span> Microsoft.CodeAnalysis.CSharp.Syntax;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_any_test_1_1_data_service_1_1_controllers.html">AnyTest.DataService.Controllers</a></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    [Route(<span class="stringliteral">&quot;api/[controller]&quot;</span>)]</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    [ApiController]</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller.html">   23</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller.html">StudentsController</a> : ControllerBase</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keyword">private</span> <a class="code" href="interface_any_test_1_1_i_data_repository_1_1_i_repository.html">IRepository&lt;Student&gt;</a> _repository;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keyword">private</span> <a class="code" href="interface_any_test_1_1_i_data_repository_1_1_i_person_repository.html">IPersonRepository</a> _people;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">public</span> <a class="code" href="class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller.html#a21fd53ff590a9cfe08281905fbba8728">StudentsController</a>(<a class="code" href="interface_any_test_1_1_i_data_repository_1_1_i_repository.html">IRepository&lt;Student&gt;</a> repository, <a class="code" href="interface_any_test_1_1_i_data_repository_1_1_i_person_repository.html">IPersonRepository</a> people) =&gt; (_repository, _people) = (repository, people);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        [HttpGet]</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        [Authorize(Roles=<span class="stringliteral">&quot;Administrator, Tutor&quot;</span>)]</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">public</span> async Task&lt;IEnumerable&lt;Student&gt;&gt; <a class="code" href="class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller.html#a2cb1144f9a8658de5065044b14d722fa">Get</a>() =&gt; await _repository.Get();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        [HttpGet(<span class="stringliteral">&quot;{id:long}&quot;</span>)]</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        [Authorize]</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keyword">public</span> async Task&lt;Student&gt; <a class="code" href="class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller.html#a2cb1144f9a8658de5065044b14d722fa">Get</a>(<span class="keywordtype">long</span> <span class="keywordtype">id</span>) =&gt; await _repository.Get(<span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        [HttpPost]</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        [Authorize]</div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller.html#aef353d8d2be5defe31f6d6193d0a284a">  104</a></span>&#160;        <span class="keyword">public</span> async Task&lt;IActionResult&gt; <a class="code" href="class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller.html#aef353d8d2be5defe31f6d6193d0a284a">Post</a>(<a class="code" href="class_any_test_1_1_model_1_1_student.html">Student</a> <a class="code" href="class_any_test_1_1_model_1_1_student.html">Student</a>)</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        {</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="keywordflow">if</span>(!ModelState.IsValid)</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            {</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                <span class="keywordflow">return</span>(BadRequest(ModelState));</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <span class="keywordflow">return</span> Ok(await _repository.Post(<a class="code" href="class_any_test_1_1_model_1_1_student.html">Student</a>));</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        }</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        [HttpPut(<span class="stringliteral">&quot;{id:long}&quot;</span>)]</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        [Authorize(Roles = <span class="stringliteral">&quot;Administrator, Student&quot;</span>)]</div>
+<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller.html#a5f8410ae65c1e78aff9ccb6dc5d1d6bd">  139</a></span>&#160;        <span class="keyword">public</span> async Task&lt;IActionResult&gt; <a class="code" href="class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller.html#a5f8410ae65c1e78aff9ccb6dc5d1d6bd">Put</a>(<span class="keywordtype">long</span> <span class="keywordtype">id</span>, [FromBody] <a class="code" href="class_any_test_1_1_model_1_1_student.html">Student</a> <a class="code" href="class_any_test_1_1_model_1_1_student.html">Student</a>)</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        {</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;            <span class="keywordflow">if</span> (!await IsOwner(<span class="keywordtype">id</span>) &amp;&amp; !HttpContext.User.IsInRole(<span class="stringliteral">&quot;Administrator&quot;</span>)) <span class="keywordflow">return</span> Unauthorized();</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;            <span class="keywordflow">if</span>(!ModelState.IsValid)</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;            {</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                <span class="keywordflow">return</span> BadRequest(ModelState);</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;            }</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            <span class="keywordflow">if</span>(!await _repository.Exists(<span class="keywordtype">id</span>))</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            {</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                <span class="keywordflow">return</span> BadRequest(<span class="stringliteral">&quot;Student does not exist&quot;</span>);</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;            }</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;            <span class="keywordflow">return</span> Ok(await _repository.Put(<a class="code" href="class_any_test_1_1_model_1_1_student.html">Student</a>));</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        }</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        [HttpDelete(<span class="stringliteral">&quot;{id:long}&quot;</span>)]</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        [Authorize]</div>
+<div class="line"><a name="l00177"></a><span class="lineno"><a class="line" href="class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller.html#a5d75db6d0c764f4886023ea1d077bb22">  177</a></span>&#160;        <span class="keyword">public</span> async Task&lt;IActionResult&gt; <a class="code" href="class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller.html#a5d75db6d0c764f4886023ea1d077bb22">Delete</a>(<span class="keywordtype">long</span> <span class="keywordtype">id</span>)</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        {</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;            <span class="keywordflow">if</span> (!await IsOwner(<span class="keywordtype">id</span>) &amp;&amp; !HttpContext.User.IsInRole(<span class="stringliteral">&quot;Administrator&quot;</span>)) <span class="keywordflow">return</span> Unauthorized();</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;            <span class="keywordflow">if</span>(!await _repository.Exists(<span class="keywordtype">id</span>))</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;            {</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                <span class="keywordflow">return</span> BadRequest(<span class="stringliteral">&quot;User does not exist&quot;</span>);</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;            }</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            <span class="keywordflow">return</span> Ok(await _repository.Delete(<span class="keywordtype">id</span>));</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        }</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        [HttpGet(<span class="stringliteral">&quot;page/{pageNumber:int}/{pageSize:int}&quot;</span>)]</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        <span class="keyword">public</span> async Task&lt;IEnumerable&lt;Student&gt;&gt; <a class="code" href="class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller.html#a262f593c144c5690e4203305d60528a5">GetStudentsPage</a>(<span class="keywordtype">int</span> pageNumber, <span class="keywordtype">int</span> pageSize) =&gt; await (_repository as <a class="code" href="interface_any_test_1_1_i_data_repository_1_1_i_students_repository.html">IStudentsRepository</a>).GetStudentPage(pageNumber, pageSize);</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        [HttpPost(<span class="stringliteral">&quot;{id:long}/courses/{courseId:long}&quot;</span>)]</div>
+<div class="line"><a name="l00239"></a><span class="lineno"><a class="line" href="class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller.html#a75c5714ec0bf4518e7b1a25ccc7e6ff6">  239</a></span>&#160;        <span class="keyword">public</span> async Task&lt;IActionResult&gt; <a class="code" href="class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller.html#a75c5714ec0bf4518e7b1a25ccc7e6ff6">AddStudentToCourse</a>(<span class="keywordtype">long</span> <span class="keywordtype">id</span>, <span class="keywordtype">long</span> courseId)</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        {</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;            <span class="keywordflow">if</span> (!await _repository.Exists(<span class="keywordtype">id</span>)) <span class="keywordflow">return</span> BadRequest();</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;            <span class="keywordflow">return</span> Ok(await (_repository as <a class="code" href="interface_any_test_1_1_i_data_repository_1_1_i_students_repository.html">IStudentsRepository</a>).AddToCourse(<span class="keywordtype">id</span>, courseId));</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        }</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; </div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        [HttpDelete(<span class="stringliteral">&quot;{id:long}/courses/{courseId:long}&quot;</span>)]</div>
+<div class="line"><a name="l00269"></a><span class="lineno"><a class="line" href="class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller.html#a8c1fd9c2db9affb0dc9a3a2e0b8d9e6a">  269</a></span>&#160;        <span class="keyword">public</span> async Task&lt;IActionResult&gt; <a class="code" href="class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller.html#a8c1fd9c2db9affb0dc9a3a2e0b8d9e6a">RemoveStudentFromCourse</a>(<span class="keywordtype">long</span> <span class="keywordtype">id</span>, <span class="keywordtype">long</span> courseId)</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        {</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;            <span class="keywordflow">if</span> (!await _repository.Exists(<span class="keywordtype">id</span>)) <span class="keywordflow">return</span> BadRequest();</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;            <span class="keywordflow">return</span> (Ok(await (_repository as <a class="code" href="interface_any_test_1_1_i_data_repository_1_1_i_students_repository.html">IStudentsRepository</a>).RemoveFromCourse(<span class="keywordtype">id</span>, courseId)));</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        }</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160; </div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;        <span class="keyword">private</span> async Task&lt;bool&gt; IsOwner(<span class="keywordtype">long</span> <span class="keywordtype">id</span>)</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;        {</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;            var userEmail = (HttpContext.User.Identity as ClaimsIdentity).FindFirst(ClaimTypes.Email).Value;</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;            var personEmail = (await _people.Get(<span class="keywordtype">id</span>)).Email;</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160; </div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;            <span class="keywordflow">return</span> userEmail == personEmail;</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        }</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    }</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="ainterface_any_test_1_1_i_data_repository_1_1_i_repository_html"><div class="ttname"><a href="interface_any_test_1_1_i_data_repository_1_1_i_repository.html">AnyTest.IDataRepository.IRepository&lt; Student &gt;</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_html"><div class="ttname"><a href="class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller.html">AnyTest.DataService.Controllers.StudentsController</a></div><div class="ttdef"><b>Definition:</b> <a href="_students_controller_8cs_source.html#l00023">StudentsController.cs:23</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_html_a75c5714ec0bf4518e7b1a25ccc7e6ff6"><div class="ttname"><a href="class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller.html#a75c5714ec0bf4518e7b1a25ccc7e6ff6">AnyTest.DataService.Controllers.StudentsController.AddStudentToCourse</a></div><div class="ttdeci">async Task&lt; IActionResult &gt; AddStudentToCourse(long id, long courseId)</div><div class="ttdoc">Додає студента до курсу</div><div class="ttdef"><b>Definition:</b> <a href="_students_controller_8cs_source.html#l00239">StudentsController.cs:239</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_html_a5f8410ae65c1e78aff9ccb6dc5d1d6bd"><div class="ttname"><a href="class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller.html#a5f8410ae65c1e78aff9ccb6dc5d1d6bd">AnyTest.DataService.Controllers.StudentsController.Put</a></div><div class="ttdeci">async Task&lt; IActionResult &gt; Put(long id, [FromBody] Student Student)</div><div class="ttdoc">Змінює пресональні дані існуючого студента</div><div class="ttdef"><b>Definition:</b> <a href="_students_controller_8cs_source.html#l00139">StudentsController.cs:139</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_html_a2cb1144f9a8658de5065044b14d722fa"><div class="ttname"><a href="class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller.html#a2cb1144f9a8658de5065044b14d722fa">AnyTest.DataService.Controllers.StudentsController.Get</a></div><div class="ttdeci">async Task&lt; IEnumerable&lt; Student &gt; &gt; Get()</div><div class="ttdoc">Метод для отримання персональних даних всіх студентів</div></div>
+<div class="ttc" id="aclass_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_html_aef353d8d2be5defe31f6d6193d0a284a"><div class="ttname"><a href="class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller.html#aef353d8d2be5defe31f6d6193d0a284a">AnyTest.DataService.Controllers.StudentsController.Post</a></div><div class="ttdeci">async Task&lt; IActionResult &gt; Post(Student Student)</div><div class="ttdoc">Додає персональні дані нового студента</div><div class="ttdef"><b>Definition:</b> <a href="_students_controller_8cs_source.html#l00104">StudentsController.cs:104</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_html_a5d75db6d0c764f4886023ea1d077bb22"><div class="ttname"><a href="class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller.html#a5d75db6d0c764f4886023ea1d077bb22">AnyTest.DataService.Controllers.StudentsController.Delete</a></div><div class="ttdeci">async Task&lt; IActionResult &gt; Delete(long id)</div><div class="ttdoc">Видаляє особисті дані студентаа</div><div class="ttdef"><b>Definition:</b> <a href="_students_controller_8cs_source.html#l00177">StudentsController.cs:177</a></div></div>
+<div class="ttc" id="anamespace_any_test_html"><div class="ttname"><a href="namespace_any_test.html">AnyTest</a></div><div class="ttdef"><b>Definition:</b> <a href="_api_authenticaion_state_provider_8cs_source.html#l00013">ApiAuthenticaionStateProvider.cs:13</a></div></div>
+<div class="ttc" id="anamespace_any_test_1_1_i_data_repository_html"><div class="ttname"><a href="namespace_any_test_1_1_i_data_repository.html">AnyTest.IDataRepository</a></div><div class="ttdef"><b>Definition:</b> <a href="_i_deleter_8cs_source.html#l00006">IDeleter.cs:6</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_model_1_1_student_html"><div class="ttname"><a href="class_any_test_1_1_model_1_1_student.html">AnyTest.Model.Student</a></div><div class="ttdef"><b>Definition:</b> <a href="_student_8cs_source.html#l00009">Student.cs:9</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_html_a262f593c144c5690e4203305d60528a5"><div class="ttname"><a href="class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller.html#a262f593c144c5690e4203305d60528a5">AnyTest.DataService.Controllers.StudentsController.GetStudentsPage</a></div><div class="ttdeci">async Task&lt; IEnumerable&lt; Student &gt; &gt; GetStudentsPage(int pageNumber, int pageSize)</div><div class="ttdoc">Повертає список студентів, розбитий на сторінки</div></div>
+<div class="ttc" id="anamespace_any_test_1_1_data_service_1_1_controllers_html"><div class="ttname"><a href="namespace_any_test_1_1_data_service_1_1_controllers.html">AnyTest.DataService.Controllers</a></div><div class="ttdef"><b>Definition:</b> <a href="_accounts_controller_8cs_source.html#l00019">AccountsController.cs:19</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_html_a8c1fd9c2db9affb0dc9a3a2e0b8d9e6a"><div class="ttname"><a href="class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller.html#a8c1fd9c2db9affb0dc9a3a2e0b8d9e6a">AnyTest.DataService.Controllers.StudentsController.RemoveStudentFromCourse</a></div><div class="ttdeci">async Task&lt; IActionResult &gt; RemoveStudentFromCourse(long id, long courseId)</div><div class="ttdoc">Видаляє студента з курсу</div><div class="ttdef"><b>Definition:</b> <a href="_students_controller_8cs_source.html#l00269">StudentsController.cs:269</a></div></div>
+<div class="ttc" id="ainterface_any_test_1_1_i_data_repository_1_1_i_person_repository_html"><div class="ttname"><a href="interface_any_test_1_1_i_data_repository_1_1_i_person_repository.html">AnyTest.IDataRepository.IPersonRepository</a></div><div class="ttdef"><b>Definition:</b> <a href="_i_person_repository_8cs_source.html#l00009">IPersonRepository.cs:9</a></div></div>
+<div class="ttc" id="anamespace_any_test_1_1_model_html"><div class="ttname"><a href="namespace_any_test_1_1_model.html">AnyTest.Model</a></div><div class="ttdef"><b>Definition:</b> <a href="_answer_pass_8cs_source.html#l00007">AnswerPass.cs:7</a></div></div>
+<div class="ttc" id="ainterface_any_test_1_1_i_data_repository_1_1_i_students_repository_html"><div class="ttname"><a href="interface_any_test_1_1_i_data_repository_1_1_i_students_repository.html">AnyTest.IDataRepository.IStudentsRepository</a></div><div class="ttdef"><b>Definition:</b> <a href="_i_students_repository_8cs_source.html#l00009">IStudentsRepository.cs:9</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_html_a21fd53ff590a9cfe08281905fbba8728"><div class="ttname"><a href="class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller.html#a21fd53ff590a9cfe08281905fbba8728">AnyTest.DataService.Controllers.StudentsController.StudentsController</a></div><div class="ttdeci">StudentsController(IRepository&lt; Student &gt; repository, IPersonRepository people)</div><div class="ttdoc">Ініціалізує новий екземляр класу StudentsContorller</div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74a3ca9024f1e8f77e9916acec202150.html">AnyTest</a></li><li class="navelem"><a class="el" href="dir_6556e097ee228a06ba29c095a3d28ac9.html">AnyTest.DataService</a></li><li class="navelem"><a class="el" href="dir_6a0e13c9ca46f17a46411efd70f4ce81.html">Controllers</a></li><li class="navelem"><b>StudentsController.cs</b></li>
+    <li class="footer">Створено системою
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

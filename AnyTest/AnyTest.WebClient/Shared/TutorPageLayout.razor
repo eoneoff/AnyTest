@@ -7,9 +7,9 @@
 <TogglableSidebarPanel ToggleButtonClass="btn btn-outline-success" Class="bg-white">
     <SidebarContent>
         <div class="mx-1 d-flex flex-column justify-content-start">
-            <NavLink class="btn btn-link text-left" href="tutor/subjects/new">@Localizer[nameof(Resources.NewSubject)]</NavLink>
-            <NavLink class="btn btn-link text-left" href="tutor/courses/new">@Localizer[Resources.NewCourse]</NavLink>
-            <NavLink class="btn btn-link text-left" href="tutor/tests/new">@Localizer[Resources.NewTest]</NavLink>
+            <NavLink class="btn btn-link text-left" href="tutor/tests/subjects/new">@Localizer[nameof(Resources.NewSubject)]</NavLink>
+            <NavLink class="btn btn-link text-left" href="tutor/tests/courses/new">@Localizer[Resources.NewCourse]</NavLink>
+            <NavLink class="btn btn-link text-left" href="tutor/tests/tests/new">@Localizer[Resources.NewTest]</NavLink>
             <TestsTree Tree="@(new TestsTreeModel
                                {
                                    Name=Localizer[nameof(Resources.Subjects)],

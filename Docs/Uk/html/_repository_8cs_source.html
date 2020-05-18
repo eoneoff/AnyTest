@@ -152,7 +152,7 @@ $(document).ready(function(){initNavTree('_repository_8cs_source.html',''); init
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keyword">public</span> <span class="keyword">virtual</span> async Task&lt;T&gt; Put(T item)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keyword">public</span> <span class="keyword">virtual</span> async Task&lt;T&gt; Put(T item, params <span class="keywordtype">object</span>[] key)</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        {</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            _db.Update(item);</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            await _db.SaveChangesAsync();</div>
@@ -168,7 +168,7 @@ $(document).ready(function(){initNavTree('_repository_8cs_source.html',''); init
 <div class="ttc" id="anamespace_any_test_html"><div class="ttname"><a href="namespace_any_test.html">AnyTest</a></div><div class="ttdef"><b>Definition:</b> <a href="_api_authenticaion_state_provider_8cs_source.html#l00013">ApiAuthenticaionStateProvider.cs:13</a></div></div>
 <div class="ttc" id="anamespace_any_test_1_1_i_data_repository_html"><div class="ttname"><a href="namespace_any_test_1_1_i_data_repository.html">AnyTest.IDataRepository</a></div><div class="ttdef"><b>Definition:</b> <a href="_i_deleter_8cs_source.html#l00006">IDeleter.cs:6</a></div></div>
 <div class="ttc" id="aclass_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_repository_html"><div class="ttname"><a href="class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_repository.html">AnyTest.MSSQLNetCoreDataRepository.Repository</a></div><div class="ttdef"><b>Definition:</b> <a href="_repository_8cs_source.html#l00011">Repository.cs:11</a></div></div>
-<div class="ttc" id="anamespace_any_test_1_1_m_s_s_q_l_net_core_data_repository_html"><div class="ttname"><a href="namespace_any_test_1_1_m_s_s_q_l_net_core_data_repository.html">AnyTest.MSSQLNetCoreDataRepository</a></div><div class="ttdef"><b>Definition:</b> <a href="_person_repository_8cs_source.html#l00011">PersonRepository.cs:11</a></div></div>
+<div class="ttc" id="anamespace_any_test_1_1_m_s_s_q_l_net_core_data_repository_html"><div class="ttname"><a href="namespace_any_test_1_1_m_s_s_q_l_net_core_data_repository.html">AnyTest.MSSQLNetCoreDataRepository</a></div><div class="ttdef"><b>Definition:</b> <a href="_course_repository_8cs_source.html#l00010">CourseRepository.cs:10</a></div></div>
 <div class="ttc" id="anamespace_any_test_1_1_db_access_html"><div class="ttname"><a href="namespace_any_test_1_1_db_access.html">AnyTest.DbAccess</a></div><div class="ttdef"><b>Definition:</b> <a href="_any_test_db_context_8cs_source.html#l00007">AnyTestDbContext.cs:7</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

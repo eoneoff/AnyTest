@@ -83,6 +83,7 @@ $(document).ready(function(){initNavTree('class_any_test_1_1_client_authenticati
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Загальнодоступні елементи</a> &#124;
+<a href="#pub-static-methods">Загальнодоступні статичні елементи</a> &#124;
 <a href="class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider-members.html">Список всіх елементів</a>  </div>
   <div class="headertitle">
 <div class="title">Клас AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider</div>  </div>
@@ -106,12 +107,18 @@ $(document).ready(function(){initNavTree('class_any_test_1_1_client_authenticati
 <tr class="memitem:a40154479fad3839478e846b4ad1064c7"><td class="memItemLeft" align="right" valign="top">override async Task&lt; AuthenticationState &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider.html#a40154479fad3839478e846b4ad1064c7">GetAuthenticationStateAsync</a> ()</td></tr>
 <tr class="memdesc:a40154479fad3839478e846b4ad1064c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Метод, який викликає компонет blazor щоб визначити стан аутентифікації  <a href="class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider.html#a40154479fad3839478e846b4ad1064c7">Детальніше...</a><br /></td></tr>
 <tr class="separator:a40154479fad3839478e846b4ad1064c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd192774dc9ede456f0c47662f470f9d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider.html#abd192774dc9ede456f0c47662f470f9d">MarkUserAsAuthenticated</a> (string userName)</td></tr>
-<tr class="memdesc:abd192774dc9ede456f0c47662f470f9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Позначає користувача аутентивікованим для компонента <code>AuthorizeView</code>  <a href="class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider.html#abd192774dc9ede456f0c47662f470f9d">Детальніше...</a><br /></td></tr>
-<tr class="separator:abd192774dc9ede456f0c47662f470f9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed8a7f4f737301842fe7fc2a6e98ebc2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider.html#aed8a7f4f737301842fe7fc2a6e98ebc2">MarkUserAsAuthenticated</a> (string token)</td></tr>
+<tr class="memdesc:aed8a7f4f737301842fe7fc2a6e98ebc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Позначає користувача аутентивікованим для компонента <code>AuthorizeView</code>  <a href="class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider.html#aed8a7f4f737301842fe7fc2a6e98ebc2">Детальніше...</a><br /></td></tr>
+<tr class="separator:aed8a7f4f737301842fe7fc2a6e98ebc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01f7fb2ec2a2cd956bd7353116ff6e45"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider.html#a01f7fb2ec2a2cd956bd7353116ff6e45">MarkUserAsLoggedOut</a> ()</td></tr>
 <tr class="memdesc:a01f7fb2ec2a2cd956bd7353116ff6e45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Позначає, що коритсувач вийшов для компонента <code>AuthorizeView</code>  <a href="class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider.html#a01f7fb2ec2a2cd956bd7353116ff6e45">Детальніше...</a><br /></td></tr>
 <tr class="separator:a01f7fb2ec2a2cd956bd7353116ff6e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Загальнодоступні статичні елементи</h2></td></tr>
+<tr class="memitem:ae7cc45f61099258c38a7181b03a5faa2"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider.html#ae7cc45f61099258c38a7181b03a5faa2">TokenExpired</a> (string jwt)</td></tr>
+<tr class="memdesc:ae7cc45f61099258c38a7181b03a5faa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Визначає, чи не сплив термін дії збереженого токену  <a href="class_any_test_1_1_client_authentication_1_1_api_authenticaion_state_provider.html#ae7cc45f61099258c38a7181b03a5faa2">Детальніше...</a><br /></td></tr>
+<tr class="separator:ae7cc45f61099258c38a7181b03a5faa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Детальний опис</h2>
 <div class="textblock"><p>Клас, який постачає стан аутентифікації компотенту blazor </p>
@@ -180,8 +187,8 @@ $(document).ready(function(){initNavTree('class_any_test_1_1_client_authenticati
 
 </div>
 </div>
-<a id="abd192774dc9ede456f0c47662f470f9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abd192774dc9ede456f0c47662f470f9d">&#9670;&nbsp;</a></span>MarkUserAsAuthenticated()</h2>
+<a id="aed8a7f4f737301842fe7fc2a6e98ebc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed8a7f4f737301842fe7fc2a6e98ebc2">&#9670;&nbsp;</a></span>MarkUserAsAuthenticated()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -190,7 +197,7 @@ $(document).ready(function(){initNavTree('class_any_test_1_1_client_authenticati
           <td class="memname">void AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider.MarkUserAsAuthenticated </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>userName</em></td><td>)</td>
+          <td class="paramname"><em>token</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -199,12 +206,12 @@ $(document).ready(function(){initNavTree('class_any_test_1_1_client_authenticati
 <p>Позначає користувача аутентивікованим для компонента <code>AuthorizeView</code> </p>
 <dl class="params"><dt>Аргументи</dt><dd>
   <table class="params">
-    <tr><td class="paramname">userName</td><td>user name</td></tr>
+    <tr><td class="paramname">token</td><td>JWT token JWT токен </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Див. визначення в файлі <a class="el" href="_api_authenticaion_state_provider_8cs_source.html">ApiAuthenticaionStateProvider.cs</a>, рядок <a class="el" href="_api_authenticaion_state_provider_8cs_source.html#l00067">67</a></p>
+<p class="definition">Див. визначення в файлі <a class="el" href="_api_authenticaion_state_provider_8cs_source.html">ApiAuthenticaionStateProvider.cs</a>, рядок <a class="el" href="_api_authenticaion_state_provider_8cs_source.html#l00076">76</a></p>
 
 </div>
 </div>
@@ -225,7 +232,42 @@ $(document).ready(function(){initNavTree('class_any_test_1_1_client_authenticati
 
 <p>Позначає, що коритсувач вийшов для компонента <code>AuthorizeView</code> </p>
 
-<p class="definition">Див. визначення в файлі <a class="el" href="_api_authenticaion_state_provider_8cs_source.html">ApiAuthenticaionStateProvider.cs</a>, рядок <a class="el" href="_api_authenticaion_state_provider_8cs_source.html#l00078">78</a></p>
+<p class="definition">Див. визначення в файлі <a class="el" href="_api_authenticaion_state_provider_8cs_source.html">ApiAuthenticaionStateProvider.cs</a>, рядок <a class="el" href="_api_authenticaion_state_provider_8cs_source.html#l00088">88</a></p>
+
+</div>
+</div>
+<a id="ae7cc45f61099258c38a7181b03a5faa2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7cc45f61099258c38a7181b03a5faa2">&#9670;&nbsp;</a></span>TokenExpired()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool AnyTest.ClientAuthentication.ApiAuthenticaionStateProvider.TokenExpired </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>jwt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Визначає, чи не сплив термін дії збереженого токену </p>
+<dl class="params"><dt>Аргументи</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jwt</td><td>JWT токен </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Повертає</dt><dd></dd></dl>
 
 </div>
 </div>

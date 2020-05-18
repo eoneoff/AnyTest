@@ -87,56 +87,101 @@ $(document).ready(function(){initNavTree('_any_test_identity_db_context_8cs_sour
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">using</span> System;</div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword">using</span> System.Collections.Generic;</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using</span> System.Linq;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">using</span> System.Threading.Tasks;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> <a class="code" href="namespace_any_test.html">AnyTest</a>.<a class="code" href="namespace_any_test_1_1_client_authentication.html">ClientAuthentication</a>;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using</span> Microsoft.AspNetCore.Builder;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">using</span> Microsoft.AspNetCore.Identity;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">using</span> Microsoft.AspNetCore.Identity.EntityFrameworkCore;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">using</span> Microsoft.EntityFrameworkCore;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">using</span> Microsoft.Extensions.DependencyInjection;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="namespace_any_test_1_1_data_service.html">   12</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_any_test_1_1_data_service.html">AnyTest.DataService</a></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html">   18</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html">AnyTestIdentityDbContext</a> : IdentityDbContext&lt;IdentityUser&gt;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    {</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html#a986cd4ca0b18ec602fd18dacd8cee7f7">   29</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html#a986cd4ca0b18ec602fd18dacd8cee7f7">AnyTestIdentityDbContext</a>(DbContextOptions&lt;AnyTestIdentityDbContext&gt; options): base(options) { }</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using</span> System.Data.Common;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">using</span> System.Linq;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> System.Threading.Tasks;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using</span> <a class="code" href="namespace_any_test.html">AnyTest</a>.<a class="code" href="namespace_any_test_1_1_client_authentication.html">ClientAuthentication</a>;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">using</span> Microsoft.AspNetCore.Builder;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">using</span> Microsoft.AspNetCore.Identity;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">using</span> Microsoft.AspNetCore.Identity.EntityFrameworkCore;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">using</span> Microsoft.EntityFrameworkCore;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">using</span> Microsoft.Extensions.DependencyInjection;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="namespace_any_test_1_1_data_service.html">   13</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_any_test_1_1_data_service.html">AnyTest.DataService</a></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html">   19</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html">AnyTestIdentityDbContext</a> : IdentityDbContext&lt;IdentityUser&gt;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    {</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html#a986cd4ca0b18ec602fd18dacd8cee7f7">   30</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html#a986cd4ca0b18ec602fd18dacd8cee7f7">AnyTestIdentityDbContext</a>(DbContextOptions&lt;AnyTestIdentityDbContext&gt; options): base(options) { }</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html#a2442bcb38a71c469941a3303e3359f77">   40</a></span>&#160;        <span class="keyword">public</span> <span class="keyword">static</span> async <span class="keywordtype">void</span> <a class="code" href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html#a2442bcb38a71c469941a3303e3359f77">SeedData</a>(IApplicationBuilder app)</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <span class="keyword">using</span> var scope = app.ApplicationServices.CreateScope();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            var roleManager = scope.ServiceProvider.GetRequiredService&lt;RoleManager&lt;IdentityRole&gt;&gt;();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            var userManager = scope.ServiceProvider.GetRequiredService&lt;UserManager&lt;IdentityUser&gt;&gt;();</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">if</span>(!await roleManager.RoleExistsAsync(<span class="stringliteral">&quot;Administrator&quot;</span>))</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="keywordflow">foreach</span>(var role <span class="keywordflow">in</span> <a class="code" href="class_any_test_1_1_client_authentication_1_1_auth_service.html">AuthService</a>.<a class="code" href="class_any_test_1_1_client_authentication_1_1_auth_service.html#a2d9e27af235a0ad929d6f5df5214c018">Roles</a>)</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                    await roleManager.CreateAsync(<span class="keyword">new</span> IdentityRole(role));</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                var defaultAdmin = <span class="keyword">new</span> IdentityUser{UserName = <span class="stringliteral">&quot;admin&quot;</span>, Email = <span class="stringliteral">&quot;admin@admin.com&quot;</span> };</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                var createDefaultAdmin = await userManager.CreateAsync(defaultAdmin, <span class="stringliteral">&quot;Admin_1&quot;</span>);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keywordflow">if</span> (createDefaultAdmin.Succeeded)</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                    await userManager.AddToRoleAsync(defaultAdmin, <span class="stringliteral">&quot;Administrator&quot;</span>);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html#a2442bcb38a71c469941a3303e3359f77">   41</a></span>&#160;        <span class="keyword">public</span> <span class="keyword">static</span> async <span class="keywordtype">void</span> <a class="code" href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html#a2442bcb38a71c469941a3303e3359f77">SeedData</a>(IApplicationBuilder app)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="keyword">using</span> var scope = app.ApplicationServices.CreateScope();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            var roleManager = scope.ServiceProvider.GetRequiredService&lt;RoleManager&lt;IdentityRole&gt;&gt;();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            var userManager = scope.ServiceProvider.GetRequiredService&lt;UserManager&lt;IdentityUser&gt;&gt;();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">if</span>(!await roleManager.RoleExistsAsync(<span class="stringliteral">&quot;Administrator&quot;</span>))</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="keywordflow">foreach</span>(var role <span class="keywordflow">in</span> <a class="code" href="class_any_test_1_1_client_authentication_1_1_auth_service.html">AuthService</a>.<a class="code" href="class_any_test_1_1_client_authentication_1_1_auth_service.html#a2d9e27af235a0ad929d6f5df5214c018">Roles</a>)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                    await roleManager.CreateAsync(<span class="keyword">new</span> IdentityRole(role));</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                var defaultAdmin = <span class="keyword">new</span> IdentityUser{UserName = <span class="stringliteral">&quot;admin&quot;</span>, Email = <span class="stringliteral">&quot;admin@admin.com&quot;</span> };</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                var createDefaultAdmin = await userManager.CreateAsync(defaultAdmin, <span class="stringliteral">&quot;Admin_1&quot;</span>);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <span class="keywordflow">if</span> (createDefaultAdmin.Succeeded)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                    await userManager.AddToRoleAsync(defaultAdmin, <span class="stringliteral">&quot;Administrator&quot;</span>);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html#acffd2d449a97fae3660775103e73870d">   72</a></span>&#160;        <span class="keyword">public</span> async Task&lt;IEnumerable&lt;UserInfo&gt;&gt; <a class="code" href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html#acffd2d449a97fae3660775103e73870d">UserInfos</a>()</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keywordtype">string</span> query =</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                  <span class="stringliteral">@&quot;SELECT U.UserName, U.Email, R.Name AS Role</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="stringliteral">                    FROM AspNetUsers AS U</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="stringliteral">                    INNER JOIN AspNetUserRoles AS UR ON U.Id = UR.UserId</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="stringliteral">                    INNER JOIN AspNetRoles AS R ON UR.RoleId = R.Id&quot;</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keyword">using</span> var connection = Database.GetDbConnection();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keyword">using</span> var command = connection.CreateCommand();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            command.CommandType = System.Data.CommandType.Text;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            command.CommandText = query;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            var identityQueryResult = <span class="keyword">new</span> List&lt;(string User, string Email, string Role)&gt;();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            await connection.OpenAsync();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <span class="keyword">using</span> var reader = await command.ExecuteReaderAsync();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <span class="keywordflow">while</span> (await reader.ReadAsync())</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            {</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                identityQueryResult.Add</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                ((</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                    User: reader[<span class="stringliteral">&quot;UserName&quot;</span>].ToString(),</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                    Email: reader[<span class="stringliteral">&quot;Email&quot;</span>].ToString(),</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                    Role: reader[<span class="stringliteral">&quot;Role&quot;</span>].ToString()</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                ));</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            }</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            var result  = identityQueryResult</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                .GroupBy(iqr =&gt; <span class="keyword">new</span> { iqr.User, iqr.Email })</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                .Select(gr =&gt; <span class="keyword">new</span> <a class="code" href="class_any_test_1_1_client_authentication_1_1_user_info.html">UserInfo</a></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                {</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                    User = gr.Key.<a class="code" href="class_any_test_1_1_client_authentication_1_1_user_info.html#a2cc35970faf4cd029e230913e2b7d834">User</a>,</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                    Email = gr.Key.Email,</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                    Roles = gr.Select(r =&gt; r.Role)</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                });</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        }</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    }</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="anamespace_any_test_1_1_data_service_html"><div class="ttname"><a href="namespace_any_test_1_1_data_service.html">AnyTest.DataService</a></div><div class="ttdef"><b>Definition:</b> <a href="_any_test_identity_db_context_8cs_source.html#l00012">AnyTestIdentityDbContext.cs:12</a></div></div>
-<div class="ttc" id="aclass_any_test_1_1_data_service_1_1_any_test_identity_db_context_html_a2442bcb38a71c469941a3303e3359f77"><div class="ttname"><a href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html#a2442bcb38a71c469941a3303e3359f77">AnyTest.DataService.AnyTestIdentityDbContext.SeedData</a></div><div class="ttdeci">static async void SeedData(IApplicationBuilder app)</div><div class="ttdoc">Метод, який додає дані за замовчуванням до щойно створеної бази даних</div><div class="ttdef"><b>Definition:</b> <a href="_any_test_identity_db_context_8cs_source.html#l00040">AnyTestIdentityDbContext.cs:40</a></div></div>
+<div class="ttc" id="anamespace_any_test_1_1_data_service_html"><div class="ttname"><a href="namespace_any_test_1_1_data_service.html">AnyTest.DataService</a></div><div class="ttdef"><b>Definition:</b> <a href="_any_test_identity_db_context_8cs_source.html#l00013">AnyTestIdentityDbContext.cs:13</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_data_service_1_1_any_test_identity_db_context_html_a2442bcb38a71c469941a3303e3359f77"><div class="ttname"><a href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html#a2442bcb38a71c469941a3303e3359f77">AnyTest.DataService.AnyTestIdentityDbContext.SeedData</a></div><div class="ttdeci">static async void SeedData(IApplicationBuilder app)</div><div class="ttdoc">Метод, який додає дані за замовчуванням до щойно створеної бази даних</div><div class="ttdef"><b>Definition:</b> <a href="_any_test_identity_db_context_8cs_source.html#l00041">AnyTestIdentityDbContext.cs:41</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_data_service_1_1_any_test_identity_db_context_html_acffd2d449a97fae3660775103e73870d"><div class="ttname"><a href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html#acffd2d449a97fae3660775103e73870d">AnyTest.DataService.AnyTestIdentityDbContext.UserInfos</a></div><div class="ttdeci">async Task&lt; IEnumerable&lt; UserInfo &gt; &gt; UserInfos()</div><div class="ttdoc">Повертає колекцію користувачів з ролями</div><div class="ttdef"><b>Definition:</b> <a href="_any_test_identity_db_context_8cs_source.html#l00072">AnyTestIdentityDbContext.cs:72</a></div></div>
 <div class="ttc" id="aclass_any_test_1_1_client_authentication_1_1_auth_service_html"><div class="ttname"><a href="class_any_test_1_1_client_authentication_1_1_auth_service.html">AnyTest.ClientAuthentication.AuthService</a></div><div class="ttdoc">Сервісний клас для аутентифікації JWT токенів</div><div class="ttdef"><b>Definition:</b> <a href="_auth_service_8cs_source.html#l00019">AuthService.cs:19</a></div></div>
 <div class="ttc" id="anamespace_any_test_html"><div class="ttname"><a href="namespace_any_test.html">AnyTest</a></div><div class="ttdef"><b>Definition:</b> <a href="_api_authenticaion_state_provider_8cs_source.html#l00013">ApiAuthenticaionStateProvider.cs:13</a></div></div>
-<div class="ttc" id="aclass_any_test_1_1_data_service_1_1_any_test_identity_db_context_html_a986cd4ca0b18ec602fd18dacd8cee7f7"><div class="ttname"><a href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html#a986cd4ca0b18ec602fd18dacd8cee7f7">AnyTest.DataService.AnyTestIdentityDbContext.AnyTestIdentityDbContext</a></div><div class="ttdeci">AnyTestIdentityDbContext(DbContextOptions&lt; AnyTestIdentityDbContext &gt; options)</div><div class="ttdef"><b>Definition:</b> <a href="_any_test_identity_db_context_8cs_source.html#l00029">AnyTestIdentityDbContext.cs:29</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_data_service_1_1_any_test_identity_db_context_html_a986cd4ca0b18ec602fd18dacd8cee7f7"><div class="ttname"><a href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html#a986cd4ca0b18ec602fd18dacd8cee7f7">AnyTest.DataService.AnyTestIdentityDbContext.AnyTestIdentityDbContext</a></div><div class="ttdeci">AnyTestIdentityDbContext(DbContextOptions&lt; AnyTestIdentityDbContext &gt; options)</div><div class="ttdef"><b>Definition:</b> <a href="_any_test_identity_db_context_8cs_source.html#l00030">AnyTestIdentityDbContext.cs:30</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_client_authentication_1_1_user_info_html"><div class="ttname"><a href="class_any_test_1_1_client_authentication_1_1_user_info.html">AnyTest.ClientAuthentication.UserInfo</a></div><div class="ttdoc">Клас, якій містить дані користувача</div><div class="ttdef"><b>Definition:</b> <a href="_user_info_8cs_source.html#l00013">UserInfo.cs:13</a></div></div>
 <div class="ttc" id="anamespace_any_test_1_1_client_authentication_html"><div class="ttname"><a href="namespace_any_test_1_1_client_authentication.html">AnyTest.ClientAuthentication</a></div><div class="ttdef"><b>Definition:</b> <a href="_api_authenticaion_state_provider_8cs_source.html#l00013">ApiAuthenticaionStateProvider.cs:13</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_client_authentication_1_1_user_info_html_a2cc35970faf4cd029e230913e2b7d834"><div class="ttname"><a href="class_any_test_1_1_client_authentication_1_1_user_info.html#a2cc35970faf4cd029e230913e2b7d834">AnyTest.ClientAuthentication.UserInfo.User</a></div><div class="ttdeci">string User</div><div class="ttdoc">Логін користувач</div><div class="ttdef"><b>Definition:</b> <a href="_user_info_8cs_source.html#l00019">UserInfo.cs:19</a></div></div>
 <div class="ttc" id="aclass_any_test_1_1_client_authentication_1_1_auth_service_html_a2d9e27af235a0ad929d6f5df5214c018"><div class="ttname"><a href="class_any_test_1_1_client_authentication_1_1_auth_service.html#a2d9e27af235a0ad929d6f5df5214c018">AnyTest.ClientAuthentication.AuthService.Roles</a></div><div class="ttdeci">static readonly List&lt; string &gt; Roles</div><div class="ttdoc">Перелік дійснийх ролей</div><div class="ttdef"><b>Definition:</b> <a href="_auth_service_8cs_source.html#l00029">AuthService.cs:29</a></div></div>
-<div class="ttc" id="aclass_any_test_1_1_data_service_1_1_any_test_identity_db_context_html"><div class="ttname"><a href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html">AnyTest.DataService.AnyTestIdentityDbContext</a></div><div class="ttdoc">Клас, який представляє сесію з базою даних Identity</div><div class="ttdef"><b>Definition:</b> <a href="_any_test_identity_db_context_8cs_source.html#l00018">AnyTestIdentityDbContext.cs:18</a></div></div>
+<div class="ttc" id="aclass_any_test_1_1_data_service_1_1_any_test_identity_db_context_html"><div class="ttname"><a href="class_any_test_1_1_data_service_1_1_any_test_identity_db_context.html">AnyTest.DataService.AnyTestIdentityDbContext</a></div><div class="ttdoc">Клас, який представляє сесію з базою даних Identity</div><div class="ttdef"><b>Definition:</b> <a href="_any_test_identity_db_context_8cs_source.html#l00019">AnyTestIdentityDbContext.cs:19</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
