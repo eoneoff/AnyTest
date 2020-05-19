@@ -20,6 +20,7 @@ using AnyTest.MSSQLNetCoreDataRepository;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using AnyTest.Model;
+using Microsoft.OpenApi.Models;
 
 namespace AnyTest.DataService
 {
@@ -99,6 +100,7 @@ namespace AnyTest.DataService
             });
 
             services.AddControllers();
+            services.AddSwaggerGen(options => options.SwaggerDoc("v1", new OpenApiInfo { Title = "AnyTest Api", Version = "v1" }));
         }
 
         /// <summary>
@@ -143,6 +145,9 @@ namespace AnyTest.DataService
             {
                 endpoints.MapControllers();
             });
+
+            app.UseSwagger();
+            app.UseSwaggerUI(options => options.SwaggerEndpoint("/swagger/v1/swagger.json", "AnyTest Api"));
 
             AnyTestIdentityDbContext.SeedData(app);
         }
