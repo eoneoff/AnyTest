@@ -1,0 +1,27 @@
+﻿<html>
+<head>
+    <title></title>
+    <script src="/resources/Scripts/jquery-1.9.1.js"></script>
+    <script type="text/javascript">
+        window.updateProgress = function(percent) {
+            $('.progress-bar').css("width", percent + "%");
+        };
+        window.updateStatus = function(message) {
+            $('#status').text(message);
+        };
+    </script>
+    <link rel="stylesheet" href="/resources/Style/Master.css"/>
+</head>
+<body>
+<div class="panel panel-default" style="margin-left: auto; margin-right: auto; margin-top: 200px; width: 500px;">
+    <div class="panel-heading" style="overflow-wrap: break-word">Loading database {{databaseName}}...</div>
+    <div class="panel-body">
+        <p>&nbsp;</p>
+        <p id="status">&nbsp;</p>
+        <div class="progress progress-striped active">
+            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

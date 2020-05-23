@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Preview Error</title>
+    <style type="text/css">
+        h1 {
+            font-family: Arial;
+            font-size: 12pt;
+            font-weight: bold;
+        }
+
+        body {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+
+    </style>
+    <script src="/resources/Scripts/jquery-1.9.1.js"></script>
+    <script src="/resources/Scripts/editing.js"></script>
+    <script>
+        var reportUri = "{{reportUri}}";
+        var exceptionData = "{{exceptionData}}";
+        var errorLink = $('#sendError');
+    </script>
+</head>
+<body>
+<h1>Preview cannot be displayed</h1>
+<p>An exception has occurred while trying to display the preview. The error message is:</p>
+<p>{{exceptionMessage}}</p>
+
+<p>
+    <a href="#" id="sendError" onclick="postToUrl(reportUri, { exception: exceptionData });">Serious error? Send report.</a>
+</p>
+
+</body>
+</html>

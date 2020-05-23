@@ -1,0 +1,281 @@
+/* bootstrap overrides */
+/* other variables */
+/*	Red Gate SQL Doc Preview Supplementary Stylesheet */
+/* Descriptions */
+#pageDescription { position: relative; }
+
+#pageDescription .editableDescriptionGroup > .editableDescription {
+    margin-bottom: 10px;
+    min-height: 80px;
+}
+
+#projectauthor .editableDescriptionGroup { display: inline-block; }
+
+.editableDescriptionGroup {
+    background-color: #f9f9f9;
+    min-width: 200px;
+    position: relative;
+}
+
+.editableDescriptionGroup .editableDescriptionEditableIcon {
+    -khtml-user-select: none;
+    -moz-user-select: moz-none;
+    -ms-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    position: absolute;
+    right: 3px;
+    top: 2px;
+    user-select: none;
+    z-index: 1;
+}
+
+.editableDescriptionGroup .editableDescriptionEditableIcon .icon-pencil {
+    position: relative;
+    /* Fade out the icon - black is a bit strong*/
+}
+
+.editableDescriptionGroup .editableDescriptionEditableIcon .icon-pencil:after {
+    background-color: rgba(249, 249, 249, 0.7);
+    content: "";
+    display: block;
+    height: 14px;
+    left: 0;
+    top: 0;
+    width: 14px;
+}
+
+.editableDescriptionGroup .editableDescriptionConfirmation,
+.editableDescriptionGroup .editableMsDescriptionConfirmation {
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    border-top: 0px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    bottom: -29px;
+    font-size: 14px;
+    height: 30px;
+    /* force the confirm/cancel buttons to not inherit these from parent. */
+
+    line-height: 27px;
+    position: absolute;
+    right: 0px;
+    text-align: center;
+    width: 60px;
+    z-index: 100;
+}
+
+.editableDescriptionGroup .editableDescriptionConfirmation button,
+.editableDescriptionGroup .editableMsDescriptionConfirmation button {
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 24px;
+    width: 24px;
+}
+
+.editableDescriptionGroup .editableDescriptionConfirmation button.cancel,
+.editableDescriptionGroup .editableMsDescriptionConfirmation button.cancel { background-image: url("../../images/no.gif"); }
+
+.editableDescriptionGroup .editableDescriptionConfirmation button.confirm { background-image: url("../../images/yes.gif"); }
+
+.editableDescriptionGroup .editableMsDescriptionConfirmation button.confirm { background-image: url("../../images/saveToDb.png"); }
+
+.editableDescription {
+    -webkit-box-sizing: border-box;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    /* This changes to the old IE box model, which has the advantage of 
+    making width:100% work properly by taking padding/borders into account.
+    TODO: doesn't work in IE7 or below 
+*/
+
+    box-sizing: border-box;
+    min-height: 1.9em;
+    padding: 2px;
+    position: relative;
+    vertical-align: middle;
+    width: 100%;
+    z-index: 95;
+}
+
+.editableDescription:focus {
+    -webkit-box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.075);
+    border-bottom-right-radius: 0;
+    outline: 0;
+}
+
+.editableDescription:hover {
+    cursor: text;
+    outline: 0;
+}
+
+.pageDescription .editableDescription {
+    font-size: 12pt;
+    min-height: 12pt;
+}
+
+#pageTitle .editableDescriptionGroup .editableDescription {
+    padding-left: 12px;
+    padding-top: 12px;
+}
+
+.defaultText {
+    -moz-user-select: -moz-none;
+    -webkit-user-select: none;
+    color: #cccccc;
+    font-style: italic;
+    left: 3px;
+    pointer-events: none;
+    position: absolute;
+    top: 3px;
+    user-select: none;
+    z-index: 100;
+}
+
+.invisible { visibility: hidden; }
+
+.floatright {
+    bottom: -2px;
+    position: absolute;
+    right: -3px;
+}
+
+.editIcon a:link { text-decoration: none; }
+
+.editIcon {
+    background-color: #FFFFCC;
+    border-color: #dddddd;
+    border-style: solid;
+    border-width: 1px;
+    display: inline;
+    font-size: 11px;
+    margin: 0;
+}
+
+/* Make both of these the same size as the dropdown */
+
+#datedropdown,
+#datedropdown-custom {
+    height: 20px;
+    width: 240px;
+}
+
+#datedropdown-wrapper {
+    display: inline-block;
+    position: relative;
+}
+
+#datedropdown-wrapper button {
+    position: absolute;
+    right: 3px;
+}
+
+.notinpreview { color: Gray; }
+
+#errors {
+    left: 50%;
+    margin-left: -250px;
+    opacity: 70;
+    position: fixed;
+    right: auto;
+    top: 50px;
+    width: 500px;
+    z-index: 1000;
+}
+
+#headerText { min-width: 200px; }
+
+#breadcrumbswitch { display: inline-block; }
+
+.sectionToggle {
+    font-size: 8pt;
+    z-index: 201;
+}
+
+.sectionToggle .inherited,
+.sectionToggle .notinherited {
+    cursor: default;
+    display: inline-block;
+    height: 13px;
+    margin: 0 0 0 0;
+    position: relative;
+    width: 13px;
+}
+
+.panel { position: relative; }
+
+.panel .panel-heading { position: relative; }
+
+.panel .panel-heading .sectionToggle {
+    position: absolute;
+    right: 5px;
+    top: 3px;
+}
+
+.panel .panel-heading .sectionToggle .inherited,
+.panel .panel-heading .sectionToggle .notinherited {
+    bottom: -2px;
+    position: relative;
+}
+
+.deselected:after {
+    background-color: rgba(249, 249, 249, 0.7);
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 200;
+}
+
+/* icons */
+
+.icon-pencil { background-image: url("../../images/pencil.png"); }
+
+label input[type="checkbox"] { bottom: -2px; }
+
+input[type="checkbox"] { position: relative; }
+
+label { margin-bottom: 0px; }
+
+tr { position: relative; }
+
+#projectContents #pageDescription { padding-left: 10px; }
+
+#logoDropZone {
+    border: 2px dashed #bbbbbb;
+    border-radius: 5px 5px 5px 5px;
+    color: #bbbbbb;
+    min-height: 80px;
+    padding-left: 4px;
+    padding-top: 1px;
+    text-align: left;
+}
+
+#logoUpload { padding-right: 10px; }
+
+#logoFileInput {
+    color: transparent;
+    margin-top: 5px;
+}
+
+#noLogo {
+    left: 0;
+    position: relative;
+    top: 0;
+}
+
+#removeLogo {
+    cursor: pointer;
+    opacity: 0.4;
+    position: absolute;
+    right: 14px;
+    top: 3px;
+}
+
+#removeLogo:hover { opacity: 1; }
