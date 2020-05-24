@@ -23,7 +23,6 @@ namespace AnyTest.WebClient
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("app");
 
-            builder.Services.AddBaseAddressHttpClient();
             builder.Services.AddBlazoredLocalStorage();
             builder.Services.AddAuthorizationCore();
 
