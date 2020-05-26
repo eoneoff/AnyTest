@@ -1,7 +1,7 @@
 ﻿@page "/tutor/tests/courses/new"
 @page "/tutor/tests/courses/{Id:long}"
 @layout TutorPageLayout
-@inject HttpClient _httpClient;
+@inject HttpClient _httpClient
 
 <div class="container-fluid">
     <CourseEditor Course="@course" OnSubmit="()=>State.SaveCourse(course)"/>

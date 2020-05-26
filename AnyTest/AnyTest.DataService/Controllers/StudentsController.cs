@@ -212,6 +212,9 @@ namespace AnyTest.DataService.Controllers
         [HttpGet("page/{pageNumber:int}/{pageSize:int}")]
         public async Task<IEnumerable<Student>> GetStudentsPage(int pageNumber, int pageSize) => await (_repository as IStudentsRepository).GetStudentPage(pageNumber, pageSize);
 
+        [HttpGet("{id:long}/tests")]
+        public async Task<IEnumerable<Test>> GetTests(long id) => await (_repository as IStudentsRepository).GetTests(id);
+
         /// <summary>
         /// \~english Adds a student to course
         /// \~ukrainian Додає студента до курсу

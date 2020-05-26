@@ -1,5 +1,7 @@
 ﻿@page "/tutor/students/{StudentId:long}"
-@inject HttpClient _httpClient;
+@inject HttpClient _httpClient
+@using Microsoft.AspNetCore.Authorization
+@attribute  [Authorize(Roles = "Tutor")]
 
 <div class="p-5">
     <div class="card m-5 flex-grow-1">
@@ -32,6 +34,14 @@
             }
         </table>
     </div>
+    @foreach(var test in Tests)
+    {
+        <div class="card mt-2">
+            <div class="card-body">
+                <TestStudentViewer Student="student" Test="test" ShowDetails="false"></TestStudentViewer>
+            </div>
+        </div>
+    }
 </div>
 
 <ModalDialog @ref="confirmationDialog" OnConfirm="OnConfirm">
@@ -58,7 +68,8 @@
 
     private long selectedCourseId = 0;
     private Student student = new Student();
-    private IEnumerable<Course> AvailableCourses => State?.Courses?.Where(c => !(student?.Courses?.Where(sc => !sc.Removed)?.Any(sc => sc.CourseId == c.Id ) ?? false)) ?? new List<Course>();
+    private IEnumerable<Test> Tests = new List<Test>();
+    private IEnumerable<Course> AvailableCourses => State?.Courses?.Where(c => !(student?.Courses?.Where(sc => !sc.Removed)?.Any(sc => sc.CourseId == c.Id) ?? false)) ?? new List<Course>();
     private bool loading;
 
     private ModalDialog confirmationDialog;
@@ -68,6 +79,7 @@
 
     protected override async Task OnInitializedAsync()
     {
+        loading = true;
         if (!(State?.Students?.Any() ?? false) && StudentId != 0)
         {
             student = new Student { Person = State.LoadingStub };
@@ -75,6 +87,8 @@
         }
         else
             student = State?.Students?.FirstOrDefault(s => s.Id == StudentId) ?? new Student();
+        Tests = await _httpClient.GetJsonAsync<IEnumerable<Test>>($"students/{StudentId}/tests");
+        loading = false;
     }
 
     private void AddCourseClicked()
@@ -88,7 +102,7 @@
             OnConfirm = async () =>
             {
                 student.Courses ??= new List<StudentCourse>();
-                student.Courses.Add(new StudentCourse { StudentId = student.Id, CourseId = selectedCourseId});
+                student.Courses.Add(new StudentCourse { StudentId = student.Id, CourseId = selectedCourseId });
                 await _httpClient.PostAsync($"students/{student.Id}/courses/{selectedCourseId}", null);
                 selectedCourseId = 0;
             };

@@ -43,6 +43,10 @@ namespace AnyTest.MSSQLNetCoreDataRepository
             .Take(pageSize)
             .AsNoTracking().ToListAsync();
 
+        public async Task<IEnumerable<Test>> GetTests(long id) =>
+            await _db.TestPasses.Where(p => p.StudentId == id)
+            .Select(p => p.Test).AsNoTracking().ToListAsync();
+
         public async Task<StudentCourse> AddToCourse(long studentId, long courseId)
         {
             var studentCourse = _db.StudentCourses.Find(studentId, courseId);

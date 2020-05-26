@@ -3,32 +3,35 @@
         <th class="text-right">@Localizer[nameof(Resources.Name)]:</th>
         <td>@Test.Name</td>
     </tr>
-    <tr>
-        <th class="text-right">@Localizer[nameof(Resources.Subjects)]:</th>
-        <td>
-            <ul>
-                @foreach (var subject in (Test?.Subjects ?? new List<TestSubject>()))
-                {
-                    <li>
-                        @State.Subjects.FirstOrDefault(s => s.Id == subject.SubjectId).Name
-                    </li>
-                }
-            </ul>
-        </td>
-    </tr>
-    <tr>
-        <th class="text-right">@Localizer[nameof(Resources.Courses)]:</th>
-        <td>
-            <ul>
-                @foreach (var course in (Test?.Courses ?? new List<TestCourse>()))
-                {
-                    <li>
-                        @State.Courses.FirstOrDefault(c => c.Id == course.CourseId).Name
-                    </li>
-                }
-            </ul>
-        </td>
-    </tr>
+    @if (ShowDetails)
+    {
+        <tr>
+            <th class="text-right">@Localizer[nameof(Resources.Subjects)]:</th>
+            <td>
+                <ul>
+                    @foreach (var subject in (Test?.Subjects ?? new List<TestSubject>()))
+                    {
+                        <li>
+                            @State.Subjects.FirstOrDefault(s => s.Id == subject.SubjectId).Name
+                        </li>
+                    }
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th class="text-right">@Localizer[nameof(Resources.Courses)]:</th>
+            <td>
+                <ul>
+                    @foreach (var course in (Test?.Courses ?? new List<TestCourse>()))
+                    {
+                        <li>
+                            @State.Courses.FirstOrDefault(c => c.Id == course.CourseId).Name
+                        </li>
+                    }
+                </ul>
+            </td>
+        </tr>
+    }
     @if (Student != null)
     {
         <tr>
@@ -60,6 +63,9 @@
 
     [Parameter]
     public Student Student { get; set; }
+
+    [Parameter]
+    public bool ShowDetails { get; set; } = true;
 
     private IEnumerable<AnswerPass> Answers => Student?.Passes?.Where(p => p.TestId == Test.Id)?.SelectMany(p => p.Answers)
         .Select(a =>
