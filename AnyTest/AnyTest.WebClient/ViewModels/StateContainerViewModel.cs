@@ -192,10 +192,14 @@ namespace AnyTest.WebClient.ViewModels
 
             await GetTestsList();
         }
-
         public async Task GetStudents()
         {
             Students = await _httpClient.GetJsonAsync<List<Student>>("students");
+        }
+        public async Task GetStudent()
+        {
+            await GetPersonByAuthorizedUser();
+            Person.Student = await _httpClient.GetJsonAsync<Student>($"students/{Person.Id}");
         }
     }
 }

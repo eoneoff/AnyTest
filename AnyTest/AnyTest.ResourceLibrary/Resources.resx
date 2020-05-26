@@ -159,6 +159,15 @@
   <data name="Answers" xml:space="preserve">
     <value>Відповіді</value>
   </data>
+  <data name="Attention" xml:space="preserve">
+    <value>Увага</value>
+  </data>
+  <data name="AwerageScore" xml:space="preserve">
+    <value>Середній бал</value>
+  </data>
+  <data name="BackToTest" xml:space="preserve">
+    <value>До тесту</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Відміна</value>
   </data>
@@ -255,6 +264,12 @@
   <data name="LookOrChangePersonalInfo" xml:space="preserve">
     <value>Ви можете переглянути або змінити особисті дані</value>
   </data>
+  <data name="MaxScore" xml:space="preserve">
+    <value>Максимальний бал</value>
+  </data>
+  <data name="MinScore" xml:space="preserve">
+    <value>Мінімальний бал</value>
+  </data>
   <data name="MultilpeCorrectOptions" xml:space="preserve">
     <value>Кілька відповідей</value>
   </data>
@@ -278,6 +293,9 @@
   </data>
   <data name="Pass" xml:space="preserve">
     <value>Пройти</value>
+  </data>
+  <data name="Passed" xml:space="preserve">
+    <value>Пройдено</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Пароль</value>
@@ -386,6 +404,12 @@
   </data>
   <data name="Tests" xml:space="preserve">
     <value>Тести</value>
+  </data>
+  <data name="Times" xml:space="preserve">
+    <value>Разів</value>
+  </data>
+  <data name="TooManyAnswers" xml:space="preserve">
+    <value>Ви обрали забагато відповідей.</value>
   </data>
   <data name="Tutor" xml:space="preserve">
     <value>Викладач</value>

@@ -37,6 +37,7 @@
     {
         if (State.TestsTreeList.Count() == 0) await State.GetTestsList();
         State.TestsUpdated += (object sender, EventArgs e) => StateHasChanged();
+        if (State?.Person?.Student == null) await State.GetStudent();
     }
 }
 

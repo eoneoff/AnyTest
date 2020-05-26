@@ -13,7 +13,7 @@
                 @Content
             </div>
             <div class="d-flex flex-row justify-content-end flex-nowrap mt-2">
-                <button class="btn btn-success" @onclick="OkClicked">@OkButtonText</button>
+                @if (ShowOkButton) { <button class="btn btn-success" @onclick="OkClicked">@OkButtonText</button> }
                 <button class="btn btn-danger ml-2" @onclick="@(()=>isOpen = false)">@(CancelButtonText ?? Localizer[nameof(Resources.Cancel)])</button>
             </div>
         </div>
@@ -33,6 +33,7 @@
     [Parameter]
     public string OkButtonText { get; set; } = "OK";
 
+    [Parameter]
     public string CancelButtonText { get; set; }
 
     [Parameter]
@@ -49,6 +50,9 @@
 
     [Parameter]
     public bool CloseOnOk { get; set; } = true;
+
+    [Parameter]
+    public bool ShowOkButton { get; set; } = true;
 
     private int DialogZIndex => Level * 1000;
     private int BackdropZIndex => Level * 1000 - 500;

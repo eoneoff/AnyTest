@@ -272,6 +272,38 @@ namespace AnyTest.DataService.Controllers
             return (Ok(await (_repository as IStudentsRepository).RemoveFromCourse(id, courseId)));
         }
 
+        /// <summary>
+        /// \~english Adds a test pass to a student
+        /// \~ukrainian Додає проходження тесту студентом
+        /// </summary>
+        /// <param name=studentId">
+        /// \~english An id of a <c>Student</c>
+        /// \~ukrainian Id студенту
+        /// </param>
+        /// <param name="pass">
+        /// \~english A test pass
+        /// \~ukrainian Проходження тесту
+        /// </param>
+        /// <returns>
+        /// \~english A test pass
+        /// \~ukrainian Проходження тесту
+        /// </returns>
+        /// <example>
+        /// \~english An example of HTTP request to save a test pass
+        /// \~ukrainian Приклад HTTP запиту збереження проходження тесту
+        /// <code>
+        /// POST: api/Students/5/tests
+        /// </code>
+        /// </example>
+        [HttpPost("{studentId:long}/tests/")]
+        public async Task<IActionResult> AddTestPassToStudent(long studentId, [FromBody] TestPass pass)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+            if (! await _repository.Exists(studentId)) return BadRequest();
+            pass.StudentId = studentId;
+            return Ok(await (_repository as IStudentsRepository)?.SavePass(pass));
+        }
+
         private async Task<bool> IsOwner(long id)
         {
             var userEmail = (HttpContext.User.Identity as ClaimsIdentity).FindFirst(ClaimTypes.Email).Value;

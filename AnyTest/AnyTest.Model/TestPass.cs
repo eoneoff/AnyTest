@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace AnyTest.Model
 {
@@ -21,6 +22,7 @@ namespace AnyTest.Model
         [Required]
         public DateTime PassedAt { get; set; }
 
+        [JsonIgnore]
         public virtual Test Test { get; set; }
         public virtual ICollection<AnswerPass> Answers { get; set; }
     }

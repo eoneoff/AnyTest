@@ -28,6 +28,7 @@ namespace AnyTest.MSSQLNetCoreDataRepository
                 return await _db.Students
                     .Include(s => s.Person)
                     .Include(s => s.Courses)
+                    .Include(s => s.Passes).ThenInclude(p => p.Answers)
                     .AsNoTracking().SingleOrDefaultAsync(s => s.Id == id);
             }
             else
@@ -68,6 +69,14 @@ namespace AnyTest.MSSQLNetCoreDataRepository
             _db.Update(studentCoures);
             await _db.SaveChangesAsync();
             return studentCoures;
+        }
+
+        public async Task<TestPass> SavePass(TestPass pass)
+        {
+            pass.PassedAt = DateTime.Now;
+            _db.Add(pass);
+            await _db.SaveChangesAsync();
+            return pass;
         }
     }
 }

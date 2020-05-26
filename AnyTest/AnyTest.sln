@@ -25,7 +25,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnyTest.MobileClient.Androi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnyTest.MobileClient.iOS", "AnyTest.MobileClient\AnyTest.MobileClient.iOS\AnyTest.MobileClient.iOS.csproj", "{6647F3BA-2A5A-45B4-A36F-BE45AB7CCF43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnyTest.DataService.Tests", "AnyTest.DataService.Tests\AnyTest.DataService.Tests.csproj", "{34DAD3DB-CCF9-4C0F-BAA4-5DAA35386BC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnyTest.DataService.Tests", "AnyTest.DataService.Tests\AnyTest.DataService.Tests.csproj", "{34DAD3DB-CCF9-4C0F-BAA4-5DAA35386BC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

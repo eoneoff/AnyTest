@@ -642,6 +642,7 @@
             </code>
             </example>
         </member>
+        <!-- Badly formed XML comment ignored for member "M:AnyTest.DataService.Controllers.StudentsController.AddTestPassToStudent(System.Int64,AnyTest.Model.TestPass)" -->
         <member name="T:AnyTest.DataService.Controllers.SubjectsController">
             <inheritdoc />
         </member>

@@ -187,6 +187,33 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Увага.
+        /// </summary>
+        public static string Attention {
+            get {
+                return ResourceManager.GetString("Attention", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Середній бал.
+        /// </summary>
+        public static string AwerageScore {
+            get {
+                return ResourceManager.GetString("AwerageScore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на До тесту.
+        /// </summary>
+        public static string BackToTest {
+            get {
+                return ResourceManager.GetString("BackToTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Відміна.
         /// </summary>
         public static string Cancel {
@@ -475,6 +502,24 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Максимальний бал.
+        /// </summary>
+        public static string MaxScore {
+            get {
+                return ResourceManager.GetString("MaxScore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Мінімальний бал.
+        /// </summary>
+        public static string MinScore {
+            get {
+                return ResourceManager.GetString("MinScore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Кілька відповідей.
         /// </summary>
         public static string MultilpeCorrectOptions {
@@ -543,6 +588,15 @@ namespace AnyTest.ResourceLibrary {
         public static string Pass {
             get {
                 return ResourceManager.GetString("Pass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Пройдено.
+        /// </summary>
+        public static string Passed {
+            get {
+                return ResourceManager.GetString("Passed", resourceCulture);
             }
         }
         
@@ -867,6 +921,24 @@ namespace AnyTest.ResourceLibrary {
         public static string Tests {
             get {
                 return ResourceManager.GetString("Tests", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Разів.
+        /// </summary>
+        public static string Times {
+            get {
+                return ResourceManager.GetString("Times", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Ви обрали забагато відповідей..
+        /// </summary>
+        public static string TooManyAnswers {
+            get {
+                return ResourceManager.GetString("TooManyAnswers", resourceCulture);
             }
         }
         

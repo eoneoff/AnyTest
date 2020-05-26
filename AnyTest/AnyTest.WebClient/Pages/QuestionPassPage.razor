@@ -1,8 +1,9 @@
 ﻿@page "/tests/{Id:long}/pass"
-@inject HttpClient _httpClient;
+@inject HttpClient _httpClient
+@inject NavigationManager NavigationManager
 @layout StudentPageLayout
 
-    <div class="p-5 d-flex flex-lg-column">
+    <div class="p-5 d-flex flex-column">
         @if ((pass?.Test?.Id ?? 0) != 0)
         {
             <h4>@pass?.Test?.Name</h4>
@@ -28,21 +29,29 @@
                         </div>
                     </div>
                 }
-                <button type="button" class="btn btn-success ml-auto" @onclick="() => saveConfirmationDialog.Show()">@Localizer[nameof(Resources.FinishTest)]</button>
+                <button type="button" class="btn btn-success ml-auto" @onclick="SaveClicked">@Localizer[nameof(Resources.FinishTest)]</button>
             }
             else
             {
                  <div class="progress" style="height:35px;">
                      <div class="progress-bar progress-bar-striped @ProgressColor" style="width:@(CorrectPercent ?? 00)%">@CorrectPercent%</div>
                  </div>
+                 <a class="btn btn-success" href="@($"/student/tests/{pass?.Test?.Id}")">@Localizer[nameof(Resources.BackToTest)]</a>
             }
         }
     </div>
 
-<ModalDialog @ref="saveConfirmationDialog" OnConfirm="() => solved = true">
+<ModalDialog @ref="saveConfirmationDialog" OnConfirm="async () => await SaveTestPass()">
     <Header>@Localizer[nameof(Resources.FinishTest)]</Header>
     <Content>
         @(string.Format(Localizer[nameof(Resources.FinistTestAndSubmitResult)].Value, pass?.Test?.Name))
+    </Content>
+</ModalDialog>
+
+<ModalDialog @ref="tooManyAnswersDialog" CancelButtonText="OK" ShowOkButton="false">
+    <Header><i class="fa fa-exclamation-triangle"></i> @Localizer[nameof(Resources.Attention)]</Header>
+    <Content>
+        @Localizer[nameof(Resources.TooManyAnswers)]
     </Content>
 </ModalDialog>
 
@@ -62,6 +71,7 @@
     private bool solved = false;
     private TestPass pass = new TestPass();
     private ModalDialog saveConfirmationDialog;
+    private ModalDialog tooManyAnswersDialog;
 
     [Parameter]
     public long Id { get; set; }
@@ -86,5 +96,27 @@
             Test = test,
             Answers = new List<AnswerPass>()
         };
+    }
+
+    private void SaveClicked()
+    {
+        if (pass.Answers.Count() > pass.Test.TestQuestions.SelectMany(q => q.TestAnswers).Where(a => a.Percent > 0).Count())
+        {
+            tooManyAnswersDialog.Show();
+        }
+        else
+        {
+            saveConfirmationDialog.Show();
+        }
+    }
+
+    private async Task SaveTestPass()
+    {
+        solved = true;
+        loading = true;
+        pass.Test = null;
+        foreach(var answer in pass.Answers) { answer.Answer = null; }
+        State.Person.Student.Passes.Add(await _httpClient.PostJsonAsync<TestPass>($"students/{State.Person.Id}/tests", pass));
+        loading = false;
     }
 }

@@ -1,0 +1,75 @@
+﻿<table class="table table-hover table-borderless w-auto">
+    <tr>
+        <th class="text-right">@Localizer[nameof(Resources.Name)]:</th>
+        <td>@Test.Name</td>
+    </tr>
+    <tr>
+        <th class="text-right">@Localizer[nameof(Resources.Subjects)]:</th>
+        <td>
+            <ul>
+                @foreach (var subject in (Test?.Subjects ?? new List<TestSubject>()))
+                {
+                    <li>
+                        @State.Subjects.FirstOrDefault(s => s.Id == subject.SubjectId).Name
+                    </li>
+                }
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <th class="text-right">@Localizer[nameof(Resources.Courses)]:</th>
+        <td>
+            <ul>
+                @foreach (var course in (Test?.Courses ?? new List<TestCourse>()))
+                {
+                    <li>
+                        @State.Courses.FirstOrDefault(c => c.Id == course.CourseId).Name
+                    </li>
+                }
+            </ul>
+        </td>
+    </tr>
+    @if (Student != null)
+    {
+        <tr>
+            <th class="text-right">@Localizer[nameof(Resources.Passed)]:</th>
+            <td>
+                @PassesNumber @Localizer[nameof(Resources.Times)]
+            </td>
+        </tr>
+        <tr>
+            <th class="text-right">@Localizer[nameof(Resources.AwerageScore)]</th>
+            <td>@AwerageScore</td>
+        </tr>
+        <tr>
+            <th class="text-right">@Localizer[nameof(Resources.MaxScore)]</th>
+            <td>@MaxScore</td>
+        </tr>
+        <tr>
+            <th class="text-right">@Localizer[nameof(Resources.MinScore)]</th>
+            <td>@MinScore</td>
+        </tr>
+    }
+</table>
+
+@code
+{
+
+    [Parameter]
+    public Test Test { get; set; }
+
+    [Parameter]
+    public Student Student { get; set; }
+
+    private IEnumerable<AnswerPass> Answers => Student?.Passes?.Where(p => p.TestId == Test.Id)?.SelectMany(p => p.Answers)
+        .Select(a =>
+        {
+            a.Answer = Test?.TestQuestions?.SelectMany(q => q.TestAnswers)?.FirstOrDefault(ans => ans.Id == a.AnswerId);
+            return a;
+        });
+
+    private int PassesNumber => Student?.Passes?.Where(p => p.TestId == Test?.Id)?.Count() ?? 0;
+    private decimal AwerageScore => PassesNumber != 0 ? (decimal)Answers?.Sum(a => a.Answer.Percent) / (PassesNumber * Test.TestQuestions.Count()) : 0;
+    private int MaxScore => Student?.Passes?.Select(p => p.Answers?.Sum(a => a.Answer?.Percent)/Test?.TestQuestions?.Count())?.Max() ?? 0;
+    private int MinScore => Student?.Passes?.Select(p => p.Answers?.Sum(a => a.Answer?.Percent) / Test?.TestQuestions?.Count())?.Min() ?? 0;
+}

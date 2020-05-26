@@ -2,45 +2,10 @@
 @inject HttpClient _httpClient;
 @layout StudentPageLayout
 
-<div class="p-5">
-    <table class="table table-hover table-borderless w-auto">
-        <tr>
-            <th class="text-right">@Localizer[nameof(Resources.Name)]:</th>
-            <td>@test.Name</td>
-        </tr>
-        <tr>
-            <th class="text-right">@Localizer[nameof(Resources.Subjects)]:</th>
-            <td>
-                <ul>
-                    @foreach (var subject in (test?.Subjects ?? new List<TestSubject>()))
-                    {
-                        <li>
-                            @State.Subjects.FirstOrDefault(s => s.Id == subject.SubjectId).Name
-                        </li>
-                    }
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <th class="text-right">@Localizer[nameof(Resources.Courses)]:</th>
-            <td>
-                <ul>
-                    @foreach (var course in (test?.Courses ?? new List<TestCourse>()))
-                    {
-                        <li>
-                            @State.Courses.FirstOrDefault(c => c.Id == course.CourseId).Name
-                        </li>
-                    }
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2" class="text-right">
-                <a href="@($"tests/{test?.Id}/pass")" class="btn btn-success">@Localizer[nameof(Resources.Pass)]</a>
-            </td>
-        </tr>
-    </table>
-</div>
+    <div class="p-5">
+        <TestStudentViewer Test="test" Student="State?.Person?.Student"/>
+        <a href="@($"tests/{test?.Id}/pass")" class="btn btn-success">@Localizer[nameof(Resources.Pass)]</a>
+    </div>
 
 @if (loading)
 {

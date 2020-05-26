@@ -13,7 +13,11 @@
         get => Model.Any(item =>  Selector(item, Key));
         set
         {
-            if (!value) Model.Remove(Value);
+            if (!value)
+            {
+                var item = Model.FirstOrDefault(item => Selector(item, Key));
+                Model.Remove(item);
+            }
             else if (!Model.Any(item => Selector(item, Key))) Model.Add(Value);
         }
     }
