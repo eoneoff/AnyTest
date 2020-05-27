@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:res="clr-namespace:AnyTest.ResourceLibrary;assembly=AnyTest.ResourceLibrary"
              mc:Ignorable="d"
              x:Class="AnyTest.MobileClient.TestResultPage"
              BackgroundColor="{StaticResource BaseBackColor}">
@@ -13,6 +14,7 @@
                     <Label Grid.Row="0" HorizontalOptions="Center" Text="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=ProgressLabel}"/>
                     <ProgressBar Grid.Row="0" Progress="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=Progress}"
                              ProgressColor="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=ProgressColor}"/>
+                    <Button Text="{x:Static res:Resources.BackToTest}" Clicked="BackToTestButton_Clicked"/>
                 </StackLayout>
             </Frame>
         </StackLayout>

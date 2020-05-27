@@ -58,5 +58,10 @@ namespace AnyTest.MobileClient
             Pass = pass;
             Test = test;
         }
+
+        private async void BackToTestButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TestInfoPage(test));
+        }
     }
 }

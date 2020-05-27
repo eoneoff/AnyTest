@@ -27,6 +27,7 @@ namespace AnyTest.MobileClient
             }, false
             ) { BaseAddress = new Uri(CrossSettings.Current.GetValueOrDefault("baseAddress", "https://192.168.0.115:44358/api/")) };
 
+        public static Student Student;
         public static ObservableCollection<TestsTreeModel> Subjects = new ObservableCollection<TestsTreeModel>();
         public static ObservableCollection<TestsTreeModel> Courses = new ObservableCollection<TestsTreeModel>();
         public static ObservableCollection<TestsTreeModel> Tests = new ObservableCollection<TestsTreeModel>();
@@ -45,6 +46,8 @@ namespace AnyTest.MobileClient
             {
                 App.Current.Properties[tokenKey] = loginResult.Token;
                 HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", loginResult.Token);
+                var person = await HttpClient.GetJsonAsync<Person>("accounts/person");
+                Student = await HttpClient.GetJsonAsync<Student>($"students/{person.Id}");
             }
 
             return loginResult;

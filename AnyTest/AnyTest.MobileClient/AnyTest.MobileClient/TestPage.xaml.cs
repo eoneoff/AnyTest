@@ -9,6 +9,7 @@ using Lib = AnyTest.ResourceLibrary;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Microsoft.AspNetCore.Components;
 
 namespace AnyTest.MobileClient
 {
@@ -37,7 +38,15 @@ namespace AnyTest.MobileClient
 
         private async void SubmitButton_Clicked(object sender, EventArgs e)
         {
-            if (await DisplayAlert(Lib.Resources.FinishTest, string.Format(Lib.Resources.FinistTestAndSubmitResult, Test?.Name), Lib.Resources.Yes, Lib.Resources.No)) await Navigation.PushAsync(new TestResultPage(Pass, Test));
+            if(Pass.Answers.Count() > Test.TestQuestions.SelectMany(q => q.TestAnswers).Where(a => a.Percent > 0).Count())
+            {
+                await DisplayAlert(Lib.Resources.Attention, Lib.Resources.TooManyAnswers, "OK");
+            }
+            else if (await DisplayAlert(Lib.Resources.FinishTest, string.Format(Lib.Resources.FinistTestAndSubmitResult, Test?.Name), Lib.Resources.Yes, Lib.Resources.No))
+            {
+                AppState.Student.Passes.Add(await AppState.HttpClient.PostJsonAsync<TestPass>($"students/{AppState.Student.Id}/tests", Pass));
+                await Navigation.PushAsync(new TestResultPage(Pass, Test));
+            }
         }
     }
 }

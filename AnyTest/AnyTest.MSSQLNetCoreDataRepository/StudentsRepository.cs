@@ -19,6 +19,7 @@ namespace AnyTest.MSSQLNetCoreDataRepository
         public override async Task<IEnumerable<Student>> Get() => await _db.Students
             .Include(s => s.Person)
             .Include(s => s.Courses)
+            .Include(s => s.Passes).ThenInclude(p => p.Answers)
             .AsNoTracking().ToListAsync();
 
         public override async Task<Student> Get(params object[] key)
@@ -44,8 +45,10 @@ namespace AnyTest.MSSQLNetCoreDataRepository
             .AsNoTracking().ToListAsync();
 
         public async Task<IEnumerable<Test>> GetTests(long id) =>
-            await _db.TestPasses.Where(p => p.StudentId == id)
-            .Select(p => p.Test).AsNoTracking().ToListAsync();
+            await _db.TestPasses.Include(p => p.Test)
+            .ThenInclude(t => t.TestQuestions).ThenInclude(q => q.TestAnswers)
+            .Where(p => p.StudentId == id)
+            .Select(p => p.Test).Distinct().AsNoTracking().ToListAsync();
 
         public async Task<StudentCourse> AddToCourse(long studentId, long courseId)
         {

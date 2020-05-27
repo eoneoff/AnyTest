@@ -29,7 +29,7 @@ namespace AnyTest.MobileClient
             var response = await AppState.HttpClient.GetAsync(testInfo.Url);
             var test = JsonSerializer.Deserialize<TestViewModel>(await response.Content.ReadAsStringAsync(), new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
             //var test = await AppState.HttpClient.GetJsonAsync<TestViewModel>(testInfo.Url);
-            await Navigation.PushAsync(new TestPage(test));
+            await Navigation.PushAsync(new TestInfoPage(test));
         }
     }
 }

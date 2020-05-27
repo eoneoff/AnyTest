@@ -75,7 +75,7 @@
         });
 
     private int PassesNumber => Student?.Passes?.Where(p => p.TestId == Test?.Id)?.Count() ?? 0;
-    private decimal AwerageScore => PassesNumber != 0 ? (decimal)Answers?.Sum(a => a.Answer.Percent) / (PassesNumber * Test.TestQuestions.Count()) : 0;
+    private decimal AwerageScore => PassesNumber != 0 ? (decimal)Answers?.Sum(a => a.Answer?.Percent) / (PassesNumber * Test?.TestQuestions?.Count()) ?? 0 : 0;
     private int MaxScore => Student?.Passes?.Select(p => p.Answers?.Sum(a => a.Answer?.Percent)/Test?.TestQuestions?.Count())?.Max() ?? 0;
     private int MinScore => Student?.Passes?.Select(p => p.Answers?.Sum(a => a.Answer?.Percent) / Test?.TestQuestions?.Count())?.Min() ?? 0;
 }
