@@ -114,9 +114,9 @@ app {
     background-color: #b2c9a7;
 }
 
-/*.custom-switch .custom-control-input:disabled:checked ~ .custom-control-label::before {
-    background-color: rgba(87, 117, 52, 0.5);
-}*/
+.custom-switch .custom-control-input:disabled:checked ~ .custom-control-label::before {
+    background-color: rgba(111, 143, 74, 0.5);
+}
 
 /*custom input checked background*/
 .custom-control-input:checked ~ .custom-control-label::before {

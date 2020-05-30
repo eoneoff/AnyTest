@@ -250,6 +250,15 @@ namespace AnyTest.ResourceLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Правильні відповіді.
+        /// </summary>
+        public static string CorrectAnswers {
+            get {
+                return ResourceManager.GetString("CorrectAnswers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Сумма правильних відповідей має складати 100 відсотків.
         /// </summary>
         public static string CorrectAnswersMustBe100Percent {
@@ -300,6 +309,15 @@ namespace AnyTest.ResourceLibrary {
         public static string DefineCorrectAnswer {
             get {
                 return ResourceManager.GetString("DefineCorrectAnswer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Докладно.
+        /// </summary>
+        public static string Details {
+            get {
+                return ResourceManager.GetString("Details", resourceCulture);
             }
         }
         

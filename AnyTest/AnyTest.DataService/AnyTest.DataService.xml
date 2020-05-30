@@ -300,6 +300,12 @@
             </code>
             </example>
         </member>
+        <member name="T:AnyTest.DataService.Controllers.PassesController">
+            <inheritdoc/>
+        </member>
+        <member name="M:AnyTest.DataService.Controllers.PassesController.#ctor(AnyTest.IDataRepository.IRepository{AnyTest.Model.TestPass})">
+            <inheritdoc/>
+        </member>
         <member name="T:AnyTest.DataService.Controllers.PeopleController">
             <summary>
             \~english An API controller for people personal data

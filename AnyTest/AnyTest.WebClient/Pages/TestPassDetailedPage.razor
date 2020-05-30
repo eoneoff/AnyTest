@@ -1,0 +1,77 @@
+﻿@page "/tutor/pass/{passId:long}"
+@inject HttpClient _httpClient
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize(Roles = "Tutor")]
+
+    <div class="p-5">
+        @foreach (var question in (pass?.Test?.TestQuestions ?? new List<TestQuestion>()))
+        {
+            <div class="card mb-3">
+                <div class="card-header">
+                    @question.Question
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        @foreach (var answer in question.TestAnswers)
+                        {
+                            <li class="list-group-item d-flex flex-row">
+                                <span class="flex-grow-1 text-left">@answer.Answer</span>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="@answer.Id" disabled checked="@(pass?.Answers?.Any(a => a.AnswerId == answer.Id) ?? false)"/>
+                                    <label class="custom-control-label" for="@answer.Id">
+                                        @if(AnswerIsRight(answer))
+                                        {
+                                            <i class="fa fa-check-circle text-success"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="fa fa-exclamation-triangle text-danger"></i>
+                                        }
+                                    </label>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        }
+    </div>
+
+@if (loading)
+{
+    <div class="modal-backdrop">
+        <div class="d-flex justify-content-center flex-column align-items-center h-100">
+            <div class="spinner-border text-white" style="width:20vh; height:20vh;border-width:30px;"></div>
+            <h3 class="text-white font-weight-bold">@(Localizer[nameof(Resources.PleaseWait)])...</h3>
+        </div>
+    </div>
+}
+
+@code {
+    private bool loading = false;
+
+    [Parameter]
+    public long StudentId { get; set; }
+
+    [Parameter]
+    public long PassId { get; set; }
+
+    private TestPass pass;
+
+    protected override async Task OnInitializedAsync()
+    {
+        loading = true;
+        pass = await _httpClient.GetJsonAsync<TestPass>($"passes/{PassId}");
+        pass.Test = await _httpClient.GetJsonAsync<Test>($"tests/{pass.TestId}");
+        @foreach(var answer in pass.Answers)
+        {
+            answer.Answer = pass?.Test?.TestQuestions?.FirstOrDefault(q => q.Id == answer.QuestionId)?.TestAnswers?.FirstOrDefault(a => a.Id == answer.AnswerId);
+        }
+        loading = false;
+    }
+
+    private bool AnswerIsRight(TestAnswer answer)
+    {
+        return true;
+    }
+}

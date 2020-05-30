@@ -39,6 +39,7 @@
         <div class="card mt-2">
             <div class="card-body">
                 <TestStudentViewer Student="student" Test="test" ShowDetails="false"></TestStudentViewer>
+                <a class="btn btn-success mt-2 ml-auto" href="@($"/tutor/students/{StudentId}/tests/{test.Id}")">@Localizer[nameof(Resources.Details)]</a>
             </div>
         </div>
     }

@@ -1,0 +1,63 @@
+﻿@page "/tutor/students/{studentId:long}/tests/{testId:long}"
+@inject HttpClient _httpClient
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize(Roles = "Tutor")]
+
+<div class="p-5">
+    <h3>@test?.Name</h3>
+    @foreach(var pass in (student?.Passes ?? new List<TestPass>()).OrderBy(p => p.PassedAt))
+    {
+        <div class="card mt-2">
+           <div class="card-body">
+               <h5 class="card-title">@pass?.PassedAt.ToString("dd.MM.yyyy HH:mm")</h5>
+               <table class="table table-sm table-borderless">
+                   <tr>
+                       <th class="text-right">@Localizer[nameof(Resources.CorrectAnswers)]</th>
+                       <td>@($"{CorrectPercent(pass):0.##}%")</td>
+                   </tr>
+                   <tr>
+                       <td rowspan="2">
+                           <a class="btn btn-success ml-auto" href="@($"/tutor/pass/{pass.Id}")">@Localizer[nameof(Resources.Details)]</a>
+                       </td>
+                   </tr>
+               </table>
+           </div>
+        </div>
+    }
+</div>
+
+@if (loading)
+{
+    <div class="modal-backdrop">
+        <div class="d-flex justify-content-center flex-column align-items-center h-100">
+            <div class="spinner-border text-white" style="width:20vh; height:20vh;border-width:30px;"></div>
+            <h3 class="text-white font-weight-bold">@(Localizer[nameof(Resources.PleaseWait)])...</h3>
+        </div>
+    </div>
+}
+
+@code {
+    private bool loading = false;
+
+    [Parameter]
+    public long StudentId { get; set; }
+
+    [Parameter]
+    public long TestId { get; set; }
+
+    private Student student;
+    private Test test;
+
+    protected override async Task OnInitializedAsync()
+    {
+        loading = true;
+        student = await _httpClient.GetJsonAsync<Student>($"students/{StudentId}");
+        test = await _httpClient.GetJsonAsync<Test>($"tests/{TestId}");
+        loading = false;
+    }
+
+    private decimal CorrectPercent(TestPass pass)
+    {
+        return (decimal)test?.TestQuestions?.SelectMany(q => q.TestAnswers)?.Join(pass?.Answers, a => a.Id, ap => ap.AnswerId, (a, ap) => a)?.Sum(a => a.Percent) / test?.TestQuestions?.Count() ?? 0;
+    }
+}

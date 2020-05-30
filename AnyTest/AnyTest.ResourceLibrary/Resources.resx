@@ -180,6 +180,9 @@
   <data name="ConfirmPassword" xml:space="preserve">
     <value>Введіть пароль повторно</value>
   </data>
+  <data name="CorrectAnswers" xml:space="preserve">
+    <value>Правильні відповіді</value>
+  </data>
   <data name="CorrectAnswersMustBe100Percent" xml:space="preserve">
     <value>Сумма правильних відповідей має складати 100 відсотків</value>
   </data>
@@ -197,6 +200,9 @@
   </data>
   <data name="DefineCorrectAnswer" xml:space="preserve">
     <value>Позначне правильну відповідь</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Докладно</value>
   </data>
   <data name="DoLogin" xml:space="preserve">
     <value>Увійти</value>
