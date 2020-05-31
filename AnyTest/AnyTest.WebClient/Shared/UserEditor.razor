@@ -18,27 +18,30 @@
             <InputText Id="confirmPassword" type="password" Class="form-control" @bind-Value="Model.ConfirmPassword" @oninput="@(()=>unchanged = false)" />
         </ValidatableFormField>
 
-        <h6>@Localizer[nameof(Resources.Roles)]</h6>
-        <div class="d-flex flex-column flex-lg-row">
-            <div class="@(noRolesError ? "invalid" : "") p-1">
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" @bind="@isAdmin" class="custom-control-input" id="adminRoleCheckbox">
-                    <label class="custom-control-label" for="adminRoleCheckbox">@Localizer[nameof(Resources.Administrator)]</label>
+        @if (ShowRoles)
+        {
+            <h6>@Localizer[nameof(Resources.Roles)]</h6>
+            <div class="d-flex flex-column flex-lg-row">
+                <div class="@(noRolesError ? "invalid" : "") p-1">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" @bind="@isAdmin" class="custom-control-input" id="adminRoleCheckbox">
+                        <label class="custom-control-label" for="adminRoleCheckbox">@Localizer[nameof(Resources.Administrator)]</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" @bind="@isTutor" class="custom-control-input" id="tutorRoleCheckbox">
+                        <label class="custom-control-label" for="tutorRoleCheckbox">@Localizer[nameof(Resources.Tutor)]</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" @bind="@isStudent" class="custom-control-input" id="studentRoleCheckbox">
+                        <label class="custom-control-label" for="studentRoleCheckbox">@Localizer[nameof(Resources.Student)]</label>
+                    </div>
                 </div>
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" @bind="@isTutor" class="custom-control-input" id="tutorRoleCheckbox">
-                    <label class="custom-control-label" for="tutorRoleCheckbox">@Localizer[nameof(Resources.Tutor)]</label>
-                </div>
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" @bind="@isStudent" class="custom-control-input" id="studentRoleCheckbox">
-                    <label class="custom-control-label" for="studentRoleCheckbox">@Localizer[nameof(Resources.Student)]</label>
+                <div class="mt-2 mt-lg-1 mt-lg-0 ml-0 ml-lg-2">
+                    @if (noRolesError)
+                    {<span class="text-danger">@Localizer[nameof(Resources.ChooseARole)]</span>}
                 </div>
             </div>
-            <div class="mt-2 mt-lg-1 mt-lg-0 ml-0 ml-lg-2">
-                @if (noRolesError)
-                {<span class="text-danger">@Localizer[nameof(Resources.ChooseARole)]</span>}
-            </div>
-        </div>
+        }
     </ValidatableForm>
 
 @code
@@ -99,4 +102,6 @@
     [Parameter]
     public RegisterModel Model { get; set; } = new RegisterModel();
 
+    [Parameter]
+    public bool ShowRoles { get; set; } = true;
 }

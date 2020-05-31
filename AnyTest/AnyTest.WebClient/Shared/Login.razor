@@ -1,41 +1,60 @@
 ﻿@inject IAuthService AuthService
 @inject NavigationManager NavigationManager
 
-
-<div class="login-form">
-    <h1 class="text-white">@Localizer[nameof(Resources.LoginAction)]</h1>
-
-    @if (ShowErrors)
-    {
-        <div class="alert alert-danger" role="alert">
-            @Error
+@if (regitsterStudent)
+{
+    <div class="row mx-0">
+        <div class="col-lg-6">
+            <UserEditor @ref="userEditor" Model="registerModel" HideButtons="true" ShowRoles="false" />
         </div>
-    }
-
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">@Localizer[Resources.EnterCredentials]</h5>
-            <EditForm Model="loginModel" OnValidSubmit="HandleLogin">
-                <DataAnnotationsValidator />
-                <ValidationSummary />
-                <div class="form-group">
-                    <label for="login">@Localizer[nameof(Resources.UserName)]</label>
-                    <InputText Id="login" Class="form-control" @bind-Value="loginModel.UserName" disabled="@IsAuthenticating" />
-                    <ValidationMessage For="@(() => loginModel.UserName)" />
-                </div>
-                <div class="form-group">
-                    <label for="password">@Localizer[nameof(Resources.Password)]</label>
-                    <InputText Id="password" type="password" Class="form-control" @bind-Value="loginModel.Password" disabled="@IsAuthenticating" />
-                    <ValidationMessage For="@(()=>loginModel.Password)" />
-                </div>
-                <div class="d-flex flex-row justify-content-lg-between">
-                    <button type="submit" class="btn btn-success" disabled="@IsAuthenticating">@Localizer[nameof(Resources.DoLogin)]</button>
-                    <a class="btn btn-link" href="#">@Localizer[nameof(Resources.StudentRegistration)]</a>
-                </div>
-            </EditForm>
+        <div class="col-lg-6">
+            <div>
+                <PersonEditor @ref="personEditor" HideButtons="true" Person="newPerson" />
+            </div>
+        </div>
+        <div class="d-flex flex-row justify-content-end flex-nowrap mt-2">
+            <button class="btn btn-success">@Localizer[nameof(Resources.Save)]</button>
+            <button class="btn btn-danger ml-2" @onclick="() => regitsterStudent = false">@Localizer[nameof(Resources.Cancel)])</button>
         </div>
     </div>
-</div>
+}
+else
+{
+    <div class="login-form">
+        <h1 class="text-white">@Localizer[nameof(Resources.LoginAction)]</h1>
+
+        @if (ShowErrors)
+        {
+            <div class="alert alert-danger" role="alert">
+                @Error
+            </div>
+        }
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">@Localizer[Resources.EnterCredentials]</h5>
+                <EditForm Model="loginModel" OnValidSubmit="HandleLogin">
+                    <DataAnnotationsValidator />
+                    <ValidationSummary />
+                    <div class="form-group">
+                        <label for="login">@Localizer[nameof(Resources.UserName)]</label>
+                        <InputText Id="login" Class="form-control" @bind-Value="loginModel.UserName" disabled="@IsAuthenticating" />
+                        <ValidationMessage For="@(() => loginModel.UserName)" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">@Localizer[nameof(Resources.Password)]</label>
+                        <InputText Id="password" type="password" Class="form-control" @bind-Value="loginModel.Password" disabled="@IsAuthenticating" />
+                        <ValidationMessage For="@(() => loginModel.Password)" />
+                    </div>
+                    <div class="d-flex flex-row justify-content-lg-between">
+                        <button type="submit" class="btn btn-success" disabled="@IsAuthenticating">@Localizer[nameof(Resources.DoLogin)]</button>
+                        <button class="btn btn-link" @onclick="()=>regitsterStudent = true">@Localizer[nameof(Resources.StudentRegistration)]</button>
+                    </div>
+                </EditForm>
+            </div>
+        </div>
+    </div>
+}
 
 @if (IsAuthenticating)
 {
@@ -54,6 +73,12 @@
     private bool ShowErrors;
     private string Error;
     private bool IsAuthenticating = false;
+    private bool regitsterStudent = false;
+
+    private UserEditor userEditor;
+    private RegisterModel registerModel = new RegisterModel { Roles = new List<string> { "Student" } };
+    private PersonEditor personEditor;
+    private Person newPerson = new Person();
 
     private async Task HandleLogin()
     {

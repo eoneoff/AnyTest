@@ -25,7 +25,7 @@ namespace AnyTest.MobileClient
             {
                 ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true
             }, false
-            ) { BaseAddress = new Uri(CrossSettings.Current.GetValueOrDefault("baseAddress", "https://192.168.0.115:44358/api/")) };
+            ) { BaseAddress = new Uri(CrossSettings.Current.GetValueOrDefault("baseAddress", "https://10.0.2.2:44358/api/")) };
 
         public static Student Student;
         public static ObservableCollection<TestsTreeModel> Subjects = new ObservableCollection<TestsTreeModel>();
