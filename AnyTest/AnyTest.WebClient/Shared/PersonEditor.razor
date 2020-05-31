@@ -17,7 +17,7 @@
         <ValidatableFormField Wide="@Wide" Label="@Localizer[nameof(Resources.Phone)]" Id="phone">
             <InputText Id="phone" Class="form-control" @bind-Value="Person.Phone" @oninput="@(()=>unchanged = false)" disabled="@Disabled" />
         </ValidatableFormField>
-        <ValidatableFormField Wide="@Wide" Label="e-mail:" Id="personEmail">
+        <ValidatableFormField Wide="@Wide" Label="e-mail" Id="personEmail">
             <ValidationMessage For="@(()=>Person.Email)" />
             <InputText Id="personEmail" Class="form-control" @bind-Value="Person.Email" disabled="@(Disabled || true)" @oninput="@(()=>unchanged = false)" />
         </ValidatableFormField>

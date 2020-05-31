@@ -1,20 +1,24 @@
 ﻿@inject IAuthService AuthService
 @inject NavigationManager NavigationManager
+@inject HttpClient _httpClient
 
 @if (regitsterStudent)
 {
-    <div class="row mx-0">
-        <div class="col-lg-6">
-            <UserEditor @ref="userEditor" Model="registerModel" HideButtons="true" ShowRoles="false" />
-        </div>
-        <div class="col-lg-6">
-            <div>
-                <PersonEditor @ref="personEditor" HideButtons="true" Person="newPerson" />
+    <h1 class="text-white">@Localizer[nameof(Resources.StudentRegistration)]</h1>
+    <div class="main-panel" style="width:90vw;">
+        <div class="row mx-0">
+            <div class="col-lg-6">
+                <UserEditor @ref="userEditor" Model="registerModel" HideButtons="true" ShowRoles="false" />
+            </div>
+            <div class="col-lg-6">
+                <div>
+                    <PersonEditor @ref="personEditor" HideButtons="true" Person="newPerson" />
+                </div>
             </div>
         </div>
-        <div class="d-flex flex-row justify-content-end flex-nowrap mt-2">
-            <button class="btn btn-success">@Localizer[nameof(Resources.Save)]</button>
-            <button class="btn btn-danger ml-2" @onclick="() => regitsterStudent = false">@Localizer[nameof(Resources.Cancel)])</button>
+        <div class="d-flex flex-row justify-content-end flex-nowrap my-2 mr-3">
+            <button class="btn btn-success" @onclick="CreateNewStudent">@Localizer[nameof(Resources.Save)]</button>
+            <button class="btn btn-danger ml-2" @onclick="() => regitsterStudent = false">@Localizer[nameof(Resources.Cancel)]</button>
         </div>
     </div>
 }
@@ -46,7 +50,7 @@ else
                         <InputText Id="password" type="password" Class="form-control" @bind-Value="loginModel.Password" disabled="@IsAuthenticating" />
                         <ValidationMessage For="@(() => loginModel.Password)" />
                     </div>
-                    <div class="d-flex flex-row justify-content-lg-between">
+                    <div class="d-flex flex-row justify-content-lg-between ">
                         <button type="submit" class="btn btn-success" disabled="@IsAuthenticating">@Localizer[nameof(Resources.DoLogin)]</button>
                         <button class="btn btn-link" @onclick="()=>regitsterStudent = true">@Localizer[nameof(Resources.StudentRegistration)]</button>
                     </div>
@@ -101,8 +105,30 @@ else
         }
     }
 
-    private void ChangeIp()
+    private async void CreateNewStudent()
     {
+        newPerson.Email = registerModel.Email;
+        bool userValid = userEditor.Validate();
+        if(personEditor.Validate() && userValid)
+        {
+            IsAuthenticating = true;
+            var newUser = new UserInfo
+            {
+                User = registerModel.UserName,
+                Email = registerModel.Email,
+                Roles = new List<string> { "Student"}
+            };
 
+            var registerResult = await _httpClient.PostJsonAsync<RegisterResult>("accounts", registerModel);
+            if (registerResult.Successful)
+            {
+                newPerson.Email = registerModel.Email;
+                registerModel = new RegisterModel();
+                await State.SavePerson(newPerson, newPerson.Id == 0 ? newUser.Roles : null);
+                newPerson = new Person();
+                regitsterStudent = false;
+            }
+            IsAuthenticating = false;
+        }
     }
 }

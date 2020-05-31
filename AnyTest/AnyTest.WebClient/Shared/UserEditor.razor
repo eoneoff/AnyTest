@@ -1,19 +1,19 @@
 ﻿@inherits ValidatableFormViewModel<RegisterModel>
 
     <ValidatableForm @ref="form" Model="Model" OnSubmit="OnSubmit" OnCancel="OnCancel" Unchanged="@unchanged" HideButtons="@HideButtons">
-        <ValidatableFormField Wide="@Wide" Label="@($"{Localizer[nameof(Resources.UserName)]}:")" Id="login">
+        <ValidatableFormField Wide="@Wide" Label="@($"{Localizer[nameof(Resources.UserName)]}")" Id="login">
             <ValidationMessage For="@(()=>Model.UserName)" />
             <InputText Id="login" Class="form-control" @bind-Value="Model.UserName" @oninput="@(()=>unchanged = false)" />
         </ValidatableFormField>
-        <ValidatableFormField Wide="@Wide" Label="e-mail:" Id="login">
+        <ValidatableFormField Wide="@Wide" Label="e-mail" Id="login">
             <ValidationMessage For="@(()=>Model.Email)" />
             <InputText Id="userEmail" Class="form-control" @bind-Value="Model.Email" @oninput="@(()=>unchanged = false)" />
         </ValidatableFormField>
-        <ValidatableFormField Wide="@Wide" Label="@($"{Localizer[nameof(Resources.Password)]}:")" Id="password">
+        <ValidatableFormField Wide="@Wide" Label="@($"{Localizer[nameof(Resources.Password)]}")" Id="password">
             <ValidationMessage For="@(()=>Model.Password)" />
             <InputText Id="password" type="password" Class="form-control" @bind-Value="Model.Password" @oninput="@(()=>unchanged = false)" />
         </ValidatableFormField>
-        <ValidatableFormField Wide="@Wide" Label="@($"{Localizer[nameof(Resources.ConfirmPassword)]}:")" Id="confirmPassword">
+        <ValidatableFormField Wide="@Wide" Label="@($"{Localizer[nameof(Resources.ConfirmPassword)]}")" Id="confirmPassword">
             <ValidationMessage For="@(()=>Model.ConfirmPassword)" />
             <InputText Id="confirmPassword" type="password" Class="form-control" @bind-Value="Model.ConfirmPassword" @oninput="@(()=>unchanged = false)" />
         </ValidatableFormField>

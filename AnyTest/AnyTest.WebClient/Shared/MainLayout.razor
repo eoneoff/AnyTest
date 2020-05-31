@@ -98,7 +98,7 @@
         if(!string.IsNullOrWhiteSpace(Ip))
         {
             string addressUnit = @"(25[0-5]|(2[0-4]\d)|[01]?\d{1,2})";
-            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(string.Format("^(localhost|{0}.{0}.{0}.{0}}$", addressUnit));
+            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(string.Format("^localhost|{0}.{0}.{0}.{0}$", addressUnit));
             if(regex.Match(Ip).Success)
             {
                 _httpClient.BaseAddress = new Uri($"https://{Ip}:44358/api");

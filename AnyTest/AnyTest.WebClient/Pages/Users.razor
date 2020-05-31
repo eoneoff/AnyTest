@@ -106,7 +106,8 @@
 
     private void SaveUserClicked()
     {
-        if (userEditor.Validate())
+        bool isPersonValid = !enableEditPerson || personEditor.Validate();
+        if (userEditor.Validate() && isPersonValid)
         {
             saveConfirmation.Show();
         }
