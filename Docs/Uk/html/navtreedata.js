@@ -53,9 +53,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "20200406070414___initial_8_designer_8cs.html",
-"_test_question_8cs_source.html",
-"class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_students_repository.html",
-"class_any_test_1_1_web_client_1_1_shared_1_1_context_watcher.html#a5afd5a8c63e3b301a26244d60c9c8ff2"
+"_test_page_8xaml_8cs_source.html",
+"class_any_test_1_1_db_access_1_1_migrations_1_1_test_course_options_added.html",
+"class_any_test_1_1_model_1_1_test_pass.html#add081ac1b1c91b41a022909ef5ef2ef7",
+"namespace_any_test_1_1_m_s_s_q_l_net_core_data_repository.html"
 ];
 
 var SYNCONMSG = 'клацніть мишкою, щоб заборонити синхронізацію панелі';

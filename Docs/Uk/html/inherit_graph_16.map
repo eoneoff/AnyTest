@@ -1,17 +1,3 @@
 <map id="Графічна ієрархія класів" name="Графічна ієрархія класів">
-<area shape="rect" id="node1" title=" " alt="" coords="5,454,80,481"/>
-<area shape="rect" id="node2" href="$class_any_test_1_1_db_access_1_1_migrations_1_1_add_course_to_precondition.html" title=" " alt="" coords="148,5,351,47"/>
-<area shape="rect" id="node3" href="$class_any_test_1_1_db_access_1_1_migrations_1_1_added_changed_property_to_tests.html" title=" " alt="" coords="147,71,352,112"/>
-<area shape="rect" id="node4" href="$class_any_test_1_1_db_access_1_1_migrations_1_1_added_test_subjects_collection.html" title=" " alt="" coords="148,136,351,177"/>
-<area shape="rect" id="node5" href="$class_any_test_1_1_db_access_1_1_migrations_1_1_answer_percent_type_and_order_no.html" title=" " alt="" coords="145,201,354,243"/>
-<area shape="rect" id="node6" href="$class_any_test_1_1_db_access_1_1_migrations_1_1_answers_to_questions.html" title=" " alt="" coords="148,267,351,308"/>
-<area shape="rect" id="node7" href="$class_any_test_1_1_db_access_1_1_migrations_1_1_deleted_property_of_test_course_and_test_subject.html" title=" " alt="" coords="128,333,371,389"/>
-<area shape="rect" id="node8" href="$class_any_test_1_1_db_access_1_1_migrations_1_1_initial.html" title=" " alt="" coords="148,413,351,455"/>
-<area shape="rect" id="node9" href="$class_any_test_1_1_db_access_1_1_migrations_1_1_pass_indexes.html" title=" " alt="" coords="148,479,351,520"/>
-<area shape="rect" id="node10" href="$class_any_test_1_1_db_access_1_1_migrations_1_1_small_corrections_to_db.html" title=" " alt="" coords="148,544,351,585"/>
-<area shape="rect" id="node11" href="$class_any_test_1_1_db_access_1_1_migrations_1_1_student_course_removed_option.html" title=" " alt="" coords="148,609,351,651"/>
-<area shape="rect" id="node12" href="$class_any_test_1_1_db_access_1_1_migrations_1_1_subjects_and_test_questions_order.html" title=" " alt="" coords="143,675,355,716"/>
-<area shape="rect" id="node13" href="$class_any_test_1_1_db_access_1_1_migrations_1_1_test_cource_relation.html" title=" " alt="" coords="148,740,351,781"/>
-<area shape="rect" id="node14" href="$class_any_test_1_1_db_access_1_1_migrations_1_1_test_course_options_added.html" title=" " alt="" coords="148,805,351,847"/>
-<area shape="rect" id="node15" href="$class_any_test_1_1_db_access_1_1_migrations_1_1_test_subject_relation.html" title=" " alt="" coords="148,871,351,912"/>
+<area shape="rect" id="node1" href="$class_any_test_1_1_data_service_1_1_tests_1_1_students_controller_tests.html" title=" " alt="" coords="5,5,188,47"/>
 </map>

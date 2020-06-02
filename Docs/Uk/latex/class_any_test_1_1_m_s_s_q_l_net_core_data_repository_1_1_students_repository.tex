@@ -31,9 +31,13 @@ override async Task$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_student}{St
 \item 
 async Task$<$ I\+Enumerable$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_student}{Student}} $>$ $>$ \mbox{\hyperlink{class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_students_repository_a0bba91bd34473afd7516a731a6219f43}{Get\+Student\+Page}} (int page\+Nubmer, int page\+Size)
 \item 
+async Task$<$ I\+Enumerable$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_test}{Test}} $>$ $>$ \mbox{\hyperlink{class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_students_repository_a4d211f26f64940007784d5d289323962}{Get\+Tests}} (long id)
+\item 
 async Task$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_student_course}{Student\+Course}} $>$ \mbox{\hyperlink{class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_students_repository_a91d19bca7302ad414071c4dc6292000c}{Add\+To\+Course}} (long student\+Id, long course\+Id)
 \item 
 async Task$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_student_course}{Student\+Course}} $>$ \mbox{\hyperlink{class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_students_repository_a984b85a63fecd31c7469af42c62b0e22}{Remove\+From\+Course}} (long student\+Id, long course\+Id)
+\item 
+async Task$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_test_pass}{Test\+Pass}} $>$ \mbox{\hyperlink{class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_students_repository_ae513f93b73b7fbe3c11d53a37bbef734}{Save\+Pass}} (\mbox{\hyperlink{class_any_test_1_1_model_1_1_test_pass}{Test\+Pass}} pass)
 \end{DoxyCompactItemize}
 \doxysubsection*{Додаткові успадковані елементи}
 
@@ -71,7 +75,7 @@ async Task$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_student_course}{Stud
 
 
 
-Див. визначення в файлі Students\+Repository.\+cs, рядок 45
+Див. визначення в файлі Students\+Repository.\+cs, рядок 53
 
 \mbox{\Hypertarget{class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_students_repository_a8d435fb7eb096b54a687aded2ff0ec8a}\label{class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_students_repository_a8d435fb7eb096b54a687aded2ff0ec8a}} 
 \index{AnyTest.MSSQLNetCoreDataRepository.StudentsRepository@{AnyTest.MSSQLNetCoreDataRepository.StudentsRepository}!Get@{Get}}
@@ -95,7 +99,7 @@ async Task$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_student_course}{Stud
 
 
 
-Див. визначення в файлі Students\+Repository.\+cs, рядок 24
+Див. визначення в файлі Students\+Repository.\+cs, рядок 25
 
 \mbox{\Hypertarget{class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_students_repository_a0bba91bd34473afd7516a731a6219f43}\label{class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_students_repository_a0bba91bd34473afd7516a731a6219f43}} 
 \index{AnyTest.MSSQLNetCoreDataRepository.StudentsRepository@{AnyTest.MSSQLNetCoreDataRepository.StudentsRepository}!GetStudentPage@{GetStudentPage}}
@@ -106,6 +110,16 @@ async Task$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_student_course}{Stud
 
 
 Реалізує \mbox{\hyperlink{interface_any_test_1_1_i_data_repository_1_1_i_students_repository_a54b182178b6268f3415f6c4beb175bb5}{Any\+Test.\+I\+Data\+Repository.\+I\+Students\+Repository}}.
+
+\mbox{\Hypertarget{class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_students_repository_a4d211f26f64940007784d5d289323962}\label{class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_students_repository_a4d211f26f64940007784d5d289323962}} 
+\index{AnyTest.MSSQLNetCoreDataRepository.StudentsRepository@{AnyTest.MSSQLNetCoreDataRepository.StudentsRepository}!GetTests@{GetTests}}
+\index{GetTests@{GetTests}!AnyTest.MSSQLNetCoreDataRepository.StudentsRepository@{AnyTest.MSSQLNetCoreDataRepository.StudentsRepository}}
+\doxysubsubsection{\texorpdfstring{GetTests()}{GetTests()}}
+{\footnotesize\ttfamily async Task$<$I\+Enumerable$<$\mbox{\hyperlink{class_any_test_1_1_model_1_1_test}{Test}}$>$ $>$ Any\+Test.\+M\+S\+S\+Q\+L\+Net\+Core\+Data\+Repository.\+Students\+Repository.\+Get\+Tests (\begin{DoxyParamCaption}\item[{long}]{id }\end{DoxyParamCaption})}
+
+
+
+Реалізує \mbox{\hyperlink{interface_any_test_1_1_i_data_repository_1_1_i_students_repository_ae5737df56ecd35a9526a837e4a45e5fd}{Any\+Test.\+I\+Data\+Repository.\+I\+Students\+Repository}}.
 
 \mbox{\Hypertarget{class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_students_repository_a984b85a63fecd31c7469af42c62b0e22}\label{class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_students_repository_a984b85a63fecd31c7469af42c62b0e22}} 
 \index{AnyTest.MSSQLNetCoreDataRepository.StudentsRepository@{AnyTest.MSSQLNetCoreDataRepository.StudentsRepository}!RemoveFromCourse@{RemoveFromCourse}}
@@ -119,7 +133,21 @@ async Task$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_student_course}{Stud
 
 
 
-Див. визначення в файлі Students\+Repository.\+cs, рядок 64
+Див. визначення в файлі Students\+Repository.\+cs, рядок 72
+
+\mbox{\Hypertarget{class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_students_repository_ae513f93b73b7fbe3c11d53a37bbef734}\label{class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_students_repository_ae513f93b73b7fbe3c11d53a37bbef734}} 
+\index{AnyTest.MSSQLNetCoreDataRepository.StudentsRepository@{AnyTest.MSSQLNetCoreDataRepository.StudentsRepository}!SavePass@{SavePass}}
+\index{SavePass@{SavePass}!AnyTest.MSSQLNetCoreDataRepository.StudentsRepository@{AnyTest.MSSQLNetCoreDataRepository.StudentsRepository}}
+\doxysubsubsection{\texorpdfstring{SavePass()}{SavePass()}}
+{\footnotesize\ttfamily async Task$<$\mbox{\hyperlink{class_any_test_1_1_model_1_1_test_pass}{Test\+Pass}}$>$ Any\+Test.\+M\+S\+S\+Q\+L\+Net\+Core\+Data\+Repository.\+Students\+Repository.\+Save\+Pass (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_any_test_1_1_model_1_1_test_pass}{Test\+Pass}}}]{pass }\end{DoxyParamCaption})}
+
+
+
+Реалізує \mbox{\hyperlink{interface_any_test_1_1_i_data_repository_1_1_i_students_repository_a5f58bd68055812fbe4891d9451f20505}{Any\+Test.\+I\+Data\+Repository.\+I\+Students\+Repository}}.
+
+
+
+Див. визначення в файлі Students\+Repository.\+cs, рядок 81
 
 
 

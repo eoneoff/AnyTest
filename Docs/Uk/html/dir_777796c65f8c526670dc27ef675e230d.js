@@ -15,6 +15,9 @@ var dir_777796c65f8c526670dc27ef675e230d =
     [ "SubjectsRepository.cs", "_subjects_repository_8cs.html", [
       [ "SubjectsRepository", "class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_subjects_repository.html", "class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_subjects_repository" ]
     ] ],
+    [ "TestPassesRepository.cs", "_test_passes_repository_8cs.html", [
+      [ "TestPassesRepository", "class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_test_passes_repository.html", "class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_test_passes_repository" ]
+    ] ],
     [ "TestsRepository.cs", "_tests_repository_8cs.html", [
       [ "TestsRepository", "class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_tests_repository.html", "class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_tests_repository" ]
     ] ]

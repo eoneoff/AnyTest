@@ -42,10 +42,14 @@ async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_any_test_1_1_data_ser
 \begin{DoxyCompactList}\small\item\em Видаляє особисті дані студентаа \end{DoxyCompactList}\item 
 async Task$<$ I\+Enumerable$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_student}{Student}} $>$ $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a262f593c144c5690e4203305d60528a5}{Get\+Students\+Page}} (int page\+Number, int page\+Size)
 \begin{DoxyCompactList}\small\item\em Повертає список студентів, розбитий на сторінки \end{DoxyCompactList}\item 
+async Task$<$ I\+Enumerable$<$ \mbox{\hyperlink{class_any_test_1_1_model_1_1_test}{Test}} $>$ $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a0d219cfc785166530c2781e764ef9105}{Get\+Tests}} (long id)
+\item 
 async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a75c5714ec0bf4518e7b1a25ccc7e6ff6}{Add\+Student\+To\+Course}} (long id, long course\+Id)
 \begin{DoxyCompactList}\small\item\em Додає студента до курсу \end{DoxyCompactList}\item 
 async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a8c1fd9c2db9affb0dc9a3a2e0b8d9e6a}{Remove\+Student\+From\+Course}} (long id, long course\+Id)
-\begin{DoxyCompactList}\small\item\em Видаляє студента з курсу \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Видаляє студента з курсу \end{DoxyCompactList}\item 
+async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a7693aedd81137843a67824b504a33831}{Add\+Test\+Pass\+To\+Student}} (long student\+Id, \mbox{[}From\+Body\mbox{]} \mbox{\hyperlink{class_any_test_1_1_model_1_1_test_pass}{Test\+Pass}} pass)
+\begin{DoxyCompactList}\small\item\em Додає проходження тесту студентом \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Детальний опис}
@@ -104,7 +108,37 @@ param name=\char`\"{}people\char`\"{}$>$ Об\textquotesingle{}єкт, який 
 \end{DoxyCode}
  
 
-Див. визначення в файлі Students\+Controller.\+cs, рядок 239
+Див. визначення в файлі Students\+Controller.\+cs, рядок 242
+
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a7693aedd81137843a67824b504a33831}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a7693aedd81137843a67824b504a33831}} 
+\index{AnyTest.DataService.Controllers.StudentsController@{AnyTest.DataService.Controllers.StudentsController}!AddTestPassToStudent@{AddTestPassToStudent}}
+\index{AddTestPassToStudent@{AddTestPassToStudent}!AnyTest.DataService.Controllers.StudentsController@{AnyTest.DataService.Controllers.StudentsController}}
+\doxysubsubsection{\texorpdfstring{AddTestPassToStudent()}{AddTestPassToStudent()}}
+{\footnotesize\ttfamily async Task$<$I\+Action\+Result$>$ Any\+Test.\+Data\+Service.\+Controllers.\+Students\+Controller.\+Add\+Test\+Pass\+To\+Student (\begin{DoxyParamCaption}\item[{long}]{student\+Id,  }\item[{\mbox{[}\+From\+Body\mbox{]} \mbox{\hyperlink{class_any_test_1_1_model_1_1_test_pass}{Test\+Pass}}}]{pass }\end{DoxyParamCaption})}
+
+
+
+Додає проходження тесту студентом 
+
+$<$param name=student\+Id"$>$ Id студенту 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em pass} & Проходження тесту \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+Проходження тесту 
+\end{DoxyReturn}
+
+
+Приклад H\+T\+TP запиту збереження проходження тесту 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{POST: api/Students/5/tests}
+\end{DoxyCode}
+ 
+
+Див. визначення в файлі Students\+Controller.\+cs, рядок 302
 
 \mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a5d75db6d0c764f4886023ea1d077bb22}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a5d75db6d0c764f4886023ea1d077bb22}} 
 \index{AnyTest.DataService.Controllers.StudentsController@{AnyTest.DataService.Controllers.StudentsController}!Delete@{Delete}}
@@ -203,7 +237,13 @@ param name=\char`\"{}people\char`\"{}$>$ Об\textquotesingle{}єкт, який 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{GET: api/Students/page/3/12}
 \end{DoxyCode}
- \mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_aef353d8d2be5defe31f6d6193d0a284a}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_aef353d8d2be5defe31f6d6193d0a284a}} 
+ \mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a0d219cfc785166530c2781e764ef9105}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_a0d219cfc785166530c2781e764ef9105}} 
+\index{AnyTest.DataService.Controllers.StudentsController@{AnyTest.DataService.Controllers.StudentsController}!GetTests@{GetTests}}
+\index{GetTests@{GetTests}!AnyTest.DataService.Controllers.StudentsController@{AnyTest.DataService.Controllers.StudentsController}}
+\doxysubsubsection{\texorpdfstring{GetTests()}{GetTests()}}
+{\footnotesize\ttfamily async Task$<$I\+Enumerable$<$\mbox{\hyperlink{class_any_test_1_1_model_1_1_test}{Test}}$>$ $>$ Any\+Test.\+Data\+Service.\+Controllers.\+Students\+Controller.\+Get\+Tests (\begin{DoxyParamCaption}\item[{long}]{id }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_aef353d8d2be5defe31f6d6193d0a284a}\label{class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller_aef353d8d2be5defe31f6d6193d0a284a}} 
 \index{AnyTest.DataService.Controllers.StudentsController@{AnyTest.DataService.Controllers.StudentsController}!Post@{Post}}
 \index{Post@{Post}!AnyTest.DataService.Controllers.StudentsController@{AnyTest.DataService.Controllers.StudentsController}}
 \doxysubsubsection{\texorpdfstring{Post()}{Post()}}
@@ -289,7 +329,7 @@ param name=\char`\"{}people\char`\"{}$>$ Об\textquotesingle{}єкт, який 
 \end{DoxyCode}
  
 
-Див. визначення в файлі Students\+Controller.\+cs, рядок 269
+Див. визначення в файлі Students\+Controller.\+cs, рядок 272
 
 
 

@@ -1,3 +1,10 @@
 <map id="Графічна ієрархія класів" name="Графічна ієрархія класів">
-<area shape="rect" id="node1" href="$class_any_test_1_1_mobile_client_1_1_droid_1_1_resource.html" title=" " alt="" coords="5,5,188,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,165,103,192"/>
+<area shape="rect" id="node2" href="$class_any_test_1_1_mobile_client_1_1_courses_page.html" title=" " alt="" coords="153,5,379,32"/>
+<area shape="rect" id="node3" href="$class_any_test_1_1_mobile_client_1_1_login_page.html" title=" " alt="" coords="161,56,371,83"/>
+<area shape="rect" id="node4" href="$class_any_test_1_1_mobile_client_1_1_subjects_page.html" title=" " alt="" coords="151,107,381,133"/>
+<area shape="rect" id="node5" href="$class_any_test_1_1_mobile_client_1_1_test_info_page.html" title=" " alt="" coords="179,158,353,199"/>
+<area shape="rect" id="node6" href="$class_any_test_1_1_mobile_client_1_1_test_page.html" title=" " alt="" coords="164,224,368,251"/>
+<area shape="rect" id="node7" href="$class_any_test_1_1_mobile_client_1_1_test_result_page.html" title=" " alt="" coords="179,275,353,317"/>
+<area shape="rect" id="node8" href="$class_any_test_1_1_mobile_client_1_1_tests_page.html" title=" " alt="" coords="161,341,371,368"/>
 </map>

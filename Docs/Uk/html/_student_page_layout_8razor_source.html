@@ -124,9 +124,10 @@ $(document).ready(function(){initNavTree('_student_page_layout_8razor_source.htm
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        if (State.TestsTreeList.Count() == 0) await State.GetTestsList();</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        State.TestsUpdated += (object sender, EventArgs e) =&gt; StateHasChanged();</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        if (State?.Person?.Student == null) await State.GetStudent();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

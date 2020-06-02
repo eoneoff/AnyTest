@@ -12,6 +12,9 @@ var hierarchy =
     [ "AnyTest.DataService.Controllers.ApiControllerBase< Test >", "class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base.html", [
       [ "AnyTest.DataService.Controllers.TestsController", "class_any_test_1_1_data_service_1_1_controllers_1_1_tests_controller.html", null ]
     ] ],
+    [ "AnyTest.DataService.Controllers.ApiControllerBase< TestPass >", "class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base.html", [
+      [ "AnyTest.DataService.Controllers.PassesController", "class_any_test_1_1_data_service_1_1_controllers_1_1_passes_controller.html", null ]
+    ] ],
     [ "Application", null, [
       [ "AnyTest.MobileClient.App", "class_any_test_1_1_mobile_client_1_1_app.html", null ]
     ] ],
@@ -30,6 +33,7 @@ var hierarchy =
       [ "AnyTest.MobileClient.CoursesPage", "class_any_test_1_1_mobile_client_1_1_courses_page.html", null ],
       [ "AnyTest.MobileClient.LoginPage", "class_any_test_1_1_mobile_client_1_1_login_page.html", null ],
       [ "AnyTest.MobileClient.SubjectsPage", "class_any_test_1_1_mobile_client_1_1_subjects_page.html", null ],
+      [ "AnyTest.MobileClient.TestInfoPage", "class_any_test_1_1_mobile_client_1_1_test_info_page.html", null ],
       [ "AnyTest.MobileClient.TestPage", "class_any_test_1_1_mobile_client_1_1_test_page.html", null ],
       [ "AnyTest.MobileClient.TestResultPage", "class_any_test_1_1_mobile_client_1_1_test_result_page.html", null ],
       [ "AnyTest.MobileClient.TestsPage", "class_any_test_1_1_mobile_client_1_1_tests_page.html", null ]
@@ -135,8 +139,8 @@ var hierarchy =
     ] ],
     [ "AnyTest.Model.Person", "class_any_test_1_1_model_1_1_person.html", null ],
     [ "AnyTest.Model.Precondition", "class_any_test_1_1_model_1_1_precondition.html", null ],
-    [ "AnyTest.DataService.Program", "class_any_test_1_1_data_service_1_1_program.html", null ],
     [ "AnyTest.WebClient.Program", "class_any_test_1_1_web_client_1_1_program.html", null ],
+    [ "AnyTest.DataService.Program", "class_any_test_1_1_data_service_1_1_program.html", null ],
     [ "AnyTest.ClientAuthentication.RegisterModel", "class_any_test_1_1_client_authentication_1_1_register_model.html", null ],
     [ "AnyTest.ClientAuthentication.RegisterResult", "class_any_test_1_1_client_authentication_1_1_register_result.html", null ],
     [ "RegularExpressionAttribute", null, [
@@ -160,6 +164,9 @@ var hierarchy =
     [ "AnyTest.MSSQLNetCoreDataRepository.Repository< Test >", "class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_repository.html", [
       [ "AnyTest.MSSQLNetCoreDataRepository.TestsRepository", "class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_tests_repository.html", null ]
     ] ],
+    [ "AnyTest.MSSQLNetCoreDataRepository.Repository< TestPass >", "class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_repository.html", [
+      [ "AnyTest.MSSQLNetCoreDataRepository.TestPassesRepository", "class_any_test_1_1_m_s_s_q_l_net_core_data_repository_1_1_test_passes_repository.html", null ]
+    ] ],
     [ "AnyTest.MobileClient.Droid.Resource", "class_any_test_1_1_mobile_client_1_1_droid_1_1_resource.html", null ],
     [ "AnyTest.ResourceLibrary.Resources", "class_any_test_1_1_resource_library_1_1_resources.html", null ],
     [ "AnyTest.DataService.Startup", "class_any_test_1_1_data_service_1_1_startup.html", null ],
@@ -167,6 +174,7 @@ var hierarchy =
     [ "AnyTest.MobileClient.Droid.Resource.String", "class_any_test_1_1_mobile_client_1_1_droid_1_1_resource_1_1_string.html", null ],
     [ "AnyTest.Model.Student", "class_any_test_1_1_model_1_1_student.html", null ],
     [ "AnyTest.Model.StudentCourse", "class_any_test_1_1_model_1_1_student_course.html", null ],
+    [ "AnyTest.DataService.Tests.StudentsControllerTests", "class_any_test_1_1_data_service_1_1_tests_1_1_students_controller_tests.html", null ],
     [ "AnyTest.Model.StudentTest", "class_any_test_1_1_model_1_1_student_test.html", null ],
     [ "AnyTest.MobileClient.Droid.Resource.Style", "class_any_test_1_1_mobile_client_1_1_droid_1_1_resource_1_1_style.html", null ],
     [ "AnyTest.MobileClient.Droid.Resource.Styleable", "class_any_test_1_1_mobile_client_1_1_droid_1_1_resource_1_1_styleable.html", null ],

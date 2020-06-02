@@ -12,6 +12,9 @@ var dir_6a0e13c9ca46f17a46411efd70f4ce81 =
     [ "LoginController.cs", "_login_controller_8cs.html", [
       [ "LoginController", "class_any_test_1_1_data_service_1_1_controllers_1_1_login_controller.html", "class_any_test_1_1_data_service_1_1_controllers_1_1_login_controller" ]
     ] ],
+    [ "PassesController.cs", "_passes_controller_8cs.html", [
+      [ "PassesController", "class_any_test_1_1_data_service_1_1_controllers_1_1_passes_controller.html", "class_any_test_1_1_data_service_1_1_controllers_1_1_passes_controller" ]
+    ] ],
     [ "PeopleController.cs", "_people_controller_8cs.html", [
       [ "PeopleController", "class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller.html", "class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller" ]
     ] ],

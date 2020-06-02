@@ -18,6 +18,7 @@ var dir_a1c2e0bf16810ab4af76ca1f6b0248d5 =
     [ "SubjectEditor.razor", "_subject_editor_8razor.html", null ],
     [ "TestEditor.razor", "_test_editor_8razor.html", null ],
     [ "TestsTree.razor", "_tests_tree_8razor.html", null ],
+    [ "TestStudentViewer.razor", "_test_student_viewer_8razor.html", null ],
     [ "TogglableSidebarPanel.razor", "_togglable_sidebar_panel_8razor.html", null ],
     [ "TutorPageLayout.razor", "_tutor_page_layout_8razor.html", null ],
     [ "UserEditor.razor", "_user_editor_8razor.html", null ],

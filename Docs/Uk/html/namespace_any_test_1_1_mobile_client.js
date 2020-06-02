@@ -11,6 +11,7 @@ var namespace_any_test_1_1_mobile_client =
     [ "MainPage", "class_any_test_1_1_mobile_client_1_1_main_page.html", "class_any_test_1_1_mobile_client_1_1_main_page" ],
     [ "QuestionCell", "class_any_test_1_1_mobile_client_1_1_question_cell.html", "class_any_test_1_1_mobile_client_1_1_question_cell" ],
     [ "SubjectsPage", "class_any_test_1_1_mobile_client_1_1_subjects_page.html", "class_any_test_1_1_mobile_client_1_1_subjects_page" ],
+    [ "TestInfoPage", "class_any_test_1_1_mobile_client_1_1_test_info_page.html", "class_any_test_1_1_mobile_client_1_1_test_info_page" ],
     [ "TestPage", "class_any_test_1_1_mobile_client_1_1_test_page.html", "class_any_test_1_1_mobile_client_1_1_test_page" ],
     [ "TestResultPage", "class_any_test_1_1_mobile_client_1_1_test_result_page.html", "class_any_test_1_1_mobile_client_1_1_test_result_page" ],
     [ "TestsPage", "class_any_test_1_1_mobile_client_1_1_tests_page.html", "class_any_test_1_1_mobile_client_1_1_tests_page" ]

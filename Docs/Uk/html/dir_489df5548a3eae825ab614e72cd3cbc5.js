@@ -27,6 +27,9 @@ var dir_489df5548a3eae825ab614e72cd3cbc5 =
     [ "SubjectsPage.xaml.cs", "_subjects_page_8xaml_8cs.html", [
       [ "SubjectsPage", "class_any_test_1_1_mobile_client_1_1_subjects_page.html", "class_any_test_1_1_mobile_client_1_1_subjects_page" ]
     ] ],
+    [ "TestInfoPage.xaml.cs", "_test_info_page_8xaml_8cs.html", [
+      [ "TestInfoPage", "class_any_test_1_1_mobile_client_1_1_test_info_page.html", "class_any_test_1_1_mobile_client_1_1_test_info_page" ]
+    ] ],
     [ "TestPage.xaml.cs", "_test_page_8xaml_8cs.html", "_test_page_8xaml_8cs" ],
     [ "TestResultPage.xaml.cs", "_test_result_page_8xaml_8cs.html", [
       [ "TestResultPage", "class_any_test_1_1_mobile_client_1_1_test_result_page.html", "class_any_test_1_1_mobile_client_1_1_test_result_page" ]

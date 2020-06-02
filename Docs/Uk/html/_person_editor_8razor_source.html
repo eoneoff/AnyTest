@@ -104,7 +104,7 @@ $(document).ready(function(){initNavTree('_person_editor_8razor_source.html','')
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        &lt;ValidatableFormField Wide=&quot;@Wide&quot; Label=&quot;@Localizer[nameof(Resources.Phone)]&quot; Id=&quot;phone&quot;&gt;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            &lt;InputText Id=&quot;phone&quot; Class=&quot;form-control&quot; @bind-Value=&quot;Person.Phone&quot; @oninput=&quot;@(()=&gt;unchanged = false)&quot; disabled=&quot;@Disabled&quot; /&gt;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        &lt;/ValidatableFormField&gt;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        &lt;ValidatableFormField Wide=&quot;@Wide&quot; Label=&quot;e-mail:&quot; Id=&quot;personEmail&quot;&gt;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        &lt;ValidatableFormField Wide=&quot;@Wide&quot; Label=&quot;e-mail&quot; Id=&quot;personEmail&quot;&gt;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            &lt;ValidationMessage For=&quot;@(()=&gt;Person.Email)&quot; /&gt;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            &lt;InputText Id=&quot;personEmail&quot; Class=&quot;form-control&quot; @bind-Value=&quot;Person.Email&quot; disabled=&quot;@(Disabled || true)&quot; @oninput=&quot;@(()=&gt;unchanged = false)&quot; /&gt;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        &lt;/ValidatableFormField&gt;</div>

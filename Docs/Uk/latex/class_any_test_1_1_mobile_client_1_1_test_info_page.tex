@@ -1,0 +1,118 @@
+\hypertarget{class_any_test_1_1_mobile_client_1_1_test_info_page}{}\doxysection{Клас Any\+Test.\+Mobile\+Client.\+Test\+Info\+Page}
+\label{class_any_test_1_1_mobile_client_1_1_test_info_page}\index{AnyTest.MobileClient.TestInfoPage@{AnyTest.MobileClient.TestInfoPage}}
+
+
+Схема успадкувань для Any\+Test.\+Mobile\+Client.\+Test\+Info\+Page
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{class_any_test_1_1_mobile_client_1_1_test_info_page__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Діаграма зв\textquotesingle{}язків класу Any\+Test.\+Mobile\+Client.\+Test\+Info\+Page\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{class_any_test_1_1_mobile_client_1_1_test_info_page__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Загальнодоступні елементи}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_any_test_1_1_mobile_client_1_1_test_info_page_aa13729057a5944b3dcf5598a6a9b28d2}{Test\+Info\+Page}} (\mbox{\hyperlink{class_any_test_1_1_mobile_client_1_1_model_1_1_test_view_model}{Model.\+Test\+View\+Model}} test)
+\end{DoxyCompactItemize}
+\doxysubsection*{Загальнодоступні атрибути}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_any_test_1_1_mobile_client_1_1_test_info_page_a893871fefb557dc34395f2c80bae4690}{Test\+Name}} =$>$ Test.\+Name
+\item 
+int \mbox{\hyperlink{class_any_test_1_1_mobile_client_1_1_test_info_page_aa6214a0b30988660c12b8c8b0c2c7c2f}{Passes\+Number}} =$>$ App\+State.\+Student?.Passes?.Where(p =$>$ p.\+Test\+Id == test?.Id)?.Count() ?? 0
+\item 
+decimal \mbox{\hyperlink{class_any_test_1_1_mobile_client_1_1_test_info_page_a28baece3f36cddb148f7e69874885c64}{Awerage\+Score}} =$>$ \mbox{\hyperlink{class_any_test_1_1_mobile_client_1_1_test_info_page_aa6214a0b30988660c12b8c8b0c2c7c2f}{Passes\+Number}} != 0 ? (decimal)Answers?.Sum(a =$>$ a.\+Answer?.Percent) / (\mbox{\hyperlink{class_any_test_1_1_mobile_client_1_1_test_info_page_aa6214a0b30988660c12b8c8b0c2c7c2f}{Passes\+Number}} $\ast$ test?.Questions?.Count()) ?? 0 \+: 0
+\item 
+int \mbox{\hyperlink{class_any_test_1_1_mobile_client_1_1_test_info_page_a1bdd2679335ede7cc50ae7b72f694114}{Max\+Score}} =$>$ App\+State.\+Student?.Passes?.Select(p =$>$ p.\+Answers?.Sum(a =$>$ a.\+Answer?.Percent) / test?.Questions?.Count())?.Max() ?? 0
+\item 
+int \mbox{\hyperlink{class_any_test_1_1_mobile_client_1_1_test_info_page_a8ef4b7822332e71ef06298da10eb2fd7}{Min\+Score}} =$>$ App\+State.\+Student?.Passes?.Select(p =$>$ p.\+Answers?.Sum(a =$>$ a.\+Answer?.Percent) / test?.Questions?.Count())?.Min() ?? 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Детальний опис}
+
+
+Див. визначення в файлі Test\+Info\+Page.\+xaml.\+cs, рядок 14
+
+
+
+\doxysubsection{Конструктор(и)}
+\mbox{\Hypertarget{class_any_test_1_1_mobile_client_1_1_test_info_page_aa13729057a5944b3dcf5598a6a9b28d2}\label{class_any_test_1_1_mobile_client_1_1_test_info_page_aa13729057a5944b3dcf5598a6a9b28d2}} 
+\index{AnyTest.MobileClient.TestInfoPage@{AnyTest.MobileClient.TestInfoPage}!TestInfoPage@{TestInfoPage}}
+\index{TestInfoPage@{TestInfoPage}!AnyTest.MobileClient.TestInfoPage@{AnyTest.MobileClient.TestInfoPage}}
+\doxysubsubsection{\texorpdfstring{TestInfoPage()}{TestInfoPage()}}
+{\footnotesize\ttfamily Any\+Test.\+Mobile\+Client.\+Test\+Info\+Page.\+Test\+Info\+Page (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_any_test_1_1_mobile_client_1_1_model_1_1_test_view_model}{Model.\+Test\+View\+Model}}}]{test }\end{DoxyParamCaption})}
+
+
+
+Див. визначення в файлі Test\+Info\+Page.\+xaml.\+cs, рядок 45
+
+
+
+\doxysubsection{Компонентні дані}
+\mbox{\Hypertarget{class_any_test_1_1_mobile_client_1_1_test_info_page_a28baece3f36cddb148f7e69874885c64}\label{class_any_test_1_1_mobile_client_1_1_test_info_page_a28baece3f36cddb148f7e69874885c64}} 
+\index{AnyTest.MobileClient.TestInfoPage@{AnyTest.MobileClient.TestInfoPage}!AwerageScore@{AwerageScore}}
+\index{AwerageScore@{AwerageScore}!AnyTest.MobileClient.TestInfoPage@{AnyTest.MobileClient.TestInfoPage}}
+\doxysubsubsection{\texorpdfstring{AwerageScore}{AwerageScore}}
+{\footnotesize\ttfamily decimal Any\+Test.\+Mobile\+Client.\+Test\+Info\+Page.\+Awerage\+Score =$>$ \mbox{\hyperlink{class_any_test_1_1_mobile_client_1_1_test_info_page_aa6214a0b30988660c12b8c8b0c2c7c2f}{Passes\+Number}} != 0 ? (decimal)Answers?.Sum(a =$>$ a.\+Answer?.Percent) / (\mbox{\hyperlink{class_any_test_1_1_mobile_client_1_1_test_info_page_aa6214a0b30988660c12b8c8b0c2c7c2f}{Passes\+Number}} $\ast$ test?.Questions?.Count()) ?? 0 \+: 0}
+
+
+
+Див. визначення в файлі Test\+Info\+Page.\+xaml.\+cs, рядок 41
+
+\mbox{\Hypertarget{class_any_test_1_1_mobile_client_1_1_test_info_page_a1bdd2679335ede7cc50ae7b72f694114}\label{class_any_test_1_1_mobile_client_1_1_test_info_page_a1bdd2679335ede7cc50ae7b72f694114}} 
+\index{AnyTest.MobileClient.TestInfoPage@{AnyTest.MobileClient.TestInfoPage}!MaxScore@{MaxScore}}
+\index{MaxScore@{MaxScore}!AnyTest.MobileClient.TestInfoPage@{AnyTest.MobileClient.TestInfoPage}}
+\doxysubsubsection{\texorpdfstring{MaxScore}{MaxScore}}
+{\footnotesize\ttfamily int Any\+Test.\+Mobile\+Client.\+Test\+Info\+Page.\+Max\+Score =$>$ App\+State.\+Student?.Passes?.Select(p =$>$ p.\+Answers?.Sum(a =$>$ a.\+Answer?.Percent) / test?.Questions?.Count())?.Max() ?? 0}
+
+
+
+Див. визначення в файлі Test\+Info\+Page.\+xaml.\+cs, рядок 42
+
+\mbox{\Hypertarget{class_any_test_1_1_mobile_client_1_1_test_info_page_a8ef4b7822332e71ef06298da10eb2fd7}\label{class_any_test_1_1_mobile_client_1_1_test_info_page_a8ef4b7822332e71ef06298da10eb2fd7}} 
+\index{AnyTest.MobileClient.TestInfoPage@{AnyTest.MobileClient.TestInfoPage}!MinScore@{MinScore}}
+\index{MinScore@{MinScore}!AnyTest.MobileClient.TestInfoPage@{AnyTest.MobileClient.TestInfoPage}}
+\doxysubsubsection{\texorpdfstring{MinScore}{MinScore}}
+{\footnotesize\ttfamily int Any\+Test.\+Mobile\+Client.\+Test\+Info\+Page.\+Min\+Score =$>$ App\+State.\+Student?.Passes?.Select(p =$>$ p.\+Answers?.Sum(a =$>$ a.\+Answer?.Percent) / test?.Questions?.Count())?.Min() ?? 0}
+
+
+
+Див. визначення в файлі Test\+Info\+Page.\+xaml.\+cs, рядок 43
+
+\mbox{\Hypertarget{class_any_test_1_1_mobile_client_1_1_test_info_page_aa6214a0b30988660c12b8c8b0c2c7c2f}\label{class_any_test_1_1_mobile_client_1_1_test_info_page_aa6214a0b30988660c12b8c8b0c2c7c2f}} 
+\index{AnyTest.MobileClient.TestInfoPage@{AnyTest.MobileClient.TestInfoPage}!PassesNumber@{PassesNumber}}
+\index{PassesNumber@{PassesNumber}!AnyTest.MobileClient.TestInfoPage@{AnyTest.MobileClient.TestInfoPage}}
+\doxysubsubsection{\texorpdfstring{PassesNumber}{PassesNumber}}
+{\footnotesize\ttfamily int Any\+Test.\+Mobile\+Client.\+Test\+Info\+Page.\+Passes\+Number =$>$ App\+State.\+Student?.Passes?.Where(p =$>$ p.\+Test\+Id == test?.Id)?.Count() ?? 0}
+
+
+
+Див. визначення в файлі Test\+Info\+Page.\+xaml.\+cs, рядок 40
+
+\mbox{\Hypertarget{class_any_test_1_1_mobile_client_1_1_test_info_page_a893871fefb557dc34395f2c80bae4690}\label{class_any_test_1_1_mobile_client_1_1_test_info_page_a893871fefb557dc34395f2c80bae4690}} 
+\index{AnyTest.MobileClient.TestInfoPage@{AnyTest.MobileClient.TestInfoPage}!TestName@{TestName}}
+\index{TestName@{TestName}!AnyTest.MobileClient.TestInfoPage@{AnyTest.MobileClient.TestInfoPage}}
+\doxysubsubsection{\texorpdfstring{TestName}{TestName}}
+{\footnotesize\ttfamily string Any\+Test.\+Mobile\+Client.\+Test\+Info\+Page.\+Test\+Name =$>$ Test.\+Name}
+
+
+
+Див. визначення в файлі Test\+Info\+Page.\+xaml.\+cs, рядок 39
+
+
+
+Документація цього класу була створена з файлу\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Any\+Test/\+Any\+Test/\+Any\+Test.\+Mobile\+Client/\+Any\+Test.\+Mobile\+Client/\mbox{\hyperlink{_test_info_page_8xaml_8cs}{Test\+Info\+Page.\+xaml.\+cs}}\end{DoxyCompactItemize}

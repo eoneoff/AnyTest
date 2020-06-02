@@ -4,6 +4,7 @@ var namespace_any_test_1_1_data_service_1_1_controllers =
     [ "ApiControllerBase", "class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base.html", "class_any_test_1_1_data_service_1_1_controllers_1_1_api_controller_base" ],
     [ "CoursesController", "class_any_test_1_1_data_service_1_1_controllers_1_1_courses_controller.html", "class_any_test_1_1_data_service_1_1_controllers_1_1_courses_controller" ],
     [ "LoginController", "class_any_test_1_1_data_service_1_1_controllers_1_1_login_controller.html", "class_any_test_1_1_data_service_1_1_controllers_1_1_login_controller" ],
+    [ "PassesController", "class_any_test_1_1_data_service_1_1_controllers_1_1_passes_controller.html", "class_any_test_1_1_data_service_1_1_controllers_1_1_passes_controller" ],
     [ "PeopleController", "class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller.html", "class_any_test_1_1_data_service_1_1_controllers_1_1_people_controller" ],
     [ "StartupController", "class_any_test_1_1_data_service_1_1_controllers_1_1_startup_controller.html", "class_any_test_1_1_data_service_1_1_controllers_1_1_startup_controller" ],
     [ "StudentsController", "class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller.html", "class_any_test_1_1_data_service_1_1_controllers_1_1_students_controller" ],

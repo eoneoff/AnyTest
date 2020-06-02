@@ -101,6 +101,7 @@ var menudata={children:[
 {text:"x",url:"functions_vars_x.html#index_x"}]},
 {text:"Властивості",url:"functions_prop.html",children:[
 {text:"a",url:"functions_prop.html#index_a"},
+{text:"b",url:"functions_prop_b.html#index_b"},
 {text:"c",url:"functions_prop_c.html#index_c"},
 {text:"d",url:"functions_prop_d.html#index_d"},
 {text:"e",url:"functions_prop_e.html#index_e"},

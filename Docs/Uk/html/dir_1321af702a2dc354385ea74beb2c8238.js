@@ -10,6 +10,8 @@ var dir_1321af702a2dc354385ea74beb2c8238 =
     [ "SubjectEditorPage.razor", "_subject_editor_page_8razor.html", null ],
     [ "SubjectViewerPage.razor", "_subject_viewer_page_8razor.html", null ],
     [ "TestEditorPage.razor", "_test_editor_page_8razor.html", null ],
+    [ "TestPassDetailedPage.razor", "_test_pass_detailed_page_8razor.html", null ],
+    [ "TestPassesDetailedPage.razor", "_test_passes_detailed_page_8razor.html", null ],
     [ "TestViewerPage.razor", "_test_viewer_page_8razor.html", null ],
     [ "TutorCourses.razor", "_tutor_courses_8razor.html", null ],
     [ "Users.razor", "_users_8razor.html", null ]
